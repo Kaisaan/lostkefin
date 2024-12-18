@@ -23,5 +23,7 @@ Currently using Sam Farron's translation from his [Translation Series](https://w
 - Continue inserting the English script
 
 # Credits
+- [Sam Farron](https://www.youtube.com/@samfarron) - Allowing me to use his translation as the basis of this project
 - [Hilltop](https://x.com/HilltopWorks) - Providing valuable videos such as [hacking with Ghidra](https://youtu.be/qCEZC3cPc1s) and [PS1/PS2 graphics](https://youtu.be/lePKUCYakqM)
 - [Life Bottle Productions](https://www.lifebottle.org/#/) - Providing me with their [isotool.py script](https://github.com/lifebottle/PythonLib/blob/main/isotool.py) and their tutorial for [finding the base pointer](https://youtu.be/q5aEj-aSw50)
+- Falcom for making Ys
