@@ -4,27 +4,18 @@
 
 .open "extracted/DATA.BIN", "DATA.BIN", 0x0
 
+.loadtable "kefin.tbl", "SJIS"
+
 .orga 0x094BC858
 
 .db 0x3A, 0x80
-.ascii "<K3>"
-.ascii "Hey"
-.db 0x81, 0x43
-.ascii "where are you planning to go on that ship?"
-.db 0xFF, 0xFD, 0x19
-.ascii "<K0>"
+.strn "<K3>Hey", 0x81, 0x43, "where are you planning to go on that ship?[WAIT]", 0x19, "<K0>" ; For some reason, the "，" character won't work
 .db 0x07, 0x32, 0x2F, 0x01, 0x00, 0x0A, 0x50, 0x00, 0xA5, 0x00, 0x3F, 0x80 ; originally 0x53, 0x80
-.ascii "<K3>Oh really? The Safar desert on the Afroca continent?"
-.db 0xFF, 0xFD, 0x19
-.ascii "<K0>"
+.strn "<K3>Oh really? The Safar desert on the Afroca continent?[WAIT]", 0x19, "<K0>"
 .db 0x2F, 0x02, 0x00, 0x0A, 0x50, 0x00, 0x96, 0x00, 0x8B, 0x80 ; originally 0x90, 0x80
-.ascii "<K3>Does that mean you're searching for \"that\"?"
-.db 0x0A
-.ascii "The City of Sand and Mirages, Kefin?"
-.db 0x0A
-.ascii "Apparently it used to be a magnificent kingdom."
-.db 0xFF, 0xFD, 0x19
-.ascii "<K0>"
+.strn "<K3>Does that mean you're searching for \"that\"?\n"
+.strn "The City of Sand and Mirages", 0x81, 0x43, "Kefin?\n"
+.strn "Apparently it used to be a magnificent kingdom.[WAIT]", 0x19, "<K0>"
 .db 0x2F, 0x03, 0x00, 0x0A, 0x50, 0x00, 0x96, 0x00, 0x89, 0x80
 
 
@@ -35,8 +26,7 @@
 
 .orga 0x0025FD45
 
-.sjisn "Kaisaan"
-.db 0x81, 0x43
+.strn "KaisaanTest", 0x81, 0x43
 
 
 .close

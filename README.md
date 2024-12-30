@@ -11,10 +11,13 @@ Currently using Sam Farron's translation from his [Translation Series](https://w
 - Extracted .bin files with `_anm` in the filename are animation files with indexed 8BPP graphics
 - Extracted .HGB files are texture files with 32BPP RGBA graphics
 - Music files are `.hd` (header), `.bd` (header), and `.sq` (sequence) files
-- In `SLPM_663.60` the font is located at $1A3E90 as 4BPP graphics, its palette is stored at $25E4C0, and the fontmap is at $1A31F0
 
 # Extracting the DATA.BIN Files
 `extract.py` extracts all the files from DATA.BIN and its folders into a `DATA` folder but does not extract the files into their correct folders yet, a `logfile.txt` is also created for fixing issues with the script
+
+# Font info
+`font.py` extracts the fontmap from `SLPM_663.60` to create a quick `font.tbl` table file. Use `kefin.tbl` for corrected values and control codes (also used by `patch.asm`)
+In `SLPM_663.60` the font is located at $1A3E90 as 4BPP graphics, its palette is stored at $25E4C0, and the fontmap is at $1A31F0
 
 # To do
 - Create a proper table file (since the game does not use SHIFT-JIS encoding fully)
