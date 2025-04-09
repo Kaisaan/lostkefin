@@ -13,6 +13,7 @@ I am replacing the usage of [armips](https://github.com/Kingcom/armips) with [ac
 
 # Hacking Notes
 - The game uses SHIFT-JIS encoding for its text
+- English letters are halfwidth (1 byte, 10 pixels wide) and Japanese letters are fullwith (2 bytes, 20 pixels wide)
 - The game's base pointer is $FFF80
 - Extracted .bin files with `_anm` in the filename are animation files with indexed 8BPP graphics and have the header `NAXA5010`
 - Extracted .HGB files are texture files with 32BPP RGBA graphics
@@ -24,7 +25,7 @@ I am replacing the usage of [armips](https://github.com/Kingcom/armips) with [ac
 
 # Font info
 The game uses Shift-JIS encoding but I decided to make table files so I can include control codes  
-`font.py` extracts the fontmap from `SLPM_663.60` to create a quick `font.tbl` table file. Use `kefin.tbl` for corrected values and control codes
+`font.py` extracts the fontmap from `SLPM_663.60` to create a quick `font.tbl` table file. Use `kefin.tbl` for corrected values and control codes  
 In `SLPM_663.60` the font is located at $1A3E90 as 4BPP graphics, its palette is stored at $25E4C0, and the fontmap is at $1A31F0  
 
 # Script Info
