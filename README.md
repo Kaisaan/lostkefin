@@ -1,12 +1,14 @@
 # Ys V: Lost Kefin - Kingdom of Sand (PS2) English Translation
-Currently using Sam Farron's translation from his [Translation Series](https://www.youtube.com/watch?v=LfZZPwIdhzg&list=PLoD4gkRCJkUcgfpU5puBqYy5DX-RJK--b) with permission
-
-# Current Progress
-Slowly reverse-engineering the script files so I can make tools.  
+Currently using Sam Farron's translation from his [Translation Series](https://www.youtube.com/watch?v=LfZZPwIdhzg&list=PLoD4gkRCJkUcgfpU5puBqYy5DX-RJK--b) with permission  
+  
 **If you want to help with the translation please [contact me!](https://kaisaan.github.io/pages/contact) (Knowing Japanese is not needed)**
 
+# Current Progress  
+I am replacing the usage of [armips](https://github.com/Kingcom/armips) with [acbde](https://www.romhacking.net/utilities/1392/) for script extraction and insertion. Currently I have raw dumps only as I need to figure out all the control codes to get a full pointer dump
+
 # Building
-- Copy the contents of the game's .iso into the `extracted` and `translated` folders
+- Use [Apache3](https://www.psx-place.com/threads/apache.19171/) to extract the contents of the game's .iso file
+- Copy the contents to the `extracted` and `translated` folders
 - Run `build.bat` or manually run the commands
 
 # Hacking Notes
@@ -15,19 +17,32 @@ Slowly reverse-engineering the script files so I can make tools.
 - Extracted .bin files with `_anm` in the filename are animation files with indexed 8BPP graphics and have the header `NAXA5010`
 - Extracted .HGB files are texture files with 32BPP RGBA graphics
 - Music files are `.hd` (header), `.bd` (header), and `.sq` (sequence) files
+- See my notes file for more terribly organized notes
 
 # Extracting the DATA.BIN Files
 `extract.py` extracts all the files from DATA.BIN and its folders into a `DATA` folder but does not extract the files into their correct folders yet, a `logfile.txt` is also created for fixing issues with the script
 
 # Font info
 The game uses Shift-JIS encoding but I decided to make table files so I can include control codes  
-`font.py` extracts the fontmap from `SLPM_663.60` to create a quick `font.tbl` table file. Use `kefin.tbl` for corrected values and control codes (also used by `patch.asm`)  
+`font.py` extracts the fontmap from `SLPM_663.60` to create a quick `font.tbl` table file. Use `kefin.tbl` for corrected values and control codes
 In `SLPM_663.60` the font is located at $1A3E90 as 4BPP graphics, its palette is stored at $25E4C0, and the fontmap is at $1A31F0  
 
+# Script Info
+- Script files (named `stageXX.bin`) have the first $2000 bytes as a pointer table
+- Each pointer first as an "index" number (4 bytes, little-endian) then the pointer value to the file (4 bytes, little-endian)
+- Pointer value are calculated as `pointer + $2000`
+- Changing the pointer seems to cause the game to freeze
+Before running `script.py` copy the script files (as extracted from `DATA.BIN`) to the `scripts` folder. `script.py` will extract the pointer information for each file into a separate text file. The python script will also include info for control codes.  
+Before running `dump.bat` make sure perl is installed. On Windows I recommend isnstalling [Strawberry perl](https://www.lifebottle.org/#/./other/strawberry-perl/index)  
+The script can be dumped from `DATA.BIN` and into `scripts` after running `dump.bat`. Currently it is a raw dump because I have not figured out all the control codes, using a pointer dump will cause the scripts to be under-dumped.
+
 # To do
-- Updated extraction script to extract `DATA0.BIN`, `DATA1.BIN`, and `SLPM_663.60`
-- Add more hacking notes (my notes.txt file is a mess so I haven't added it here)
+- Figure out all the control codes properly
+- Update the extraction script to extract `DATA0.BIN`, `DATA1.BIN`, and `SLPM_663.60`
 - Continue inserting the English script
+
+# Game Manual Translation
+In the `manual` folder are scans for the game's manual. They were originally from [landofys.narod.ru](https://landofys.narod.ru/) which is now landofys.com.ru(http://landofys.com.ru/) was scanned by Dragon.
 
 # Links to Stuff
 - Translation of opening cutscene by [mziab](https://www.romhacking.net/forum/index.php?topic=28379.0) (I did not use this translation)

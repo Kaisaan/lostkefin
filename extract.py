@@ -38,7 +38,7 @@ while fileptr < fileptrend:
     filename = filename[:filename.find(terminator)]
 
     filesectorstart = filesectorstart * sector
-    filesectorsize = filesectorstart * sector
+    filesectorsize = filesectorsize * sector
 
     datafile.seek(filesectorstart)
     filedata = datafile.read(filesize)

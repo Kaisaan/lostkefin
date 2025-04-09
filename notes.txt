@@ -1,0 +1,338 @@
+Text seems to be loaded into $00F6A150 in memory
+and also at $00EF6580
+
+stage00.bin is loaded at $0139BA00 (data starts at $0139DA00)
+
+stagea0.bin 
+$00015F91 $00000000
+$00015F92 $00000024
+$00015F93 $00000048
+$00015F94 $00000075
+$00015F95 $000000A2
+$00015F96 $000000CF
+
+the latter values map directly to the start of each string (pointer?) 
+
+$00EF6660 has the value $00EF65D0
+$00EF65D0 has the value $00F69E00
+$00F69E00 has the value $01B08660
+
+loading text is at $0025FD30
+$0A is newline
+
+stage00.bin
+5A 00 5B 14 01 3A 02 $6005
+
+THE TEXT IS IN SHIFT JIS THANK YOU FALCOM BLESS FEENA REAH ELDEEN EVERYONE I LOVE YOU FALCOM
+
+Filename table for SLPM_663.60
+0x00246240 Start
+0x00246258 + Base pointer -> 003461D8 file start
+0x0024B690 Folder start -> 0034B610
+
+from vo1010101.bd to vo4030202.bd
+
+1829D0 -> 00282950 Start of file info
+0x001875E0 Start of folder info
+4 bytes: Pointer to folder name/location
+4 bytes: File count start?
+4 bytes: File count
+
+3DDFD0 -> 2DE050
+
+003461D8 + 1D4D30 -> 41 AF88 -> 31 B008
+
+What is 1D4D30? (D4DB0)
+
+At 2879b4(187A34) is a pointer to 0282950 (1829D0) which points to 246258 which points to
+
+0x00187A40 has 0034be10 (24BE90) which points the filename of stuff in DATA.BIN
+
+at 0x00187A28 is 00287560 (1875E0)
+
+what is 003DF4F0 -> 2DF570 ?
+
+filename for bmg01.hd is checked at 0012ED74
+
+bgm01.hd
+filename location is at 0x002462D8 -> 346258
+data file is 0000 09d0
+file start is 11BD
+file stop is 02
+
+bgm01.sq info: 0x00182F50 -> 282ED0
+filename location is at 0x002467D8 -> 346758
+data file is 1120
+file start is 3EDF
+file stop is 03
+file length is 10F2
+file data start is at 0x01F6F800
+file data stop is at 0x01F71000
+file data length is 1800
+
+ys3bgm01.sq
+filename location is at 246A58 -> 3469D8
+data file is 1120
+file start is 3FE6
+file stop is 03
+file length is 1F1E
+file data start is at 0x01FF4800
+file data stop is at 0x01FF6800
+file data length is 2000
+
+first seq file is at 1F6F800
+
+001342E8 in Ghidra:
+At 4 breakpoints, first character is printed
+At 8 breakpoints, second
+at 12, third
+at 14, v0 is 8000
+at 15, v0 is C000
+at 16, fourth
+17, fifth
+18, 14000
+
+lw v1,0x4(v1)
+slt at,v0,v1
+bne at,zero,0x001342FC
+nop
+subu a2,v1,a1
+
+When the bne is false
+00014000 is v0
+000115B0 is v1
+002879C0 is a0
+000115B0 is a1
+00002A50 is a2
+00402FF4 is a3
+
+z_un_00134100
+
+In DATA.BIN
+0x0024BE80 File names
+0x0024BE90 + FFF80 -> 0034BE10 -> 10BE3400
+
+0x00187A40 + FFF80 -> 002879C0 start
+
+0x0018E7CF -> 0028e74f end
+
+003d2808
+
+0x00187A40 is the file table the format is
+4 bytes: Pointer to file name (add base pointer) (in little endian)
+4 bytes: 
+4 bytes: Start of file offset
+4 bytes: File length
+
+vo1010101.bd
+file length is 500
+data file is 0115B0
+file data start is at 0x001D73F0
+
+B0150100 -> 000115B0 + FFF80
+
+003DF4F0
+
+0x01F6F800 to 0x01F70900 is 1100
+
+Main text set is 094BC800, so with pointer it's 0139DA00
+
+The text after the opening cutscene is at $094BCE12
+
+The text at the opening cutscene is at $094BC862 or $094BC85E or $094BC85A or $094BC858
+0x094BC800
+094BC89B
+
+095BC7DA -> DAC75B09
+
+094BC85E - 0139DA5E = 0811EE00
+
+Ghidra pointer is 187A40 or 1879C0 002879C0
+Base pointer is $FFF80
+
+Before the text is the expected string length then $80
+
+This is loaded from the routine at $001971E8
+
+opening cutscene text in hex:
+
+82A082F182BD814182A0
+
+location in memory (eeMemory.bin)
+
+EF6588
+F6A158
+139DA62
+
+true start is at 139DA5A
+
+look into 0019DCF0
+
+from 0x094BC800 to 0x094CBDA0 -> F5A0
+
+text routine
+0012D23C:
+lbu v0,0x0(a1)
+addiu a2,a2,-0x1
+addiu a1,a1,0x1
+sb v0,0x0(v1)
+addiu v1,v1,0x1
+bne a2,a0,0x0012D23C
+nop
+jr ra
+
+first string is 55 dec or $37 (true $36)
+second string is 83 dec or $53 (true $52)
+third is true $8E
+
+v0 holds character value
+v1 holds memory address
+a0 holds 8080808080808080FFFFFFFFFFFFFFFF (negative 1)
+a1 holds character address
+a2 holds string length
+ra holds 00197224
+
+0012D23C:
+lbu v0,0x0(a1)		// The value at (a1+0x0) is stored at v0
+addiu a2,a2,-0x1	// Decrement string length
+addiu a1,a1,0x1		// Increment character address
+sb v0,0x0(v1)		// The value in v0 is stored at (v1+0x0)
+addiu v1,v1,0x1		// Increment address of memory
+bne a2,a0,0x0012D23C	// If a2 != a0, then loop back, so stop looping when string length is done
+nop
+jr ra			// Return
+
+ghidra output:
+
+  for (; iVar5 != -1; iVar5 = iVar5 + -1) {
+    uVar1 = *(undefined *)param_2;
+    param_2 = (undefined8 *)((int)param_2 + 1);
+    *(undefined *)puVar6 = uVar1;
+    puVar6 = (undefined8 *)((int)puVar6 + 1);
+  }
+  return param_1;
+
+The character address is stored at 003D2F00 in memory
+
+GP is 003DA7F0?
+
+Function at 001bf260
+
+void FUN_001bf260(int searchvalue)
+
+{
+  int *pointer;
+  int counter;
+  
+  counter = 0;
+  uRam003d2ed8 = uRam00f6c054;
+  uRam003d2ed4 = uRam00f6c058;
+  uRam003d2ed0 = uRam00f6c068;
+  pointer = piRam003d2f04;
+  do {
+    if (searchvalue == *pointer) goto LAB_001bf2e0;
+    if ((counter != 0) && (*pointer == 0)) break;
+    counter = counter + 1;
+    pointer = pointer + 2;
+  } while (counter < 0x400);
+  FUN_0012e570(0x368bf0,uRam003d2edc);
+  counter = -1;
+LAB_001bf2e0:
+  if (counter != -1) {
+    uRam003d2ef0 = 1;
+    FUN_001484a0(uRam00f53d94,0x61,0);
+    FUN_001484a0(uRam00f53d94,0x3a,0x80);
+    FUN_001bf0e0((int)piRam003d2f04 + piRam003d2f04[counter * 2 + 1] + 0x2000);
+    FUN_00103d70(0xf53cd0,0xf53cf0);
+  }
+  return;
+}
+
+counter is s0
+searchvalue is v0
+pointer is v1
+
+when counter is equal to searchvalue ($01), it is true
+
+003D2EDC is 00000000
+003D2ED8 is 4016CBE4
+003D2ED4 is 3ED67748
+003D2ED0 is 44DD5FFB
+00F53D94 is 0118CB90
+003D2F04 is 0139BA00
+
+003d2f04 has $0139BA00 (start of stage00.bin)
+
+00368bf0
+
+
+f53cd0
+
+loading screen text is at 0x0025FD30 -> 0x0035FCB0 in exe
+
+
+graphics file format
+8h: Header starts with NAXA5010
+4h: Usually $100 but sometimes $10
+4h: Always $200
+4h: pointer?
+4h: pointer?
+4h: idk
+4h: nothing
+the rest: idk
+
+There's just raw graphics at 0x0023C180 in slpm
+2 dimensional, 32bpp (ARGB)
+
+anm.bin animation, indexed 8bpp
+.hgb texture file, 32bpp rgba
+.hgk 3d model file?
+.hd music header
+.sq music sequence
+.bd music header 2
+
+0x0019D000 -> 29 CF80 some pointer table
+
+the font graphic is at $1A3E90 -> 2A3E10
+font map is at 0x001A31F0 -> 2A3170
+palette is at 0x0025E4C0
+
+FUN_0014f370 is to search the index of a character
+
+0035FE30 (conv) is No Ys 3 Data
+0035FDF0 (conv) is Ys Data Found
+00360AF0 (conv) is Ys 3 Data search
+
+FUN_0017b900 checks for save data with link option
+
+stage90.bin has the text for the titlescreen cutscene
+
+cartographer stuff
+
+#BLOCK NAME:stage00.bin
+#TYPE:				NORMAL
+#METHOD:			POINTER_RELATIVE
+#POINTER ENDIAN:		LITTLE
+#POINTER TABLE START:		$94BA804
+#POINTER TABLE STOP:		$94BB410
+#POINTER SIZE:			$04
+#POINTER SPACE:			$04
+#ATLAS PTRS:			Yes
+#BASE POINTER:			$94BC800
+#TABLE:				kefin.tbl
+#COMMENTS:			No
+#SHOW END ADDRESS:		No
+#TRIM TRAILING NEWLINES:	No
+#END BLOCK
+
+#BLOCK NAME:stage00.bin RAW
+#TYPE:				NORMAL
+#METHOD:			RAW
+#SCRIPT START:			$94BC800
+#SCRIPT STOP:			$94CBD9F
+#TABLE:				kefin.tbl
+#COMMENTS:			No
+#SHOW END ADDRESS:		No
+#TRIM TRAILING NEWLINES:	No
+#END BLOCK
+
