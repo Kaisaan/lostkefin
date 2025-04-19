@@ -1,11 +1,14 @@
-.erroronwarning on
+.erroronwarning off
 
 .ps2
 
 .open "extracted/DATA.BIN", "DATA.BIN", 0x0
 
-.loadtable "kefin.tbl", "SJIS"
+.loadtable "kefinold.tbl", "SJIS"
 
+.orga 0x094BA800
+.dw 0x5A, 0x00, 0x5B, 0x14, 0x01, 0x3A, 0x02, 0x0560
+/*
 .orga 0x094BC858
 
 .db 0x3A, 0x80
@@ -17,16 +20,34 @@
 .strn "The City of Sand and Mirages", 0x81, 0x43, "Kefin?\n"
 .strn "Apparently it used to be a magnificent kingdom.[WAIT]", 0x19, "<K0>"
 .db 0x2F, 0x03, 0x00, 0x0A, 0x50, 0x00, 0x96, 0x00, 0x89, 0x80
+*/
 
+.orga 0x094BD0B2
+.db 0x00, 0x3B, 0xC7, 0x01
 
+.orga 0x094BD0EE
+.db 0x00, 0x3B, 0xC6, 0x01
 
 .close
 
 .open "extracted/SLPM_663.60", "SLPM_663.60", 0x0
 
 .orga 0x0025FD45
+.strn "KaisaanTest", 0x81, 0xA5
 
-.strn "KaisaanTest", 0x81, 0x43
+.orga 0x0025FE70
+.strn "Ys 3 Data found"
 
+.orga 0x0025FEB0
+.strn "No Ys 3 Data"
+
+.orga 0x00260B70
+.strn "Ys 3 Data search"
+
+.orga 0x2638D8
+.strn "Adol", 0x00, 0x00
+
+.orga 0x2638E0
+.strn "Dogi"
 
 .close

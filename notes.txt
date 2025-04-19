@@ -20,6 +20,11 @@ $00F69E00 has the value $01B08660
 loading text is at $0025FD30
 $0A is newline
 
+DATA0.bin
+filenames start at 0x24BE90 (0x34BE10)
+pointer info is at 0x187A40 and ends at 0x18E7C0 (0x28E740)
+
+
 stage00.bin
 5A 00 5B 14 01 3A 02 $6005
 
@@ -270,6 +275,8 @@ f53cd0
 
 loading screen text is at 0x0025FD30 -> 0x0035FCB0 in exe
 
+$2638D0 ($363850) has a table of names (character box names?)
+$2298E0 ($00329860) has a pointer to these names
 
 graphics file format
 8h: Header starts with NAXA5010
@@ -306,6 +313,55 @@ FUN_0014f370 is to search the index of a character
 FUN_0017b900 checks for save data with link option
 
 stage90.bin has the text for the titlescreen cutscene
+
+38FF=[IDK1]\n
+B0FF=[IDK2]\n
+B4FF=[IDK3]\n
+CEFF=[IDK4]\n
+ECFF=[IDK5]\n
+9CFF=[IDK6]\n
+10FF=[IDK7]\n
+F6FF=[IDK8]\n
+C4FF=[IDK9]\n
+A6FF=[IDKA]\n
+88FF=[IDKB]\n
+D8FF=[IDKC]\n
+B5FF=[IDKD]\n
+E2FF=[IDKE]\n
+60FF=[IDKF]\n
+F8FF=[IDKG]\n
+A1FF=[IDKH]\n
+B1FF=[IDKI]\n
+1FFF=[IDKJ]\n
+FBFF=[IDKK]\n
+15FF=[IDKL]\n
+
+47FF=[idkG]\n
+4CFF=[idkL]\n
+58FF=[idkX]\n
+42FF=[idkB]\n
+6FFF=[idko]\n
+44FF=[idkD]\n
+51FF=[idkQ]\n
+6AFF=[idkj]\n
+57FF=[idkW]\n
+
+/01FF=[END01]\n
+/02FF=[END02]\n
+/04FF=[END04]\n
+/06FF=[END06]\n
+/07FF=[END07]\n
+/11FF=[END11]\n
+/32FF=[END32]\n
+/4EFF=[END4E]\n
+/55FF=[END55]\n
+#56FF=[END56]\n
+/64FF=[END64]\n
+#A5FF=[ENDA5]\n
+
+/000000FF=[ENDa]\n
+/0000FF=[ENDb]\n
+/00FF=[ENDc]\n
 
 cartographer stuff
 
