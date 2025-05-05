@@ -9,9 +9,12 @@ Since this translation project currently uses an existing translation, it would 
 I am replacing the usage of [armips](https://github.com/Kingcom/armips) with [acbde](https://www.romhacking.net/utilities/1392/) for script extraction and insertion. Currently I have raw dumps only as I need to figure out all the control codes to get a full pointer dump
 
 # Building
-- Use [Apache3](https://www.psx-place.com/threads/apache.19171/) to extract the contents of the game's .iso file
+- Copy the original .iso to the root of this repo and rename it to `lostkefin.iso`
+- Run `isotool.py -m extract --iso lostkefin.iso --filelist filelist --files extracted` to extract all the files
 - Copy the contents to the `extracted` and `translated` folders
-- Run `build.bat` or manually run the commands
+- Make changes as needed to the files in the `translated` folder
+- Run `isotool.py -m insert --iso lostkefin.iso -o english.iso --filelist filelist.txt --files translated` to create a modified `english.iso`
+Running build.bat automatically patches `patch.asm` and builds `english.iso`
 
 # Hacking Notes
 - The game uses SHIFT-JIS encoding for its text
