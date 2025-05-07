@@ -42,74 +42,74 @@ Use `kefin.tbl` for corrected values and control codes.
 The value of the `$3B` Character control code comes from the index value from a list of pointers.  
 These pointers are found at $2298E0 in `SLPM_663.60` and `pointer.py` can be used to extract this list.  
 
-|Value|Original Text|Translation|
+| Value | Original Text | Translation |
 |---|---|---|
-|`$0`|アドル|Adol|
-|`$1`|ドギ|Dogi|
-|`$2`|ニーナ|   |
-|`$3`|テラ|   |
-|`$4`|マーシャ|   |
-|`$5`|スタン|   |
-|`$6`|ドーマン|   |
-|`$7`|リジェ|   |
-|`$8`|ジャビル|   |
-|`$9`|エフィ|   |
-|`$A`|ケフィン王|   |
-|`$B`|アルガ|   |
-|`$C`|ディオス|   |
-|`$D`|ノティス|   |
-|`$E`|チェイス|   |
-|`$F`|アイシャ|   |
-|`$10`|ウイリー|   |
-|`$11`|ムバーハ|   |
-|`$12`|バルク|   |
-|`$13`|アビス|   |
-|`$14`|カリオン|   |
-|`$15`|鍛冶屋|   |
-|`$16`|水夫|   |
-|`$17`|執事|   |
-|`$18`|メイド|   |
-|`$19`|下級兵士|   |
-|`$1A`|兵士|   |
-|`$1B`|冒険家Ａ|   |
-|`$1C`|冒険家Ｂ|   |
-|`$1D`|商人Ａ|   |
-|`$1E`|商人Ｂ|   |
-|`$1F`|コボルト|   |
-|`$20`|砂漠おばあさん|   |
-|`$21`|砂漠おじいさん|   |
-|`$22`|砂漠女|   |
-|`$23`|砂漠男Ａ|   |
-|`$24`|砂漠男Ｂ|   |
-|`$25`|砂漠女の子|   |
-|`$26`|砂漠男の子|   |
-|`$27`|ケフィン男Ａ|   |
-|`$28`|ケフィン男Ｂ|   |
-|`$29`|ケフィン女Ａ|   |
-|`$2A`|ケフィン女Ｂ|   |
-|`$2B`|レジスタンスＡ|   |
-|`$2C`|レジスタンスＢ|   |
-|`$2D`|おじさんＡ|   |
-|`$2E`|おじさんＢ|   |
-|`$2F`|おばさん|   |
-|`$30`|街男Ａ|   |
-|`$31`|街男Ｂ|   |
-|`$32`|街娘Ａ|   |
-|`$33`|街娘Ｂ|   |
-|`$34`|おばあさん|   |
-|`$35`|おじいさん|   |
-|`$36`|男の子Ａ|   |
-|`$37`|男の子Ｂ|   |
-|`$38`|女の子Ａ|   |
-|`$39`|犬|   |
-|`$3A`|女の子Ｂ|   |
-|`$3B`|誘拐スタン|   |
-|`$3C`|ノティス＆ディオス|   |
-|`$40`|綺麗な女性|   |
-|`$41`|女の子|   |
-|`$42`|乱暴者Ａ|   |
-|`$43`|乱暴者Ｂ|   |
-|`$44`|謎の声|   |
-|`$45`|謎の男|   |
-|`$46`|大男|   |
-|`$47`|おばさん|   |
+| $0 | アドル | Adol |
+| $1 | ドギ | Dogi |
+| $2 | ニーナ | Nina |
+| $3 | テラ | Tera |
+| $4 | マーシャ | Massea |
+| $5 | スタン | Stan |
+| $6 | ドーマン | Dorman |
+| $7 | リジェ | Rije |
+| $8 | ジャビル | Jabil |
+| $9 | エフィ | Efi |
+| $A | ケフィン王 | King Kefin |
+| $B | アルガ | Arga |
+| $C | ディオス | Dios |
+| $D | ノティス | Notis |
+| $E | チェイス | Chase |
+| $F | アイシャ | Aisha |
+| $10 | ウイリー | Willie |
+| $11 | ムバーハ | Mubaha |
+| $12 | バルク | Balk |
+| $13 | アビス | Abyss |
+| $14 | カリオン | Karion |
+| $15 | 鍛冶屋 | Blacksmith |
+| $16 | 水夫 | Sailor |
+| $17 | 執事 | Butler |
+| $18 | メイド | Maid |
+| $19 | 下級兵士 | Foot Soldier |
+| $1A | 兵士 | Soldier |
+| $1B | 冒険家Ａ | Adventurer A |
+| $1C | 冒険家Ｂ | Adventurer B |
+| $1D | 商人Ａ | Merchant A |
+| $1E | 商人Ｂ | Merchant B |
+| $1F | コボルト | Kobold |
+| $20 | 砂漠おばあさん | Desert Old Woman |
+| $21 | 砂漠おじいさん | Desert Old Man |
+| $22 | 砂漠女 | Desert Woman |
+| $23 | 砂漠男Ａ | Desert Man A |
+| $24 | 砂漠男Ｂ | Desert Man B |
+| $25 | 砂漠女の子 | Desert Girl |
+| $26 | 砂漠男の子 | Desert Boy |
+| $27 | ケフィン男Ａ | Kefin Man A |
+| $28 | ケフィン男Ｂ | Kefin Man B |
+| $29 | ケフィン女Ａ | Kefin Woman A |
+| $2A | ケフィン女Ｂ | Kefin Woman B |
+| $2B | レジスタンスＡ | Resistance A |
+| $2C | レジスタンスＢ | Resistance B |
+| $2D | おじさんＡ | Man A |
+| $2E | おじさんＢ | Man B |
+| $2F | おばさん | Woman |
+| $30 | 街男Ａ | Villager Man A |
+| $31 | 街男Ｂ | Villager Man B |
+| $32 | 街娘Ａ | Villager Girl A |
+| $33 | 街娘Ｂ | Villager Girl B |
+| $34 | おばあさん | Old Woman |
+| $35 | おじいさん | Old Man |
+| $36 | 男の子Ａ | Boy A |
+| $37 | 男の子Ｂ | Boy B |
+| $38 | 女の子Ａ | Girl A |
+| $39 | 犬 | Dog |
+| $3A | 女の子Ｂ | Girl B |
+| $3B | 誘拐スタン | Kidnapped Stan |
+| $3C | ノティス＆ディオス | Notis & Dios |
+| $40 | 綺麗な女性 | Beautiful Woman |
+| $41 | 女の子 | Girl |
+| $42 | 乱暴者Ａ | Thug A |
+| $43 | 乱暴者Ｂ | Thug B |
+| $44 | 謎の声 | Mysterious Voice |
+| $45 | 謎の男 | Mysterious Man |
+| $46 | 大男 | Big Man |
+| $47 | おばさん | Woman |
