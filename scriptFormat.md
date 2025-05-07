@@ -10,10 +10,10 @@ This is information for the `stageXX.bin` files that are found in `DATA.BIN` of 
 
 ## Pointer Table
 The pointer table has a repeating pattern of a **Script Index** and **Pointer**.  
-**Script Index** is 4 bytes long and is stored in little-endian  
-**Pointer** is 4 bytes long and is stored in little-endian  
-To get the true offset of the pointer add $2000 to the value  
-For example, a pointer value of `00 E1 0C 00` ($CE100) means the true offset is at `$D0100`  
+**Script Index** is 4 bytes long and is stored in little-endian.  
+**Pointer** is 4 bytes long and is stored in little-endian.  
+To get the true offset of the pointer add $2000 to the value.  
+For example, a pointer value of `00 E1 0C 00` ($CE100) means the true offset is at `$D0100`.  
 The table is always $2000 bytes long allowing for a maximum of 1024 entries.  
 If there is less than 1024 entries the table section is padded with `$00`'s.  
 
@@ -22,7 +22,7 @@ One pointer can have as many lines of text and has no length limitations.
   
 ### Font Info
 All text is Shift-JIS encoded with fullwidth characters being 2 bytes long and 20 pixels wide while halfwidth characters are 1 byte long and 10 pixels wide.  
-In `SLPM_663.60` the font is located at $1A3E90 as 4BPP graphics, its palette is stored at $25E4C0, and the fontmap is at $1A31F0  
+In `SLPM_663.60` the font is located at $1A3E90 as 4BPP graphics, its palette is stored at $25E4C0, and the fontmap is at $1A31F0.  
 `font.py` extracts the fontmap from `SLPM_663.60` to create a quick `font.tbl` table file.  
 Use `kefin.tbl` for corrected values and control codes.  
 
