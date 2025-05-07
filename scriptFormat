@@ -11,7 +11,7 @@ This is information for the `stageXX.bin` files that are found in `DATA.BIN` of 
 ## Pointer Table
 The pointer table has a repeating pattern of a **Script Index** and **Pointer**.  
 **Script Index** is 4 bytes long and is stored in little-endian  
-**Pointer** is 4 bytes long and is stored in little-endian
+**Pointer** is 4 bytes long and is stored in little-endian  
 To get the true offset of the pointer add $2000 to the value  
 For example, a pointer value of `00 E1 0C 00` ($CE100) means the true offset is at `$D0100`  
 The table is always $2000 bytes long allowing for a maximum of 1024 entries.  
