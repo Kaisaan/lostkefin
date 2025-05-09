@@ -46,8 +46,8 @@ These pointers are found at $2298E0 in `SLPM_663.60` and `pointer.py` can be use
 |---|---|---|
 | $0 | アドル | Adol |
 | $1 | ドギ | Dogi |
-| $2 | ニーナ | Nina |
-| $3 | テラ | Tera |
+| $2 | ニーナ | Niena |
+| $3 | テラ | Terra |
 | $4 | マーシャ | Massea |
 | $5 | スタン | Stan |
 | $6 | ドーマン | Dorman |
