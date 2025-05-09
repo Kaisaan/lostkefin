@@ -6,7 +6,8 @@ Since this translation project currently uses an existing translation, it would 
 **If you want to help with the translation please [contact me!](https://kaisaan.github.io/pages/contact)**
 
 # Current Progress  
-I am replacing the usage of [armips](https://github.com/Kingcom/armips) with [acbde](https://www.romhacking.net/utilities/1392/) for script extraction and insertion. Currently I have raw dumps only as I need to figure out all the control codes to get a full pointer dump
+Script extract and insertion is now done with [acbde](https://www.romhacking.net/utilities/1392/) with miscellanous text being patched in with [armips](https://github.com/Kingcom/armips).  
+Now the goal is to get a proof of concept patch working.
 
 # Building
 - Copy the original .iso to the root of this repo and rename it to `lostkefin.iso`
@@ -17,8 +18,7 @@ I am replacing the usage of [armips](https://github.com/Kingcom/armips) with [ac
 Running build.bat automatically patches `patch.asm` and builds `english.iso`
 
 # Hacking Notes
-- The game uses SHIFT-JIS encoding for its text
-- English letters are halfwidth (1 byte, 10 pixels wide) and Japanese letters are fullwith (2 bytes, 20 pixels wide)
+- See [scriptFormat.md](https://github.com/Kaisaan/lostkefin/blob/main/scriptFormat.md) for all information about the game's script system
 - The game's base pointer is $FFF80
 - Extracted .bin files with `_anm` in the filename are animation files with indexed 8BPP graphics and have the header `NAXA5010`
 - Extracted .HGB files are texture files with 32BPP RGBA graphics
@@ -28,30 +28,14 @@ Running build.bat automatically patches `patch.asm` and builds `english.iso`
 # Extracting the DATA.BIN Files
 `extract.py` extracts all the files and folders from DATA.BIN into the `DATA` folder (but does not extract the files into their correct folders yet) and all files from DATA0.bin into the `DATA0` folder, a `logfile.txt` is also created
 
-# Font info
-The game uses Shift-JIS encoding but I decided to make table files so I can include control codes  
-`font.py` extracts the fontmap from `SLPM_663.60` to create a quick `font.tbl` table file. Use `kefin.tbl` for corrected values and control codes  
-In `SLPM_663.60` the font is located at $1A3E90 as 4BPP graphics, its palette is stored at $25E4C0, and the fontmap is at $1A31F0  
-
-# Script Info
-- Script files (named `stageXX.bin`) have the first $2000 bytes as a pointer table
-- Each pointer first as an "index" number (4 bytes, little-endian) then the pointer value to the file (4 bytes, little-endian)
-- Pointer value are calculated as `pointer + $2000`
-- Changing the pointer seems to cause the game to freeze
-Before running `script.py` copy the script files (as extracted from `DATA.BIN`) to the `scripts` folder. `script.py` will extract the pointer information for each file into a separate text file. The python script will also include info for control codes.  
-Before running `dump.bat` make sure perl is installed. On Windows I recommend isnstalling [Strawberry perl](https://www.lifebottle.org/#/./other/strawberry-perl/index)  
-The script can be dumped from `DATA.BIN` and into `scripts` after running `dump.bat`. Currently it is a raw dump because I have not figured out all the control codes, using a pointer dump will cause the scripts to be under-dumped.
-
-# Control codes
-`kefin.tbl` already has some control codes documented. The control code `$3B $XX` is to show character names in textboxes. `pointer.py` is used to extract the character names and their indexes to match.
-
 # To do
 - Figure out all the control codes properly
 - Update the extraction script to extract `DATA0.BIN` folders, `DATA1.BIN`, and `SLPM_663.60`
 - Continue inserting the English script
+- Extract, edit, and reinsert graphics
 
 # Game Manual Translation
-In the `manual` folder are scans for the game's manual. They were originally from [landofys.narod.ru](https://landofys.narod.ru/) which is now landofys.com.ru(http://landofys.com.ru/) was scanned by Dragon.
+In the `manual` folder are scans for the game's manual. They were originally from [landofys.narod.ru](https://landofys.narod.ru/) which is now [landofys.com.ru](http://landofys.com.ru/) was scanned by Dragon.
 
 # Related Materials
 - Translation of opening cutscene by [mziab](https://www.romhacking.net/forum/index.php?topic=28379.0) (I did not use this translation)
@@ -63,6 +47,7 @@ In the `manual` folder are scans for the game's manual. They were originally fro
 - Original game website from [Taito](https://web.archive.org/web/20070804063125/http://www.taito.co.jp/d3/cp/ys/ys5/)
 
 # Credits
+- [Etokapa](https://github.com/Etokapa/) - Big help with this project! Text insertion and also texting extraction and rebuilding
 - [Sam Farron](https://www.youtube.com/@samfarron) - Allowing me to use his translation as the basis of this project
 - [Hilltop](https://x.com/HilltopWorks) - Providing valuable and informatative videos such as [hacking with Ghidra](https://youtu.be/qCEZC3cPc1s) and [PS1/PS2 graphics](https://youtu.be/lePKUCYakqM)
 - [Life Bottle Productions](https://www.lifebottle.org/#/) - Providing me with their [isotool.py script](https://github.com/lifebottle/PythonLib/blob/main/isotool.py) and their tutorial for [finding the base pointer](https://youtu.be/q5aEj-aSw50)
