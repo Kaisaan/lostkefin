@@ -30,6 +30,7 @@ Use `kefin.tbl` for corrected values and control codes.
 |Hex Values|Meaning|Table file|
 |---|---|---|
 |`$0A`|Newline|`[LINE]\n`|
+|`$23` $XXXX|Normally `#`, change colour of text based on ASCII values of $XXXX (See Colour Section)|[HASH]|
 |`$2F $XXXX`|Normally `/`, unknown, $XXXX is stored in little-endian|   |
 |`$3B $XX`|Show character name in dialoague box (see Character section)|`[CHAR]`|
 |`$44 $XXXXXXXX`|Normally `D`, jump to new text with given Script Text (see above)|`[INDEX]`|
@@ -38,9 +39,23 @@ Use `kefin.tbl` for corrected values and control codes.
 |`$81A5`|Normally `▼`, wait for player input|`[WAIT]`|
 |`$FFFD $XX`|Pause printing text for $XX frames(?)|`[PAUSE]`|
 
+#### Colours
+The value of the `$23` Colour control code translates to the ASCII values of the two bytes after the code.  
+White is the default colour for text.
+
+|Hex values|ASCII|Meaning|Colour code|
+|---|---|---|---|
+|`$77 $68`|`wh`|White|   |
+|`$67 $72`|`gr`|Green|   |
+|`$62 $6C`|`bl`|Blue|   |
+|`$70 $69`|`pi`|Pink|   |
+|`$79 $6C`|`yl`|Yellow|   |
+|`$72 $65`|`re`|Red|   |
+ 
+
 #### Characters
 The value of the `$3B` Character control code comes from the index value from a list of pointers.  
-These pointers are found at $2298E0 in `SLPM_663.60` and `pointer.py` can be used to extract this list.  
+These pointers are found at $2298E0 in `SLPM_663.60` and `pointer.py` can be used to extract this list.
 
 | Value | Original Text | Translation |
 |---|---|---|
