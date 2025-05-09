@@ -30,8 +30,8 @@ Use `kefin.tbl` for corrected values and control codes.
 |Hex Values|Meaning|Table file|
 |---|---|---|
 |`$0A`|Newline|`[LINE]\n`|
-|`$23` $XXXX|Normally `#`, change colour of text based on ASCII values of $XXXX (See Colour Section)|[HASH]|
-|`$2F $XXXX`|Normally `/`, unknown, $XXXX is stored in little-endian|   |
+|`$23` $XXXX|Normally `#`, change colour of text based on ASCII values of $XXXX (See Colour Section)|`[HASH]`|
+|`$2F $XXXX`|Normally `/`, unknown, $XXXX is stored in little-endian|`/<$XX><$XX>`|
 |`$3B $XX`|Show character name in dialoague box (see Character section)|`[CHAR]`|
 |`$44 $XXXXXXXX`|Normally `D`, jump to new text with given Script Text (see above)|`[INDEX]`|
 |`$XX $80`|Print $XX number of bytes|`[LEN]`|
