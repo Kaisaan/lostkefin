@@ -3,7 +3,7 @@
 20= 
 21=!
 22="
-23=[HASH]
+
 27='
 28=(
 29=)
@@ -89,7 +89,7 @@ A5=･
 8140=　
 8141=、
 8142=。
-8143=,
+
 8144=．
 8145=・
 8146=：
@@ -1629,12 +1629,95 @@ E84A=鍮
 
 !2F=</>,2
 
-!3B=<[CHAR]>,2
+!23=<[HASH]>,<@col>:1
+
+!3B=<[CHAR]>,<@char>:1
 
 !FFFD=<[PAUSE]>,1
+
+8143=,
 
 81A5=[WAIT]\n
 
 80=[LEN]
 
-/FF=[END]\n
+FF=[END]\n
+
+@col
+7768=[WHITE]
+6772=[GREEN]
+626C=[BLUE]
+7069=[PINK]
+796C=[YELLOW]
+7265=[RED]
+
+@char
+00=[Adol]
+01=[Dogi]
+02=[Niena]
+03=[Terra]
+04=[Massea]
+05=[Stein]
+06=[Dorman]
+07=[Rije]
+08=[Jabil]
+09=[Efi]
+0A=[King Kefin]
+0B=[Arga]
+0C=[Dios]
+0D=[Notis]
+0E=[Chase]
+0F=[Aisha]
+10=[Willie]
+11=[Mubaha]
+12=[Balk]
+13=[Abyss]
+14=[Karion]
+15=[Blacksmith]
+16=[Sailor]
+17=[Butler]
+18=[Maid]
+19=[Foot Soldier]
+1A=[Soldier]
+1B=[Adventurer A]
+1C=[Adventurer B]
+1D=[Merchant A]
+1E=[Merchant B]
+1F=[Kobold]
+20=[Desert Old Woman]
+21=[Desert Old Man]
+22=[Desert Woman]
+23=[Desert Man A]
+24=[Desert Man B]
+25=[Desert Girl]
+26=[Desert Boy]
+27=[Kefin Man A]
+28=[Kefin Man B]
+29=[Kefin Woman A]
+2A=[Kefin Woman B]
+2B=[Resistance A]
+2C=[Resistance B]
+2D=[Man A]
+2E=[Man B]
+2F=[Woman]
+30=[Villager Man A]
+31=[Villager Man B]
+32=[Villager Girl A]
+33=[Villager Girl B]
+34=[Old Woman]
+35=[Old Man]
+36=[Boy A]
+37=[Boy B]
+38=[Girl A]
+39=[Dog]
+3A=[Girl B]
+3B=[Kidnapped Stan]
+3C=[Notis & Dios]
+40=[Beautiful Woman]
+41=[Girl]
+42=[Thug A]
+43=[Thug B]
+44=[Mysterious Voice]
+45=[Mysterious Man]
+46=[Big Man]
+47=[Woman]
