@@ -26,7 +26,7 @@ def pointer(address):
     text = text[:text.find(terminator)]
 
     return f"address {address:X}\tvalue {ptr:X}\tpointer {trueptr:X}\ttext {text}"
-
+    #return(f"{text}")
 
 startptr = 0x2298E0
 read = startptr
@@ -39,12 +39,13 @@ log.write("Characters:\n")
 
 while read < endptr: 
 
-    print(f"{read:X}")
+    #print(f"{read:X}")
     if (pointer(read) == "invalid"):
         pass
     
     else:
         log.write(f"{pointer(read)}\t{index:X}\n")
+        #log.write(f"|`${index:X}`|{pointer(read)}|   |\n")
 
     index += 0x1
     read += 0x4

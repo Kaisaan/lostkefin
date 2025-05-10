@@ -106,7 +106,7 @@ fileptrend = 0x18E7C0
 
 fileptr = fileptrstart
 
-logfile.write("\nDATA.BIN Files\n\n")
+logfile.write("\nDATA0.BIN Files\n\n")
 
 while fileptr < fileptrend:
 
