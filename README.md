@@ -11,11 +11,9 @@ Now the goal is to get a proof of concept patch working.
 
 # Building
 - Copy the original .iso to the root of this repo and rename it to `lostkefin.iso`
-- Run `isotool.py -m extract --iso lostkefin.iso --filelist filelist --files extracted` to extract all the files
-- Copy the contents to the `extracted` and `translated` folders
-- Make changes as needed to the files in the `translated` folder
-- Run `isotool.py -m insert --iso lostkefin.iso -o english.iso --filelist filelist.txt --files translated` to create a modified `english.iso`
-Running build.bat automatically patches `patch.asm` and builds `english.iso`
+- Run `1 Extract ISO.bat`
+- Make changes to `scripts/translated.txt`
+- Run `2 Patch ISO.bat`
 
 # Hacking Notes
 - See [scriptFormat.md](https://github.com/Kaisaan/lostkefin/blob/main/scriptFormat.md) for all information about the game's script system
@@ -47,7 +45,7 @@ In the `manual` folder are scans for the game's manual. They were originally fro
 - Original game website from [Taito](https://web.archive.org/web/20070804063125/http://www.taito.co.jp/d3/cp/ys/ys5/)
 
 # Credits
-- [Etokapa](https://github.com/Etokapa/) - Big help with this project! Text insertion and also texting extraction and rebuilding
+- [Etokapa](https://github.com/Etokapa/) - Big help with this project! Text insertion and also making better batch files
 - [Sam Farron](https://www.youtube.com/@samfarron) - Allowing me to use his translation as the basis of this project
 - [Hilltop](https://x.com/HilltopWorks) - Providing valuable and informatative videos such as [hacking with Ghidra](https://youtu.be/qCEZC3cPc1s) and [PS1/PS2 graphics](https://youtu.be/lePKUCYakqM)
 - [Life Bottle Productions](https://www.lifebottle.org/#/) - Providing me with their [isotool.py script](https://github.com/lifebottle/PythonLib/blob/main/isotool.py) and their tutorial for [finding the base pointer](https://youtu.be/q5aEj-aSw50)
