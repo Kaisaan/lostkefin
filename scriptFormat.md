@@ -39,6 +39,8 @@ Use `kefin.tbl` for corrected values and control codes.
 |`$81A5`|Normally `▼`, wait for player input|`[WAIT]`|
 |`$FFFD $XX`|Pause printing text for $XX frames(?)|`[PAUSE]`|
 
+`string.py` can be used to calculate a new [LEN] value.
+
 #### Colours
 The value of the `$23` Colour control code translates to the ASCII values of the two bytes after the code.  
 White is the default colour for text.
