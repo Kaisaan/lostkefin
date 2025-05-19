@@ -66,20 +66,20 @@ These pointers are found at $2298E0 in `SLPM_663.60` and `pointer.py` can be use
 | $2 | ニーナ | Niena |
 | $3 | テラ | Terra |
 | $4 | マーシャ | Massea |
-| $5 | スタン | Stan |
+| $5 | スタン | Stein |
 | $6 | ドーマン | Dorman |
-| $7 | リジェ | Rije |
-| $8 | ジャビル | Jabil |
+| $7 | リジェ | Rizze |
+| $8 | ジャビル | Javil |
 | $9 | エフィ | Efi |
 | $A | ケフィン王 | King Kefin |
-| $B | アルガ | Arga |
-| $C | ディオス | Dios |
-| $D | ノティス | Notis |
+| $B | アルガ | Alga |
+| $C | ディオス | Deios |
+| $D | ノティス | Noties |
 | $E | チェイス | Chase |
 | $F | アイシャ | Aisha |
-| $10 | ウイリー | Willie |
-| $11 | ムバーハ | Mubaha |
-| $12 | バルク | Balk |
+| $10 | ウイリー | Wilee |
+| $11 | ムバーハ | Muhaaa |
+| $12 | バルク | Baruq |
 | $13 | アビス | Abyss |
 | $14 | カリオン | Karion |
 | $15 | 鍛冶屋 | Blacksmith |
@@ -104,8 +104,8 @@ These pointers are found at $2298E0 in `SLPM_663.60` and `pointer.py` can be use
 | $28 | ケフィン男Ｂ | Kefin Man B |
 | $29 | ケフィン女Ａ | Kefin Woman A |
 | $2A | ケフィン女Ｂ | Kefin Woman B |
-| $2B | レジスタンスＡ | Resistance A |
-| $2C | レジスタンスＢ | Resistance B |
+| $2B | レジスタンスＡ | Rebel A |
+| $2C | レジスタンスＢ | Rebel B |
 | $2D | おじさんＡ | Man A |
 | $2E | おじさんＢ | Man B |
 | $2F | おばさん | Woman |
@@ -121,7 +121,7 @@ These pointers are found at $2298E0 in `SLPM_663.60` and `pointer.py` can be use
 | $39 | 犬 | Dog |
 | $3A | 女の子Ｂ | Girl B |
 | $3B | 誘拐スタン | Kidnapped Stan |
-| $3C | ノティス＆ディオス | Notis & Dios |
+| $3C | ノティス＆ディオス | Noties & Deios |
 | $40 | 綺麗な女性 | Beautiful Woman |
 | $41 | 女の子 | Girl |
 | $42 | 乱暴者Ａ | Thug A |
