@@ -120,7 +120,7 @@ These pointers are found at $2298E0 in `SLPM_663.60` and `pointer.py` can be use
 | $38 | 女の子Ａ | Girl A |
 | $39 | 犬 | Dog |
 | $3A | 女の子Ｂ | Girl B |
-| $3B | 誘拐スタン | Kidnapped Stan |
+| $3B | 誘拐スタン | Kidnapped Stein |
 | $3C | ノティス＆ディオス | Noties & Deios |
 | $40 | 綺麗な女性 | Beautiful Woman |
 | $41 | 女の子 | Girl |
