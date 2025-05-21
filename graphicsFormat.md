@@ -25,7 +25,8 @@ The `NAXA5010` file header indicates that it is a sprite file.
 |$0C-$0F|Palette Data offset, always `$20000000`|
 |$10-$13|Offset to Image Data (in little Endian)|
 |$14-$17|Offset to Unknown Data (in little Endian)|
-|$18-$1B|Unknown|
+|$18-$19|Unknown, sometimes matches Image Width|
+|$1A-$1B|Unknown, sometimes matches Image Height|
 |$1C-$1F|Unknown, always `$00000000`|
 
 ## Palette
