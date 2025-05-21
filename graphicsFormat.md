@@ -10,19 +10,45 @@
 
 Textures for 3D models. 2-dimensional, 32BPP (RGBA8888) encoded.
 
-# Animation Files
+# Sprite Files
 
 `.bin` files whose filenames end with `_anm`.
+
+## Header
+
+The `NAXA5010` file header indicates that it is a sprite file.
 
 |Offset|Description|
 |---|---|
 |$00-$07|Always `4E 41 58 41 35 30 31 30` or `NAXA5010` in ASCII|
-|$08-$0B|Palette size (In little Endian), usually either $10 or $100|
-|$0C-$0F|Always `$20000000`, Palette Data offset?|
-|$10-$13|Offset to PXL Data (in little Endian)|
+|$08-$0B|Palette size (In little Endian), either $10 or $100|
+|$0C-$0F|Palette Data offset, always `$20000000`|
+|$10-$13|Offset to Image Data (in little Endian)|
 |$14-$17|Offset to Unknown Data (in little Endian)|
 |$18-$1B|Unknown|
 |$1C-$1F|Unknown, always `$00000000`|
-|$20-$20 + (Palette Size * 4)|Palette in RGBA8888 format|
-|(Unknown Data Offset) to (PXL Data offset - 1)|Unknown Data, seems to start with file offsets in little endian|
-|(PXL Data Offset) to (End of File)|PXL Data using indexed palette data|
+
+## Palette
+
+The Palette (or CLUT) data always starts at $20 in the file and is either $10 colours or $100 colours. Each colour is 32 bits in RGBA8 format.  
+The size of the palette determines if the image data is either 4-bits or 8-bits respectively
+
+## Unknown Data
+
+The unknown data usually starts with some file offsets. Most of this data is empty.
+
+## Image Data
+
+The image data is $10 bytes long per image. It is located based on the offset in the file header. They are formatted as follows:  
+|Size|Description|
+|---|---|
+|$2|Image Width (In little Endian)|
+|$2|Image Height (In little Endian)|
+|$2|Image Width repeated?|
+|$2|Image Height repeated?|
+|$4|Image Offset (In little Endian), calculated at (Image Data Offset + Image Offset)|
+|$4|Image Index|
+
+## Images
+
+Images are based on the palette info.
