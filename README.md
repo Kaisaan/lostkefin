@@ -17,9 +17,8 @@ Now the goal is to get a proof of concept patch working.
 
 # Hacking Notes
 - See [scriptFormat.md](https://github.com/Kaisaan/lostkefin/blob/main/scriptFormat.md) for all information about the game's script system
-- The game's base pointer is $FFF80
-- Extracted .bin files with `_anm` in the filename are animation files with indexed 8BPP graphics and have the header `NAXA5010`
-- Extracted .HGB files are texture files with 32BPP RGBA graphics
+- See [graphicsFormat.md](https://github.com/Kaisaan/lostkefin/blob/main/graphicsFormat.md) for all information about the game's graphics formats
+- The game's base pointer is $FFF80 meaning all pointers in `SLPM_663.60` are calculated as `(True offset) + $FFF80`
 - Music files are `.hd` (header), `.bd` (header), and `.sq` (sequence) files
 - See my [notes file](https://github.com/Kaisaan/lostkefin/blob/main/notes.txt) for more terribly organized notes
 
