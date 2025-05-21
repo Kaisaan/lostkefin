@@ -36,7 +36,42 @@ The size of the palette determines if the image data is either 4-bits or 8-bits 
 
 ## Unknown Data
 
-The unknown data usually starts with some file offsets. Most of this data is empty.
+I don't understand yet how this data is used but there are some patterns that emerge when comparing different files.
+
+### Header
+
+The unknown data starts with an info for the number of entries each file has.  
+
+|Size|Description|
+|---|---|
+|$4|Number of entries (in little Endian)|
+|$4|Entry offset (in little Endian), calculated as (Unknown Data Offest + Entry Offset)|
+
+The header is padded with `FF FF FF FF`.
+
+### Entry
+
+Entries can have multiple frames? I'm not sure what each of these items in each entry are so I am calling them "frames" for now.
+
+|Size|Description|
+|---|---|
+|$10|Number of frames|
+|$60|Size of each frame info|
+
+### Frames
+
+Again, not sure what these are but they seem to have a format. It's not very consistent across files though.
+
+|Size|Description|
+|---|---|
+|$4|Some value? Usually less than $10 in smaller files|
+|$2|Another value? Usually less than the previous value|
+|$2|Another unknown Value that is somtimes used|
+|$4|Unknown value, when not empty is usually larger than `$FF000000` (in little endian)|
+|$4|Unknown value again|
+
+The rest of each frame is usually empty and padded to be a total of $60 bytes.
+
 
 ## Image Data
 
@@ -47,7 +82,7 @@ The image data is $10 bytes long per image. It is located based on the offset in
 |$2|Image Height (In little Endian)|
 |$2|Image Width repeated?|
 |$2|Image Height repeated?|
-|$4|Image Offset (In little Endian), calculated at (Image Data Offset + Image Offset)|
+|$4|Image Offset (In little Endian), calculated as (Image Data Offset + Image Offset)|
 |$4|Image Index|
 
 ## Images
