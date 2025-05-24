@@ -26,6 +26,7 @@ Now the goal is to get a proof of concept patch working.
 `extract.py` extracts all the files and folders from DATA.BIN into the `DATA` folder (but does not extract the files into their correct folders yet) and all files from DATA0.bin into the `DATA0` folder, a `logfile.txt` is also created
 
 # To do
+- Fix textbox sizes
 - Figure out all the control codes properly
 - Update the extraction script to extract `DATA0.BIN` folders, `DATA1.BIN`, and `SLPM_663.60`
 - Continue inserting the English script
