@@ -29,11 +29,14 @@ Use `kefin.tbl` for corrected values and control codes.
 ### Control codes
 |Hex Values|Meaning|Table file|
 |---|---|---|
-|`$0A`|Newline|`[LINE]\n`|
-|`$23` $XXXX|Normally `#`, change colour of text based on ASCII values of $XXXX (See Colour Section)|`[HASH]`|
+|`$0A`|Newline|`[LINE]`|
+|`$1D $XXXX`|Move NPC? If `$XXXX` is not `$3000` then the NPC will not face Adol|`[MOVE]`|
+|`$1D $XXXX $YYYY`|Move NPC? `$YYYY` is the direction the NPC will face|`[MOVE]`|
+|`$23 $XXXX`|Normally `#`, change colour of text based on ASCII values of $XXXX (See Colour Section)|`[HASH]`|
 |`$2F $XXXX`|Normally `/`, unknown, $XXXX is stored in little-endian|`/<$XX><$XX>`|
 |`$3B $XX`|Show character name in dialoague box (see Character section)|`[CHAR]`|
 |`$44 $XXXXXXXX`|Normally `D`, jump to new text with given Script Text (see above)|`[INDEX]`|
+|`$52 $XXXX`|Normally `R`, set textbox? If `$XXXX` is not `$3000` then it will not point to the speaker|[BOX]|
 |`$XX $80`|Print $XX number of bytes|`[LEN]`|
 |`$FF`|End text?|`[END]`|
 |`$81A5`|Normally `▼`, wait for player input|`[WAIT]`|
