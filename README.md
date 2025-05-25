@@ -42,6 +42,8 @@ In the `manual` folder are scans for the game's manual. They were originally fro
 - Cheatcodes by GodShin: [Action Replay MAX](https://www.european-codebase.de/daten.php?system=ps2&act=detail1&id=8253), [Action Replay V2](https://www.european-codebase.de/daten.php?system=ps2&act=detail1&id=8252), [Xterminator/Xploder](https://www.european-codebase.de/daten.php?system=ps2&act=detail1&id=8251)
 - Cheatcodes by [TOMBOY](https://blog.goo.ne.jp/touffu/e/c484169262662f0dd6632c97c6c695c7)
 - Cheatcodes by [warezhunter_](https://psx-core.ru/forum/2-51-45)
+- Cheatcodes by レインたんラブ [Part 1](https://jp.wazap.com/cheat/%E3%82%B3%E3%83%BC%E3%83%89/521993/) [Part 2](https://jp.wazap.com/cheat/%E3%82%B3%E3%83%BC%E3%83%89%EF%BC%92/522889/)
+- Cheatcodes by 世界のマリオ [Original post](https://jp.wazap.com/cheat/%E5%85%A8%E3%82%A8%E3%83%AC%E3%83%A1%E3%83%B3%E3%83%88%EF%BC%99%EF%BC%99%EF%BC%99%EF%BC%99/434220/) [Archived page](https://web.archive.org/web/20150104205942/http://www17.ocn.ne.jp:80/~altcodex/ys5.htm)
 - Guide and walkthrough by [VoidZankantou](https://gamefaqs.gamespot.com/ps2/921272-ys-v-lost-kefin-kingdom-of-sand/faqs/44007)
 - Guide addendum by [uncle5555](https://gamefaqs.gamespot.com/ps2/921272-ys-v-lost-kefin-kingdom-of-sand/answers/71872-help-with-getting-into-the-south-tower) (South Tower enterance requirements)
 - Review the game by [Kurt Kalata](http://www.hardcoregaming101.net/ys-v-ushinawareta-suna-no-miyako-kefin/) (includes review for original SFC game)
