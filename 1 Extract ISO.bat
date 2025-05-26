@@ -2,7 +2,7 @@
 echo Copy the original .iso next to this batch file and rename it to lostkefin.iso
 echo Extracting iso...
 isotool.py -m extract --iso lostkefin.iso --filelist filelist --files extracted
-xcopy /s /y extracted translated
+xcopy extracted translated /E /I /Y
 echo Done!
 ::echo Dumping the (raw) script from DATA.BIN to multiple files...
 ::perl scripts\abcde\abcde.pl -cm abcde::Cartographer "extracted\DATA.BIN" datacommands.txt "scripts\dump" -m

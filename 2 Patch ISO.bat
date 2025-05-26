@@ -1,5 +1,4 @@
 @echo off
-xcopy extracted translated /E /I /Y
 armips patch.asm
 echo Patching ISO. Please wait.
 perl scripts\abcde\abcde.pl --multi-table-files -cm abcde::Atlas "translated\DATA.BIN" "scripts\translated.txt"
