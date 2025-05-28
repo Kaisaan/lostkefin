@@ -1,7 +1,7 @@
 @echo off
 echo Copy the original .iso next to this batch file and rename it to lostkefin.iso
 echo Extracting iso...
-isotool.py -m extract --iso lostkefin.iso --filelist filelist --files extracted
+isotool.py -m extract --iso lostkefin.iso --filelist filelist.txt --files extracted
 xcopy extracted translated /E /I /Y
 echo Done!
 ::echo Dumping the (raw) script from DATA.BIN to multiple files...
