@@ -22,7 +22,7 @@ One pointer can have as many lines of text and has no length limitations.
   
 ### Font Info
 All text is Shift-JIS encoded with fullwidth characters being 2 bytes long and 20 pixels wide while halfwidth characters are 1 byte long and 10 pixels wide.  
-In `SLPM_663.60` the font is located at $1A3E90 as 4BPP graphics, its palette is stored at $25E4C0, and the fontmap is at $1A31F0.  
+In `SLPM_663.60` the font graphics are located at $1A3E99 as 4BPP graphics, its palette is stored at $25E4C0, and the fontmap is at $1A31F0.  
 `font.py` extracts the fontmap from `SLPM_663.60` to create a `font.tbl` table file.  
 Use `kefin.tbl` for corrected values and control codes.  
 
