@@ -15,6 +15,9 @@ Now the goal is to get a proof of concept patch working.
 - Make changes to `scripts/translated.txt`
 - Run `2 Patch ISO.bat`
 
+# Translating
+Translation is currently being done with [Google Sheets](https://docs.google.com/spreadsheets/d/1kcEely3uIDJAifqj9kn16Bky8mBBoed03CgAwd4B0W8/edit?usp=sharing) and then copied over to `scripts/translated.txt`
+
 # Hacking Notes
 - See [scriptFormat.md](https://github.com/Kaisaan/lostkefin/blob/main/scriptFormat.md) for all information about the game's script system
 - See [graphicsFormat.md](https://github.com/Kaisaan/lostkefin/blob/main/graphicsFormat.md) for all information about the game's graphics formats
