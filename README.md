@@ -53,12 +53,17 @@ In the `manual` folder are scans for the game's manual. They were originally fro
 - Review the game by [Kurt Kalata](http://www.hardcoregaming101.net/ys-v-ushinawareta-suna-no-miyako-kefin/) (includes review for original SFC game)
 - Original game website from [Taito](https://web.archive.org/web/20070804063125/http://www.taito.co.jp/d3/cp/ys/ys5/)
 
-# Credits
-- [Etokapa](https://github.com/Etokapa/) - Big help with this project! Text insertion and also making better batch files
+# Team Members
+A big thanks to these wonderful people for helping with this project! This project would not be where it is without any of them.  
 - [Sam Farron](https://www.youtube.com/@samfarron) - Allowing me to use his translation as the basis of this project
+- [Etokapa](https://github.com/Etokapa/) - Text transcribing, making better batch files, making useful scripts, testing
+- [Seiichiro Mine](https://github.com/SeiichiroMine) - Translation
+
+# Special Thanks
+- Everyone that supports me in my Discord Server](https://discord.gg/TNWGBGpZGN)
 - [Hilltop](https://x.com/HilltopWorks) - Providing valuable and informatative videos such as [hacking with Ghidra](https://youtu.be/qCEZC3cPc1s) and [PS1/PS2 graphics](https://youtu.be/lePKUCYakqM)
 - [Life Bottle Productions](https://www.lifebottle.org/#/) - Providing me with their [isotool.py script](https://github.com/lifebottle/PythonLib/blob/main/isotool.py) and their tutorial for [finding the base pointer](https://youtu.be/q5aEj-aSw50)
-- [The Geofront](https://geofront.esterior.net/) - Specifically folks on their [Discord Server](https://discord.gg/sXx2Ck6Cxn) for their support of this project
+- [The Geofront](https://geofront.esterior.net/) - Specifically folks on their [Discord Server](https://discord.gg/sXx2Ck6Cxn) for their continuing support
 - My friend for introducing me to the world of *Ys*, also the biggest Lost Kefin fan so I'm doing this for him
 - Sugunii for giving me motivation to play more *Ys*
-- Falcom for making the wonderful *Ys* series
+- Nihon Falcom for making the wonderful *Ys* series
