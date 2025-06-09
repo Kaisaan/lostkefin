@@ -70,18 +70,18 @@ These pointers are found at $2298E0 in `SLPM_663.60` and `pointer.py` can be use
 | $3 | テラ | Terra |
 | $4 | マーシャ | Massea |
 | $5 | スタン | Stein |
-| $6 | ドーマン | Dorman |
+| $6 | ドーマン | Doman |
 | $7 | リジェ | Rizze |
-| $8 | ジャビル | Javil |
-| $9 | エフィ | Efi |
+| $8 | ジャビル | Jabir |
+| $9 | エフィ | Effey |
 | $A | ケフィン王 | King Kefin |
 | $B | アルガ | Alga |
-| $C | ディオス | Deios |
-| $D | ノティス | Noties |
+| $C | ディオス | Dios |
+| $D | ノティス | Nottis |
 | $E | チェイス | Chase |
 | $F | アイシャ | Aisha |
-| $10 | ウイリー | Wilee |
-| $11 | ムバーハ | Muhaaa |
+| $10 | ウイリー | Willy |
+| $11 | ムバーハ | Mubaja |
 | $12 | バルク | Baruq |
 | $13 | アビス | Abyss |
 | $14 | カリオン | Karion |
