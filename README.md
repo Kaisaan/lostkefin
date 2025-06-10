@@ -53,9 +53,10 @@ A big thanks to these wonderful people for helping with this project! This proje
 - Cheatcodes by [warezhunter_](https://psx-core.ru/forum/2-51-45)
 - Cheatcodes by レインたんラブ [Part 1](https://jp.wazap.com/cheat/%E3%82%B3%E3%83%BC%E3%83%89/521993/) [Part 2](https://jp.wazap.com/cheat/%E3%82%B3%E3%83%BC%E3%83%89%EF%BC%92/522889/)
 - Cheatcodes by 世界のマリオ [Original post](https://jp.wazap.com/cheat/%E5%85%A8%E3%82%A8%E3%83%AC%E3%83%A1%E3%83%B3%E3%83%88%EF%BC%99%EF%BC%99%EF%BC%99%EF%BC%99/434220/) [Archived page](https://web.archive.org/web/20150104205942/http://www17.ocn.ne.jp:80/~altcodex/ys5.htm)
-- Guide and walkthrough by [VoidZankantou](https://gamefaqs.gamespot.com/ps2/921272-ys-v-lost-kefin-kingdom-of-sand/faqs/44007) (incomplete)
+- Guide by [VoidZankantou](https://gamefaqs.gamespot.com/ps2/921272-ys-v-lost-kefin-kingdom-of-sand/faqs/44007) (incomplete)
 - Guide addendum by [uncle5555](https://gamefaqs.gamespot.com/ps2/921272-ys-v-lost-kefin-kingdom-of-sand/answers/71872-help-with-getting-into-the-south-tower) (South Tower enterance requirements)
-- Guide and walkthrough by [Markia](http://maturikasann.web.fc2.com/a/1/falcom/ystop/5ps2/5ps2.html)
+- Guide by [Markia](http://maturikasann.web.fc2.com/a/1/falcom/ystop/5ps2/5ps2.html) (in Japanese)
+- Guide by [Sugimo.](https://web.archive.org/web/20090922030050/http://homepage1.nifty.com:80/sugimo/falcom/ys/ys5guide2.htm) (archived, in Japanese)
 - Review the game by [Kurt Kalata](http://www.hardcoregaming101.net/ys-v-ushinawareta-suna-no-miyako-kefin/) (includes review for original SFC game)
 - Original game website from [Taito](https://web.archive.org/web/20070804063125/http://www.taito.co.jp/d3/cp/ys/ys5/) (archived)
 
