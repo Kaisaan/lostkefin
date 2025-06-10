@@ -38,6 +38,12 @@ Translation is currently being done with [Google Sheets](https://docs.google.com
 # Game Manual Translation
 In the `manual` folder are scans for the game's manual. They were originally from [landofys.narod.ru](https://landofys.narod.ru/) which is now [landofys.com.ru](http://landofys.com.ru/) was scanned by Dragon.
 
+# Team Members
+A big thanks to these wonderful people for helping with this project! This project would not be where it is without any of them.  
+- [Sam Farron](https://www.youtube.com/@samfarron) - Allowing me to use his translation as the basis of this project
+- [Etokapa](https://github.com/Etokapa/) - Text transcribing, making better batch files, making useful scripts, testing
+- [Seiichiro Mine](https://github.com/SeiichiroMine) - Translation
+
 # Related Materials
 - Translation of opening cutscene by [mziab](https://www.romhacking.net/forum/index.php?topic=28379.0) (I did not use this translation)
 - Hacking attempt by [Hectavus](https://zenhax.com/viewtopic.php@t=15249.html) with only `SLPM_663.60` being translated
@@ -47,17 +53,11 @@ In the `manual` folder are scans for the game's manual. They were originally fro
 - Cheatcodes by [warezhunter_](https://psx-core.ru/forum/2-51-45)
 - Cheatcodes by レインたんラブ [Part 1](https://jp.wazap.com/cheat/%E3%82%B3%E3%83%BC%E3%83%89/521993/) [Part 2](https://jp.wazap.com/cheat/%E3%82%B3%E3%83%BC%E3%83%89%EF%BC%92/522889/)
 - Cheatcodes by 世界のマリオ [Original post](https://jp.wazap.com/cheat/%E5%85%A8%E3%82%A8%E3%83%AC%E3%83%A1%E3%83%B3%E3%83%88%EF%BC%99%EF%BC%99%EF%BC%99%EF%BC%99/434220/) [Archived page](https://web.archive.org/web/20150104205942/http://www17.ocn.ne.jp:80/~altcodex/ys5.htm)
-- Guide and walkthrough by [VoidZankantou](https://gamefaqs.gamespot.com/ps2/921272-ys-v-lost-kefin-kingdom-of-sand/faqs/44007)
+- Guide and walkthrough by [VoidZankantou](https://gamefaqs.gamespot.com/ps2/921272-ys-v-lost-kefin-kingdom-of-sand/faqs/44007) (incomplete)
 - Guide addendum by [uncle5555](https://gamefaqs.gamespot.com/ps2/921272-ys-v-lost-kefin-kingdom-of-sand/answers/71872-help-with-getting-into-the-south-tower) (South Tower enterance requirements)
 - Guide and walkthrough by [Markia](http://maturikasann.web.fc2.com/a/1/falcom/ystop/5ps2/5ps2.html)
 - Review the game by [Kurt Kalata](http://www.hardcoregaming101.net/ys-v-ushinawareta-suna-no-miyako-kefin/) (includes review for original SFC game)
-- Original game website from [Taito](https://web.archive.org/web/20070804063125/http://www.taito.co.jp/d3/cp/ys/ys5/)
-
-# Team Members
-A big thanks to these wonderful people for helping with this project! This project would not be where it is without any of them.  
-- [Sam Farron](https://www.youtube.com/@samfarron) - Allowing me to use his translation as the basis of this project
-- [Etokapa](https://github.com/Etokapa/) - Text transcribing, making better batch files, making useful scripts, testing
-- [Seiichiro Mine](https://github.com/SeiichiroMine) - Translation
+- Original game website from [Taito](https://web.archive.org/web/20070804063125/http://www.taito.co.jp/d3/cp/ys/ys5/) (archived)
 
 # Special Thanks
 - Everyone that supports me in my Discord Server](https://discord.gg/TNWGBGpZGN)
