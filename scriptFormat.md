@@ -26,7 +26,9 @@ In `SLPM_663.60` the font graphics are located at $1A3E99 as 4BPP graphics, its 
 `font.py` extracts the fontmap from `SLPM_663.60` to create a `font.tbl` table file.  
 Use `kefin.tbl` for corrected values and control codes.  
 
-### Control codes
+### Control Codes
+Control codes and related info can be found at the function located at `$4CE00` in `SLPM_663.60` (Loaded into `$0014CD80`)
+
 |Hex Values|Meaning|Table file|
 |---|---|---|
 |`$0A`|Newline|`[LINE]`|
@@ -56,7 +58,10 @@ White is the default colour for text.
 |`$70 $69`|`pi`|Pink|   |
 |`$79 $6C`|`yl`|Yellow|   |
 |`$72 $65`|`re`|Red|   |
- 
+|`$62 $6B`|`bk`|Black|   |
+|`$67 $6C`|`gl`|Gray|   |
+|`$63 $79`|`cy`|Cyan|   | 
+
 
 #### Characters
 The value of the `$3B` Character control code comes from the index value from a list of pointers.  
