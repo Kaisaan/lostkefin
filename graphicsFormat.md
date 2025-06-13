@@ -82,13 +82,14 @@ The rest of each frame is usually empty and padded to be a total of $60 bytes.
 The image data is $10 bytes long per image. It is located based on the offset in the file header. They are formatted as follows:  
 |Size|Description|
 |---|---|
-|$2|Image Width|
-|$2|Image Height|
-|$2|Image Width for VRAM|
-|$2|Image Height for VRAM|
-|$4|Image Offset , calculated as (Image Data Offset + Image Offset)|
+|$2|Image Width in-game?|
+|$2|Image Height in-game?|
+|$2|Image Data Width|
+|$2|Image Data Height|
+|$4|Image Offset, calculated as (Image Data Offset + Image Offset)|
 |$4|Image Index|
 
 ## Images
 
-Images are based on the palette info.
+Images are indexed on the palette info.  
+The size (in bytes) of each image's data is Image Data Width * Image Data Height
