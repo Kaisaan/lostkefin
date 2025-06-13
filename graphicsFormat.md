@@ -14,7 +14,8 @@ Textures for 3D models. 2-dimensional, 32BPP (RGBA8888) encoded.
 
 # Sprite Files
 
-`.bin` files whose filenames end with `_anm`.
+`.bin` files whose filenames end with `_anm`.  
+`graphics.py` can be used to extract all sprites from a given file.
 
 ## Header
 
@@ -34,7 +35,8 @@ The `NAXA5010` file header indicates that it is a sprite file.
 ## Palette
 
 The Palette (or CLUT) data always starts at $20 in the file and is either $10 colours or $100 colours. Each colour is 32 bits in RGBA8 format.  
-The size of the palette determines if the image data is either 4-bits or 8-bits respectively
+The size of the palette determines if the image data is either 4 bits per pixel or 8 bits per pixel respectively.  
+**The Palette data is Swizzled**
 
 ## Animation Data
 
