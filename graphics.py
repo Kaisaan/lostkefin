@@ -1,6 +1,7 @@
 from PIL import Image
 import sys
 import numpy as np
+from struct import pack
 
 def intlit(bytes):
     return int.from_bytes(bytes, "little")
@@ -41,7 +42,6 @@ if (clutSize == 256):
     bpp = 8
 elif (clutSize == 16):
     bpp = 4
-    quit("4 BPP Image not supported yet")
 else:
     quit("other BPP Image not supported yet")
 
@@ -115,9 +115,9 @@ if clutSize == 256:
         colours = graphic.read(sectionSize)
         clut = clut + colours
 
-#clut = graphic.read(clutSize * palSize)
-
-#print(clut)
+elif bpp == 4:
+    clut = graphic.read(clutSize * palSize) 
+    print(clut)
 
 #PIL.ImagePalette.ImagePalette("RGBA", clut)
 
@@ -166,10 +166,19 @@ for x in range(sprCount):
     #print(sprDataSize)
     
     graphic.seek(pxlOffset + sprOffset)
-    sprData = graphic.read(sprDataSize)
+
     #print(sprData)
 
     #if (bpp == 4):
+
+    if (bpp == 4):
+        sprData4 = graphic.read(sprDataSize)
+        sprData = b""
+        for byte in sprData4:
+            # These might be backwards
+            sprData += pack("bb", byte & 0xF, byte >> 4)
+    else: 
+        sprData = graphic.read(sprDataSize)
 
     sprite = Image.frombytes("P", sprSize, bytes(sprData))
     sprite.putpalette(clut, rawmode="RGBA")
