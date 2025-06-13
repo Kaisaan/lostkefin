@@ -4,12 +4,19 @@ length = 0
 counter = 0
 string = ''
 
+colours = {"[GREEN]":"#gr", "[WHITE]":"#wh"}
+
 print("Type/Paste your text and then Enter")
 
 while (line := input()):
     string += line
 
 #string = (input("Enter a string ").replace('\n', " "))
+
+for key in colours.keys():
+    string = string.replace(key, colours[key])
+
+print(string)
 
 length = len(string)
 
@@ -19,7 +26,7 @@ length = len(string)
 #         print(char)
 #         length += 1
 
-length = length + string.count(",")
+# length = length + string.count(",")
 
 counter = string.count("[PAUSE]")
 
@@ -41,6 +48,14 @@ if (counter > 0):
     print(f"{counter} line")
     length = length - (counter * 5)
     counter = 0
+
+counter = string.count("[WAIT]")
+
+if (counter > 0):
+    print(f"{counter} wait")
+    length = length - (counter * 4)
+    counter = 0
+
 
 char = chr(length)
 
