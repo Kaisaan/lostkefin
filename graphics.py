@@ -152,10 +152,10 @@ for x in range(sprCount):
     entry = x * 0x10
 
     graphic.seek(pxlOffset + entry)
-    sprW = intlit(graphic.read(2))
-    sprH = intlit(graphic.read(2))
     sprWvram = intlit(graphic.read(2))
     sprHvram = intlit(graphic.read(2))
+    sprW = intlit(graphic.read(2))
+    sprH = intlit(graphic.read(2))
     sprOffset = intlit(graphic.read(4))
     sprIndex = intlit(graphic.read(4))
 
