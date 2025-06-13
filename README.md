@@ -65,6 +65,7 @@ A big thanks to these wonderful people for helping with this project! This proje
 - [Hilltop](https://x.com/HilltopWorks) - Providing valuable and informatative videos such as [hacking with Ghidra](https://youtu.be/qCEZC3cPc1s) and [PS1/PS2 graphics](https://youtu.be/lePKUCYakqM)
 - [Life Bottle Productions](https://www.lifebottle.org/#/) - Providing me with their [isotool.py script](https://github.com/lifebottle/PythonLib/blob/main/isotool.py) and their tutorial for [finding the base pointer](https://youtu.be/q5aEj-aSw50)
 - [The Geofront](https://geofront.esterior.net/) - Specifically folks on their [Discord Server](https://discord.gg/sXx2Ck6Cxn) for their continuing support
+- [Evie](https://github.com/Epicpkmn11) - Helping with getting `graphics.py` working properly
 - My friend for introducing me to the world of *Ys*, also the biggest Lost Kefin fan so I'm doing this for him
 - Sugunii for giving me motivation to play more *Ys*
 - Nihon Falcom for making the wonderful *Ys* series
