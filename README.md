@@ -1,12 +1,11 @@
 # Ys V: Lost Kefin - Kingdom of Sand (PS2) English Translation
-Currently using Sam Farron's translation from his [Translation Series](https://www.youtube.com/playlist?list=PLoD4gkRCJkUcgfpU5puBqYy5DX-RJK--b) with permission  
+Currently using Sam Farron's translation as a basis from his [Translation Series](https://www.youtube.com/playlist?list=PLoD4gkRCJkUcgfpU5puBqYy5DX-RJK--b) with permission.
 
-# How to Help
-Since this translation project currently uses an existing translation, it would be helpful to have people transcribing all the text in Sam Farron's playthrough since I'm focusing on the hacking side of things.  
-**If you want to help with the translation please [contact me!](https://kaisaan.github.io/pages/contact)**
+# How to Help 
+If you want to help with the translation please join the project's [Discord Server](https://discord.gg/TNWGBGpZGN) or otherwise [contact me](https://kaisaan.github.io/pages/contact).
 
 # Current Progress  
-Script extract and insertion is now done with [acbde](https://www.romhacking.net/utilities/1392/) with miscellanous text being patched in with [armips](https://github.com/Kingcom/armips).  
+Script extraction and insertion is now done with [acbde](https://www.romhacking.net/utilities/1392/) with miscellanous text being patched in with [armips](https://github.com/Kingcom/armips).  
 Now the goal is to get a proof of concept patch working.
 
 # Building
@@ -29,11 +28,10 @@ Translation is currently being done with [Google Sheets](https://docs.google.com
 `extract.py` extracts all the files and folders from DATA.BIN into the `DATA` folder (but does not extract the files into their correct folders yet) and all files from DATA0.bin into the `DATA0` folder, a `logfile.txt` is also created
 
 # To do
-- Fix textbox sizes
-- Figure out all the control codes properly
-- Update the extraction script to extract `DATA0.BIN` folders, `DATA1.BIN`, and `SLPM_663.60`
-- Continue inserting the English script
-- Extract, edit, and reinsert graphics
+- Update the extraction script to extract `DATA0.BIN` folders, files `DATA1.BIN`, and possibly text from `SLPM_663.60`
+- Continue translating and inserting English script
+- Edit and reinsert graphics
+- Translate manual
 
 # Game Manual Translation
 In the `manual` folder are scans for the game's manual. They were originally from [landofys.narod.ru](https://landofys.narod.ru/) which is now [landofys.com.ru](http://landofys.com.ru/) was scanned by Dragon.
@@ -61,9 +59,9 @@ A big thanks to these wonderful people for helping with this project! This proje
 - Original game website from [Taito](https://web.archive.org/web/20070804063125/http://www.taito.co.jp/d3/cp/ys/ys5/) (archived)
 
 # Special Thanks
-- Everyone that supports me in my Discord Server](https://discord.gg/TNWGBGpZGN)
-- [Hilltop](https://x.com/HilltopWorks) - Providing valuable and informatative videos such as [hacking with Ghidra](https://youtu.be/qCEZC3cPc1s) and [PS1/PS2 graphics](https://youtu.be/lePKUCYakqM)
-- [Life Bottle Productions](https://www.lifebottle.org/#/) - Providing me with their [isotool.py script](https://github.com/lifebottle/PythonLib/blob/main/isotool.py) and their tutorial for [finding the base pointer](https://youtu.be/q5aEj-aSw50)
+- Everyone that supports me in my [Discord Server](https://discord.gg/TNWGBGpZGN)
+- [Hilltop](https://x.com/HilltopWorks) - Providing valuable and informatative videos such as [hacking with Ghidra](https://youtu.be/qCEZC3cPc1s) and [info on PS2 graphics](https://youtu.be/lePKUCYakqM)
+- [Life Bottle Productions](https://www.lifebottle.org/#/) - Providing me with their [isotool.py script](https://github.com/lifebottle/PythonLib/blob/main/isotool.py), their tutorial for [finding the base pointer](https://youtu.be/q5aEj-aSw50), and for having many supportive folks in their [Discord Server](https://discord.gg/rhQBXHKF3J)
 - [The Geofront](https://geofront.esterior.net/) - Specifically folks on their [Discord Server](https://discord.gg/sXx2Ck6Cxn) for their continuing support
 - [Evie](https://github.com/Epicpkmn11) - Helping with getting `graphics.py` working properly
 - My friend for introducing me to the world of *Ys*, also the biggest Lost Kefin fan so I'm doing this for him
