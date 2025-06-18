@@ -1,6 +1,5 @@
 from PIL import Image
 import sys
-import numpy as np
 from struct import pack
 
 def intlit(bytes):
@@ -77,14 +76,12 @@ graphic.seek(clutOffset)
 
 clutPos = clutOffset
 
-if clutSize == 256:
+if bpp == 8:
 
     for i in range(8):
         palOffset = i * 0x80
         print("paloffset")
         print(f"{palOffset:X}")
-
-
 
         clutPos = (clutOffset + (palOffset + 0))
         print("clutpos")
@@ -102,14 +99,13 @@ if clutSize == 256:
         clut = clut + colours
 
         clutPos = (clutOffset + (palOffset + (0x20)))
-
         print(f"{clutPos:X}")
         graphic.seek(clutPos)
         colours = graphic.read(sectionSize)
         clut = clut + colours
 
-        clutPos = (clutOffset + (palOffset + (0x60)))
 
+        clutPos = (clutOffset + (palOffset + (0x60)))
         print(f"{clutPos:X}")
         graphic.seek(clutPos)
         colours = graphic.read(sectionSize)
@@ -117,7 +113,8 @@ if clutSize == 256:
 
 elif bpp == 4:
     clut = graphic.read(clutSize * palSize) 
-    print(clut)
+
+
 
 #PIL.ImagePalette.ImagePalette("RGBA", clut)
 
