@@ -42,6 +42,7 @@ A big thanks to these wonderful people for helping with this project! This proje
 - [Etokapa](https://github.com/Etokapa/) - Text transcribing, making better batch files, making useful scripts, testing
 - [Seiichiro Mine](https://github.com/SeiichiroMine) - Translation
 - [Sorcerian](https://bsky.app/profile/sorcerian.bsky.social) - Graphics Editing
+- [Livi](https://bsky.app/profile/anonymusaxolotl.bsky.social) - Translation Editing
 
 # Related Materials
 - Translation of opening cutscene by [mziab](https://www.romhacking.net/forum/index.php?topic=28379.0) (I did not use this translation)
