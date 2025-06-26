@@ -26,8 +26,11 @@ In `SLPM_663.60` the font graphics are located at $1A3E99 as 4BPP graphics, its 
 `font.py` extracts the fontmap from `SLPM_663.60` to create a `font.tbl` table file.  
 Use `kefin.tbl` for corrected values and control codes.  
 
+### Textbox Sizing
+The calculations for the size of the textbox can be found at the function located at `$4CE00` in `SLPM_663.60` (Loaded into `$0014CD80`)
+
 ### Control Codes
-Control codes and related info can be found at the function located at `$4CE00` in `SLPM_663.60` (Loaded into `$0014CD80`)
+Code that parses through the script files is located at `0x1BF0E0. The table of opcode handlers is at `0x331EC0.`
 
 |Hex Values|Meaning|Table file|
 |---|---|---|

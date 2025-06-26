@@ -44,7 +44,7 @@ A big thanks to these wonderful people for helping with this project! This proje
 - [Sorcerian](https://bsky.app/profile/sorcerian.bsky.social) - Graphics Editing
 - [Livi](https://bsky.app/profile/anonymusaxolotl.bsky.social) - Translation Editing
 - Sabera - Translation
-- Everdred - Programming, Hacking
+- [Everdred](https://github.com/cschmidt0121) - Programming, Hacking
 
 # Related Materials
 - Translation of opening cutscene by [mziab](https://www.romhacking.net/forum/index.php?topic=28379.0) (I did not use this translation)
