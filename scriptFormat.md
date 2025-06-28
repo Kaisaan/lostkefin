@@ -51,7 +51,7 @@ Code that parses through the script files is located at `0x1BF0E0`. The table of
 | 0x1d | - | 4 |
 | 0x1e | - | 10 |
 | 0x20 | - | 4 |
-| 0x28 | choice | 3 bytes then XX80 read XX bytes. 1 byte, XX80, XX bytes |
+| 0x28 | choice* | See below |
 | 0x2f | - | 3 |
 | 0x30 | - | 2 |
 | 0x31 | - | 2 |
@@ -76,6 +76,23 @@ Code that parses through the script files is located at `0x1BF0E0`. The table of
 | 0x59 | - | 3 |
 | 0x5a | end VN dialog | 1 |
 | 0xFF | end script. stop parsing here | 1 |
+
+### Choices
+
+The choice opcode encodes the text of a question, the text of both responses, and indices to where to jump to in the script based on the response. 
+
+`0x28 0xAA 0xBB` where AA and BB are some params, 
+
+`0xXX 0x80 <question>...` for the question text, XX is # of bytes
+
+`0xCC` where CC is another param.
+`0xXX 0x80 <response 1>... 0xYY 0xYY 0xYY 0xYY` where YY is index to jump to if this option is chosen. XX is # of bytes
+
+`0xZZ 0xXX 0x80 <response 2>... 0xZZ 0xZZ 0xZZ 0xZZ` where ZZ is index to jump to if this option is chosen. XX is # of bytes
+
+`0xFF` to terminate the sequence
+
+It's possible >2 options can be present, I think.
 
 ### Control Codes
 Control codes occur mixed in with text and affect its formatting. (Everdred note: I think some of these are actually opcodes but not positive yet)
