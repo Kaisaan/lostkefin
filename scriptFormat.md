@@ -86,6 +86,7 @@ The choice opcode encodes the text of a question, the text of both responses, an
 `0xXX 0x80 <question>...` for the question text, XX is # of bytes
 
 `0xCC` where CC is another param.
+
 `0xXX 0x80 <response 1>... 0xYY 0xYY 0xYY 0xYY` where YY is index to jump to if this option is chosen. XX is # of bytes
 
 `0xZZ 0xXX 0x80 <response 2>... 0xZZ 0xZZ 0xZZ 0xZZ` where ZZ is index to jump to if this option is chosen. XX is # of bytes
