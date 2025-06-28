@@ -29,8 +29,56 @@ Use `kefin.tbl` for corrected values and control codes.
 ### Textbox Sizing
 The calculations for the size of the textbox can be found at the function located at `$4CE00` in `SLPM_663.60` (Loaded into `$0014CD80`)
 
-### Control Codes
+# Opcodes
+Each script is a series of opcodes, each with 0 or more bytes of data passed as parameters. Below is a WIP table of what opcodes do and how many bytes they take up.
 Code that parses through the script files is located at `0x1BF0E0. The table of opcode handlers is at `0x331EC0.`
+
+# Script Command Reference
+
+| Command | Description | Size/Format |
+|---------|-------------|-------------|
+| 0x4 | - | 1 |
+| 0x5 | - | 1 |
+| 0x6 | - | 1 |
+| 0x7 | - | 2 |
+| 0xa | text | 5 bytes then XX80 read XX bytes |
+| 0xe | - | 2 |
+| 0x10 | Init? | 1 |
+| 0x11 | - | 1 |
+| 0x12 | - | 1 |
+| 0x15 | - | 3 |
+| 0x18 | - | 4 |
+| 0x1d | - | 4 |
+| 0x1e | - | 10 |
+| 0x20 | - | 4 |
+| 0x28 | choice | 3 bytes then XX80 read XX bytes. 1 byte, XX80, XX bytes |
+| 0x2f | - | 3 |
+| 0x30 | - | 2 |
+| 0x31 | - | 2 |
+| 0x36 | - | 10 |
+| 0x37 | camera pan? | 11 |
+| 0x3b | - | 3 bytes then XX80 read XX bytes |
+| 0x3f | - | 2 |
+| 0x40 | - | 2 |
+| 0x44 | - | 6 ? |
+| 0x45 | - | 2 |
+| 0x47 | - | 2 |
+| 0x48 | - | 2 |
+| 0x49 | - | 3 |
+| 0x4c | fadeout? | 2 |
+| 0x4d | cutscene? | 2 |
+| 0x4f | - | 3 |
+| 0x50 | - | 7 |
+| 0x51 | - | 1 |
+| 0x52 | - | reads 2 bytes then XX80 read XX bytes |
+| 0x53 | - | 3 |
+| 0x55 | - | 1 |
+| 0x59 | - | 3 |
+| 0x5a | end VN dialog | 1 |
+| 0xFF | end script. stop parsing here | 1 |
+
+### Control Codes
+Control codes occur mixed in with text and affect its formatting. (Everdred note: I think some of these are actually opcodes but not positive yet)
 
 |Hex Values|Meaning|Table file|
 |---|---|---|
