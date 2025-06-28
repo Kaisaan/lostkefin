@@ -31,7 +31,7 @@ The calculations for the size of the textbox can be found at the function locate
 
 # Opcodes
 Each script is a series of opcodes, each with 0 or more bytes of data passed as parameters. Below is a WIP table of what opcodes do and how many bytes they take up.
-Code that parses through the script files is located at `0x1BF0E0. The table of opcode handlers is at `0x331EC0.`
+Code that parses through the script files is located at `0x1BF0E0`. The table of opcode handlers is at `0x331EC0.`
 
 # Script Command Reference
 
