@@ -34,7 +34,7 @@ class CutsceneText():
     @classmethod
     def from_io(cls, io):
         arg_bytes = io.read(4)
-        s_len = int.from_bytes(io.read(1), 'big')
+        s_len = int.from_bytes(io.read(1), 'little')
         
         text = read_string(io, s_len)
         return cls(arg_bytes, text)
@@ -46,7 +46,7 @@ class Unkn_7():
 
     @classmethod
     def from_io(cls, io):
-        arg = int.from_bytes(io.read(1), 'big')
+        arg = int.from_bytes(io.read(1), 'little')
         return cls(arg)
 
 class Unkn_49():
@@ -75,13 +75,21 @@ class Unkn_6():
     def from_io(cls, io):
         return cls()
 
+class Unkn_C():
+    opcode = 0xc
+    def __init__(self):
+        pass
+    @classmethod
+    def from_io(cls, io):
+        return cls()
+
 class Unkn_E():
     opcode = 0xe
     def __init__(self, arg: int):
         self.arg = arg
     @classmethod
     def from_io(cls, io):
-        arg = int.from_bytes(io.read(1), 'big')
+        arg = int.from_bytes(io.read(1), 'little')
         return cls(arg)
 
 class Unkn_10():
@@ -163,19 +171,19 @@ class Choice():
     @classmethod
     def from_io(cls, io):
         arg_bytes = io.read(2)
-        s_len = int.from_bytes(io.read(1), 'big')
+        s_len = int.from_bytes(io.read(1), 'little')
 
         question_text = read_string(io, s_len)
 
         responses = []
         indices = []
         while True:
-            s_len = int.from_bytes(io.read(1), 'big')
+            s_len = int.from_bytes(io.read(1), 'little')
 
             if s_len == 255:
                 break
             response = read_string(io, s_len)
-            index = int.from_bytes(io.read(4), 'big')
+            index = int.from_bytes(io.read(4), 'little')
             responses.append(response)
             indices.append(index)
             if index == 0:
@@ -197,7 +205,7 @@ class Unkn_30():
         self.arg = arg
     @classmethod
     def from_io(cls, io):
-        arg = int.from_bytes(io.read(1), 'big')
+        arg = int.from_bytes(io.read(1), 'little')
         return cls(arg)
 
 class Unkn_31():
@@ -206,7 +214,7 @@ class Unkn_31():
         self.arg = arg
     @classmethod
     def from_io(cls, io):
-        arg = int.from_bytes(io.read(1), 'big')
+        arg = int.from_bytes(io.read(1), 'little')
         return cls(arg)
 
 class Unkn_36():
@@ -235,12 +243,26 @@ class QuestionResponse():
     @classmethod
     def from_io(cls, io):
         arg_bytes = io.read(2)
-        s_len = int.from_bytes(io.read(1), 'big')
-        unknown = io.read(1)
-        if unknown != b'\x80':
-            raise ValueError(f"Unknown byte {unknown} is not 0x80 in QuestionResponse")
-        text = io.read(s_len).decode('shift-jis')
+        s_len = int.from_bytes(io.read(1), 'little')
+        text = read_string(io, s_len)
         return cls(arg_bytes, text) 
+
+
+class ConditionalRelativeJump():
+    opcode = 0x3c
+    def __init__(self, target: int, type: int):
+        # Target is how many bytes 
+        self.target = target
+        self.type = type
+    @classmethod
+    def from_io(cls, io):
+        target = int.from_bytes(io.read(2), 'little')
+        type = int.from_bytes(io.read(2), 'little')
+        if type != 0x46:
+            raise ValueError(f"Unknown conditional jump type {type}")
+
+        return cls(target, type)
+    
 
 class Unkn_3F():
     opcode = 0x3f
@@ -248,7 +270,7 @@ class Unkn_3F():
         self.arg = arg
     @classmethod
     def from_io(cls, io):
-        arg = int.from_bytes(io.read(1), 'big')
+        arg = int.from_bytes(io.read(1), 'little')
         return cls(arg)
 
 class Unkn_40():
@@ -257,17 +279,17 @@ class Unkn_40():
         self.arg = arg
     @classmethod
     def from_io(cls, io):
-        arg = int.from_bytes(io.read(1), 'big')
+        arg = int.from_bytes(io.read(1), 'little')
         return cls(arg)
 
-class Unkn_44():
+class UnconditionalJump():
     opcode = 0x44
-    def __init__(self, arg_bytes: bytes):
-        self.arg_bytes = arg_bytes
+    def __init__(self, target_index: int):
+        self.target_index = target_index
     @classmethod
     def from_io(cls, io):
-        arg_bytes = io.read(5)
-        return cls(arg_bytes)
+        target_index = int.from_bytes(io.read(4), 'little')
+        return cls(target_index)
 
 class Unkn_45():
     opcode = 0x45
@@ -275,7 +297,7 @@ class Unkn_45():
         self.arg = arg
     @classmethod
     def from_io(cls, io):
-        arg = int.from_bytes(io.read(1), 'big')
+        arg = int.from_bytes(io.read(1), 'little')
         return cls(arg)
 
 class Unkn_47():
@@ -284,7 +306,7 @@ class Unkn_47():
         self.arg = arg
     @classmethod
     def from_io(cls, io):
-        arg = int.from_bytes(io.read(1), 'big')
+        arg = int.from_bytes(io.read(1), 'little')
         return cls(arg)
 
 class Unkn_48():
@@ -293,7 +315,7 @@ class Unkn_48():
         self.arg = arg
     @classmethod
     def from_io(cls, io):
-        arg = int.from_bytes(io.read(1), 'big')
+        arg = int.from_bytes(io.read(1), 'little')
         return cls(arg)
 
 class Unkn_4C():
@@ -302,7 +324,7 @@ class Unkn_4C():
         self.arg = arg
     @classmethod
     def from_io(cls, io):
-        arg = int.from_bytes(io.read(1), 'big')
+        arg = int.from_bytes(io.read(1), 'little')
         return cls(arg)
 
 class Unkn_4D():
@@ -311,8 +333,16 @@ class Unkn_4D():
         self.arg = arg
     @classmethod
     def from_io(cls, io):
-        arg = int.from_bytes(io.read(1), 'big')
+        arg = int.from_bytes(io.read(1), 'little')
         return cls(arg)
+
+class Unkn_4E():
+    opcode = 0x4e
+    def __init__(self):
+        pass
+    @classmethod
+    def from_io(cls, io):
+        return cls()
 
 class Unkn_4F():
     opcode = 0x4f
@@ -340,7 +370,7 @@ class Unkn_51():
     def from_io(cls, io):
         return cls()
 
-class Unkn_52():
+class TextBubble():
     opcode = 0x52
     def __init__(self, arg_bytes, text):
         self.arg_bytes = arg_bytes
@@ -348,7 +378,7 @@ class Unkn_52():
     @classmethod
     def from_io(cls, io):
         arg_bytes = io.read(2)
-        s_len = int.from_bytes(io.read(1), 'big')
+        s_len = int.from_bytes(io.read(1), 'little')
         unknown = io.read(1)
         if unknown != b'\x80':
             raise ValueError(f"Unknown byte {unknown} is not 0x80 in Unkn_52")
@@ -389,6 +419,15 @@ class EndVNSection():
     def from_io(cls, io):
         return cls()
 
+class Unkn_60():
+    opcode = 0x60
+    def __init__(self, arg_bytes: bytes):
+        self.arg_bytes = arg_bytes
+    @classmethod
+    def from_io(cls, io):
+        arg_bytes = io.read(2)
+        return cls(arg_bytes)
+
 class EndScript():
     opcode = 0xff
     def __init__(self):
@@ -401,7 +440,7 @@ opcodes = {
     0x4: Unkn_4,
     0x7: Unkn_7,
     0xa: CutsceneText,
-    0x49: Unkn_49,
+    0xc: Unkn_C,
     0x5: Unkn_5,
     0x6: Unkn_6,
     0xe: Unkn_E,
@@ -420,33 +459,52 @@ opcodes = {
     0x36: Unkn_36,
     0x37: CameraPan,
     0x3b: QuestionResponse,
+    0x3c: ConditionalRelativeJump,
     0x3f: Unkn_3F,
     0x40: Unkn_40,
-    0x44: Unkn_44,
+    0x44: UnconditionalJump,
     0x45: Unkn_45,
     0x47: Unkn_47,
     0x48: Unkn_48,
+    0x49: Unkn_49,
     0x4c: Unkn_4C,
     0x4d: Unkn_4D,
+    0x4e: Unkn_4E,
     0x4f: Unkn_4F,
     0x50: Unkn_50,
     0x51: Unkn_51,
-    0x52: Unkn_52,
+    0x52: TextBubble,
     0x53: Unkn_53,
     0x55: Unkn_55,
     0x59: Unkn_59,
     0x5a: EndVNSection,
+    0x60: Unkn_60,
     0xff: EndScript,
 }
 
-with open("../stage00.bin", "rb") as f:
-    f.seek(0x203a)
+def parse_script(fp, index, pointer):
+    print(f"parsing script {index} at {hex(pointer)}")
+    fp.seek(0x2000 + pointer)
     while True:
-        opcode = int.from_bytes(f.read(1), 'big')
+        opcode = int.from_bytes(fp.read(1), 'little')
         if opcode == 0xff:
             break
         if opcode not in opcodes:
-            raise ValueError(f"Unknown opcode {opcode}")
-        op = opcodes[opcode].from_io(f)
+            raise ValueError(f"Unknown opcode {hex(opcode)}")
+        op = opcodes[opcode].from_io(fp)
         print(op)
     print("done")
+
+scripts = []
+with open("../stage00.bin", "rb") as f:
+    while True:
+        if f.tell() >= 0x2000:
+            break
+        index = int.from_bytes(f.read(0x4), 'little')
+        pointer = int.from_bytes(f.read(0x4), 'little')
+        scripts.append((index, pointer))
+        if index == 0:
+            break
+    for index, pointer in scripts:
+        parse_script(f, index, pointer)
+

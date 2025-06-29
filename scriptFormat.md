@@ -33,6 +33,10 @@ The calculations for the size of the textbox can be found at the function locate
 Each script is a series of opcodes, each with 0 or more bytes of data passed as parameters. Below is a WIP table of what opcodes do and how many bytes they take up.
 Code that parses through the script files is located at `0x1BF0E0`. The table of opcode handlers is at `0x331EC0.`
 
+# Strings
+
+Prefixed by XXYY where XX is the length in bytes (NOT including those two bytes) and YY is a mysterious value that so far has only ever been 0x80. SJIS-encoded.
+
 # Script Command Reference
 
 | Command | Description | Size/Format |
@@ -41,7 +45,7 @@ Code that parses through the script files is located at `0x1BF0E0`. The table of
 | 0x5 | - | 1 |
 | 0x6 | - | 1 |
 | 0x7 | - | 2 |
-| 0xa | text | 5 bytes then XX80 read XX bytes |
+| 0xa | text | 5 bytes + a string (see Strings section) |
 | 0xe | - | 2 |
 | 0x10 | Init? | 1 |
 | 0x11 | - | 1 |
@@ -51,16 +55,17 @@ Code that parses through the script files is located at `0x1BF0E0`. The table of
 | 0x1d | - | 4 |
 | 0x1e | - | 10 |
 | 0x20 | - | 4 |
-| 0x28 | choice* | See below |
+| 0x28 | choice* | See Choices section |
 | 0x2f | - | 3 |
 | 0x30 | - | 2 |
 | 0x31 | - | 2 |
 | 0x36 | - | 10 |
 | 0x37 | camera pan? | 11 |
-| 0x3b | - | 3 bytes then XX80 read XX bytes |
+| 0x3b | - | 3 bytes + a string (see Strings section) |
+| 0x3c | conditional relative jump | 5 |
 | 0x3f | - | 2 |
 | 0x40 | - | 2 |
-| 0x44 | - | 6 ? |
+| 0x44 | unconditional jump | 4 (index from table at top of file) |
 | 0x45 | - | 2 |
 | 0x47 | - | 2 |
 | 0x48 | - | 2 |
@@ -70,12 +75,23 @@ Code that parses through the script files is located at `0x1BF0E0`. The table of
 | 0x4f | - | 3 |
 | 0x50 | - | 7 |
 | 0x51 | - | 1 |
-| 0x52 | - | reads 2 bytes then XX80 read XX bytes |
+| 0x52 | text bubble | reads 2 bytes + a string (see Strings section)|
 | 0x53 | - | 3 |
 | 0x55 | - | 1 |
 | 0x59 | - | 3 |
 | 0x5a | end VN dialog | 1 |
 | 0xFF | end script. stop parsing here | 1 |
+
+### Conditional relative jump (opcode 0x3c)
+
+Based on a condition type, will check some other areas of memory and either jump ahead X bytes, or just execute the next instruction. 
+
+For example: 
+3C 05 00 46 00 4E 44
+
+This is a 0x46 type jump which will jump 5 bytes ahead if true. So it will either execute the next opcode (0x4e) or jump 5 bytes (0x44).
+
+I've only looked at type 0x46 so far.
 
 ### Choices
 
@@ -84,8 +100,6 @@ The choice opcode encodes the text of a question, the text of both responses, an
 `0x28 0xAA 0xBB` where AA and BB are some params, 
 
 `0xXX 0x80 <question>...` for the question text, XX is # of bytes
-
-`0xCC` where CC is another param.
 
 `0xXX 0x80 <response 1>... 0xYY 0xYY 0xYY 0xYY` where YY is index to jump to if this option is chosen. XX is # of bytes
 
