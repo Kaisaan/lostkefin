@@ -35,30 +35,38 @@ Code that parses through the script files is located at `0x1BF0E0`. The table of
 
 # Strings
 
-Prefixed by XXYY where XX is the length in bytes (NOT including those two bytes) and YY is a mysterious value that so far has only ever been 0x80. SJIS-encoded.
+Prefixed by XXYY. XX is the string length and YY is a set of string flags though I've only ever seen it set to 0x80.
 
 # Script Command Reference
 
 | Command | Description | Size/Format |
 |---------|-------------|-------------|
+| 0x2 | screen effect | 2 |
+| 0x3 | screen effect 2 | 2 |
+| 0x9 | debug? | See debug section |
 | 0x4 | - | 1 |
 | 0x5 | - | 1 |
 | 0x6 | - | 1 |
 | 0x7 | - | 2 |
 | 0xa | text | 5 bytes + a string (see Strings section) |
+| 0xb | - | 1 |
 | 0xe | - | 2 |
 | 0x10 | Init? | 1 |
 | 0x11 | - | 1 |
 | 0x12 | - | 1 |
 | 0x15 | - | 3 |
+| 0x16 | - | 4 |
 | 0x18 | - | 4 |
 | 0x1d | - | 4 |
+| 0x1c | - | 5 |
 | 0x1e | - | 10 |
 | 0x20 | - | 4 |
-| 0x28 | choice* | See Choices section |
+| 0x27 | bubble choice | See Choices section
+| 0x28 | choice | See Choices section |
 | 0x2f | - | 3 |
 | 0x30 | - | 2 |
 | 0x31 | - | 2 |
+| 0x35 | text bubble without tail | 5 bytes + a string (see Strings section) |
 | 0x36 | - | 10 |
 | 0x37 | camera pan? | 11 |
 | 0x3b | - | 3 bytes + a string (see Strings section) |
@@ -78,9 +86,17 @@ Prefixed by XXYY where XX is the length in bytes (NOT including those two bytes)
 | 0x52 | text bubble | reads 2 bytes + a string (see Strings section)|
 | 0x53 | - | 3 |
 | 0x55 | - | 1 |
+| 0x58 | - | 3 |
 | 0x59 | - | 3 |
 | 0x5a | end VN dialog | 1 |
+| 0x5f | - | 2 |
+| 0x60 | - | 3 |
+| 0x65 | shop | 3 |
 | 0xFF | end script. stop parsing here | 1 |
+
+### Debug
+
+Reads a string until a null byte. Strings look like "#door_b_1_door3" so I'm guessing this is a debug print.
 
 ### Conditional relative jump (opcode 0x3c)
 
