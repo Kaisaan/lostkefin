@@ -74,7 +74,7 @@ def encode_string(s):
     return encoded
 
 
-def choice_from_io(io):
+def choice_from_io(io, choices=2):
     """
     Aside from their args, all choice operations can be decoded the same way
     """
@@ -84,12 +84,11 @@ def choice_from_io(io):
 
     responses = []
     indices = []
-    while True:
+    for _ in range(choices):
         s_len = int.from_bytes(io.read(1), "little")
 
-        if s_len == 255:
-            break
         response = read_string(io, s_len)
+
         index = int.from_bytes(io.read(4), "little")
         responses.append(response)
         indices.append(index)
@@ -416,8 +415,17 @@ class Unkn_1E(Operation):
     size = 9
 
 
+class Unkn_1F(Operation):
+    opcode = 0x1F
+    size = 4
+
+
 class Unkn_20(Operation):
     opcode = 0x20
+    size = 3
+
+class Unkn_21(Operation):
+    opcode = 0x21
     size = 3
 
 
@@ -425,8 +433,40 @@ class Unkn_22(Operation):
     opcode = 0x22
     size = 4
 
+class Unkn_23(Operation):
+    opcode = 0x23
+    size = 5
 
-class ChoiceType2(Operation):
+class FourChoice(Operation):
+    opcode = 0x24
+
+    def __init__(self, arg, question_text, responses: list, indices: list):
+        self.arg = arg
+        self.question_text = question_text
+        self.responses = responses
+        self.indices = indices
+
+    def to_object(self):
+        object = {
+            "name": self.__class__.__name__,
+            "arg": self.arg.hex(),
+            "question_text": self.question_text,
+            "responses": self.responses,
+            "indices": self.indices,
+        }
+        return object
+
+    def to_bytes(self):
+        return choice_to_bytes(self)
+
+    @classmethod
+    def from_io(cls, io):
+        arg = io.read(4)
+        question_text, responses, indices = choice_from_io(io, choices=4)
+
+        return cls(arg, question_text, responses, indices)
+
+class FourChoiceType2(Operation):
     opcode = 0x25
 
     def __init__(self, arg, question_text, responses: list, indices: list):
@@ -451,7 +491,36 @@ class ChoiceType2(Operation):
     @classmethod
     def from_io(cls, io):
         arg = io.read(2)
-        question_text, responses, indices = choice_from_io(io)
+        question_text, responses, indices = choice_from_io(io, choices=4)
+
+        return cls(arg, question_text, responses, indices)
+
+class FourChoiceType3(Operation):
+    opcode = 0x26
+
+    def __init__(self, arg, question_text, responses: list, indices: list):
+        self.arg = arg
+        self.question_text = question_text
+        self.responses = responses
+        self.indices = indices
+
+    def to_object(self):
+        object = {
+            "name": self.__class__.__name__,
+            "arg": self.arg.hex(),
+            "question_text": self.question_text,
+            "responses": self.responses,
+            "indices": self.indices,
+        }
+        return object
+
+    def to_bytes(self):
+        return choice_to_bytes(self)
+
+    @classmethod
+    def from_io(cls, io):
+        arg = io.read(2)
+        question_text, responses, indices = choice_from_io(io, choices=4)
 
         return cls(arg, question_text, responses, indices)
 
@@ -546,6 +615,10 @@ class BubbleChoice2(Operation):
         return cls(arg, question_text, responses, indices)
 
 
+class RotateCamera(Operation):
+    opcode = 0x2A
+    size = 3
+
 class Unkn_2B(Operation):
     opcode = 0x2B
     size = 1
@@ -595,6 +668,16 @@ class Unkn_30(Operation):
 class Unkn_31(Operation):
     opcode = 0x31
     size = 1
+
+
+class PlayEndingCutscene(Operation):
+    opcode = 0x33
+    size = 1
+
+
+class Unkn_34(Operation):
+    opcode = 0x34
+    size = 0
 
 
 class TextBubbleNoTail(Operation):
@@ -701,6 +784,9 @@ class ConditionalRelativeJump(Operation):
 
         return cls(target, type)
 
+class Unkn_3E(Operation):
+    opcode = 0x3E
+    size = 1
 
 class Unkn_3F(Operation):
     opcode = 0x3F
@@ -765,6 +851,13 @@ class Unkn_49(Operation):
     opcode = 0x49
     size = 2
 
+class Unkn_4A(Operation):
+    opcode = 0x4A
+    size = 3
+
+class Unkn_4B(Operation):
+    opcode = 0x4B
+    size = 3
 
 class Unkn_4C(Operation):
     opcode = 0x4C
@@ -893,6 +986,11 @@ class Unkn_5D(Operation):
     size = 3
 
 
+class Unkn_5E(Operation):
+    opcode = 0x5E
+    size = 1
+
+
 class Unkn_5F(Operation):
     opcode = 0x5F
     size = 1
@@ -927,6 +1025,9 @@ class Unkn_66(Operation):
     opcode = 0x66
     size = 9
 
+class Unkn_67(Operation):
+    opcode = 0x67
+    size = 0
 
 class EndScript(Operation):
     opcode = 0xFF
@@ -961,12 +1062,18 @@ opcodes = {
     0x1C: Unkn_1C,
     0x1D: Unkn_1D,
     0x1E: Unkn_1E,
+    0x1F: Unkn_1F,
     0x20: Unkn_20,
+    0x21: Unkn_21,
     0x22: Unkn_22,
-    0x25: ChoiceType2,
+    0x23: Unkn_23,
+    0x24: FourChoice,
+    0x25: FourChoiceType2,
+    0x26: FourChoiceType3,
     0x27: BubbleChoice,
     0x28: Choice,
     0x29: BubbleChoice2,
+    0x2A: RotateCamera,
     0x2B: Unkn_2B,
     0x2C: Unkn_2C,
     0x2D: Unkn_2D,
@@ -974,6 +1081,8 @@ opcodes = {
     0x2F: Unkn_2F,
     0x30: Unkn_30,
     0x31: Unkn_31,
+    0x33: PlayEndingCutscene,
+    0x34: Unkn_34,
     0x35: TextBubbleNoTail,
     0x36: Unkn_36,
     0x37: CameraPan,
@@ -981,6 +1090,7 @@ opcodes = {
     0x39: MoveCharacter,
     0x3B: VNText,
     0x3C: ConditionalRelativeJump,
+    0x3e: Unkn_3E,
     0x3F: Unkn_3F,
     0x40: Unkn_40,
     0x41: Unkn_41,
@@ -991,6 +1101,8 @@ opcodes = {
     0x47: Unkn_47,
     0x48: Unkn_48,
     0x49: Unkn_49,
+    0x4a: Unkn_4A,
+    0x4b: Unkn_4B,
     0x4C: Unkn_4C,
     0x4D: Unkn_4D,
     0x4E: Unkn_4E,
@@ -1009,6 +1121,7 @@ opcodes = {
     0x5A: EndVNSection,
     0x5C: Unkn_5C,
     0x5D: Unkn_5D,
+    0x5E: Unkn_5E,
     0x5F: Unkn_5F,
     0x60: Unkn_60,
     0x62: Unkn_62,
@@ -1016,6 +1129,7 @@ opcodes = {
     0x64: Teleport,
     0x65: OpenShop,
     0x66: Unkn_66,
+    0x67: Unkn_67,
     0xFF: EndScript,
 }
 
