@@ -8,7 +8,7 @@ from parser import line_to_op
 def to_csv(kscript_file, csv_file):
     base_filename = os.path.basename(kscript_file)
     kscript_fp = open(kscript_file, "r", encoding="utf-8")
-    csv_fp = open(csv_file, "w")
+    csv_fp = open(csv_file, "w", encoding="utf-8")
     writer = csv.writer(csv_fp)
     writer.writerow(
         [
@@ -16,7 +16,7 @@ def to_csv(kscript_file, csv_file):
             "JP Text",
             "EN Text",
             "Comments",
-            "Is question?",
+            "Text Type"
         ]
     )
 
@@ -26,8 +26,9 @@ def to_csv(kscript_file, csv_file):
             continue
 
         op = line_to_op(line)
+        op_type = op.__class__.__name__
 
-        if op.__class__.__name__ in [
+        if op_type in [
             "Choice",
             "FourChoice",
             "FourChoiceType2",
@@ -37,14 +38,14 @@ def to_csv(kscript_file, csv_file):
         ]:
             text = op.to_object()["question_text"]
             text = text.replace("\\n", "\n")
-            writer.writerow([f"{base_filename}||{i}||{0}", text, "", "", "Yes"])
+            writer.writerow([f"{base_filename}||{i}||{0}", text, "", "", op_type])
             responses = op.to_object()["responses"]
             for j, response in enumerate(responses):
                 writer.writerow(
-                    [f"{base_filename}||{i}||{j+1}", response, "", "", "No"]
+                    [f"{base_filename}||{i}||{j+1}", response, "", "", op_type]
                 )
 
-        elif op.__class__.__name__ in [
+        elif op_type in [
             "TextBubble",
             "TextBubbleNoTail",
             "VNText",
@@ -52,7 +53,7 @@ def to_csv(kscript_file, csv_file):
         ]:
             text = op.to_object()["text"]
             text = text.replace("\\n", "\n")
-            writer.writerow([f"{base_filename}||{i}||{0}", text, "", "", "No"])
+            writer.writerow([f"{base_filename}||{i}||{0}", text, "", "", op_type])
 
 
 
