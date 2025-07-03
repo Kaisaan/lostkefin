@@ -18,7 +18,7 @@ echo Decompiling script files into .kscript files...
 if not exist decompiled mkdir decompiled
 kscript\decompile.py DATA\stage00.bin decompiled\stage00.kscript
 kscript\decompile.py DATA\stage10.bin decompiled\stage10.kscript
-kscript\decompile.py DATA\stage20.bin decompiled\stage30.kscript
+kscript\decompile.py DATA\stage20.bin decompiled\stage20.kscript
 kscript\decompile.py DATA\stage30.bin decompiled\stage30.kscript
 kscript\decompile.py DATA\stage40.bin decompiled\stage40.kscript
 kscript\decompile.py DATA\stage50.bin decompiled\stage50.kscript
