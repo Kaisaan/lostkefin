@@ -24,7 +24,7 @@ def bin_to_kscript(bin_file: str, kscript_file: str):
             break
 
     fp.seek(0x2000)
-    #fp.seek(0x880b)
+    # fp.seek(0x880b)
 
     relative_pointers = []
     while True:

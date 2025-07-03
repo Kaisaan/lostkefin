@@ -1,6 +1,11 @@
-import json
+"""
+parser.py
+
+Interprets Lost Kefin's .bin script files and converts them to DSL format,
+and vice versa.
+"""
 import re
-import sys
+from dsl import instruction_to_dsl
 
 
 def read_debug_string(io):
@@ -116,34 +121,11 @@ def choice_to_bytes(choice):
     return out
 
 
-def format_value(value):
-    """Format a value for DSL output, adding quotes if it contains spaces or special chars"""
-    if isinstance(value, str):
-        if "\t" in value:
-            raise ValueError(f"Tab in value: {value}")
-        return value
-    if isinstance(value, list):
-        return json.dumps(value, ensure_ascii=False)
-    return str(value)
-
-
-def instruction_to_dsl(instruction):
-    """Convert a single instruction dict to DSL format"""
-    if not isinstance(instruction, dict) or "name" not in instruction:
-        raise ValueError("Instruction must be a dict with a 'name' key")
-
-    parts = [instruction["name"]]
-
-    # Add all other keys as key:value pairs
-    for key, value in instruction.items():
-        if key != "name":  # Skip the name since it's already added
-            formatted_value = format_value(value)
-            parts.append(f"{key}:{formatted_value}")
-
-    return "\t".join(parts)
-
-
 class Operation:
+    """
+    Generic operation. For most opcodes where we just want to read their argument data
+    and keep track of it, this is enough.
+    """
     opcode: int
     size: int
 
@@ -424,6 +406,7 @@ class Unkn_20(Operation):
     opcode = 0x20
     size = 3
 
+
 class Unkn_21(Operation):
     opcode = 0x21
     size = 3
@@ -433,9 +416,11 @@ class Unkn_22(Operation):
     opcode = 0x22
     size = 4
 
+
 class Unkn_23(Operation):
     opcode = 0x23
     size = 5
+
 
 class FourChoice(Operation):
     opcode = 0x24
@@ -466,6 +451,7 @@ class FourChoice(Operation):
 
         return cls(arg, question_text, responses, indices)
 
+
 class FourChoiceType2(Operation):
     opcode = 0x25
 
@@ -494,6 +480,7 @@ class FourChoiceType2(Operation):
         question_text, responses, indices = choice_from_io(io, choices=4)
 
         return cls(arg, question_text, responses, indices)
+
 
 class FourChoiceType3(Operation):
     opcode = 0x26
@@ -618,6 +605,7 @@ class BubbleChoice2(Operation):
 class RotateCamera(Operation):
     opcode = 0x2A
     size = 3
+
 
 class Unkn_2B(Operation):
     opcode = 0x2B
@@ -784,9 +772,11 @@ class ConditionalRelativeJump(Operation):
 
         return cls(target, type)
 
+
 class Unkn_3E(Operation):
     opcode = 0x3E
     size = 1
+
 
 class Unkn_3F(Operation):
     opcode = 0x3F
@@ -797,9 +787,11 @@ class Unkn_40(Operation):
     opcode = 0x40
     size = 1
 
+
 class Unkn_41(Operation):
     opcode = 0x41
     size = 1
+
 
 class Unkn_42(Operation):
     opcode = 0x42
@@ -851,13 +843,16 @@ class Unkn_49(Operation):
     opcode = 0x49
     size = 2
 
+
 class Unkn_4A(Operation):
     opcode = 0x4A
     size = 3
 
+
 class Unkn_4B(Operation):
     opcode = 0x4B
     size = 3
+
 
 class Unkn_4C(Operation):
     opcode = 0x4C
@@ -1025,9 +1020,11 @@ class Unkn_66(Operation):
     opcode = 0x66
     size = 9
 
+
 class Unkn_67(Operation):
     opcode = 0x67
     size = 0
+
 
 class EndScript(Operation):
     opcode = 0xFF
@@ -1090,7 +1087,7 @@ opcodes = {
     0x39: MoveCharacter,
     0x3B: VNText,
     0x3C: ConditionalRelativeJump,
-    0x3e: Unkn_3E,
+    0x3E: Unkn_3E,
     0x3F: Unkn_3F,
     0x40: Unkn_40,
     0x41: Unkn_41,
@@ -1101,8 +1098,8 @@ opcodes = {
     0x47: Unkn_47,
     0x48: Unkn_48,
     0x49: Unkn_49,
-    0x4a: Unkn_4A,
-    0x4b: Unkn_4B,
+    0x4A: Unkn_4A,
+    0x4B: Unkn_4B,
     0x4C: Unkn_4C,
     0x4D: Unkn_4D,
     0x4E: Unkn_4E,
@@ -1133,40 +1130,4 @@ opcodes = {
     0xFF: EndScript,
 }
 
-
-
-def line_to_op(line: str):
-    """
-    Given a single line of a .kscript file, return the corresponding Operation
-    Line is tab-delimited and looks like 
-    opcode	arg:value	arg2:value
-    """
-    line = line.strip()
-    # parse until first space
-    split = line.split("\t")
-    operation = split[0]
-    op = globals()[operation]
-
-    kwargs = {}
-    for term in split[1:]:
-        if ":" not in term:
-            print("Error")
-            sys.exit(line)
-        key, value = term.split(":", 1)
-        if key == "arg":
-            value = bytes.fromhex(value)
-        else:
-            try:
-                value = int(value)
-            except ValueError:
-                if value.startswith("["):
-                    value = json.loads(value)
-        kwargs[key] = value
-
-    try:
-        return op(**kwargs)
-    except TypeError:
-        if "arg" not in kwargs:
-            kwargs["arg"] = b""
-        return op(**kwargs)
 

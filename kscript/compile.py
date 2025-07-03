@@ -1,15 +1,15 @@
 import sys
-from parser import line_to_op, ConditionalRelativeJump
+from parser import ConditionalRelativeJump
+from dsl import line_to_op
 
 
 def kscript_to_bin(kscript_file: str, bin_file: str):
-
     """
     Convert a .kscript file to a .bin file
     """
     f = open(kscript_file, "r", encoding="utf-8")
     out_f = open(bin_file, "wb")
-    
+
     out_f.seek(0x2000)
     ptrs = []
     relative_jump_locations = []
@@ -19,6 +19,8 @@ def kscript_to_bin(kscript_file: str, bin_file: str):
             line = line.strip()
             line = line.split("_")[1].split(":")[0]
 
+            if "0051a4" in line:
+                print(f"wtf {out_f.tell()}")
             index = int(line, 16)
             ptr = out_f.tell() - 0x2000
             ptrs.append((index, ptr))
@@ -32,6 +34,8 @@ def kscript_to_bin(kscript_file: str, bin_file: str):
             continue
 
         op = line_to_op(line)
+        print(op.to_object())
+        print(hex(out_f.tell()))
         if isinstance(op, ConditionalRelativeJump):
             relative_jump_locations.append(out_f.tell())
         out_f.write(op.to_bytes())
@@ -43,13 +47,10 @@ def kscript_to_bin(kscript_file: str, bin_file: str):
     for idx, location in enumerate(relative_jump_locations):
         # Seek to the ptr location
         out_f.seek(location + 1)
-        print(hex(location))
 
         # Calculate how far forward the jump is
         distance = relative_jump_targets[idx] - out_f.tell()
 
-        print(hex(out_f.tell()))
-        print(hex(distance))
         # Write it
         out_f.write(distance.to_bytes(2, "little"))
 

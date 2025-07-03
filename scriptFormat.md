@@ -18,81 +18,112 @@ The table is always $2000 bytes long allowing for a maximum of 1024 entries.
 If there is less than 1024 entries the table section is padded with `$00`'s.  
 
 ## Script
-One pointer can have as many lines of text and has no length limitations.  
-  
-### Font Info
-All text is Shift-JIS encoded with fullwidth characters being 2 bytes long and 20 pixels wide while halfwidth characters are 1 byte long and 10 pixels wide.  
-In `SLPM_663.60` the font graphics are located at $1A3E99 as 4BPP graphics, its palette is stored at $25E4C0, and the fontmap is at $1A31F0.  
-`font.py` extracts the fontmap from `SLPM_663.60` to create a `font.tbl` table file.  
-Use `kefin.tbl` for corrected values and control codes.  
+Executed one opcode at a time, and executes until a $FF opcode is reached. There are relative and absolute jump opcodes though, so a script can realistic executes any opcode in the whole file. 
 
-### Textbox Sizing
-The calculations for the size of the textbox can be found at the function located at `$4CE00` in `SLPM_663.60` (Loaded into `$0014CD80`)
 
 # Opcodes
-Each script is a series of opcodes, each with 0 or more bytes of data passed as parameters. Below is a WIP table of what opcodes do and how many bytes they take up.
-Code that parses through the script files is located at `0x1BF0E0`. The table of opcode handlers is at `0x331EC0.`
-
-# Strings
-
-Prefixed by XXYY. XX is the string length and YY is a set of string flags though I've only ever seen it set to 0x80.
-
-# Script Command Reference
+Each script is a series of opcodes, each with 0 or more bytes of data passed as parameters. Below is a table of what opcodes do and how many bytes they take up.
+Code that parses through the script files is located at `$1BF0E0`. The table of opcode handlers is at `$331EC0.`
 
 | Command | Description | Size/Format |
 |---------|-------------|-------------|
-| 0x2 | screen effect | 2 |
-| 0x3 | screen effect 2 | 2 |
-| 0x9 | debug? | See debug section |
-| 0x4 | - | 1 |
-| 0x5 | - | 1 |
-| 0x6 | - | 1 |
-| 0x7 | - | 2 |
-| 0xa | text | 5 bytes + a string (see Strings section) |
-| 0xb | - | 1 |
-| 0xe | - | 2 |
-| 0x10 | Init? | 1 |
-| 0x11 | - | 1 |
-| 0x12 | - | 1 |
-| 0x15 | - | 3 |
-| 0x16 | - | 4 |
-| 0x18 | - | 4 |
-| 0x1d | - | 4 |
-| 0x1c | - | 5 |
-| 0x1e | - | 10 |
-| 0x20 | - | 4 |
-| 0x27 | bubble choice | See Choices section
-| 0x28 | choice | See Choices section |
-| 0x2f | - | 3 |
-| 0x30 | - | 2 |
-| 0x31 | - | 2 |
-| 0x35 | text bubble without tail | 5 bytes + a string (see Strings section) |
-| 0x36 | - | 10 |
-| 0x37 | camera pan? | 11 |
-| 0x3b | - | 3 bytes + a string (see Strings section) |
-| 0x3c | conditional relative jump | 5 |
-| 0x3f | - | 2 |
-| 0x40 | - | 2 |
-| 0x44 | unconditional jump | 4 (index from table at top of file) |
-| 0x45 | - | 2 |
-| 0x47 | - | 2 |
-| 0x48 | - | 2 |
-| 0x49 | - | 3 |
-| 0x4c | fadeout? | 2 |
-| 0x4d | cutscene? | 2 |
-| 0x4f | - | 3 |
-| 0x50 | - | 7 |
-| 0x51 | - | 1 |
-| 0x52 | text bubble | reads 2 bytes + a string (see Strings section)|
-| 0x53 | - | 3 |
-| 0x55 | - | 1 |
-| 0x58 | - | 3 |
-| 0x59 | - | 3 |
-| 0x5a | end VN dialog | 1 |
-| 0x5f | - | 2 |
-| 0x60 | - | 3 |
-| 0x65 | shop | 3 |
-| 0xFF | end script. stop parsing here | 1 |
+| $02 | ScreenEffect | 1 |
+| $03 | ScreenEffect2 | 1 |
+| $04 | Unkn_4 | 0 |
+| $05 | Unkn_5 | 0 |
+| $06 | Unkn_6 | 0 |
+| $07 | Unkn_7 | 1 |
+| $08 | Debug (null-terminated string) | variable |
+| $09 | Debug2 (null-terminated string) | variable |
+| $0A | CutsceneText | 4 bytes + 1 byte length + string |
+| $0B | Unkn_B | 0 |
+| $0C | Unkn_C | 0 |
+| $0E | Unkn_E | 1 |
+| $10 | Unkn_10 | 0 |
+| $11 | Unkn_11 | 0 |
+| $12 | Unkn_12 | 0 |
+| $13 | Unkn_13 | 3 |
+| $14 | Unkn_14 | 1 |
+| $15 | Unkn_15 | 2 |
+| $16 | Unkn_16 | 3 |
+| $17 | Debug3 (null-terminated string + 2 bytes) | variable |
+| $18 | Unkn_18 | 3 |
+| $19 | Unkn_19 | 8 |
+| $1A | Unkn_1A | 3 |
+| $1B | Unkn_1B | 6 |
+| $1C | Unkn_1C | 4 |
+| $1D | Unkn_1D | 3 |
+| $1E | Unkn_1E | 9 |
+| $1F | Unkn_1F | 4 |
+| $20 | Unkn_20 | 3 |
+| $21 | Unkn_21 | 3 |
+| $22 | Unkn_22 | 4 |
+| $23 | Unkn_23 | 5 |
+| $24 | FourChoice | 4 bytes + choices (see Choices section) |
+| $25 | FourChoiceType2 | 2 bytes + choices (see Choices section) |
+| $26 | FourChoiceType3 | 2 bytes + choices (see Choices section) |
+| $27 | BubbleChoice | 4 bytes + choices (see Choices section) |
+| $28 | Choice | 2 bytes + choices (see Choices section) |
+| $29 | BubbleChoice2 | 2 bytes + choices (see Choices section) |
+| $2A | RotateCamera | 3 |
+| $2B | Unkn_2B | 1 |
+| $2C | Unkn_2C | 1 |
+| $2D | Unkn_2D | 9 |
+| $2E | Debug4 (null-terminated string) | variable |
+| $2F | Unkn_2F | 2 |
+| $30 | Unkn_30 | 1 |
+| $31 | Unkn_31 | 1 |
+| $33 | PlayEndingCutscene | 1 |
+| $34 | Unkn_34 | 0 |
+| $35 | TextBubbleNoTail | 4 bytes + 1 byte length + string |
+| $36 | Unkn_36 | 10 |
+| $37 | CameraPan | 10 |
+| $38 | Unkn_38 | 6 |
+| $39 | MoveCharacter | 6 |
+| $3B | VNText | 2 bytes + 1 byte length + string |
+| $3C | ConditionalRelativeJump | 2 bytes target + 2 bytes type |
+| $3E | Unkn_3E | 1 |
+| $3F | Unkn_3F | 1 |
+| $40 | Unkn_40 | 1 |
+| $41 | Unkn_41 | 1 |
+| $42 | Unkn_42 | 2 |
+| $43 | ScreenWipe | 2 |
+| $44 | UnconditionalJump | 4 |
+| $45 | Unkn_45 | 1 |
+| $47 | Unkn_47 | 1 |
+| $48 | Unkn_48 | 1 |
+| $49 | Unkn_49 | 2 |
+| $4A | Unkn_4A | 3 |
+| $4B | Unkn_4B | 3 |
+| $4C | Unkn_4C | 1 |
+| $4D | Unkn_4D | 1 |
+| $4E | Unkn_4E | 0 |
+| $4F | Unkn_4F | 2 |
+| $50 | ShowCharacters | 6 |
+| $51 | StartVNSection | 0 |
+| $52 | TextBubble | 2 bytes + 1 byte length + string |
+| $53 | Unkn_53 | 2 |
+| $54 | Debug5 (null-terminated string) | variable |
+| $55 | Unkn_55 | 0 |
+| $56 | Unkn_56 | 1 |
+| $57 | Unkn_57 | 2 |
+| $58 | Unkn_58 | 2 |
+| $59 | Unkn_59 | 2 |
+| $5A | EndVNSection | 0 |
+| $5B | Unkn_5B | 3 |
+| $5C | Unkn_5C | 3 |
+| $5D | Unkn_5D | 3 |
+| $5E | Unkn_5E | 1 |
+| $5F | Unkn_5F | 1 |
+| $60 | Unkn_60 | 2 |
+| $62 | Unkn_62 | 3 |
+| $63 | Unkn_63 | 3 |
+| $64 | Teleport | 14 |
+| $65 | OpenShop | 2 |
+| $66 | Unkn_66 | 9 |
+| $67 | Unkn_67 | 0 |
+| $FF | EndScript | 0 |
+
 
 ### Debug
 
@@ -123,10 +154,25 @@ The choice opcode encodes the text of a question, the text of both responses, an
 
 `0xFF` to terminate the sequence
 
-It's possible >2 options can be present, I think.
+Depending on the opcode there are either 2 choices or 4.
+
+
+# Strings
+
+Prefixed by XXYY. XX is the string length and YY is a set of string flags though I've only ever seen it set to 0x80.
+
+### Font Info
+All text is Shift-JIS encoded with fullwidth characters being 2 bytes long and 20 pixels wide while halfwidth characters are 1 byte long and 10 pixels wide.  
+In `SLPM_663.60` the font graphics are located at $1A3E99 as 4BPP graphics, its palette is stored at $25E4C0, and the fontmap is at $1A31F0.  
+`font.py` extracts the fontmap from `SLPM_663.60` to create a `font.tbl` table file.  
+Use `kefin.tbl` for corrected values and control codes.  
+
+### Textbox Sizing
+The calculations for the size of the textbox can be found at the function located at `$4CE00` in `SLPM_663.60` (Loaded into `$0014CD80`)
+
 
 ### Control Codes
-Control codes occur mixed in with text and affect its formatting. (Everdred note: I think some of these are actually opcodes but not positive yet)
+Control codes occur mixed in with text and affect its formatting. 
 
 |Hex Values|Meaning|Table file|
 |---|---|---|
