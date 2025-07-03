@@ -34,6 +34,7 @@ def kscript_to_bin(kscript_file: str, bin_file: str):
         op = line_to_op(line)
         if isinstance(op, ConditionalRelativeJump):
             relative_jump_locations.append(out_f.tell())
+
         out_f.write(op.to_bytes())
     out_f.seek(0)
     for index, ptr in ptrs:

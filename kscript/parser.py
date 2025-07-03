@@ -186,7 +186,6 @@ def choice_to_bytes(choice):
         out += encode_string(response)
         out += index.to_bytes(4, "little")
 
-    out += b"\xff"
     return out
 
 
