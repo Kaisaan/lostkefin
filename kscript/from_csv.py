@@ -69,7 +69,6 @@ def from_csv(csv_file, kscript_file, out_file):
                 .replace("!", "！")
             )
 
-            print(responses)
             op.responses = responses
 
         elif op_type in [
