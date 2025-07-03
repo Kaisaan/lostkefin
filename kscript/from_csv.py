@@ -7,7 +7,7 @@ def from_csv(csv_file, kscript_file, out_file):
     """
     Given a CSV file, modify a kscript file by replacing text from the EN colum
     """
-    csv_fp = open(csv_file, "r")
+    csv_fp = open(csv_file, "r", encoding="utf-8")
     reader = csv.reader(csv_fp)
     next(reader)
 
@@ -30,9 +30,9 @@ def from_csv(csv_file, kscript_file, out_file):
         else:
             changes[line][2][subline] = (jp, en)
 
-    kscript_fp = open(kscript_file, "r")
+    kscript_fp = open(kscript_file, "r", encoding="utf-8")
     kscript_lines = kscript_fp.readlines()
-    out_fp = open(out_file, "w")
+    out_fp = open(out_file, "w", encoding="utf-8")
     for i, line in enumerate(kscript_lines):
         parsed_line = line.lstrip().rstrip("\n")
         if "LABEL_" in parsed_line or "JMP_" in parsed_line:

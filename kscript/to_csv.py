@@ -11,7 +11,7 @@ def to_csv(kscript_file, csv_file):
     """
     base_filename = os.path.basename(kscript_file)
     kscript_fp = open(kscript_file, "r", encoding="utf-8")
-    csv_fp = open(csv_file, "w", encoding="utf-8")
+    csv_fp = open(csv_file, "w", newline='', encoding="utf-8")
     writer = csv.writer(csv_fp)
     writer.writerow(["ID", "JP Text", "EN Text", "Comments", "Text Type"])
 
