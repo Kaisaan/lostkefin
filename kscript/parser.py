@@ -1078,7 +1078,7 @@ class Unkn_63(Operation):
 
 class Teleport(Operation):
     opcode = 0x64
-    size = 14
+    size = 13
 
 
 class OpenShop(Operation):
