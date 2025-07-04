@@ -20,29 +20,21 @@ python3 kscript/from_csv.py csv/stageb0.csv decompiled/stageb0.kscript temp.kscr
 echo "Done!"
 echo "Compiling scripts..."
 
-echo "1"
-python3 kscript/compile.py decompiled/stage00.kscript DATA/stage00.bin
-echo "2"
-python3 kscript/compile.py decompiled/stage10.kscript DATA/stage10.bin
-echo "3"
-python3 kscript/compile.py decompiled/stage20.kscript DATA/stage20.bin
-echo "4"
-python3 kscript/compile.py decompiled/stage30.kscript DATA/stage30.bin
-echo "5"
-python3 kscript/compile.py decompiled/stage40.kscript DATA/stage40.bin
-echo "6"
-python3 kscript/compile.py decompiled/stage50.kscript DATA/stage50.bin
-echo "7"
-python3 kscript/compile.py decompiled/stage60.kscript DATA/stage60.bin
-echo "8"
-python3 kscript/compile.py decompiled/stage70.kscript DATA/stage70.bin
-echo "9"
-python3 kscript/compile.py decompiled/stage80.kscript DATA/stage80.bin
-echo "10"
-python3 kscript/compile.py decompiled/stage90.kscript DATA/stage90.bin
-python3 kscript/compile.py decompiled/stagea0.kscript DATA/stagea0.bin
-python3 kscript/compile.py decompiled/stageb0.kscript DATA/stageb0.bin
+python3 kscript/compile.py decompiled/stage00.kscript DATA/script/stage00.bin
+python3 kscript/compile.py decompiled/stage10.kscript DATA/script/stage10.bin
+python3 kscript/compile.py decompiled/stage20.kscript DATA/script/stage20.bin
+python3 kscript/compile.py decompiled/stage30.kscript DATA/script/stage30.bin
+python3 kscript/compile.py decompiled/stage40.kscript DATA/script/stage40.bin
+python3 kscript/compile.py decompiled/stage50.kscript DATA/script/stage50.bin
+python3 kscript/compile.py decompiled/stage60.kscript DATA/script/stage60.bin
+python3 kscript/compile.py decompiled/stage70.kscript DATA/script/stage70.bin
+python3 kscript/compile.py decompiled/stage80.kscript DATA/script/stage80.bin
+python3 kscript/compile.py decompiled/stage90.kscript DATA/script/stage90.bin
+python3 kscript/compile.py decompiled/stagea0.kscript DATA/script/stagea0.bin
+python3 kscript/compile.py decompiled/stageb0.kscript DATA/script/stageb0.bin
 
 echo "Done!"
+echo Repacking DATA.BIN
+python3 pack.py DATA.BIN
 echo "Patching ISO. Please wait."
 python3 isotool.py -m insert --iso lostkefin.iso -o "Ys V - Lost Kefin, Kingdom of Sand [English Patched].iso" --filelist filelist.txt --files translated 
