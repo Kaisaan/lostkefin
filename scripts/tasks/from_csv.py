@@ -1,6 +1,6 @@
 import csv
 import sys
-from parser import line_to_op
+from .parser import line_to_op
 
 
 def from_csv(csv_file, kscript_file, out_file):

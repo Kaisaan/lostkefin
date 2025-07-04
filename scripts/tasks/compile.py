@@ -1,6 +1,5 @@
 import sys
-from parser import ConditionalRelativeJump
-from parser import line_to_op
+from .parser import ConditionalRelativeJump, line_to_op
 
 
 def kscript_to_bin(kscript_file: str, bin_file: str):
@@ -45,7 +44,7 @@ def kscript_to_bin(kscript_file: str, bin_file: str):
         # Seek to the ptr location
         out_f.seek(location + 1)
 
-        #print(relative_jump_targets)
+        # print(relative_jump_targets)
         # Calculate how far forward the jump is
         distance = relative_jump_targets[idx] - out_f.tell()
 

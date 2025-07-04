@@ -1,5 +1,5 @@
 import sys
-from parser import opcodes, ConditionalRelativeJump
+from .parser import opcodes, ConditionalRelativeJump
 
 
 def bin_to_kscript(bin_file: str, kscript_file: str):

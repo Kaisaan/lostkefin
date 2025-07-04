@@ -1,2 +1,12 @@
 __pycache__
 .DS_Store
+lostkefin_secret.json
+*.iso
+DATA*.txt
+DATA/
+DATA0/
+DATA1/
+extracted/
+translated/
+decompiled/
+csv/
