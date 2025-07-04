@@ -25,21 +25,23 @@ kscript\from_csv.py csv\stagea0.csv decompiled\stagea0.kscript temp.kscript
 move temp.kscript decompiled\stagea0.kscript
 kscript\from_csv.py csv\stageb0.csv decompiled\stageb0.kscript temp.kscript
 move temp.kscript decompiled\stageb0.kscript
-echo "Done!"
+echo Done!
 echo Compiling scripts...
-kscript\compile.py decompiled\stage00.kscript DATA\stage00.bin
-kscript\compile.py decompiled\stage10.kscript DATA\stage10.bin
-kscript\compile.py decompiled\stage20.kscript DATA\stage20.bin
-kscript\compile.py decompiled\stage30.kscript DATA\stage30.bin
-kscript\compile.py decompiled\stage40.kscript DATA\stage40.bin
-kscript\compile.py decompiled\stage50.kscript DATA\stage50.bin
-kscript\compile.py decompiled\stage60.kscript DATA\stage60.bin
-kscript\compile.py decompiled\stage70.kscript DATA\stage70.bin
-kscript\compile.py decompiled\stage80.kscript DATA\stage80.bin
-kscript\compile.py decompiled\stage90.kscript DATA\stage90.bin
-kscript\compile.py decompiled\stagea0.kscript DATA\stagea0.bin
-kscript\compile.py decompiled\stageb0.kscript DATA\stageb0.bin
-echo "Done!"
+kscript\compile.py decompiled\stage00.kscript DATA\script\stage00.bin
+kscript\compile.py decompiled\stage10.kscript DATA\script\stage10.bin
+kscript\compile.py decompiled\stage20.kscript DATA\script\stage20.bin
+kscript\compile.py decompiled\stage30.kscript DATA\script\stage30.bin
+kscript\compile.py decompiled\stage40.kscript DATA\script\stage40.bin
+kscript\compile.py decompiled\stage50.kscript DATA\script\stage50.bin
+kscript\compile.py decompiled\stage60.kscript DATA\script\stage60.bin
+kscript\compile.py decompiled\stage70.kscript DATA\script\stage70.bin
+kscript\compile.py decompiled\stage80.kscript DATA\script\stage80.bin
+kscript\compile.py decompiled\stage90.kscript DATA\script\stage90.bin
+kscript\compile.py decompiled\stagea0.kscript DATA\script\stagea0.bin
+kscript\compile.py decompiled\stageb0.kscript DATA\script\stageb0.bin
+echo Done!
+echo Repacking DATA.BIN
+pack.py DATA.BIN
 echo Patching ISO. Please wait.
 isotool.py -m insert --iso lostkefin.iso -o "Ys V - Lost Kefin, Kingdom of Sand [English Patched].iso" --filelist filelist.txt --files translated
 pause

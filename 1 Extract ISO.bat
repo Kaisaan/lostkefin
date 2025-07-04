@@ -4,30 +4,22 @@ echo Extracting iso...
 isotool.py -m extract --iso lostkefin.iso --filelist filelist.txt --files extracted
 xcopy extracted translated /E /I /Y
 echo Done!
-::echo Dumping the (raw) script from DATA.BIN to multiple files...
-::perl scripts\abcde\abcde.pl -cm abcde::Cartographer "extracted\DATA.BIN" datacommands.txt "scripts\dump" -m
-::echo Done!
-::echo Dumping the (raw) script from DATA.BIN to a single text file...
-::perl scripts\abcde\abcde.pl  -cm abcde::Cartographer "extracted\DATA.BIN" datacommands.txt "scripts\dump" -s
-::echo Dumping the script (with pointers) from DATA.BIN to multiple text files...
-::perl scripts\abcde\abcde.pl --multi-table-files -cm abcde::Cartographer "extracted\DATA.BIN" scriptcommands.txt "scripts\dump" -m
-::echo Done!
 echo Unpacking DATA.BIN...
-extract.py
+unpack.py DATA.BIN
 echo Decompiling script files into .kscript files...
 if not exist decompiled mkdir decompiled
-kscript\decompile.py DATA\stage00.bin decompiled\stage00.kscript
-kscript\decompile.py DATA\stage10.bin decompiled\stage10.kscript
-kscript\decompile.py DATA\stage20.bin decompiled\stage20.kscript
-kscript\decompile.py DATA\stage30.bin decompiled\stage30.kscript
-kscript\decompile.py DATA\stage40.bin decompiled\stage40.kscript
-kscript\decompile.py DATA\stage50.bin decompiled\stage50.kscript
-kscript\decompile.py DATA\stage60.bin decompiled\stage60.kscript
-kscript\decompile.py DATA\stage70.bin decompiled\stage70.kscript
-kscript\decompile.py DATA\stage80.bin decompiled\stage80.kscript
-kscript\decompile.py DATA\stage90.bin decompiled\stage90.kscript
-kscript\decompile.py DATA\stagea0.bin decompiled\stagea0.kscript
-kscript\decompile.py DATA\stageb0.bin decompiled\stageb0.kscript
+kscript\decompile.py DATA\script\stage00.bin decompiled\stage00.kscript
+kscript\decompile.py DATA\script\stage10.bin decompiled\stage10.kscript
+kscript\decompile.py DATA\script\stage20.bin decompiled\stage20.kscript
+kscript\decompile.py DATA\script\stage30.bin decompiled\stage30.kscript
+kscript\decompile.py DATA\script\stage40.bin decompiled\stage40.kscript
+kscript\decompile.py DATA\script\stage50.bin decompiled\stage50.kscript
+kscript\decompile.py DATA\script\stage60.bin decompiled\stage60.kscript
+kscript\decompile.py DATA\script\stage70.bin decompiled\stage70.kscript
+kscript\decompile.py DATA\script\stage80.bin decompiled\stage80.kscript
+kscript\decompile.py DATA\script\stage90.bin decompiled\stage90.kscript
+kscript\decompile.py DATA\script\stagea0.bin decompiled\stagea0.kscript
+kscript\decompile.py DATA\script\stageb0.bin decompiled\stageb0.kscript
 echo Done!
 echo Extracting text from .kscript files and dumping to CSV...
 if not exist csv mkdir csv
