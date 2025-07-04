@@ -2,7 +2,7 @@ import sys
 import os
 
 if (len(sys.argv) != 2):
-    print("Usage: pack.py <file.bin>")
+    print("Usage: unpack.py <file.bin>")
     sys.exit(1)
 
 slpm = open("extracted/SLPM_663.60", "rb")
@@ -69,6 +69,8 @@ for i in range(len(foldersInfo)):
         slpm.seek(filePtr)
         fileName = slpm.read(readSize).decode(encoding="shift-jis", errors="backslashreplace")
         fileName = fileName[:fileName.find(terminator)]
+        
+        fileName = fileName.replace(" ", "_")
 
         os.makedirs(f"{dataName}{foldersInfo[i][0]}", exist_ok=True)
         file = open(f"{dataName}{foldersInfo[i][0]}{fileName}", "wb")
@@ -78,6 +80,6 @@ for i in range(len(foldersInfo)):
 
         file.write(fileData)
 
-        logFile.write(f"{fileName} {filePtr:X} {fileSize:X} {fileStart:X} {fileEnd:X}\n")
+        logFile.write(f"{fileName} {filePtr} {fileSize} {fileStart} {fileEnd}\n")
 
         seekAddr = seekAddr + 16
