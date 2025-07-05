@@ -9,10 +9,11 @@ Script extraction and insertion is now done with [acbde](https://www.romhacking.
 Now the goal is to get a proof of concept patch working.
 
 # Building
-- Copy the original .iso to the root of this repo and rename it to `lostkefin.iso`
-- Run `1 Extract ISO.bat`
-- Make changes to `scripts/translated.txt`
-- Run `2 Patch ISO.bat`
+- [Python](https://www.python.org/) and [uv](https://docs.astral.sh/uv/) must be installed
+- Copy the original game's .iso to the root and rename it as `lostkefin.iso`
+- Run `1 Extract ISO.bat` (Windows) or `1 Extract ISO.sh` (Linux/Mac OS)
+- Make changes to the .csv files in the `csv` folder or edit the project's Google Sheets
+- Run `2 Patch ISO.bat` (Windows) or `2 Patch ISO.sh` (Linux/Mac OS)
 
 # Translating
 Translation is currently being done with [Google Sheets](https://docs.google.com/spreadsheets/d/1kcEely3uIDJAifqj9kn16Bky8mBBoed03CgAwd4B0W8/edit?usp=sharing) and then copied over to `scripts/translated.txt`
@@ -44,7 +45,7 @@ A big thanks to these wonderful people for helping with this project! This proje
 - [Sorcerian](https://bsky.app/profile/sorcerian.bsky.social) - Graphics Editing
 - [Livi](https://bsky.app/profile/anonymusaxolotl.bsky.social) - Translation Editing
 - Sabera - Translation
-- [Everdred](https://github.com/cschmidt0121) - Programming, Hacking
+- [Everdred](https://github.com/cschmidt0121) - Programming, Hacking, Script development
 
 # Related Materials
 - Translation of opening cutscene by [mziab](https://www.romhacking.net/forum/index.php?topic=28379.0) (I did not use this translation)
