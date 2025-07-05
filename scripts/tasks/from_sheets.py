@@ -142,7 +142,7 @@ def update_kscript(kscript_file, rows):
             )
 
         out_fp.write(f"  {str(op)}\n")
-    shutil.move(out_file, kscript_file)
+    shutil.copyfile(out_file, kscript_file)
 
 
 def from_sheets(dir: str = "decompiled"):
