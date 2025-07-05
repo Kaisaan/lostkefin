@@ -16,7 +16,7 @@ Now the goal is to get a proof of concept patch working.
 - Run `2 Patch ISO.bat` (Windows) or `2 Patch ISO.sh` (Linux/Mac OS)
 
 # Translating
-Translation is currently being done with [Google Sheets](https://docs.google.com/spreadsheets/d/1kcEely3uIDJAifqj9kn16Bky8mBBoed03CgAwd4B0W8/edit?usp=sharing) and then copied over to `scripts/translated.txt`
+Translation is currently being done with [Google Sheets](https://docs.google.com/spreadsheets/d/1kcEely3uIDJAifqj9kn16Bky8mBBoed03CgAwd4B0W8/edit?usp=sharing) and is automatically pulled from during patching
 
 # Hacking Notes
 - See [scriptFormat.md](https://github.com/Kaisaan/lostkefin/blob/main/scriptFormat.md) for all information about the game's script system
@@ -26,11 +26,12 @@ Translation is currently being done with [Google Sheets](https://docs.google.com
 - See my [notes file](https://github.com/Kaisaan/lostkefin/blob/main/notes.txt) for more terribly organized notes
 
 # Extracting the DATA.BIN Files
-`extract.py` extracts all the files and folders from DATA.BIN into the `DATA` folder (but does not extract the files into their correct folders yet) and all files from DATA0.bin into the `DATA0` folder, a `logfile.txt` is also created
+`scripts/misc/pack.py` extracts all the files and folders from DATA.BIN into the `DATA` folder, a log file named `DATA.txt` is also created. `scripts/misc/unpack.py` is used to repack the files into DATA.BIN and updates the metadata in `SLPM_663.60`  
+Please note that running the ISO extracting/patching scripts automatically run them
 
 # To do
 - Update the extraction script to extract `DATA0.BIN` folders, files `DATA1.BIN`, and possibly text from `SLPM_663.60`
-- Continue translating and inserting English script
+- Continue translating and editing English script
 - Edit and reinsert graphics
 - Translate manual
 
