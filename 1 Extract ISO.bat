@@ -8,3 +8,5 @@ if %errorlevel% neq 0 (
 )
 
 uv run scripts\extract_iso.py
+
+pause
