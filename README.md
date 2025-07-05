@@ -65,11 +65,16 @@ A big thanks to these wonderful people for helping with this project! This proje
 
 # Special Thanks
 - Everyone that supports me in my [Discord Server](https://discord.gg/TNWGBGpZGN)
+- Everyone that supports me through my [Ko-fi](https://ko-fi.com/kaisaan)
+- Everyone that supports me through my [Bluesky](https://bsky.app/profile/kaisaan.bsky.social) and [Twitter](https://twitter.com/KaisaanSiddiqui)
 - [Hilltop](https://x.com/HilltopWorks) - Providing valuable and informatative videos such as [hacking with Ghidra](https://youtu.be/qCEZC3cPc1s) and [info on PS2 graphics](https://youtu.be/lePKUCYakqM)
 - [Life Bottle Productions](https://www.lifebottle.org/#/) - Providing me with their [isotool.py script](https://github.com/lifebottle/PythonLib/blob/main/isotool.py), their tutorial for [finding the base pointer](https://youtu.be/q5aEj-aSw50), and for having many supportive folks in their [Discord Server](https://discord.gg/rhQBXHKF3J)
 - [The Geofront](https://geofront.esterior.net/) - Specifically folks on their [Discord Server](https://discord.gg/sXx2Ck6Cxn) for their continuing support
 - [Evie](https://github.com/Epicpkmn11) - Helping with getting `graphics.py` working properly
 - [PCSX2 Team](https://discord.com/invite/TCz3t9k) - Making the wonderful [PCSX2](https://pcsx2.net/) emulator and also providing the [texture alpha scaler](https://github.com/PCSX2/pcsx2/blob/master/tools/texture_dump_alpha_scaler.py)
-- My friend for introducing me to the world of *Ys*, also the biggest Lost Kefin fan so I'm doing this for him
+- [SnowyAria](https://bsky.app/profile/snowyaria.bsky.social) - Helping with patch creation
+- [Eight Mansions Translations](https://github.com/Eight-Mansions) - Specifically folks in their [Discord Server](https://discord.gg/bewGNtm) for offering hacking assitance, advice, and support
+- [Haroohie Translation Club](https://haroohie.club/) - Specifically folks in their [Discord Server](https://discord.gg/nesRSbpeFM) for offering hacking assistance, advice, and support
+- My friend Armaan for introducing me to the world of *Ys*, also the biggest Lost Kefin fan so I'm doing this for him
 - Sugunii for giving me motivation to play more *Ys*
 - Nihon Falcom for making the wonderful *Ys* series
