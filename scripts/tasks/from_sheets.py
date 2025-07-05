@@ -13,10 +13,9 @@ Pull latest translations from Google Sheets and updates kscript files.
 import os
 import shutil
 import sys
-import tempfile
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
-from googleapiclient.errors import HttpError
+from io import StringIO
 from .parser import line_to_op
 
 scopes = [
@@ -61,10 +60,7 @@ def update_kscript(kscript_file, rows):
     Given a kscript file, modify a kscript file by replacing text from the EN colum
     """
 
-    temp_file = tempfile.NamedTemporaryFile(
-        mode="w", delete=False, encoding="utf-8"
-    )
-    
+    out = StringIO()
 
     changes = {}
     for row in rows:
@@ -87,62 +83,64 @@ def update_kscript(kscript_file, rows):
         else:
             changes[line][2][subline] = (jp, en)
 
+    # Read
     with open(kscript_file, "r", encoding="utf-8") as kscript_fp:
         kscript_lines = kscript_fp.readlines()
-    for i, line in enumerate(kscript_lines):
-        parsed_line = line.lstrip().rstrip("\n")
-        if "LABEL_" in parsed_line or "JMP_" in parsed_line:
-            temp_file.write(line)
-            continue
-        op = line_to_op(parsed_line)
-        op_type = op.__class__.__name__
 
-        if i not in changes:
-            temp_file.write(line)
-            continue
+    # Then overwrite
+    with open(kscript_file, "w", encoding="utf-8") as out_fp:
+        for i, line in enumerate(kscript_lines):
+            parsed_line = line.lstrip().rstrip("\n")
+            if "LABEL_" in parsed_line or "JMP_" in parsed_line:
+                out_fp.write(line)
+                continue
+            op = line_to_op(parsed_line)
+            op_type = op.__class__.__name__
 
-        change = changes.get(i)
+            if i not in changes:
+                out_fp.write(line)
+                continue
 
-        jp, en, responses = change
-        # sort responses by key
-        if responses:
-            responses = sorted(responses.items(), key=lambda x: x[0])
-            responses = [x[1][1] for x in responses]
+            change = changes.get(i)
 
-        if op_type in [
-            "Choice",
-            "FourChoice",
-            "FourChoiceType2",
-            "FourChoiceType3",
-            "BubbleChoice",
-            "BubbleChoice2",
-        ]:
-            op.question_text = (
-                en.replace("\n", "\\n")
-                .replace(", ", "，")
-                .replace(",", "，")
-                .replace("! ", "！")
-                .replace("!", "！")
-            )
+            jp, en, responses = change
+            # sort responses by key
+            if responses:
+                responses = sorted(responses.items(), key=lambda x: x[0])
+                responses = [x[1][1] for x in responses]
 
-            op.responses = responses
+            if op_type in [
+                "Choice",
+                "FourChoice",
+                "FourChoiceType2",
+                "FourChoiceType3",
+                "BubbleChoice",
+                "BubbleChoice2",
+            ]:
+                op.question_text = (
+                    en.replace("\n", "\\n")
+                    .replace(", ", "，")
+                    .replace(",", "，")
+                    .replace("! ", "！")
+                    .replace("!", "！")
+                )
 
-        elif op_type in [
-            "TextBubble",
-            "TextBubbleNoTail",
-            "VNText",
-            "CutsceneText",
-        ]:
-            op.text = (
-                en.replace("\n", "\\n")
-                .replace(", ", "，")
-                .replace(",", "，")
-                .replace("! ", "！")
-                .replace("!", "！")
-            )
-        temp_file.write(f"  {str(op)}\n")
-    temp_file.close()
-    shutil.copyfile(temp_file.name, kscript_file)
+                op.responses = responses
+
+            elif op_type in [
+                "TextBubble",
+                "TextBubbleNoTail",
+                "VNText",
+                "CutsceneText",
+            ]:
+                op.text = (
+                    en.replace("\n", "\\n")
+                    .replace(", ", "，")
+                    .replace(",", "，")
+                    .replace("! ", "！")
+                    .replace("!", "！")
+                )
+            out_fp.write(f"  {str(op)}\n")
 
 
 def from_sheets(dir: str = "decompiled"):
