@@ -61,9 +61,10 @@ def update_kscript(kscript_file, rows):
     Given a kscript file, modify a kscript file by replacing text from the EN colum
     """
 
-    out_file = tempfile.NamedTemporaryFile(
+    temp_file = tempfile.NamedTemporaryFile(
         mode="w", delete=False, encoding="utf-8"
-    ).name
+    )
+    
 
     changes = {}
     for row in rows:
@@ -86,19 +87,18 @@ def update_kscript(kscript_file, rows):
         else:
             changes[line][2][subline] = (jp, en)
 
-    kscript_fp = open(kscript_file, "r", encoding="utf-8")
-    kscript_lines = kscript_fp.readlines()
-    out_fp = open(out_file, "w", encoding="utf-8")
+    with open(kscript_file, "r", encoding="utf-8") as kscript_fp:
+        kscript_lines = kscript_fp.readlines()
     for i, line in enumerate(kscript_lines):
         parsed_line = line.lstrip().rstrip("\n")
         if "LABEL_" in parsed_line or "JMP_" in parsed_line:
-            out_fp.write(line)
+            temp_file.write(line)
             continue
         op = line_to_op(parsed_line)
         op_type = op.__class__.__name__
 
         if i not in changes:
-            out_fp.write(line)
+            temp_file.write(line)
             continue
 
         change = changes.get(i)
@@ -140,9 +140,9 @@ def update_kscript(kscript_file, rows):
                 .replace("! ", "！")
                 .replace("!", "！")
             )
-
-        out_fp.write(f"  {str(op)}\n")
-    shutil.copyfile(out_file, kscript_file)
+        temp_file.write(f"  {str(op)}\n")
+    temp_file.close()
+    shutil.copyfile(temp_file.name, kscript_file)
 
 
 def from_sheets(dir: str = "decompiled"):
