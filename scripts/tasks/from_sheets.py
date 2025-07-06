@@ -11,11 +11,9 @@ Pull latest translations from Google Sheets and updates kscript files.
 """
 
 import os
-import shutil
 import sys
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
-from io import StringIO
 from .parser import line_to_op
 
 scopes = [
@@ -60,8 +58,7 @@ def update_kscript(kscript_file, rows):
     Given a kscript file, modify a kscript file by replacing text from the EN colum
     """
 
-    out = StringIO()
-
+    # Changes are indexed by line number in the original kscript file
     changes = {}
     for row in rows:
         if len(row) < 3:
@@ -75,6 +72,8 @@ def update_kscript(kscript_file, rows):
 
         filename, line, subline = id.split("||")
         line = int(line)
+        # Choices contain multiple pieces of text per line,
+        # so I also add a sub-line index as part of the ID
         subline = int(subline)
         if not en:
             en = jp
@@ -82,13 +81,16 @@ def update_kscript(kscript_file, rows):
         if subline == 0:
             changes[line] = (jp, en, {})
         else:
+            # Choice response
+            if line not in changes:
+                raise ValueError(f"Found a choice response for line {line} before the choice was defined")
             changes[line][2][subline] = (jp, en)
 
-    # Read
+    # Read each line of the unmodified kscript file
     with open(kscript_file, "r", encoding="utf-8") as kscript_fp:
         kscript_lines = kscript_fp.readlines()
 
-    # Then overwrite
+    # Then overwrite the kscript file with the modified lines
     with open(kscript_file, "w", encoding="utf-8") as out_fp:
         for i, line in enumerate(kscript_lines):
             parsed_line = line.lstrip().rstrip("\n")
