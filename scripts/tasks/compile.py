@@ -1,5 +1,13 @@
 import sys
-from .parser import ConditionalRelativeJump, line_to_op
+
+
+# Handle imports for both module and script execution
+try:
+    # When imported as a module
+    from .parser import line_to_op, ConditionalRelativeJump
+except ImportError:
+    # When run as a script
+    from parser import line_to_op, ConditionalRelativeJump
 
 
 def kscript_to_bin(kscript_file: str, bin_file: str):

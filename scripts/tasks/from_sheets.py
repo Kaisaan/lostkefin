@@ -14,7 +14,15 @@ import os
 import sys
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
-from .parser import line_to_op
+
+# Handle imports for both module and script execution
+try:
+    # When imported as a module
+    from .parser import line_to_op
+except ImportError:
+    # When run as a script
+    from parser import line_to_op
+
 
 scopes = [
     "https://www.googleapis.com/auth/drive",
@@ -83,7 +91,9 @@ def update_kscript(kscript_file, rows):
         else:
             # Choice response
             if line not in changes:
-                raise ValueError(f"Found a choice response for line {line} before the choice was defined")
+                raise ValueError(
+                    f"Found a choice response for line {line} before the choice was defined"
+                )
             changes[line][2][subline] = (jp, en)
 
     # Read each line of the unmodified kscript file

@@ -2,7 +2,13 @@ import csv
 import sys
 import os
 
-from .parser import line_to_op
+# Handle imports for both module and script execution
+try:
+    # When imported as a module
+    from .parser import line_to_op
+except ImportError:
+    # When run as a script
+    from parser import line_to_op
 
 
 def to_csv(kscript_file, csv_file):

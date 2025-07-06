@@ -1,5 +1,12 @@
 import sys
-from .parser import opcodes, ConditionalRelativeJump
+
+# Handle imports for both module and script execution
+try:
+    # When imported as a module
+    from .parser import opcodes, ConditionalRelativeJump
+except ImportError:
+    # When run as a script
+    from parser import opcodes, ConditionalRelativeJump
 
 
 def bin_to_kscript(bin_file: str, kscript_file: str):
