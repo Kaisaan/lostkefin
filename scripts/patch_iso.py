@@ -5,13 +5,16 @@
 #     "google-auth",
 # ]
 # ///
-from pathlib import Path
-import sys
+import argparse
 import subprocess
-from tasks.from_sheets import from_sheets
+import sys
+from pathlib import Path
+
+from isotool import PAD_NONE, rebuild_iso
 from tasks.compile import kscript_to_bin
+from tasks.from_csv import from_csv
+from tasks.from_sheets import from_sheets
 from tasks.pack import pack
-from isotool import rebuild_iso, PAD_NONE
 
 STAGES = ["00", "10", "20", "30", "40", "50", "60", "70", "80", "90", "a0", "b0"]
 
@@ -25,10 +28,18 @@ def run(cmd, **kwargs):
         sys.exit(e.returncode)
 
 
-def main():
+def main(sheets: bool = False):
     run(["armips", "patch.asm"])
     print("Patching scripts...")
-    from_sheets("decompiled")
+    if sheets:
+        print("Pulling latest translations from Google Sheets...")
+        from_sheets("decompiled")
+    else:
+        print("Updating using CSV files")
+        from_csv(
+            csv_dir="csv",
+            kscript_dir="decompiled",
+        )
     print("Done!")
 
     print("Compiling scripts...")
@@ -49,7 +60,17 @@ def main():
         Path("Ys V - Lost Kefin, Kingdom of Sand [English Patched].iso"),
         PAD_NONE,
     )
+    print(
+        "Patched ISO saved to Ys V - Lost Kefin, Kingdom of Sand [English Patched].iso"
+    )
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description="Patch ISO with translations")
+    parser.add_argument(
+        "--sheets",
+        action="store_true",
+        help="Pull latest translations from Google Sheets. If unset, uses local CSV files",
+    )
+    args = parser.parse_args()
+    main(args.sheets)

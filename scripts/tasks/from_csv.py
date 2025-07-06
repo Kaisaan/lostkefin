@@ -1,4 +1,5 @@
 import csv
+import os
 import sys
 
 
@@ -6,98 +7,48 @@ import sys
 try:
     # When imported as a module
     from .parser import line_to_op
+    from .from_sheets import update_kscript
 except ImportError:
     # When run as a script
     from parser import line_to_op
+    from from_sheets import update_kscript
 
 
-def from_csv(csv_file, kscript_file, out_file):
-    """
-    Given a CSV file, modify a kscript file by replacing text from the EN colum
-    """
-    csv_fp = open(csv_file, "r", encoding="utf-8")
-    reader = csv.reader(csv_fp)
-    next(reader)
+def from_csv(csv_dir: str, kscript_dir: str):
+    if not os.path.exists(csv_dir):
+        sys.exit(f"Directory {csv_dir} does not exist")
+    if not os.path.exists(kscript_dir):
+        sys.exit(f"Directory {kscript_dir} does not exist")
 
-    changes = {}
-    for row in reader:
-        id = row[0]
-        jp = row[1]
-        en = row[2]
-
-        if not id:
-            continue
-
-        filename, line, subline = id.split("||")
-        line = int(line)
-        subline = int(subline)
-        if not en:
-            continue
-        if subline == 0:
-            changes[line] = (jp, en, {})
-        else:
-            changes[line][2][subline] = (jp, en)
-
-    kscript_fp = open(kscript_file, "r", encoding="utf-8")
-    kscript_lines = kscript_fp.readlines()
-    out_fp = open(out_file, "w", encoding="utf-8")
-    for i, line in enumerate(kscript_lines):
-        parsed_line = line.lstrip().rstrip("\n")
-        if "LABEL_" in parsed_line or "JMP_" in parsed_line:
-            out_fp.write(line)
-            continue
-        op = line_to_op(parsed_line)
-        op_type = op.__class__.__name__
-
-        if i not in changes:
-            out_fp.write(line)
-            continue
-
-        change = changes.get(i)
-
-        jp, en, responses = change
-        # sort responses by key
-        if responses:
-            responses = sorted(responses.items(), key=lambda x: x[0])
-            responses = [x[1][1] for x in responses]
-
-        if op_type in [
-            "Choice",
-            "FourChoice",
-            "FourChoiceType2",
-            "FourChoiceType3",
-            "BubbleChoice",
-            "BubbleChoice2",
+    for filename in os.listdir(csv_dir):
+        if filename not in [
+            "stage00.csv",
+            "stage10.csv",
+            "stage20.csv",
+            "stage30.csv",
+            "stage40.csv",
+            "stage50.csv",
+            "stage60.csv",
+            "stage70.csv",
+            "stage80.csv",
+            "stage90.csv",
+            "stagea0.csv",
+            "stageb0.csv",
         ]:
-            op.question_text = (
-                en.replace("\n", "\\n")
-                .replace(", ", "，")
-                .replace(",", "，")
-                .replace("! ", "！")
-                .replace("!", "！")
-            )
+            continue
+        print(f"Processing {filename}")
 
-            op.responses = responses
-
-        elif op_type in [
-            "TextBubble",
-            "TextBubbleNoTail",
-            "VNText",
-            "CutsceneText",
-        ]:
-            op.text = (
-                en.replace("\n", "\\n")
-                .replace(", ", "，")
-                .replace(",", "，")
-                .replace("! ", "！")
-                .replace("!", "！")
-            )
-
-        out_fp.write(f"  {str(op)}\n")
+        with open(os.path.join(csv_dir, filename), "r", encoding="utf-8") as f:
+            reader = csv.reader(f)
+            rows = list(reader)
+            kscript_filename = filename.replace(".csv", ".kscript")
+            update_kscript(os.path.join(kscript_dir, kscript_filename), rows[1:])
 
 
 if __name__ == "__main__":
     if len(sys.argv) != 4:
-        print("Usage: python from_csv.py <csv_file> <kscript_file> <out_file>")
+        print(
+            "Usage: from_csv.py <directory of .csv files> <directory of .kscript files>"
+        )
         sys.exit(1)
-    from_csv(sys.argv[1], sys.argv[2], sys.argv[3])
+    from_csv(sys.argv[1], sys.argv[2])
