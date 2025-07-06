@@ -77,7 +77,8 @@ def update_kscript(kscript_file, rows):
         line = int(line)
         subline = int(subline)
         if not en:
-            continue
+            en = jp
+
         if subline == 0:
             changes[line] = (jp, en, {})
         else:
