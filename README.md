@@ -50,6 +50,10 @@ A big thanks to these wonderful people for helping with this project! This proje
 - [Everdred](https://github.com/cschmidt0121) - Programming, Hacking, Script development
 
 # Related Materials
+A list of all webpages I could find that include information about this game. Please update me about anything that is not listed here
+- Article of the game on [Ys Wiki](https://isu.fandom.com/wiki/Ys_V:_Lost_Kefin,_Kingdom_of_Sand_(PS2))
+- Article of the game on [Wikipedia](https://en.wikipedia.org/wiki/Ys_V:_Lost_Kefin,_Kingdom_of_Sand)
+- Article of the game on [Wikipedia](https://ja.wikipedia.org/wiki/%E3%82%A4%E3%83%BC%E3%82%B9V) (Japanese)
 - Translation of opening cutscene by [mziab](https://www.romhacking.net/forum/index.php?topic=28379.0) (I did not use this translation)
 - Hacking attempt by [Hectavus](https://zenhax.com/viewtopic.php@t=15249.html) with only `SLPM_663.60` being translated
 - Cheatcodes by [luc-ita](https://gamehacking.org/game/100384)
