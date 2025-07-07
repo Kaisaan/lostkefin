@@ -15,7 +15,7 @@ Textures for 3D models. 2-dimensional, 32BPP (RGBA8888) encoded.
 # Sprite Files
 
 `.bin` files whose filenames end with `_anm`.  
-`graphics.py` can be used to extract all sprites from a given file.  
+`graphics.py` can be used to extract all sprites from a given file. Note that [Pillow](https://pillow.readthedocs.io/en/stable/) must be installed)  
 Use [texture_dump_alpha_scaler.py](https://github.com/PCSX2/pcsx2/blob/master/tools/texture_dump_alpha_scaler.py) to scale/unscale the transparency of the extracted images.
 
 ## Header
