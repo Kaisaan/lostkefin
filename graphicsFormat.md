@@ -1,6 +1,7 @@
 # Graphics Formats
 
-*Ys V: Lost Kefin - Kingdom of Sand* uses unique file formats for different graphics.  
+*Ys V: Lost Kefin - Kingdom of Sand* uses unique file formats for different graphics  
+*Ys III - Wanderers From Ys* (PS2) also uses the same graphics format
 
 **Note: All values are stored in Little Endian unless otherwise specified.**
 
@@ -15,7 +16,7 @@ Textures for 3D models. 2-dimensional, 32BPP (RGBA8888) encoded.
 # Sprite Files
 
 `.bin` files whose filenames end with `_anm`.  
-`graphics.py` can be used to extract all sprites from a given file. Note that [Pillow](https://pillow.readthedocs.io/en/stable/) must be installed)  
+`graphics.py` can be used to extract all sprites from a given file. Note that [Pillow](https://pillow.readthedocs.io/en/stable/) must be installed  
 Use [texture_dump_alpha_scaler.py](https://github.com/PCSX2/pcsx2/blob/master/tools/texture_dump_alpha_scaler.py) to scale/unscale the transparency of the extracted images.
 
 ## Header
@@ -35,8 +36,8 @@ The `NAXA5010` file header indicates that it is a sprite file.
 
 ## Palette
 
-The Palette (or CLUT) data always starts at $20 in the file and is either $10 colours or $100 colours. Each colour is 32 bits in RGBA8 format.  
-The size of the palette determines if the image data is either 4 bits per pixel or 8 bits per pixel respectively.  
+The Palette (or CLUT) data always starts at $20 in the file and is either $10 colours or $100 colours. Each colour is 32 bits in RGBA8 format
+The size of the palette determines if the image data is either 4 bits per pixel or 8 bits per pixel respectively
 **The Palette data is Swizzled**
 
 ## Animation Data
@@ -45,12 +46,12 @@ I don't understand yet how this data is used but there are some patterns that em
 
 ### Header
 
-The animation data starts with an info for the number of entries each file has.  
+The animation data starts with an info for the number of entries each file has
 
 |Size|Description|
 |---|---|
 |$4|Number of entries |
-|$4|Entry offset , calculated as (Animation Data Offest + Entry Offset)|
+|$4|Entry offset, calculated as (Animation Data Offest + Entry Offset)|
 
 The header is padded with `FF FF FF FF`.
 
@@ -80,7 +81,7 @@ The rest of each frame is usually empty and padded to be a total of $60 bytes.
 
 ## Image Data
 
-The image data is $10 bytes long per image. It is located based on the offset in the file header. They are formatted as follows:  
+The image data is $10 bytes long per image. It is located based on the offset in the file header. They are formatted as follows
 |Size|Description|
 |---|---|
 |$2|Image Width in-game?|
