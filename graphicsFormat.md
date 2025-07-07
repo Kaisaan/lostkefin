@@ -36,13 +36,13 @@ The `NAXA5010` file header indicates that it is a sprite file.
 
 ## Palette
 
-The Palette (or CLUT) data always starts at $20 in the file and is either $10 colours or $100 colours. Each colour is 32 bits in RGBA8 format
-The size of the palette determines if the image data is either 4 bits per pixel or 8 bits per pixel respectively
+The Palette (or CLUT) data always starts at $20 in the file and is either $10 colours or $100 colours. Each colour is 32 bits in RGBA8 format  
+The size of the palette determines if the image data is either 4 bits per pixel or 8 bits per pixel respectively  
 **The Palette data is Swizzled**
 
 ## Animation Data
 
-I don't understand yet how this data is used but there are some patterns that emerge when comparing different files.
+I don't understand yet how this data is used but there are some patterns that emerge when comparing different files
 
 ### Header
 
