@@ -13,7 +13,8 @@ Now the goal is to get a proof of concept patch working.
 - Copy the original game's .iso to the root and rename it as `lostkefin.iso`
 - Run `1 Extract ISO.bat` (Windows) or `1 Extract ISO.sh` (Linux/Mac OS)
 - Make changes to the .csv files in the `csv` folder or edit the project's Google Sheets
-- Run `2 Patch ISO.bat` (Windows) or `2 Patch ISO.sh` (Linux/Mac OS)
+- To build from your local CSV files, run `2a Patch ISO from CSV.bat` (Windows) or `2a Patch ISO from CSV.sh` (Linux/Mac OS)
+- To build from Google sheets, run `2b Patch ISO from sheets.bat` (Windows) or `2b Patch ISO from sheets.sh` (Linux/Mac OS) (requires a Google client secret file `lostkefin_secret.json`)
 
 # Translating
 Translation is currently being done with [Google Sheets](https://docs.google.com/spreadsheets/d/1kcEely3uIDJAifqj9kn16Bky8mBBoed03CgAwd4B0W8/edit?usp=sharing) and is automatically pulled from during patching
