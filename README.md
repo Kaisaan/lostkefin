@@ -1,12 +1,11 @@
-# Ys V: Lost Kefin - Kingdom of Sand (PS2) English Translation
+# Ys V: Lost Kefin - Kingdom of Sand (PS2) English Translation [SLPM-66360]
 All the files and documentation for the translation of *Ys V: Lost Kefin, Kingdom of Sand* for the Playstation 2
 
 # How to Help 
-If you want to help with the translation please join the project's [Discord Server](https://discord.gg/TNWGBGpZGN) or otherwise [contact me](https://kaisaan.github.io/pages/contact).
+If you want to help with the translation please join the project's [Discord Server](https://discord.gg/TNWGBGpZGN) or otherwise [contact me](https://kaisaan.github.io/pages/contact)
 
-# Current Progress  
-Script extraction and insertion is now done with [acbde](https://www.romhacking.net/utilities/1392/) with miscellanous text being patched in with [armips](https://github.com/Kingcom/armips).  
-Now the goal is to get a proof of concept patch working.
+# Current Progress
+Script extraction and insertion is now done automatically by pulling translated text from Google Sheets with miscellanous/system text being patched in with [armips](https://github.com/Kingcom/armips)
 
 # Building
 - [Python](https://www.python.org/) and [uv](https://docs.astral.sh/uv/) must be installed
@@ -17,18 +16,19 @@ Now the goal is to get a proof of concept patch working.
 - To build from Google sheets, run `2b Patch ISO from sheets.bat` (Windows) or `2b Patch ISO from sheets.sh` (Linux/Mac OS) (requires a Google client secret file `lostkefin_secret.json`)
 
 # Translating
-Translation is currently being done with [Google Sheets](https://docs.google.com/spreadsheets/d/1kcEely3uIDJAifqj9kn16Bky8mBBoed03CgAwd4B0W8/edit?usp=sharing) and is automatically pulled from during patching
+Translation is currently being done on [Google Sheets](https://docs.google.com/spreadsheets/d/1kcEely3uIDJAifqj9kn16Bky8mBBoed03CgAwd4B0W8/edit?usp=sharing) and is automatically pulled from during patching
 
 # Hacking Notes
 - See [scriptFormat.md](https://github.com/Kaisaan/lostkefin/blob/main/scriptFormat.md) for all information about the game's script system
 - See [graphicsFormat.md](https://github.com/Kaisaan/lostkefin/blob/main/graphicsFormat.md) for all information about the game's graphics formats
 - The game's base pointer is $FFF80 meaning all pointers in `SLPM_663.60` are calculated as `(True offset) + $FFF80`
-- Music files are `.hd` (header), `.bd` (header), and `.sq` (sequence) files
+- Music files are in PSF2 format in the form of `.hd` (header), `.bd` (header), and `.sq` (sequence) files
 - See my [notes file](https://github.com/Kaisaan/lostkefin/blob/main/notes.txt) for more terribly organized notes
 
 # Extracting the DATA.BIN Files
-`scripts/misc/pack.py` extracts all the files and folders from DATA.BIN into the `DATA` folder, a log file named `DATA.txt` is also created. `scripts/misc/unpack.py` is used to repack the files into DATA.BIN and updates the metadata in `SLPM_663.60`  
-Please note that running the ISO extracting/patching scripts automatically run them
+`scripts/misc/pack.py` extracts all the files and folders from DATA.BIN into the `DATA` folder, a log file named `DATA.txt` is also created  
+`scripts/misc/unpack.py` is used to repack the files into DATA.BIN and updates the metadata in `SLPM_663.60`  
+Please note that running the ISO extracting/patching scripts automatically runs the packing/unpacking scripts
 
 # To do
 - Update the extraction script to extract `DATA0.BIN` folders, files `DATA1.BIN`, and possibly text from `SLPM_663.60`
@@ -40,7 +40,7 @@ Please note that running the ISO extracting/patching scripts automatically run t
 In the `manual` folder are scans for the game's manual. They were originally from [landofys.narod.ru](https://landofys.narod.ru/) which is now [landofys.com.ru](http://landofys.com.ru/) was scanned by Dragon.
 
 # Contributors
-A big thanks to these wonderful people for helping with this project! This project would not be where it is without any of them.  
+A big thanks to these wonderful people for helping with this project! This project would not be where it is without any of them.
 - [Sam Farron](https://www.youtube.com/@samfarron) - Allowing me to use his translation as the basis of this project
 - [Etokapa](https://github.com/Etokapa/) - Text transcribing, making better batch files, making useful scripts, testing
 - [Seiichiro Mine](https://github.com/SeiichiroMine) - Translation
@@ -68,10 +68,11 @@ A big thanks to these wonderful people for helping with this project! This proje
 # Special Thanks
 - Everyone that supports me in my [Discord Server](https://discord.gg/TNWGBGpZGN)
 - Everyone that supports me through my [Ko-fi](https://ko-fi.com/kaisaan)
-- Everyone that supports me through my [Bluesky](https://bsky.app/profile/kaisaan.bsky.social) and [Twitter](https://twitter.com/KaisaanSiddiqui)
+- Everyone that supports me on [Bluesky](https://bsky.app/profile/kaisaan.bsky.social) and [Twitter](https://twitter.com/KaisaanSiddiqui)
 - [Hilltop](https://x.com/HilltopWorks) - Providing valuable and informatative videos such as [hacking with Ghidra](https://youtu.be/qCEZC3cPc1s) and [info on PS2 graphics](https://youtu.be/lePKUCYakqM)
-- [Life Bottle Productions](https://www.lifebottle.org/#/) - Providing me with their [isotool.py script](https://github.com/lifebottle/PythonLib/blob/main/isotool.py), their tutorial for [finding the base pointer](https://youtu.be/q5aEj-aSw50), and for having many supportive folks in their [Discord Server](https://discord.gg/rhQBXHKF3J)
-- [The Geofront](https://geofront.esterior.net/) - Specifically folks on their [Discord Server](https://discord.gg/sXx2Ck6Cxn) for their continuing support
+- [Life Bottle Productions](https://www.lifebottle.org/#/) - Creating their tutorial for [finding the base pointer](https://youtu.be/q5aEj-aSw50) and for having many supportive folks in their [Discord Server](https://discord.gg/rhQBXHKF3J)
+- Ethanol - Creating the [isotool.py script](https://github.com/lifebottle/PythonLib/blob/main/isotool.py)
+- [The Geofront](https://geofront.esterior.net/) - Specifically folks on their [Discord Server](https://discord.gg/sXx2Ck6Cxn) for their continual support
 - [Evie](https://github.com/Epicpkmn11) - Helping with getting `graphics.py` working properly
 - [PCSX2 Team](https://discord.com/invite/TCz3t9k) - Making the wonderful [PCSX2](https://pcsx2.net/) emulator and also providing the [texture alpha scaler](https://github.com/PCSX2/pcsx2/blob/master/tools/texture_dump_alpha_scaler.py)
 - [SnowyAria](https://bsky.app/profile/snowyaria.bsky.social) - Helping with patch creation
