@@ -6,12 +6,10 @@ import sys
 # Handle imports for both module and script execution
 try:
     # When imported as a module
-    from .parser import line_to_op
-    from .from_sheets import update_kscript
+    from .update_kscript import update_kscript
 except ImportError:
     # When run as a script
-    from parser import line_to_op
-    from from_sheets import update_kscript
+    from update_kscript import update_kscript
 
 
 def from_csv(csv_dir: str, kscript_dir: str):
