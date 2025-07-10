@@ -14,9 +14,6 @@ addiu	a0, a0, 0x01
 
 // Bootup Text ------------------------------------------------
 
-.orga 0x0025FD45
-.strn "KaisaanTest"
-
 .orga 0x0025FE70
 .strn "Ys 3 Data found"
 
@@ -174,12 +171,5 @@ addiu	a0, a0, 0x01
 //.strn "No", 0x00, 0x00, 0x00, 0x00
 
 // ------------------------------------------------------------
-
-.close
-
-.open "extracted/DATA.BIN", "translated/DATA.BIN", 0x0
-
-.orga 0x3B9A880
-.db 0xFF
 
 .close
