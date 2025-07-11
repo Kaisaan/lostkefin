@@ -88,7 +88,9 @@ def from_sheets(dir: str = "decompiled"):
         "stagea0",
         "stageb0",
     ]:
-        filtered_rows = [row for row in rows[1:] if stage in row[0]]
+        # Filter down to rows where the ID column exists and has stageXX in it
+        filtered_rows = [row for row in rows[1:] if row and stage in row[0]]
+
         print(f"Updating .kscript file for {stage}")
         update_kscript(os.path.join(dir, f"{stage}.kscript"), filtered_rows)
 
