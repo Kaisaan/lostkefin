@@ -1,4 +1,7 @@
 # Handle imports for both module and script execution
+import sys
+
+
 try:
     # When imported as a module
     from .parser import line_to_op
@@ -48,7 +51,8 @@ def update_kscript(kscript_file, rows):
 
     # Then overwrite the kscript file with the modified lines
     with open(kscript_file, "w", encoding="utf-8") as out_fp:
-        for i, line in enumerate(kscript_lines):
+        i = 0
+        for line in kscript_lines:
             parsed_line = line.lstrip().rstrip("\n")
             if "LABEL_" in parsed_line or "JMP_" in parsed_line:
                 out_fp.write(line)
@@ -58,6 +62,7 @@ def update_kscript(kscript_file, rows):
 
             if i not in changes:
                 out_fp.write(line)
+                i += 1
                 continue
 
             change = changes.get(i)
@@ -99,4 +104,5 @@ def update_kscript(kscript_file, rows):
                     .replace("! ", "！")
                     .replace("!", "！")
                 )
+            i += 1
             out_fp.write(f"  {str(op)}\n")

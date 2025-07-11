@@ -68,31 +68,29 @@ def from_sheets(dir: str = "decompiled"):
     if not os.path.exists(dir):
         sys.exit(f"Directory {dir} does not exist")
 
-    for title in get_sheet_titles(service):
-        if title not in [
-            "stage00",
-            "stage10",
-            "stage20",
-            "stage30",
-            "stage40",
-            "stage50",
-            "stage60",
-            "stage70",
-            "stage80",
-            "stage90",
-            "stagea0",
-            "stageb0",
-        ]:
-            continue
-        print(f"Pulling sheet for {title}")
-        rows = get_rows(service, title)
-        if rows[0][0] != "ID" or rows[0][1] != "JP Text" or rows[0][2] != "EN Text":
-            sys.exit(
-                "Header is either missing ID/JP/EN column, or they're not in the right place"
-            )
+    rows = get_rows(service, "TL")
+    if rows[0][0] != "ID" or rows[0][1] != "JP Text" or rows[0][2] != "EN Text":
+        sys.exit(
+            "Header is either missing ID/JP/EN column, or they're not in the right place"
+        )
 
-        print(f"Updating .kscript file for {title}")
-        update_kscript(os.path.join(dir, f"{title}.kscript"), rows[1:])
+    for stage in [
+        "stage00",
+        "stage10",
+        "stage20",
+        "stage30",
+        "stage40",
+        "stage50",
+        "stage60",
+        "stage70",
+        "stage80",
+        "stage90",
+        "stagea0",
+        "stageb0",
+    ]:
+        filtered_rows = [row for row in rows[1:] if stage in row[0]]
+        print(f"Updating .kscript file for {stage}")
+        update_kscript(os.path.join(dir, f"{stage}.kscript"), filtered_rows)
 
 
 if __name__ == "__main__":

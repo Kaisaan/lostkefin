@@ -21,7 +21,8 @@ def to_csv(kscript_file, csv_file):
     writer = csv.writer(csv_fp)
     writer.writerow(["ID", "JP Text", "EN Text", "Comments", "Text Type"])
 
-    for i, line in enumerate(kscript_fp.readlines()):
+    i = 0
+    for line in kscript_fp.readlines():
         line = line.lstrip().rstrip("\n")
         if "LABEL_" in line or "JMP_" in line:
             continue
@@ -55,6 +56,7 @@ def to_csv(kscript_file, csv_file):
             text = op.to_object()["text"]
             text = text.replace("\\n", "\n")
             writer.writerow([f"{base_filename}||{i}||{0}", text, "", "", op_type])
+        i += 1
 
 
 if __name__ == "__main__":
