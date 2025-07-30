@@ -1,6 +1,6 @@
 # TL CSV Format
 
-Given a [.kscript file](https://github.com/Kaisaan/lostkefin/kscript.md), we pull out only the opcodes that contain JP text and place them into a CSV so that they can easily be worked on in Google sheets. In order to do so, each opcode gets a unique ID.
+Given a [.kscript file](https://github.com/Kaisaan/lostkefin/blob/main/kscript.md), we pull out only the opcodes that contain JP text and place them into a CSV so that they can easily be worked on in Google sheets. In order to do so, each opcode gets a unique ID.
 
 ## ID Format
 
@@ -39,8 +39,8 @@ The `update_kscript.py` script processes CSV rows and updates .kscript files:
 
 1. **Parse CSV rows**: Extracts the ID, JP text, and EN text from each row
 2. **Build changes map**: Groups changes by opcode number, handling choice sub-opcodes specially
-3. **Process .kscript file**: Reads the original file line by line, applying changes where needed
-4. **Text formatting**: Replaces punctuation and formatting (commas → full-width commas, exclamation marks, newlines)
+3. **Process .kscript file**: Reads the original .kscript file line by line, applying changes where needed
+4. **Text formatting**: Replaces punctuation and formatting (commas -> full-width commas, exclamation marks, newlines)
 5. **Write updated file**: Outputs the modified .kscript with English text replacing Japanese text
 
 For choice opcodes, the script updates both the question text (sub-opcode 0) and all response options (sub-opcodes 1+) as a single operation.
