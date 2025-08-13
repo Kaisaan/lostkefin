@@ -39,8 +39,12 @@ def from_csv(csv_dir: str, kscript_dir: str):
         with open(os.path.join(csv_dir, filename), "r", encoding="utf-8") as f:
             reader = csv.reader(f)
             rows = list(reader)
+            header = rows[0]
+            version = 1
+            if "Block" in header and "Speaker" in header:
+                version = 2
             kscript_filename = filename.replace(".csv", ".kscript")
-            update_kscript(os.path.join(kscript_dir, kscript_filename), rows[1:])
+            update_kscript(os.path.join(kscript_dir, kscript_filename), rows[1:], version)
 
 
 if __name__ == "__main__":

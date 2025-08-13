@@ -19,12 +19,20 @@ def to_csv(kscript_file, csv_file):
     kscript_fp = open(kscript_file, "r", encoding="utf-8")
     csv_fp = open(csv_file, "w", newline="", encoding="utf-8")
     writer = csv.writer(csv_fp)
-    writer.writerow(["ID", "JP Text", "EN Text", "Comments", "Text Type"])
+    writer.writerow(["ID", "Block", "Speaker", "JP Text", "EN Text", "Comments", "Text Type"])
 
     i = 0
+    block_index = 0
+
     for line in kscript_fp.readlines():
         line = line.lstrip().rstrip("\n")
-        if "LABEL_" in line or "JMP_" in line:
+        # Using labels, we can roughly split script files into "blocks"
+        # which may make it easier for translators to logically break the
+        # script up.
+        if "LABEL_" in line:
+            block_index += 1
+            continue
+        if "JMP_" in line:
             continue
 
         op = line_to_op(line)
@@ -40,11 +48,11 @@ def to_csv(kscript_file, csv_file):
         ]:
             text = op.to_object()["question_text"]
             text = text.replace("\\n", "\n")
-            writer.writerow([f"{base_filename}||{i}||{0}", text, "", "", op_type])
+            writer.writerow([f"{base_filename}||{i}||{0}", block_index, "", text, "", "", op_type])
             responses = op.to_object()["responses"]
             for j, response in enumerate(responses):
                 writer.writerow(
-                    [f"{base_filename}||{i}||{j + 1}", response, "", "", op_type]
+                    [f"{base_filename}||{i}||{j + 1}", block_index, "", response, "", "", op_type]
                 )
 
         elif op_type in [
@@ -55,7 +63,8 @@ def to_csv(kscript_file, csv_file):
         ]:
             text = op.to_object()["text"]
             text = text.replace("\\n", "\n")
-            writer.writerow([f"{base_filename}||{i}||{0}", text, "", "", op_type])
+            speaker = op.to_object().get("character_name", "").replace("*", "")
+            writer.writerow([f"{base_filename}||{i}||{0}", block_index, speaker, text, "", "", op_type])
         i += 1
 
 
