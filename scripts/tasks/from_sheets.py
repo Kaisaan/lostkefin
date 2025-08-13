@@ -69,7 +69,11 @@ def from_sheets(dir: str = "decompiled"):
         sys.exit(f"Directory {dir} does not exist")
 
     rows = get_rows(service, "TL")
-    if rows[0][0] != "ID" or rows[0][1] != "JP Text" or rows[0][2] != "EN Text":
+    if rows[0][0] == "ID" and rows[0][1] == "JP Text" and rows[0][2] == "EN Text":
+        version = 1
+    elif rows[0][0] == "ID" and rows[0][1] == "Block" and rows[0][2] == "Speaker" and rows[0][3] == "JP Text" and rows[0][4] == "EN Text":
+        version = 2
+    else:
         sys.exit(
             "Header is either missing ID/JP/EN column, or they're not in the right place"
         )
@@ -92,7 +96,7 @@ def from_sheets(dir: str = "decompiled"):
         filtered_rows = [row for row in rows[1:] if row and stage in row[0]]
 
         print(f"Updating .kscript file for {stage}")
-        update_kscript(os.path.join(dir, f"{stage}.kscript"), filtered_rows)
+        update_kscript(os.path.join(dir, f"{stage}.kscript"), filtered_rows, version)
 
 
 if __name__ == "__main__":

@@ -33,6 +33,7 @@ def main():
         shutil.rmtree("decompiled")
     os.makedirs("decompiled", exist_ok=True)
     for stage in STAGES:
+        print(f"Decompiling stage {stage}...")
         src = f"DATA/script/stage{stage}.bin"
         dst = f"decompiled/stage{stage}.kscript"
         bin_to_kscript(src, dst)

@@ -8,6 +8,7 @@ and vice versa.
 import re
 import sys
 import json
+from .characters import get_character_name, get_character_index
 
 
 def format_value(value):
@@ -95,7 +96,7 @@ def read_debug_string(io):
     return debug_str
 
 
-def read_string(io, length):
+def read_string(io, length) -> str:
     """
     Decode a string from the script
     1. Replace sleep control codes with <sleep XX>
@@ -786,27 +787,60 @@ class MoveCharacter(Operation):
 class VNText(Operation):
     opcode = 0x3B
 
-    def __init__(self, arg, text):
-        self.arg = arg
+    def __init__(self, character_name, text):
+        self.character_name = character_name
         self.text = text
 
     def to_object(self):
         object = {
             "name": self.__class__.__name__,
-            "arg": self.arg.hex(),
+            "character_name": self.character_name,
             "text": self.text,
         }
         return object
 
     def to_bytes(self):
-        return self.opcode.to_bytes(1, "little") + self.arg + encode_string(self.text)
+        character_id = get_character_index(self.character_name.replace("*", ""))
+        # See comment in from_io
+        if "*" in self.character_name:
+            character_id += (0x40 + 10000)
+
+        return (
+            self.opcode.to_bytes(1, "little")
+            + character_id.to_bytes(2, "little")
+            + encode_string(self.text)
+        )
 
     @classmethod
     def from_io(cls, io):
-        arg = io.read(2)
+        character_id = int.from_bytes(io.read(2), "little")
+
+        # Special cases
+        if character_id == 0x1c6:
+            # In game it's literally a SJIS space. Used for narration.
+            character_name = "Narrator"
+        elif character_id == 0x1c7:
+            # Used only in the mailman cutscene. 
+            character_name = "Mailman"
+        elif character_id == 0x1c5:
+            # Used nowhere but the code handles it so I will too.
+            # Leaves name unchanged, so will use the name from previous operation.
+            character_name = "<Previous>"
+        elif character_id < 10000:
+            # Normal characters.
+            if character_id < 99:
+                character_name = get_character_name(character_id)
+            else:
+                raise ValueError(f"Bad character id {hex(character_id)}")
+        else:
+            # If the character ID is greater than 10000, it is just the same table
+            # but starting at 0x40. No idea why it does this.
+            character_name = get_character_name(character_id - 10000 + 0x40) + "*"
+
         s_len = int.from_bytes(io.read(1), "little")
         text = read_string(io, s_len)
-        return cls(arg, text)
+
+        return cls(character_name, text)
 
 
 class ConditionalRelativeJump(Operation):

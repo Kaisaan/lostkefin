@@ -10,7 +10,7 @@ except ImportError:
     from parser import line_to_op
 
 
-def update_kscript(kscript_file, rows):
+def update_kscript(kscript_file, rows, version=2):
     """
     Given a kscript file, modify a kscript file by replacing text from the EN colum
     """
@@ -21,8 +21,13 @@ def update_kscript(kscript_file, rows):
         if len(row) < 3:
             continue
         id = row[0]
-        jp = row[1]
-        en = row[2]
+        # New columns added for v2
+        if version == 2:
+            jp = row[3]
+            en = row[4]
+        else:
+            jp = row[1]
+            en = row[2]
 
         if not id:
             continue
@@ -58,6 +63,7 @@ def update_kscript(kscript_file, rows):
                 out_fp.write(line)
                 continue
             op = line_to_op(parsed_line)
+
             op_type = op.__class__.__name__
 
             if i not in changes:
@@ -104,5 +110,6 @@ def update_kscript(kscript_file, rows):
                     .replace("! ", "！")
                     .replace("!", "！")
                 )
+                
             i += 1
             out_fp.write(f"  {str(op)}\n")
