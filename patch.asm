@@ -468,7 +468,7 @@ addiu	a0, a0, 0x01
 .str "Use this item?              @0    @1@C1"
 
 .orga 0x2646F0
-"You acquired/n%s!"
+.str "You acquired\n%s!"
 
 .orga 0x264700
 .str "You will be returned to the location of your Quick Save."
