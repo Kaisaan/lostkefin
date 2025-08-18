@@ -250,9 +250,6 @@ addiu	a0, a0, 0x01
 
 // Load Menu --------------------------------------------
 
-.orga 0x2608C0
-.str "Load Data?"
-
 //Unused?
 //.orga 0x2603C8
 //.str "Would you like to load this file?", 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
@@ -267,5 +264,249 @@ addiu	a0, a0, 0x01
 //.str "No", 0x00, 0x00, 0x00, 0x00
 
 // ------------------------------------------------------------
+
+.orga 0x263C50
+.str "Buy or sell?"
+
+.orga 0x263C70
+.str "Select an item to purchase."
+
+.orga 0x263C90
+.str "Use the D-Pad to select the quantity."
+
+.orga 0x263CC0
+.str "You cannot carry any more swords."
+
+.orga 0x263CE0
+.str "You cannot carry any more shields."
+
+.orga 0x263D00
+.str "You cannot carry any more armor."
+
+
+.orga 0x263D20
+.str "You cannot carry any more accessories."
+
+.orga 0x263D50
+.str "You cannot carry any more of that item."
+
+.orga 0x263D70
+.str "Purchase this item?   @0    @1@C1@0"
+
+.orga 0x263DA0
+.str "Not enough Gold!"
+
+.orga 0x263DC0
+.str "Purchased @b piece(s) of @a!"
+
+.orga 0x263DE0
+.str "Select a category."
+
+.orga 0x263E00
+.str "Select an item to sell."
+
+.orga 0x263E20
+.str "You have no items in this category."
+
+.orga 0x263E50
+.str "Use the D-Pad to select the quantity to sell."
+
+.orga 0x263E80
+.str "That item cannot be sold."
+
+.orga 0x263EB0
+.str "You cannot sell your last sword!"
+
+.orga 0x263EE0
+.str "Sell this item?       @0    @1@C1@o"
+
+.orga 0x263F10
+.str "Sold @b piece(s) of @a!"
+
+.orga 0x263F30
+.str "Equipped items cannot be sold."
+
+.orga 0x263F60
+.str "Select a weapon to refine. 【#cy×#wh…Back】"
+
+.orga 0x263FA0
+.str "This weapon cannot be refined any further."
+
+.orga 0x263FC0
+.str "Equipped Alchemic Stones will be removed."
+
+.orga 0x263FE0
+.str "There is a risk the weapon may break."
+
+.orga 0x264000
+.str "Refine this weapon?   @0    @1@C1"
+
+.orga 0x264030
+.str "You do not have enough Parace."
+
+.orga 0x264050
+.str "This weapon cannot be refined, as you risk losing your last one."
+
+.orga 0x264080
+.str "Refinement successful!"
+
+.orga 0x2640A0
+.str "Refinement failed…"
+
+.orga 0x2640C0
+.str "Select an Alchemic Stone to create. 【#cy×#wh…Back】"
+
+.orga 0x264100
+.str "Create this Alchemic Stone? @0    @1@C1"
+
+.orga 0x264130
+.str "You cannot create any more of this Alchemic Stone."
+
+.orga 0x264150
+.str "You do not have enough Elementals."
+
+.orga 0x264170
+.str "Created @a!"
+
+.orga 0x264190
+.str "Select a slot to modify."
+
+.orga 0x2641C0
+.str "Remove all Alchemic Stones."
+
+.orga 0x2641E0
+.str "There are no available slots to set an Alchemic Stone."
+
+.orga 0x264200
+.str "You cannot place four or more of the same Alchemic Stone in a row."
+
+.orga 0x264240
+.str "Select an Alchemic Stone to set."
+
+.orga 0x264260
+.str "Remove the currently set Alchemic Stone."
+
+.orga 0x264280
+.str "Allows the user to shoot a ball of fire forward."
+
+.orga 0x2642A0
+.str "Allows the user to shoot a homing sphere of fire."
+
+.orga 0x2642D0
+.str "Momentarily wreathes the sword's blade in flame, increasing its attack power."
+
+.orga 0x264300
+.str "Causes blades of ice to erupt from the ground, piercing the enemy."
+
+.orga 0x264330
+.str "Traps an enemy in a sphere of water, draining its movement and health."
+
+.orga 0x264360
+.str "Creates a vortex of water that slices through enemies."
+
+.orga 0x264380
+.str "Allows the user to shoot a piercing blade of wind."
+
+.orga 0x2643B0
+.str "Allows the user to fire a bolt of lightning that pierces through enemies."
+
+.orga 0x2643E0
+.str "Creates a vortex of wind around the caster, shredding enemies."
+
+.orga 0x264410
+.str "Allows the user to shoot a stone projectile forward."
+
+.orga 0x264430
+.str "Shakes the ground, damaging enemies."
+
+.orga 0x264460
+.str "Summons a boulder from the sky to crush enemies."
+
+.orga 0x264490
+.str "Invigorates the caster's life force to heal their wounds."
+
+.orga 0x2644C0
+.str "Select the equipment you wish to change."
+
+.orga 0x2644F0
+.str "Select a sword to equip."
+
+.orga 0x264510
+.str "Select a shield to equip."
+
+.orga 0x264530
+.str "Select an armor to equip."
+
+.orga 0x264550
+.str "Select an accessory to equip."
+
+.orga 0x264580
+.str "Select an item to equip."
+
+.orga 0x2645B0
+.str "Remove current equipment."
+
+.orga 0x2645D0
+.str "You have no equippable items in this category."
+
+.orga 0x2645F0
+.str "Use the #re○#wh button to use the selected item."
+
+.orga 0x264620
+.str "Select an item to inspect."
+
+.orga 0x264650
+.str "This item cannot be used."
+
+.orga 0x264670
+.str "This item cannot be used at this time."
+
+.orga 0x2646A0
+.str "You have no items."
+
+.orga 0x2646C0
+.str "Use this item?              @0    @1@C1"
+
+.orga 0x2646F0
+"You acquired/n%s!"
+
+.orga 0x264700
+.str "You will be returned to the location of your Quick Save."
+
+.orga 0x264730
+.str "The data will be loaded."
+
+.orga 0x264750
+.str "You will be returned to the title screen."
+
+.orga 0x264770
+.str "Load from Quick Save?           @0    @1@C1"
+
+.orga 0x2647A0
+.str "Load this data?                 @0    @1@C1"
+
+.orga 0x2647D0
+.str "Return to the title screen?     @0    @1@C1"
+
+.orga 0x264800
+.str "Perform a Quick Save."
+
+.orga 0x264820
+.str "Open the Equipment screen."
+
+.orga 0x264840
+.str "Open the Alchemic Stones screen."
+
+.orga 0x264860
+.str "Open the Item screen."
+
+.orga 0x264880
+.str "Open the Options screen."
+
+.orga 0x2648A0
+.str "Perform a Quick Save?         @0    @1@C1"
+
+.orga 0x2648E0
+.str "Quick Save complete!"
 
 .close
