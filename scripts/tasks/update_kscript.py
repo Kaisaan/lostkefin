@@ -10,6 +10,20 @@ except ImportError:
     from parser import line_to_op
 
 
+def fix_ascii(text):
+    """
+    Replace some ascii characters with their fullwidth equivalents
+    """
+    return (
+        text.replace("\n", "\\n")
+        .replace(", ", "，")
+        .replace(",", "，")
+        .replace("! ", "！")
+        .replace("!", "！")
+        .replace("~", "〜")
+    )
+
+
 def update_kscript(kscript_file, rows, version=2):
     """
     Given a kscript file, modify a kscript file by replacing text from the EN colum
@@ -87,13 +101,7 @@ def update_kscript(kscript_file, rows, version=2):
                 "BubbleChoice",
                 "BubbleChoice2",
             ]:
-                op.question_text = (
-                    en.replace("\n", "\\n")
-                    .replace(", ", "，")
-                    .replace(",", "，")
-                    .replace("! ", "！")
-                    .replace("!", "！")
-                )
+                op.question_text = fix_ascii(en)
 
                 op.responses = responses
 
@@ -103,13 +111,7 @@ def update_kscript(kscript_file, rows, version=2):
                 "VNText",
                 "CutsceneText",
             ]:
-                op.text = (
-                    en.replace("\n", "\\n")
-                    .replace(", ", "，")
-                    .replace(",", "，")
-                    .replace("! ", "！")
-                    .replace("!", "！")
-                )
-                
+                op.text = fix_ascii(en)
+
             i += 1
             out_fp.write(f"  {str(op)}\n")
