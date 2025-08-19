@@ -71,7 +71,13 @@ def from_sheets(dir: str = "decompiled"):
     rows = get_rows(service, "TL")
     if rows[0][0] == "ID" and rows[0][1] == "JP Text" and rows[0][2] == "EN Text":
         version = 1
-    elif rows[0][0] == "ID" and rows[0][1] == "Block" and rows[0][2] == "Speaker" and rows[0][3] == "JP Text" and rows[0][4] == "EN Text":
+    elif (
+        rows[0][0] == "ID"
+        and rows[0][1] == "Block"
+        and rows[0][2] == "Speaker"
+        and rows[0][3] == "JP Text"
+        and rows[0][4] == "EN Text"
+    ):
         version = 2
     else:
         sys.exit(

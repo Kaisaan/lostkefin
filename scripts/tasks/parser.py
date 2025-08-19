@@ -803,7 +803,7 @@ class VNText(Operation):
         character_id = get_character_index(self.character_name.replace("*", ""))
         # See comment in from_io
         if "*" in self.character_name:
-            character_id += (0x40 + 10000)
+            character_id += 0x40 + 10000
 
         return (
             self.opcode.to_bytes(1, "little")
@@ -816,13 +816,13 @@ class VNText(Operation):
         character_id = int.from_bytes(io.read(2), "little")
 
         # Special cases
-        if character_id == 0x1c6:
+        if character_id == 0x1C6:
             # In game it's literally a SJIS space. Used for narration.
             character_name = "Narrator"
-        elif character_id == 0x1c7:
-            # Used only in the mailman cutscene. 
+        elif character_id == 0x1C7:
+            # Used only in the mailman cutscene.
             character_name = "Mailman"
-        elif character_id == 0x1c5:
+        elif character_id == 0x1C5:
             # Used nowhere but the code handles it so I will too.
             # Leaves name unchanged, so will use the name from previous operation.
             character_name = "<Previous>"

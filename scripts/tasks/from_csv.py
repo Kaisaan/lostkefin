@@ -44,7 +44,9 @@ def from_csv(csv_dir: str, kscript_dir: str):
             if "Block" in header and "Speaker" in header:
                 version = 2
             kscript_filename = filename.replace(".csv", ".kscript")
-            update_kscript(os.path.join(kscript_dir, kscript_filename), rows[1:], version)
+            update_kscript(
+                os.path.join(kscript_dir, kscript_filename), rows[1:], version
+            )
 
 
 if __name__ == "__main__":

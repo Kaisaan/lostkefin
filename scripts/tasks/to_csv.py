@@ -19,7 +19,9 @@ def to_csv(kscript_file, csv_file):
     kscript_fp = open(kscript_file, "r", encoding="utf-8")
     csv_fp = open(csv_file, "w", newline="", encoding="utf-8")
     writer = csv.writer(csv_fp)
-    writer.writerow(["ID", "Block", "Speaker", "JP Text", "EN Text", "Comments", "Text Type"])
+    writer.writerow(
+        ["ID", "Block", "Speaker", "JP Text", "EN Text", "Comments", "Text Type"]
+    )
 
     i = 0
     block_index = 0
@@ -48,11 +50,21 @@ def to_csv(kscript_file, csv_file):
         ]:
             text = op.to_object()["question_text"]
             text = text.replace("\\n", "\n")
-            writer.writerow([f"{base_filename}||{i}||{0}", block_index, "", text, "", "", op_type])
+            writer.writerow(
+                [f"{base_filename}||{i}||{0}", block_index, "", text, "", "", op_type]
+            )
             responses = op.to_object()["responses"]
             for j, response in enumerate(responses):
                 writer.writerow(
-                    [f"{base_filename}||{i}||{j + 1}", block_index, "", response, "", "", op_type]
+                    [
+                        f"{base_filename}||{i}||{j + 1}",
+                        block_index,
+                        "",
+                        response,
+                        "",
+                        "",
+                        op_type,
+                    ]
                 )
 
         elif op_type in [
@@ -64,7 +76,17 @@ def to_csv(kscript_file, csv_file):
             text = op.to_object()["text"]
             text = text.replace("\\n", "\n")
             speaker = op.to_object().get("character_name", "").replace("*", "")
-            writer.writerow([f"{base_filename}||{i}||{0}", block_index, speaker, text, "", "", op_type])
+            writer.writerow(
+                [
+                    f"{base_filename}||{i}||{0}",
+                    block_index,
+                    speaker,
+                    text,
+                    "",
+                    "",
+                    op_type,
+                ]
+            )
         i += 1
 
 
