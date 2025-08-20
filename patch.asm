@@ -146,7 +146,7 @@ addiu	a0, a0, 0x01
 .str "Rizze", 0x00
 
 .orga 0x263928
-.str "Jabil", 0x00, 0x00, 0x00
+.str "Jabir", 0x00, 0x00, 0x00
 
 .orga 0x263938
 .str "Effie", 0x00
@@ -184,9 +184,8 @@ addiu	a0, a0, 0x01
 .orga 0x2639C8
 .str "Karion", 0x00, 0x00
 
-//Blacksmith
 //.orga 0x2639D8
-//.str "鍛冶屋"
+//.str "Blacksmith"
 
 .orga 0x2639E0
 .str "Sailor"
@@ -195,67 +194,142 @@ addiu	a0, a0, 0x01
 .str "Butler"
 
 .orga 0x2639F0
-.str "Maid", 0x00, 0x00
+.str "Maid"
 
-//Foot Soldier
-//.orga 0x263
-//.str "下級兵士"
+//.orga 0x2639F8
+//.str "Lower Ranking Soldier"
 
 .orga 0x263A08
 .str "Soldier"
 
-// TODO?
-//Adventurer A
-//Adventurer B
-//Merchant A
-//Merchant B
-//Kobold
-//Desert Old Woman
-//Desert Old Man
-//Desert Woman
-//Desert Man A
-//Desert Man B
-//Desert Girl
-//Desert Boy
-//Kefin Man A
-//Kefin Man B
-//Kefin Woman A
-//Kefin Woman B
-//Rebel A
-//Rebel B
-//Man A
-//Man B
-//Woman
-//Villager Man A
-//Villager Man B
-//Villager Girl A
-//Villager Girl B
-//Old Woman
-//Old Man
-//Boy A
-//Boy B
-//Girl A
-//Dog
-//Girl B
-//Kidnapped Stein
-//Noties & Deios
-//Beautiful Woman
-//Girl
-//Thug A
-//Thug B
-//Mysterious Voice
-//Mysterious Man
-//Big Man
-//Woman
+//.orga 0x263A10
+//.str "Adventurer A"
+//
+//.orga 0x263A20
+//.str "Adventurer B"
+//
+//.orga 0x263A30
+//.str "Merchant A"
+//
+//.orga 0x263A38
+//.str "Merchant B"
+//
+//.orga 0x263A40
+//.str "Kobold"
+//
+//.orga 0x263A50
+//.str "Desert Grandma"
+//
+//.orga 0x263A60
+//.str "Desert Grandpa"
+//
+//.orga 0x263A70
+//.str "Desert Lady"
+//
+//.orga 0x263A78
+//.str "Desert Man A"
+//
+//.orga 0x263A98
+//.str "Desert Man B"
+//
+//.orga 0x263A98
+//.str "Desert Girl"
+//
+//.orga 0x263AA8
+//.str "Desert Boy"
+//
+//.orga 0x263AB8
+//.str "Kefin Man A"
+//
+//.orga 0x263AC8
+//.str "Kefin Man B"
+//
+//.orga 0x263AD8
+//.str "Kefin Lady A"
+//
+//.orga 0x263AE8
+//.str "Kefin Lady B"
+//
+//.orga 0x263AF8
+//.str "Resistance A"
+//
+//.orga 0x263B08
+//.str "Resistance B"
+//
+//.orga 0x263B18
+//.str "Grandpa A"
+//
+//.orga 0x263B28
+//.str "Grandpa B"
+//
+//.orga 0x263B38
+//.str "Grandma"
+//
+//.orga 0x263B48
+//.str "Townsman A"
+//
+//.orga 0x263B50
+//.str "Townsman B"
+//
+//.orga 0x263B58
+//.str "Townslady A"
+//
+//.orga 0x263B60
+//.str "Townslady B"
+//
+//.orga 0x263B68
+//.str "Grandma"
+//
+//.orga 0x263B78
+//.str "Grandpa"
+//
+//.orga 0x263B88
+//.str "Boy A"
+//
+//.orga 0x263B98
+//.str "Boy B"
+//
+//.orga 0x263BA8
+//.str "Girl A"
 
-// Load Menu --------------------------------------------
+.orga 0x263BB8
+.str "Dog"
+
+//.orga 0x263BC0
+//.str "Girl B"
+//
+//.orga 0x263BD0
+//.str "Kidnapped Stein"
+//
+//.orga 0x263BE0
+//.str "Nottis & Dios"
+//
+//.orga 0x263BF8
+//.str "Beautiful Woman"
+//
+//.orga 0x263C08
+//.str "Young Girl"
+//
+//.orga 0x263C10
+//.str "Ruffian A"
+//
+//.orga 0x263C20
+//.str "Ruffian B"
+//
+//.orga 0x263C30
+//.str "Mysterious Voice"
+//
+//.orga 0x263C38
+//.str "Mysterious Man"
+//
+//.orga 0x263C40
+//.str "Burly Man"
+
+// Load Menu ------------------------------------------------------
 
 //Unused?
 //.orga 0x2603C8
 //.str "Would you like to load this file?", 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-
-.orga 0x2648F0
-.str "Xandria Port", 0x00, 0x00
 
 //.orga 0x260B28
 //.str "Yes", 0x00
@@ -263,10 +337,10 @@ addiu	a0, a0, 0x01
 //.orga 0x260B30
 //.str "No", 0x00, 0x00, 0x00, 0x00
 
-// ------------------------------------------------------------
+// Shop Menu (Buy) ------------------------------------------------
 
 .orga 0x263C50
-.str "Buy or sell?"
+.str "Buy or Sell?"
 
 .orga 0x263C70
 .str "Select an item to purchase."
@@ -283,7 +357,6 @@ addiu	a0, a0, 0x01
 .orga 0x263D00
 .str "You cannot carry any more armor."
 
-
 .orga 0x263D20
 .str "You cannot carry any more accessories."
 
@@ -298,6 +371,8 @@ addiu	a0, a0, 0x01
 
 .orga 0x263DC0
 .str "Purchased @b piece(s) of @a!"
+
+// Shop Menu (Sell) ------------------------------------------------
 
 .orga 0x263DE0
 .str "Select a category."
@@ -322,6 +397,8 @@ addiu	a0, a0, 0x01
 
 .orga 0x263F10
 .str "Sold @b piece(s) of @a!"
+
+// Refinery Menu) ------------------------------------------------
 
 .orga 0x263F30
 .str "Equipped items cannot be sold."
@@ -352,6 +429,8 @@ addiu	a0, a0, 0x01
 
 .orga 0x2640A0
 .str "Refinement failed…"
+
+// Alchemic Stone Menu ------------------------------------------------
 
 .orga 0x2640C0
 .str "Select an Alchemic Stone to create. 【#cy×#wh…Back】"
@@ -385,6 +464,8 @@ addiu	a0, a0, 0x01
 
 .orga 0x264260
 .str "Remove the currently set Alchemic Stone."
+
+// Alchemic Stone Descriptions ------------------------------------------------
 
 .orga 0x264280
 .str "Allows the user to shoot a ball of fire forward."
@@ -425,6 +506,8 @@ addiu	a0, a0, 0x01
 .orga 0x264490
 .str "Invigorates the caster's life force to heal their wounds."
 
+// Equipment Menu ------------------------------------------------
+
 .orga 0x2644C0
 .str "Select the equipment you wish to change."
 
@@ -449,6 +532,8 @@ addiu	a0, a0, 0x01
 .orga 0x2645D0
 .str "You have no equippable items in this category."
 
+// Item Menu ------------------------------------------------
+
 .orga 0x2645F0
 .str "Use the #re○#wh button to use the selected item."
 
@@ -469,6 +554,8 @@ addiu	a0, a0, 0x01
 
 .orga 0x2646F0
 .str "You acquired\n%s!"
+
+// System & Main Menu ------------------------------------------------
 
 .orga 0x264700
 .str "You will be returned to the location of your Quick Save."
@@ -508,5 +595,175 @@ addiu	a0, a0, 0x01
 
 .orga 0x2648E0
 .str "Quick Save complete!"
+
+// Places ------------------------------------------------
+
+//.orga 0x2648F5
+//.str "Port Town of Xandria"
+//
+//.orga 0x268900
+//.str "Xandria Plains"
+//
+//.orga 0x264910
+//.str "Massea's House"
+//
+//Meretseger
+//.orga 0x264920
+//.str "Mersegera Forest"
+//
+//.orga 0x264930
+//.str "Alchemist's House"
+//
+//.orga 0x264940
+//.str "The Arena"
+//
+//.orga 0x264948
+//.str "Foresta Village"
+//
+//.orga 0x264958
+//.str "Nead Cave"
+//
+//.orga 0x264968
+//.str "Chamber of the Crystal"
+//
+//.orga 0x264978
+//.str "Ramzen Plains"
+//
+//.orga 0x264990
+//.str "Trading City of Ramzen"
+//
+//Theban
+//.orga 0x2649A8
+//.str "Zeibe Plains"
+//
+//Theban
+//.orga 0x2649B8
+//.str "The Zeibe Ruins"
+//
+//.orga 0x2649C8
+//.str "Ramzen Great Falls"
+//
+//.orga 0x2649D8
+//.str "Ramzen Caverns"
+//
+//.orga 0x2649F0
+//.str "Desert Town of Ferte"
+//
+//.orga 0x264A08
+//.str "Ferte Wilderness"
+//
+//Sahala
+//.orga 0x264A18
+//.str "Safar Desert"
+//
+//.orga 0x264A28
+//.str "The Oasis"
+//
+//.orga 0x264A38
+//.str "The Ruined City of Kefin"
+//
+//.orga 0x264A48
+//.str "Chamber of Rituals"
+//
+//.orga 0x264A58
+//.str "The Capital of Sand, Kefin"
+//
+//.orga 0x264A68
+//.str "South Tower"
+//
+//.orga 0x264A70
+//.str "Underground Passage"
+//
+//.orga 0x264A80
+//.str "Kefin East District"
+//
+//.orga 0x264A90
+//.str "Kefin West District"
+//
+//.orga 0x264AA0
+//.str "Secret Facility"
+//
+//.orga 0x264AB0
+//.str "Kefin Castle - West Wing"
+//
+//.orga 0x264AD0
+//.str "Kefin Castle - East Wing"
+//
+//.orga 0x264AF0
+//.str "Kefin Castle - Central Area"
+//
+//.orga 0x264B08
+//.str "Throne Room"
+//
+//.orga 0x264B18
+//.str "Stage of the Sacred Festival"
+//
+//.orga 0x264B28
+//.str "Spiral Staircase"
+//
+//.orga 0x264B38
+//.str "Chamber of the Philosopher's Stone"
+//
+//.orga 0x264B48
+//.str "Sekhet-Heter"
+//
+//.orga 0x264B88
+//.str "Archives"
+//
+//.orga 0x264B60
+//.str "Jail Cell"
+
+// Weapons ------------------------------------------------
+
+//.orga 0x265490
+//.str "Isios Blade"
+//
+//.orga 0x2654A8
+//.str "Battle Sword"
+//
+//.orga 0x2654B8
+//.str "Rune Sword"
+//
+//.orga 0x2654C8
+//.str "Broadsword"
+//
+//.orga 0x2654E0
+//.str "Enhance Sword"
+//
+//.orga 0x2654F8
+//.str "Falchion"
+//
+//.orga 0x265508
+//.str "Scimitar"
+//
+//.orga 0x265518
+//.str "Longsword"
+//
+//.orga 0x265528
+//.str "Sword of Heroes"
+//
+//.orga 0x265538
+//.str "Flame Sword"
+//
+//.orga 0x265550
+//.str "Hermes Blade"
+
+// Armor ------------------------------------------------
+
+// Shields ------------------------------------------------
+
+// Accessories ------------------------------------------------
+
+// Consumables ------------------------------------------------
+
+// Spells ------------------------------------------------
+
+// Key Items ------------------------------------------------
+
+// Item Descriptions ------------------------------------------------
+
+// Memory Card Text ------------------------------------------------
+
+// 0x260AC0 ------------------------------------------------
 
 .close
