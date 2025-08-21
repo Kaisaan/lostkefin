@@ -728,7 +728,7 @@ addiu	a0, a0, 0x01
 .orga 0x2654C8
 .str "Broadsword"
 
-Enhanced
+//Enhanced
 .orga 0x2654E0
 .str "Enhance Sword"
 
