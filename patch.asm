@@ -12,6 +12,10 @@ addiu	t7, t7, 0x0A
 .orga 0x0004CF44
 addiu	a0, a0, 0x01
 
+Offset equ 0xFFF80 // Add offsets to file addresses
+
+// Gallery Text
+
 .orga 0x2C1C70
 .str "BGM00: No BGM"
 
@@ -513,6 +517,8 @@ addiu	a0, a0, 0x01
 .orga 0x2C2F40
 .str "No.33: Key Visual"
 
+// File info
+
 .orga 0x25FBF0
 .str "Ys IV save data has been found.\nWould you like to link it?"
 
@@ -614,6 +620,8 @@ addiu	a0, a0, 0x01
 
 .orga 0x2608C0
 .str "Load data?"
+
+// VNText names
 
 .orga 0x2638D8
 .str "Adol"
@@ -819,6 +827,8 @@ addiu	a0, a0, 0x01
 .orga 0x263C40
 .str "Burly Man"
 
+// Shop text
+
 .orga 0x263C50
 .str "Buy or Sell?"
 
@@ -1023,6 +1033,8 @@ addiu	a0, a0, 0x01
 .orga 0x2646F0
 .str "You acquired\n%s"
 
+// File Info
+
 .orga 0x264700
 .str "You will be returned to the location of your Quick Save."
 
@@ -1172,6 +1184,8 @@ addiu	a0, a0, 0x01
 
 .orga 0x264B60
 .str "Jail Cell"
+
+// Credits
 
 .orga 0x264B70
 .str "＜SM0＞＜SW25＞＜SH30＞Cast"
@@ -1470,8 +1484,7 @@ addiu	a0, a0, 0x01
 .orga 0x265278
 .str "Staff"
 
-.orga 0x265288
-.str "@"
+// Item info
 
 .orga 0x265290
 .str "The phantom city of Kefin, by finally accepting the time it"
@@ -1944,241 +1957,60 @@ addiu	a0, a0, 0x01
 .orga 0x2671D0
 .str "A letter from the merchant to Massea requesting a medicine blend, \nand the materials for it. Massea's house is past the Xandria Plains."
 
-.orga 0x265A00
-.str ""
-
-.orga 0x265A60
-.str ""
-
-.orga 0x265AA0
-.str ""
-
-.orga 0x265B00
-.str ""
-
-.orga 0x265B60
-.str ""
-
-.orga 0x265BC0
-.str ""
-
-.orga 0x265C20
-.str ""
-
-.orga 0x265C70
-.str ""
-
-.orga 0x265CD0
-.str ""
-
-.orga 0x265D30
-.str ""
-
-.orga 0x265D90
-.str ""
-
-.orga 0x265DF0
-.str ""
-
-.orga 0x265E50
-.str ""
-
-.orga 0x265EB0
-.str ""
-
-.orga 0x265F10
-.str ""
-
-.orga 0x265F60
-.str ""
-
-.orga 0x265FC0
-.str ""
-
-.orga 0x266020
-.str ""
-
-.orga 0x266070
-.str ""
-
-.orga 0x2660D0
-.str ""
-
-.orga 0x266130
-.str ""
-
-.orga 0x266190
-.str ""
-
-.orga 0x2661E0
-.str ""
-
-.orga 0x266230
-.str ""
-
-.orga 0x266290
-.str ""
-
-.orga 0x2662E0
-.str ""
-
-.orga 0x266320
-.str ""
-
-.orga 0x266360
-.str ""
-
-.orga 0x2663B0
-.str ""
-
-.orga 0x266400
-.str ""
-
-.orga 0x266450
-.str ""
-
-.orga 0x2664B0
-.str ""
-
-.orga 0x266500
-.str ""
-
-.orga 0x266550
-.str ""
-
-.orga 0x2665A0
-.str ""
-
-.orga 0x2665F0
-.str ""
-
-.orga 0x266640
-.str ""
-
-.orga 0x266680
-.str ""
-
-.orga 0x2666C0
-.str ""
-
-.orga 0x266720
-.str ""
-
-.orga 0x266780
-.str ""
-
-.orga 0x2667E0
-.str ""
-
-.orga 0x266830
-.str ""
-
-.orga 0x266890
-.str ""
-
-.orga 0x2668E0
-.str ""
-
-.orga 0x266920
-.str ""
-
-.orga 0x266980
-.str ""
-
-.orga 0x2669D0
-.str ""
-
-.orga 0x266A10
-.str ""
-
-.orga 0x266A60
-.str ""
-
-.orga 0x266AB0
-.str ""
-
-.orga 0x266B10
-.str ""
-
-.orga 0x266B70
-.str ""
-
-.orga 0x266BD0
-.str ""
-
-.orga 0x266C30
-.str ""
-
-.orga 0x266C80
-.str ""
-
-.orga 0x266CE0
-.str ""
-
-.orga 0x266D40
-.str ""
-
-.orga 0x266DA0
-.str ""
-
-.orga 0x266DF0
-.str ""
-
-.orga 0x266E50
-.str ""
-
-.orga 0x266EB0
-.str ""
-
-.orga 0x266F10
-.str ""
-
-.orga 0x266F60
-.str ""
-
-.orga 0x266FD0
-.str ""
-
-.orga 0x267020
-.str ""
-
-.orga 0x267070
-.str ""
-
-.orga 0x2670D0
-.str ""
-
-.orga 0x267120
-.str ""
-
-.orga 0x267180
-.str ""
-
-.orga 0x2671D0
-.str ""
-
 .orga 0x267240
 .str "A white fragment that possesses a mysterious power.\nThis enigmatic stone almost feels as if it were a living thing."
 
 .orga 0x267290
 .str "A faintly glowing tome. Within is written: \"In the place\nwhere the sun rises, present the four elements.\""
 
-.orga 0x2672E8
-.str ""
+// Misc Text
 
-.orga 0x2672EC
-.str ""
+.orga 0x260AD0
+.str "Are you sure you want to cancel loading?"
 
-.orga 0x2672EF
-.str ""
+.orga 0x260B00
+.str "Are you sure you want to cancel saving?"
 
-.orga 0x2672F4
-.str ""
+.orga 0x260B28
+.str "Yes      No"
 
-.orga 0x2672F7
-.str ""
+.orga 0x260B40
+.str "No Data"
 
-.orga 0x2672FC
-.str ""
+.orga 0x260B70
+.str "Now loading Ys III data. #Re○#Wh"
+
+.orga 0x260BB0
+.str "Are you sure you want to cancel the data link?"
+
+.orga 0x260BE0
+.str "Now loading Ys IV data. #Re○#Wh"
+
+.orga 0x260C20
+.str "Now saving Ys V System Data. #Re○#Wh"
+
+.orga 0x268B20
+.str "#blI must keep my promise to Effie!#wh▼"
+
+.orga 0x268B50
+.str "#blI have to protect the town!#wh▼"
+
+.orga 0x268B70
+.str "Heeeey, wait up!▼"
+
+.orga 0x268B90
+.str "#blI can't just abandon Terra!#wh▼"
+
+.orga 0x268BB0
+.str "#blI can't just abandon Stein!#wh▼"
+
+.orga 0x268BE0
+.str "#blI can't just abandon Niena!#wh▼"
+
+.orga 0x268C10
+.str "Event label not found fileNo %d label%d"
+
+.orga 0x268C40
+.str "Event label not foundfileNo %d label%d\n"
 
 .close
