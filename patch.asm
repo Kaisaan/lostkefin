@@ -1484,8 +1484,6 @@ Offset equ 0xFFF80 // Add offsets to file addresses
 .orga 0x265278
 .str "Staff"
 
-// Item info
-
 .orga 0x265290
 .str "The phantom city of Kefin, by finally accepting the time it"
 
@@ -1524,6 +1522,8 @@ Offset equ 0xFFF80 // Add offsets to file addresses
 
 .orga 0x265470
 .str "～ From the Diary of Stein"
+
+// Item info
 
 .orga 0x265490
 .str "Isios Blade"
@@ -1960,8 +1960,8 @@ Offset equ 0xFFF80 // Add offsets to file addresses
 .orga 0x267240
 .str "A white fragment that possesses a mysterious power.\nThis enigmatic stone almost feels as if it were a living thing."
 
-.orga 0x267290
-.str "A faintly glowing tome. Within is written: \"In the place\nwhere the sun rises, present the four elements.\""
+//.orga 0x267290
+//.str "A faintly glowing tome. Within is written: \"In the place\nwhere the sun rises, present the four elements.\""
 
 // Misc Text
 
