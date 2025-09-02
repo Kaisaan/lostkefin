@@ -1996,21 +1996,24 @@ Offset equ 0xFFF80 // Add offsets to file addresses
 .str "#blI have to protect the town!#wh▼"
 
 .orga 0x268B70
-.str "Heeeey, wait up!▼"
+.str "#blWe have to take this town back!#wh▼"
 
 .orga 0x268B90
-.str "#blI can't just abandon Terra!#wh▼"
+.str "Heeeey, wait up!▼"
 
 .orga 0x268BB0
-.str "#blI can't just abandon Stein!#wh▼"
+.str "#blI can't just abandon Terra!#wh▼"
 
 .orga 0x268BE0
-.str "#blI can't just abandon Niena!#wh▼"
+.str "#blI can't just abandon Stein!#wh▼"
 
 .orga 0x268C10
-.str "Event label not found fileNo %d label%d"
+.str "#blI can't just abandon Niena!#wh▼"
 
 .orga 0x268C40
-.str "Event label not foundfileNo %d label%d\n"
+.str "Event label not found fileNo %d label%d"
+
+.orga 0x268C70
+.str "Event label not foundfileNo %d label%d"
 
 .close
