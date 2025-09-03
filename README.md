@@ -42,12 +42,14 @@ In the `manual` folder are scans for the game's manual. They were originally fro
 # Contributors
 A big thanks to these wonderful people for helping with this project! This project would not be where it is without any of them.
 - [Sam Farron](https://www.youtube.com/@samfarron) - Allowing me to use his translation as the basis of this project
-- [Etokapa](https://github.com/Etokapa/) - Text transcribing, making better batch files, making useful scripts, testing
+- [Etokapa](https://github.com/Etokapa/) - Text transcribing, making better batch files, making useful scripts, testing, graphics editing
 - [Seiichiro Mine](https://github.com/SeiichiroMine) - Translation
 - [Sorcerian](https://bsky.app/profile/sorcerian.bsky.social) - Graphics Editing
 - [Livi](https://bsky.app/profile/anonymusaxolotl.bsky.social) - Translation Editing
 - Sabera - Translation
 - [Everdred](https://github.com/cschmidt0121) - Programming, Hacking, Script development
+- Josep - Translation
+- Sugunii - Testing
 
 # Related Materials
 A list of all webpages I could find that include information about this game. Please update me about anything that is not listed here
