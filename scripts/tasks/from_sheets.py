@@ -19,9 +19,11 @@ from googleapiclient.discovery import build
 try:
     # When imported as a module
     from .update_kscript import update_kscript
+    from .update_asm import generate_asm
 except ImportError:
     # When run as a script
     from update_kscript import update_kscript
+    from update_asm import generate_asm
 
 
 scopes = [
@@ -68,6 +70,11 @@ def from_sheets(dir: str = "decompiled"):
     if not os.path.exists(dir):
         sys.exit(f"Directory {dir} does not exist")
 
+    # Generate strings.asm from the SLPM NEW column
+    asm_rows = get_rows(service, "SLPM NEW")
+    generate_asm("strings.asm", asm_rows)
+
+
     rows = get_rows(service, "TL")
     if rows[0][0] == "ID" and rows[0][1] == "JP Text" and rows[0][2] == "EN Text":
         version = 1
@@ -76,10 +83,11 @@ def from_sheets(dir: str = "decompiled"):
         and rows[0][1] == "Block"
         and rows[0][2] == "Speaker"
         and rows[0][3] == "JP Text"
-        and rows[0][4] == "EN Text"
+        and "EN Text" in rows[0][4]
     ):
         version = 2
     else:
+        print(rows[0])
         sys.exit(
             "Header is either missing ID/JP/EN column, or they're not in the right place"
         )

@@ -29,8 +29,7 @@ def run(cmd, **kwargs):
 
 
 def main(sheets: bool = False):
-    run(["armips", "patch.asm"])
-    print("Patching scripts...")
+    print("Patching scripts and generating strings.asm...")
     if sheets:
         print("Pulling latest translations from Google Sheets...")
         from_sheets("decompiled")
@@ -40,6 +39,10 @@ def main(sheets: bool = False):
             csv_dir="csv",
             kscript_dir="decompiled",
         )
+    print("Done!")
+
+    print("Patching SLPM")
+    run(["armips", "patch.asm"])
     print("Done!")
 
     print("Compiling scripts...")

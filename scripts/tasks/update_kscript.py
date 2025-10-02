@@ -1,6 +1,4 @@
 # Handle imports for both module and script execution
-import sys
-
 
 try:
     # When imported as a module
@@ -26,7 +24,7 @@ def fix_ascii(text):
 
 def update_kscript(kscript_file, rows, version=2):
     """
-    Given a kscript file, modify a kscript file by replacing text from the EN colum
+    Modify a kscript file in-place by replacing text from the EN colum
     """
 
     # Changes are indexed by line number in the original kscript file
