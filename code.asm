@@ -1,4 +1,4 @@
-.include "strings.asm", "SJIS"
+.include "strings.asm", "UTF8"
 
 Offset equ 0xFFF80
 

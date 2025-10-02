@@ -1,7 +1,7 @@
 .erroronwarning on
 .ps2
 
-.loadtable "kefin.tbl", "SJIS"
+.loadtable "kefin.tbl", "UTF8"
 
 .open "extracted/SLPM_663.60", "translated/SLPM_663.60", 0x0
 
