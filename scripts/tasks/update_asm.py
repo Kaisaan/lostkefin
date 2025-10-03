@@ -17,7 +17,7 @@ def generate_asm(strings_filename, rows):
     """
     Generate strings.asm
     """
-    with open(strings_filename, "w") as asm_fp:
+    with open(strings_filename, "w", encoding="utf-8") as asm_fp:
         for row in rows:
             en = row[2]
             en = fix_ascii(en)
