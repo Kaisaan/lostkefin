@@ -1,5 +1,5 @@
 from PIL import Image
-import sys
+import sys, os
 from struct import pack
 
 def intlit(bytes):
@@ -13,6 +13,10 @@ filename = sys.argv[1]
 graphic = open(f"{filename}", "rb")
 
 filename = filename.rstrip("_anm.bin")
+
+os.makedirs(f"{filename}", exist_ok="true")
+
+logFile = open(f"{filename}\\{filename}.txt", "w", encoding="utf-8")
 
 header = graphic.read(0x20)
 
@@ -33,8 +37,10 @@ anmOffset = intlit(header[0x14:0x18])
 
 if (clutSize == 256):
     bpp = 8
+    logFile.write(f"{filename} is 8BPP\n")
 elif (clutSize == 16):
     bpp = 4
+    logFile.write(f"{filename} is 4BPP\n")
 else:
     exit("other BPP formats not supported yet")
 
@@ -62,7 +68,6 @@ if bpp == 8:
         colours = graphic.read(sectionSize)
         clut = clut + colours
 
-
         clutPos = (clutOffset + (palOffset + (0x40)))
         graphic.seek(clutPos)
         colours = graphic.read(sectionSize)
@@ -72,7 +77,6 @@ if bpp == 8:
         graphic.seek(clutPos)
         colours = graphic.read(sectionSize)
         clut = clut + colours
-
 
         clutPos = (clutOffset + (palOffset + (0x60)))
         graphic.seek(clutPos)
@@ -100,6 +104,10 @@ sprSize = (0, 0)
 
 entry = 0
 
+with open(f"{filename}\\{filename}.pal", "wb") as palette:
+    palette.write(clut)
+print(f"{filename}\\{filename}.pal saved!")
+
 for x in range(sprCount):
 
     entry = x * 0x10
@@ -113,19 +121,32 @@ for x in range(sprCount):
     sprIndex = intlit(graphic.read(4))
     sprSize = (sprH, sprW)
     sprDataSize = sprH * sprW
-    
-    graphic.seek(pxlOffset + sprOffset)
+    realOffset = pxlOffset + sprOffset
+    graphic.seek(realOffset)
 
     if (bpp == 4):
         sprData4 = graphic.read(sprDataSize)
+        with open(f"{filename}\\{filename}_{x}_4bpp.bin", "wb") as bin: # Save the original indexing data separate from the image to help with re-insertion
+            bin.write(sprData4)
         sprData = b""
         for byte in sprData4:
             sprData += pack("bb", byte & 0xF, byte >> 4)
     else: 
         sprData = graphic.read(sprDataSize)
+        with open(f"{filename}\\{filename}_{x}_8bpp.bin", "wb") as bin:
+            bin.write(sprData)
 
     sprite = Image.frombytes("P", sprSize, bytes(sprData))
     sprite.putpalette(clut, rawmode="RGBA")
-    sprite.save(fp=f"{filename}_{x}.png")
+    sprite.save(fp=f"{filename}\\{filename}_{x}.png")
+    print(f"{filename}\\{filename}_{x}.png saved!")
+    logFile.write(f"{filename}_{x}.png is at {realOffset:X}\n")
 
-    print(f"{filename}_{x}.png saved!")
+
+    #print(f"{filename}\\{filename}_{x}.bin saved!")
+
+    
+    newdata = sprite.tobytes()
+    #print(sprite.tobytes())
+
+    
