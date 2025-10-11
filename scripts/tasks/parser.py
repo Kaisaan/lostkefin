@@ -60,11 +60,12 @@ def line_to_op(line: str):
             print("Error")
             sys.exit(line)
         key, value = term.split(":", 1)
+
         if key == "arg":
             value = bytes.fromhex(value)
         else:
             try:
-                value = int(value)
+                value = int(value, 16)
             except ValueError:
                 if value.startswith("["):
                     value = json.loads(value)
@@ -228,7 +229,7 @@ class ScreenEffect(Operation):
         self.effect_type = effect_type
 
     def to_object(self):
-        object = {"name": self.__class__.__name__, "effect_type": self.effect_type}
+        object = {"name": self.__class__.__name__, "effect_type": hex(self.effect_type)}
         return object
 
     def to_bytes(self):
@@ -249,7 +250,7 @@ class ScreenEffect2(Operation):
         self.effect_type = effect_type
 
     def to_object(self):
-        object = {"name": self.__class__.__name__, "effect_type": self.effect_type}
+        object = {"name": self.__class__.__name__, "effect_type": hex(self.effect_type)}
         return object
 
     def to_bytes(self):
@@ -854,8 +855,8 @@ class ConditionalRelativeJump(Operation):
     def to_object(self):
         object = {
             "name": self.__class__.__name__,
-            "target": self.target,
-            "type": self.type,
+            "target": hex(self.target),
+            "type": hex(self.type),
         }
         return object
 
@@ -913,7 +914,7 @@ class UnconditionalJump(Operation):
         self.target_index = target_index
 
     def to_object(self):
-        object = {"name": self.__class__.__name__, "target_index": self.target_index}
+        object = {"name": self.__class__.__name__, "target_index": hex(self.target_index)}
         return object
 
     def to_bytes(self):
