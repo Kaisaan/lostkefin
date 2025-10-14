@@ -8,15 +8,20 @@ def intlit(bytes):
 if(len(sys.argv) != 2):
     exit("Usage: graphics.py <filename>")
 
-filename = sys.argv[1]
+(filedir, filename) = os.path.split(os.path.abspath(sys.argv[1]))
+
+#filename = sys.argv[1]
+#print(filename)
+#filedir = os.path.dirname(filename)
+#print(filedir)
 
 graphic = open(f"{filename}", "rb")
 
 filename = filename.rstrip("_anm.bin")
 
-os.makedirs(f"{filename}", exist_ok="true")
+os.makedirs(f"{filedir}\\{filename}", exist_ok="true")
 
-logFile = open(f"{filename}\\{filename}.txt", "w", encoding="utf-8")
+logFile = open(f"{filedir}\\{filename}\\{filename}.txt", "w", encoding="utf-8")
 
 header = graphic.read(0x20)
 
@@ -126,19 +131,19 @@ for x in range(sprCount):
 
     if (bpp == 4):
         sprData4 = graphic.read(sprDataSize)
-        with open(f"{filename}\\{filename}_{x}_4bpp.bin", "wb") as bin: # Save the original indexing data separate from the image to help with re-insertion
+        with open(f"{filedir}\\{filename}\\{filename}_{x}_4bpp.bin", "wb") as bin: # Save the original indexing data separate from the image to help with re-insertion
             bin.write(sprData4)
         sprData = b""
         for byte in sprData4:
             sprData += pack("bb", byte & 0xF, byte >> 4)
     else: 
         sprData = graphic.read(sprDataSize)
-        with open(f"{filename}\\{filename}_{x}_8bpp.bin", "wb") as bin:
+        with open(f"{filedir}\\{filename}\\{filename}_{x}_8bpp.bin", "wb") as bin:
             bin.write(sprData)
 
     sprite = Image.frombytes("P", sprSize, bytes(sprData))
     sprite.putpalette(clut, rawmode="RGBA")
-    sprite.save(fp=f"{filename}\\{filename}_{x}.png")
+    sprite.save(fp=f"{filedir}\\{filename}\\{filename}_{x}.png")
     print(f"{filename}\\{filename}_{x}.png saved!")
     logFile.write(f"{filename}_{x}.png is at {realOffset:X}\n")
 
