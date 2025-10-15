@@ -165,8 +165,9 @@ for x in range(anmCount):
     graphic.seek(anmOffset + entry + 0x4) # Add 4 bytes since the first 4 holds anmCount
 
     frameOffset = intlit(graphic.read(4))
+    realOffset = frameOffset + anmOffset
 
-    graphic.seek(frameOffset)
+    graphic.seek(realOffset)
 
     frameData = graphic.read(frameSize)
 
@@ -174,6 +175,6 @@ for x in range(anmCount):
         frame.write(frameData)
     print(f"{filename}\\{filename}_frame_{x}.bin saved!")
     
-    logFile.write(f"{filename}_frame_{x}.bin is at {frameOffset:X}\n")
+    logFile.write(f"{filename}_frame_{x}.bin is at {realOffset:X}\n")
 
 
