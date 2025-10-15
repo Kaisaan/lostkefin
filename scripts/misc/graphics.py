@@ -10,12 +10,7 @@ if(len(sys.argv) != 2):
 
 (filedir, filename) = os.path.split(os.path.abspath(sys.argv[1]))
 
-#filename = sys.argv[1]
-#print(filename)
-#filedir = os.path.dirname(filename)
-#print(filedir)
-
-graphic = open(f"{filename}", "rb")
+graphic = open(f"{filedir}\\{filename}", "rb")
 
 filename = filename.rstrip("_anm.bin")
 
@@ -34,11 +29,12 @@ bpp = 0
 if (identifier != verify):
     exit("Identifier not found! Might not be a graphics file.")
 
-
 clutSize = intlit(header[0x8:0xC])
 clutOffset = intlit(header[0xC:0x10])
 pxlOffset = intlit(header[0x10:0x14])
 anmOffset = intlit(header[0x14:0x18])
+logFile.write(f"pixel offset is {pxlOffset:X}\n")
+logFile.write(f"anm offset is {anmOffset:X}\n")
 
 if (clutSize == 256):
     bpp = 8
@@ -65,7 +61,15 @@ clutPos = clutOffset
 
 if bpp == 8:
 
-    for i in range(8):          # Swizzle the pallete (there's probably a better way to do this, but it works!)
+    origclut = graphic.read(clutSize * palSize)
+
+    with open(f"{filedir}\\{filename}\\{filename}_orig.pal", "wb") as palette:
+        palette.write(origclut)
+    print(f"{filename}\\{filename}_orig.pal saved!")
+
+    graphic.seek(clutOffset)
+
+    for i in range(8):          # Swizzle the palette (there's probably a better way to do this, but it works!)
         palOffset = i * 0x80
 
         clutPos = (clutOffset + (palOffset + 0))
@@ -87,9 +91,15 @@ if bpp == 8:
         graphic.seek(clutPos)
         colours = graphic.read(sectionSize)
         clut = clut + colours
+    with open(f"{filedir}\\{filename}\\{filename}_swzl.pal", "wb") as palette:
+        palette.write(clut)
+    print(f"{filename}\\{filename}_swzl.pal saved!")
 
 elif bpp == 4:
-    clut = graphic.read(clutSize * palSize) 
+    clut = graphic.read(clutSize * palSize)
+    with open(f"{filedir}\\{filename}\\{filename}.pal", "wb") as palette:
+        palette.write(clut)
+    print(f"{filename}\\{filename}.pal saved!")
 
 graphic.seek(pxlOffset + 8) # Read the first image offset to calculate how many images there are
 
@@ -108,10 +118,6 @@ sprDataSize = 0
 sprSize = (0, 0)
 
 entry = 0
-
-with open(f"{filename}\\{filename}.pal", "wb") as palette:
-    palette.write(clut)
-print(f"{filename}\\{filename}.pal saved!")
 
 for x in range(sprCount):
 
@@ -145,13 +151,29 @@ for x in range(sprCount):
     sprite.putpalette(clut, rawmode="RGBA")
     sprite.save(fp=f"{filedir}\\{filename}\\{filename}_{x}.png")
     print(f"{filename}\\{filename}_{x}.png saved!")
-    logFile.write(f"{filename}_{x}.png is at {realOffset:X}\n")
-
-
-    #print(f"{filename}\\{filename}_{x}.bin saved!")
-
     
-    newdata = sprite.tobytes()
-    #print(sprite.tobytes())
+    logFile.write(f"{filename}_{x}.png is at {realOffset:X} (sprite offset is {sprOffset:X}) its size is {sprSize[0]:X}H and {sprSize[1]:X}W its data size is {sprDataSize:X} bytes\n")
 
+graphic.seek(anmOffset)
+
+anmCount = intlit(graphic.read(4))
+
+frameSize = 0x70
+
+for x in range(anmCount):
+    entry = x * 0x4
+    graphic.seek(anmOffset + entry + 0x4) # Add 4 bytes since the first 4 holds anmCount
+
+    frameOffset = intlit(graphic.read(4))
+
+    graphic.seek(frameOffset)
+
+    frameData = graphic.read(frameSize)
+
+    with open(f"{filedir}\\{filename}\\{filename}_frame_{x}.bin", "wb") as frame:
+        frame.write(frameData)
+    print(f"{filename}\\{filename}_frame_{x}.bin saved!")
     
+    logFile.write(f"{filename}_frame_{x}.bin is at {frameOffset:X}\n")
+
+
