@@ -5,8 +5,13 @@ from struct import pack
 def intlit(bytes):
     return int.from_bytes(bytes, "little")
 
-if(len(sys.argv) != 2):
-    exit("Usage: graphics.py <filename>")
+frame = False
+
+if (len(sys.argv) == 3):
+    if (sys.argv[2] == "frame"):
+        frame = True
+else:
+    frame = False
 
 (filedir, filename) = os.path.split(os.path.abspath(sys.argv[1]))
 
@@ -154,27 +159,29 @@ for x in range(sprCount):
     
     logFile.write(f"{filename}_{x}.png is at {realOffset:X} (sprite offset is {sprOffset:X}) its size is {sprSize[0]:X}H and {sprSize[1]:X}W its data size is {sprDataSize:X} bytes\n")
 
-graphic.seek(anmOffset)
+if (frame == True):
 
-anmCount = intlit(graphic.read(4))
+    graphic.seek(anmOffset)
 
-frameSize = 0x70
+    anmCount = intlit(graphic.read(4))
 
-for x in range(anmCount):
-    entry = x * 0x4
-    graphic.seek(anmOffset + entry + 0x4) # Add 4 bytes since the first 4 holds anmCount
+    frameSize = 0x70
 
-    frameOffset = intlit(graphic.read(4))
-    realOffset = frameOffset + anmOffset
+    for x in range(anmCount):
+        entry = x * 0x4
+        graphic.seek(anmOffset + entry + 0x4) # Add 4 bytes since the first 4 holds anmCount
 
-    graphic.seek(realOffset)
+        frameOffset = intlit(graphic.read(4))
+        realOffset = frameOffset + anmOffset
 
-    frameData = graphic.read(frameSize)
+        graphic.seek(realOffset)
 
-    with open(f"{filedir}\\{filename}\\{filename}_frame_{x}.bin", "wb") as frame:
-        frame.write(frameData)
-    print(f"{filename}\\{filename}_frame_{x}.bin saved!")
-    
-    logFile.write(f"{filename}_frame_{x}.bin is at {realOffset:X}\n")
+        frameData = graphic.read(frameSize)
+
+        with open(f"{filedir}\\{filename}\\{filename}_frame_{x}.bin", "wb") as frame:
+            frame.write(frameData)
+        print(f"{filename}\\{filename}_frame_{x}.bin saved!")
+        
+        logFile.write(f"{filename}_frame_{x}.bin is at {realOffset:X}\n")
 
 
