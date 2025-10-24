@@ -62,7 +62,7 @@ Entries can have multiple frames
 |Size|Description|
 |---|---|
 |$10|Number of frames|
-|$60|Size of each frame info|
+|$XX|Frame info|
 
 ### Frames
 
@@ -77,7 +77,7 @@ Frames are also used for static images.
 |$2|Vertical offset|
 |$4|Unknown value again|
 
-The rest of each frame is usually empty and padded to be a total of $60 bytes.
+Frame data is not fully figured out and can be any size.
 
 ## Image Data
 
