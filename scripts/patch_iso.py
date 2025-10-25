@@ -3,6 +3,7 @@
 # dependencies = [
 #     "google-api-python-client",
 #     "google-auth",
+#     "pillow",
 # ]
 # ///
 import argparse
@@ -15,6 +16,7 @@ from tasks.compile import kscript_to_bin
 from tasks.from_csv import from_csv
 from tasks.from_sheets import from_sheets
 from tasks.pack import pack
+from tasks.update_graphic import insert_all_graphics
 
 STAGES = ["00", "10", "20", "30", "40", "50", "60", "70", "80", "90", "a0", "b0"]
 
@@ -50,6 +52,10 @@ def main(sheets: bool = False):
         src = f"decompiled/stage{stage}.kscript"
         dst = f"DATA/script/stage{stage}.bin"
         kscript_to_bin(src, dst)
+    print("Done!")
+
+    print("Inserting graphics...")
+    insert_all_graphics()
     print("Done!")
 
     print("Repacking DATA.BIN")

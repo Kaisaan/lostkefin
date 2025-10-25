@@ -1,12 +1,17 @@
+# /// script
+# requires-python = ">=3.10"
+# dependencies = [
+#     "pillow",
+# ]
+# ///
 import os
-import sys
 import shutil
-import subprocess
 from pathlib import Path
 from isotool import dump_iso
 from tasks.to_csv import to_csv
 from tasks.decompile import bin_to_kscript
 from tasks.unpack import unpack
+from tasks.extract_graphic import extract_all_graphics
 
 STAGES = ["00", "10", "20", "30", "40", "50", "60", "70", "80", "90", "a0", "b0"]
 
@@ -47,6 +52,10 @@ def main():
         src = f"decompiled/stage{stage}.kscript"
         dst = f"csv/stage{stage}.csv"
         to_csv(src, dst)
+    print("Done!")
+
+    print("Extracting graphics...")
+    extract_all_graphics()
     print("Done!")
 
 
