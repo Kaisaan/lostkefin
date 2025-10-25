@@ -215,9 +215,9 @@ def extract_graphics(filepath: str | Path, extract_frames: bool = False):
 
     elif bpp == 4:
         clut = graphic.read(clutSize * palSize)
-        with open(output_dir / f"{filename}.pal", "wb") as palette:
+        with open(output_dir / f"{filename}_orig.pal", "wb") as palette:
             palette.write(clut)
-        print(f"{filename}/{filename}.pal saved!")
+        print(f"{filename}/{filename}_orig.pal saved!")
 
     graphic.seek(pxlOffset + 8) # Read the first image offset to calculate how many images there are
 
@@ -241,12 +241,20 @@ def extract_graphics(filepath: str | Path, extract_frames: bool = False):
         graphic.seek(realOffset)
 
         if (bpp == 4):
+            sprDataSize = sprDataSize // 2
             sprData4 = graphic.read(sprDataSize)
-            with open(output_dir / f"{filename}_{x}_4bpp.bin", "wb") as bin: # Save the original indexing data separate from the image to help with re-insertion
+            
+            with open(f"{filedir}\\{filename}\\{filename}_{x}_packed.bin", "wb") as bin: # Save the original indexing data separate from the image to help with re-insertion
                 bin.write(sprData4)
+            print(f"{filename}\\{filename}_{x}_packed.bin saved!")
+
             sprData = b""
             for byte in sprData4:
                 sprData += pack("bb", byte & 0xF, byte >> 4)
+            with open(f"{filedir}\\{filename}\\{filename}_{x}_unpacked.bin", "wb") as bin:
+                bin.write(sprData)
+            print(f"{filename}\\{filename}_{x}_unpacked.bin saved!")
+            
         else: 
             sprData = graphic.read(sprDataSize)
             with open(output_dir / f"{filename}_{x}_8bpp.bin", "wb") as bin:

@@ -51,7 +51,13 @@ def insert_graphics(filepath: str | Path, insert_frames: bool = False):
     pxlOffset = intlit(header[0x10:0x14])
     anmOffset = intlit(header[0x14:0x18])
 
-    if (clutSize != 256 and clutSize != 16):
+    bpp = 0
+
+    if (clutSize == 256):
+        bpp = 8
+    elif (clutSize == 16):
+        bpp = 4
+    else:
         exit("other BPP formats not supported yet")
 
     palSize = 4
@@ -114,11 +120,20 @@ def insert_graphics(filepath: str | Path, insert_frames: bool = False):
         graphic = Image.open(input_dir / f"{filename}_{x}.png", "r")
 
         data = list(graphic.getdata())
-
+        
         binData = b""
-        for i in range(len(data)):
-            byte = data[i].to_bytes(1)
-            binData = binData + byte
+        if (bpp == 8):
+            for i in range(len(data)):
+                byte = data[i].to_bytes(1)
+                binData = binData + byte
+        elif (bpp == 4):
+            for i in range(0, len(data), 2):
+                byte1 = data[i]
+                byte2 = data[i+1]
+                byte2 = byte2 << 4
+                byte = byte2 + byte1
+                byte = byte.to_bytes(1)
+                binData = binData + byte
         
         newFile.write(binData)
 
