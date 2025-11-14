@@ -1,4 +1,4 @@
-.include "strings.asm", "UTF8"
+.include "strings.asm", "SJIS"
 
 Offset equ 0xFFF80
 
@@ -1193,6 +1193,7 @@ Offset equ 0xFFF80
 @L264770: .str L264770
 @L2647A0: .str L2647A0
 @L2647D0: .str L2647D0
+
 @L264800: .str L264800
 @L264820: .str L264820
 @L264840: .str L264840
@@ -1663,3 +1664,21 @@ Offset equ 0xFFF80
 .orga 0x268C10 :: @L268C10: .str L268C10
 .orga 0x268C40 :: @L268C40: .str L268C40
 .orga 0x268C70 :: @L268C70: .str L268C70
+
+// Menu Block 1 Pointers
+.orga 0x22C708
+
+.dw @L264800+Offset :: .skip 36
+.dw @L264820+Offset :: .skip 36
+.dw @L264840+Offset :: .skip 36
+.dw @L264860+Offset :: .skip 36
+.dw @L264880+Offset :: .skip 36
+.dw @L264750+Offset :: .skip 36
+.dw @L2648A0+Offset :: .skip 36
+.dw @L2648D0+Offset :: .skip 36
+.dw @L2647D0+Offset :: .skip 36
+
+// Misc. Text
+
+.orga 0x263588 :: @L263588: .str L263588
+.orga 0x263590 :: @L263590: .str L263590
