@@ -22,4 +22,8 @@ li v1, 0x5
 .org 0x000140354
 li v1, 0x5
 
+// Fix ASCII characters not printing in some cases
+.org 0x0009B470
+slti    at, v1, 0x0020
+
 .close
