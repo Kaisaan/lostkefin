@@ -9,21 +9,52 @@
 
 // Fix halfwidth characters not updating textbox size correctly
 .orga 0x0004CF38
-addiu	t7, t7, 0x0A
+addiu t7, t7, 0x0A
 
 .orga 0x0004CF44
-addiu	a0, a0, 0x01
+addiu a0, a0, 0x01
 
 // Patch treasure chest to be interactable
 .org 0x000140384
 li v1, 0x5
 
-// Patch treasure chest to be interactable
 .org 0x000140354
 li v1, 0x5
 
 // Fix ASCII characters not printing in some cases
-.org 0x0009B470
-slti    at, v1, 0x0020
+.orga 0x0009B468
+addiu v0,zero,0x40
+beq v1,v0,0x0009B688
+addiu v0,zero,0x23
+bne v1,v0,0x0009B660
+addu v0,s1,s3
+nop
+nop
+nop
+nop
+
+.orga 0x0009B660
+sb v1,0x0(v0)
+lw v1,0x8(s2)
+addu v0,s1,s3
+addu v1,v1,s4
+lb v1,0x0(v1)
+beq zero,zero,0x0009B4C0
+sb v1,0x0(v0)
+nop
+nop
+
+.orga 0x0009B4C0
+addiu s4,s4,0x1
+beq zero,zero,0x0009B430
+addiu s3,s3,0x1
+
+// Change offset of highlights
+// TODO: Change these accordingly once text is finalized
+.orga 0019B6C4
+addiu a2,v0, 0x60
+
+.orga 0019B79C
+addiu a2,v0, 0x80
 
 .close
