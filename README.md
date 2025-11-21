@@ -40,6 +40,7 @@ A big thanks to these wonderful people for helping with this project! This proje
 
 # Related Materials
 A list of all webpages I could find that include information about this game. Please update me about anything that is not listed here
+- Article of the game on [Falcom Wiki](https://falcom.wiki/wiki/Ys_V:_Lost_Kefin,_Kingdom_of_Sand_(PS2))
 - Article of the game on [Ys Wiki](https://isu.fandom.com/wiki/Ys_V:_Lost_Kefin,_Kingdom_of_Sand_(PS2))
 - Article of the game on [Wikipedia](https://en.wikipedia.org/wiki/Ys_V:_Lost_Kefin,_Kingdom_of_Sand)
 - Article of the game on [Wikipedia](https://ja.wikipedia.org/wiki/%E3%82%A4%E3%83%BC%E3%82%B9V) (Japanese)
