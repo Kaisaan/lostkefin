@@ -51,10 +51,10 @@ addiu s3,s3,0x1
 
 // Change offset of highlights
 // TODO: Change these accordingly once text is finalized
-.orga 0x0019B6C4
+.orga 0x0009B744
 addiu a2,v0, 0x60
 
-.orga 0x0019B79C
+.orga 0x0009B81C
 addiu a2,v0, 0x80
 
 .close
