@@ -493,6 +493,19 @@ Offset equ 0xFFF80
 
 .dw @L2646C0+Offset :: .skip 32
 
+// Unknown Block 2 Pointers
+
+.orga 0x22B308
+
+.dw @L2644C0+Offset :: .skip 36
+.dw @L2644F0+Offset :: .skip 36
+.dw @L264510+Offset :: .skip 36
+.dw @L264530+Offset :: .skip 36
+.dw @L264550+Offset :: .skip 36
+.dw @L264580+Offset :: .skip 36
+.dw @L2645B0+Offset :: .skip 36
+.dw @L2645D0+Offset :: .skip 36
+
 // Locations Pointers
 .orga 0x22CC00
 
@@ -930,8 +943,100 @@ Offset equ 0xFFF80
 .dw @L265420+Offset :: .skip 4
 .dw @L265450+Offset :: .skip 12
 .dw @L265470+Offset :: .skip 56
-.dw @L265288+Offset :: .skip 16
-.dw @L265490+Offset
+.dw @L265288+Offset
+
+.skip 16
+
+// Item Names Pointers
+
+.orga 0x22E56C
+
+.dw @L265490+Offset :: .skip 152
+.dw @L2654A8+Offset :: .skip 152
+.dw @L2654B8+Offset :: .skip 152
+.dw @L2654C8+Offset :: .skip 152
+.dw @L2654E0+Offset :: .skip 152
+.dw @L2654F8+Offset :: .skip 152
+.dw @L265508+Offset :: .skip 152
+.dw @L265518+Offset :: .skip 152
+.dw @L265528+Offset :: .skip 152
+.dw @L265538+Offset :: .skip 152
+.dw @L265550+Offset :: .skip 152
+.dw @L265570+Offset :: .skip 152
+.dw @L265588+Offset :: .skip 152
+.dw @L265598+Offset :: .skip 152
+.dw @L2655A8+Offset :: .skip 152
+.dw @L2655B8+Offset :: .skip 152
+.dw @L2655C8+Offset :: .skip 152
+.dw @L2655D8+Offset :: .skip 152
+.dw @L2655F0+Offset :: .skip 152
+.dw @L265608+Offset :: .skip 152
+.dw @L265618+Offset :: .skip 152
+.dw @L265630+Offset :: .skip 152
+.dw @L265648+Offset :: .skip 152
+.dw @L265658+Offset :: .skip 152
+.dw @L265668+Offset :: .skip 152
+.dw @L265678+Offset :: .skip 152
+.dw @L265688+Offset :: .skip 152
+.dw @L265698+Offset :: .skip 152
+.dw @L2656B0+Offset :: .skip 152
+.dw @L2656C8+Offset :: .skip 152
+.dw @L2656D8+Offset :: .skip 152
+.dw @L2656E0+Offset :: .skip 152
+.dw @L2656F0+Offset :: .skip 152
+.dw @L265700+Offset :: .skip 152
+.dw @L265718+Offset :: .skip 152
+.dw @L265728+Offset :: .skip 152
+.dw @L265738+Offset :: .skip 152
+.dw @L265748+Offset :: .skip 152
+.dw @L265758+Offset :: .skip 152
+.dw @L265768+Offset :: .skip 152
+.dw @L265778+Offset :: .skip 152
+.dw @L265788+Offset :: .skip 152
+.dw @L265798+Offset :: .skip 152
+.dw @L2657A0+Offset :: .skip 152
+.dw @L2657B0+Offset :: .skip 152
+.dw @L2657C0+Offset :: .skip 152
+.dw @L2657D0+Offset :: .skip 152
+.dw @L2657D8+Offset :: .skip 152
+.dw @L2657E8+Offset :: .skip 152
+.dw @L2657F8+Offset :: .skip 152
+.dw @L265810+Offset :: .skip 152
+.dw @L265830+Offset :: .skip 152
+.dw @L265850+Offset :: .skip 152
+.dw @L265870+Offset :: .skip 152
+.dw @L265890+Offset :: .skip 152
+.dw @L2658A8+Offset :: .skip 152
+.dw @L2658B8+Offset :: .skip 152
+.dw @L2658C8+Offset :: .skip 152
+.dw @L2658E0+Offset :: .skip 152
+.dw @L2658F8+Offset :: .skip 152
+.dw @L265910+Offset :: .skip 152
+.dw @L265928+Offset :: .skip 152
+.dw @L2657F8+Offset :: .skip 152
+.dw @L265810+Offset :: .skip 152
+.dw @L265830+Offset :: .skip 152
+.dw @L265850+Offset :: .skip 152
+.dw @L265870+Offset :: .skip 152
+.dw @L265890+Offset :: .skip 152
+.dw @L2658A8+Offset :: .skip 152
+.dw @L2658B8+Offset :: .skip 152
+.dw @L2658C8+Offset :: .skip 152
+.dw @L2658E0+Offset :: .skip 152
+.dw @L2658F8+Offset :: .skip 152
+.dw @L265910+Offset :: .skip 152
+.dw @L265928+Offset :: .skip 152
+.dw @L265938+Offset :: .skip 152
+.dw @L265948+Offset :: .skip 152
+.dw @L265958+Offset :: .skip 152
+.dw @L265968+Offset :: .skip 152
+.dw @L265978+Offset :: .skip 152
+.dw @L265990+Offset :: .skip 152
+.dw @L2659A8+Offset :: .skip 152
+.dw @L2659B0+Offset :: .skip 152
+.dw @L2659C0+Offset :: .skip 152
+.dw @L2659D8+Offset :: .skip 152
+.dw @L2659E8+Offset :: .skip 152
 
 // Item Description Pointers
 
@@ -1515,97 +1620,6 @@ Offset equ 0xFFF80
 @L267240: .str L267240
 @L267290: .str L267290
 
-// Item Names Pointers
-
-.orga 0x22E56C
-
-.dw @L265490+Offset :: .skip 156
-.dw @L2654A8+Offset :: .skip 156
-.dw @L2654B8+Offset :: .skip 156
-.dw @L2654C8+Offset :: .skip 156
-.dw @L2654E0+Offset :: .skip 156
-.dw @L2654F8+Offset :: .skip 156
-.dw @L265508+Offset :: .skip 156
-.dw @L265518+Offset :: .skip 156
-.dw @L265528+Offset :: .skip 156
-.dw @L265538+Offset :: .skip 156
-.dw @L265550+Offset :: .skip 156
-.dw @L265570+Offset :: .skip 156
-.dw @L265588+Offset :: .skip 156
-.dw @L265598+Offset :: .skip 156
-.dw @L2655A8+Offset :: .skip 156
-.dw @L2655B8+Offset :: .skip 156
-.dw @L2655C8+Offset :: .skip 156
-.dw @L2655D8+Offset :: .skip 156
-.dw @L2655F0+Offset :: .skip 156
-.dw @L265608+Offset :: .skip 156
-.dw @L265618+Offset :: .skip 156
-.dw @L265630+Offset :: .skip 156
-.dw @L265648+Offset :: .skip 156
-.dw @L265658+Offset :: .skip 156
-.dw @L265668+Offset :: .skip 156
-.dw @L265678+Offset :: .skip 156
-.dw @L265688+Offset :: .skip 156
-.dw @L265698+Offset :: .skip 156
-.dw @L2656B0+Offset :: .skip 156
-.dw @L2656C8+Offset :: .skip 156
-.dw @L2656D8+Offset :: .skip 156
-.dw @L2656E0+Offset :: .skip 156
-.dw @L2656F0+Offset :: .skip 156
-.dw @L265700+Offset :: .skip 156
-.dw @L265718+Offset :: .skip 156
-.dw @L265728+Offset :: .skip 156
-.dw @L265738+Offset :: .skip 156
-.dw @L265748+Offset :: .skip 156
-.dw @L265758+Offset :: .skip 156
-.dw @L265768+Offset :: .skip 156
-.dw @L265778+Offset :: .skip 156
-.dw @L265788+Offset :: .skip 156
-.dw @L265798+Offset :: .skip 156
-.dw @L2657A0+Offset :: .skip 156
-.dw @L2657B0+Offset :: .skip 156
-.dw @L2657C0+Offset :: .skip 156
-.dw @L2657D0+Offset :: .skip 156
-.dw @L2657D8+Offset :: .skip 156
-.dw @L2657E8+Offset :: .skip 156
-.dw @L2657F8+Offset :: .skip 156
-.dw @L265810+Offset :: .skip 156
-.dw @L265830+Offset :: .skip 156
-.dw @L265850+Offset :: .skip 156
-.dw @L265870+Offset :: .skip 156
-.dw @L265890+Offset :: .skip 156
-.dw @L2658A8+Offset :: .skip 156
-.dw @L2658B8+Offset :: .skip 156
-.dw @L2658C8+Offset :: .skip 156
-.dw @L2658E0+Offset :: .skip 156
-.dw @L2658F8+Offset :: .skip 156
-.dw @L265910+Offset :: .skip 156
-.dw @L265928+Offset :: .skip 156
-.dw @L2657F8+Offset :: .skip 156
-.dw @L265810+Offset :: .skip 156
-.dw @L265830+Offset :: .skip 156
-.dw @L265850+Offset :: .skip 156
-.dw @L265870+Offset :: .skip 156
-.dw @L265890+Offset :: .skip 156
-.dw @L2658A8+Offset :: .skip 156
-.dw @L2658B8+Offset :: .skip 156
-.dw @L2658C8+Offset :: .skip 156
-.dw @L2658E0+Offset :: .skip 156
-.dw @L2658F8+Offset :: .skip 156
-.dw @L265910+Offset :: .skip 156
-.dw @L265928+Offset :: .skip 156
-.dw @L265938+Offset :: .skip 156
-.dw @L265948+Offset :: .skip 156
-.dw @L265958+Offset :: .skip 156
-.dw @L265968+Offset :: .skip 156
-.dw @L265978+Offset :: .skip 156
-.dw @L265990+Offset :: .skip 156
-.dw @L2659A8+Offset :: .skip 156
-.dw @L2659B0+Offset :: .skip 156
-.dw @L2659C0+Offset :: .skip 156
-.dw @L2659D8+Offset :: .skip 156
-.dw @L2659E8+Offset :: .skip 156
-
 //  Load Screen Text
 
 .orga 0x25FBF0 :: @L25FBF0: .str L25FBF0
@@ -1682,3 +1696,11 @@ Offset equ 0xFFF80
 
 .orga 0x263588 :: @L263588: .str L263588
 .orga 0x263590 :: @L263590: .str L263590
+
+.orga 0x26DFB8 :: @L26DFB8: .str L26DFB8
+.orga 0x26DFC8 :: @L26DFC8: .str L26DFC8
+.orga 0x26DFD8 :: @L26DFD8: .str L26DFD8
+
+.orga 0x263610 :: @L263610: .str L263610
+
+.orga 0x26E050 :: @L26E050: .str L26E050
