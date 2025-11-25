@@ -7,6 +7,12 @@
 
 .include "code.asm"
 
+// Fix string-centering code incorrectly handling ASCII
+.orga 0x4d34c
+addiu a0,a0,0x1
+addiu a0,a0,0x1
+
+
 // Fix halfwidth characters not updating textbox size correctly
 .orga 0x0004CF38
 addiu t7, t7, 0x0A
