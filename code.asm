@@ -459,22 +459,23 @@ Offset equ 0xFFF80
 .dw @L263C30+Offset
 .dw @L263C38+Offset
 .dw @L263C40+Offset
+.dw @L263B38+Offset
 
 .skip 8
 
 // Shop Block 1 Pointers
 
-.dw @L263C50+Offset :: .skip 32
-.dw @L263C70+Offset :: .skip 32
-.dw @L263C90+Offset :: .skip 32
-.dw @L263CC0+Offset :: .skip 32
-.dw @L263CE0+Offset :: .skip 32
-.dw @L263D00+Offset :: .skip 32
-.dw @L263D20+Offset :: .skip 32
-.dw @L263D40+Offset :: .skip 32
-.dw @L263D70+Offset :: .skip 32
-.dw @L263DA0+Offset :: .skip 32
-.dw @L263DC0+Offset :: .skip 32
+.dw @L263C50+Offset :: .skip 36
+.dw @L263C70+Offset :: .skip 36
+.dw @L263C90+Offset :: .skip 36
+.dw @L263CC0+Offset :: .skip 36
+.dw @L263CE0+Offset :: .skip 36
+.dw @L263D00+Offset :: .skip 36
+.dw @L263D20+Offset :: .skip 36
+.dw @L263D40+Offset :: .skip 36
+.dw @L263D70+Offset :: .skip 36
+.dw @L263DA0+Offset :: .skip 36
+.dw @L263DC0+Offset :: .skip 36
 
 // Unknown Block 1 Pointers
 
