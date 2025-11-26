@@ -56,11 +56,19 @@ beq zero,zero,0x0009B430
 addiu s3,s3,0x1
 
 // Change offset of highlights
-// TODO: Change these accordingly once text is finalized
-.orga 0x0009B744
-addiu a2,v0, -0x18
 
-.orga 0x0009B81C
-addiu a2,v0, -0x20
+// "Perform a Quick Save?" and "Return to the title screen?"
+.orga 0x0009B744 // "Yes"
+addiu a2,v0, -0x1a
+
+.orga 0x0009B81C // "No"
+addiu a2,v0, -0x1e
+
+// "Load data?"
+.orga 0x7D10C // "Yes"
+addiu a2, zero, 0x3
+
+.orga 0x7D18C // "No"
+addiu a2,zero,0x63
 
 .close
