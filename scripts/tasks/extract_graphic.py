@@ -91,7 +91,7 @@ GRAPHICS_FILES = {
     "bname_javil": "DATA/event/bname_javil_anm.bin",
     "bname_kef": "DATA/event/bname_kefin_anm.bin",
     "bname_valte": "DATA/event/bname_valte_anm.bin",
-    "category": "DATA/gamecom/category_anm.bin",
+    "category": "DATA/shop/category_anm.bin",
     "g_guide": "DATA/gallery/g_guide_anm.bin",
     "help01": "DATA/help/help01_anm.bin",
     "help02": "DATA/help/help02_anm.bin",
