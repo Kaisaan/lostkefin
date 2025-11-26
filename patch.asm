@@ -71,4 +71,11 @@ addiu a2, zero, 0x3
 .orga 0x7D18C // "No"
 addiu a2,zero,0x63
 
+// Shift shop item desc left
+.orga 0xA8F08
+addiu a1,zero,0x66
+
+// ... and down
+addiu a2,zero,0x14A
+
 .close
