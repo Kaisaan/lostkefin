@@ -1719,4 +1719,19 @@ Offset equ 0xFFF80
 .orga 0x2638A0 :: @L2638A0: .str L2638A0
 .orga 0x2638C0 :: @L2638C0: .str L2638C0
 
+// Alchemy Pointers
+
+.orga 0x22A408
+
+.dw @L263F60+Offset :: .skip 36
+.dw @L263FA0+Offset :: .skip 36
+.dw @L263FC0+Offset :: .skip 36
+.dw @L263FE0+Offset :: .skip 36
+.dw @L264000+Offset :: .skip 36
+.dw @L263FA0+Offset :: .skip 36
+.dw @L264030+Offset :: .skip 36
+.dw @L264050+Offset :: .skip 36
+.dw @L264080+Offset :: .skip 36
+.dw @L2640A0+Offset :: .skip 36
+
 
