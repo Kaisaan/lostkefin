@@ -1734,4 +1734,18 @@ Offset equ 0xFFF80
 .dw @L264080+Offset :: .skip 36
 .dw @L2640A0+Offset :: .skip 36
 
+// Selling Pointers
+
+.orga 0x229F08
+
+.dw @L263DE0+Offset :: .skip 36
+.dw @L263E00+Offset :: .skip 36
+.dw @L263E20+Offset :: .skip 36
+.dw @L263E50+Offset :: .skip 36
+.dw @L263E80+Offset :: .skip 36
+.dw @L263EB0+Offset :: .skip 36
+.dw @L263EE0+Offset :: .skip 36
+.dw @L263F10+Offset :: .skip 36
+.dw @L263F30+Offset :: .skip 36
+
 
