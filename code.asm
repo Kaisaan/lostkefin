@@ -1706,16 +1706,17 @@ Offset equ 0xFFF80
 
 .orga 0x26E050 :: @L26E050: .str L26E050
 
-.orga 0x2D2710 :: @L2D2710 .str L2D2710
-.orga 0x2D2730 :: @L2D2730 .str L2D2730
+.orga 0x2D2710 :: @L2D2710: .str L2D2710
+.orga 0x2D2730 :: @L2D2730: .str L2D2730
 
 // Shop Block 3 Text
 
-.orga 0x2637C8 :: @L2637C8 .str L2637C8
-.orga 0x263830 :: @L263830 .str L263830
-.orga 0x263850 :: @L263850 .str L263850
-.orga 0x263860 :: @L263860 .str L263860
-.orga 0x263888 :: @L263888 .str L263888
-.orga 0x2638A0 :: @L2638A0 .str L2638A0
-.orga 0x2638C0 :: @L2638C0 .str L2638C0
+.orga 0x2637C8 :: @L2637C8: .str L2637C8
+.orga 0x263830 :: @L263830: .str L263830
+.orga 0x263850 :: @L263850: .str L263850
+.orga 0x263860 :: @L263860: .str L263860
+.orga 0x263888 :: @L263888: .str L263888
+.orga 0x2638A0 :: @L2638A0: .str L2638A0
+.orga 0x2638C0 :: @L2638C0: .str L2638C0
+
 
