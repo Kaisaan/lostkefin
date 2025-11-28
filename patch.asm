@@ -78,4 +78,12 @@ addiu a1,zero,0x66
 // ... and down
 addiu a2,zero,0x14A
 
+// Slightly shift text in text boxes
+.orga 0x4DEDC
+addiu s1,s1,0x6
+
+// Increase text box size to compensate for ^
+.orga 0x4CF6C
+addiu v0,v0,0xc
+
 .close
