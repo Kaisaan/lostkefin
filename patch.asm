@@ -71,11 +71,14 @@ addiu a2, zero, 0x3
 .orga 0x7D18C // "No"
 addiu a2,zero,0x63
 
-// Shift shop item desc left
+// Shift shop screen item desc left and down
 .orga 0xA8F08
 addiu a1,zero,0x66
+addiu a2,zero,0x14A
 
-// ... and down
+// Same as above, but for some other shops
+.orga 0xA4444
+addiu a1,zero,0x66
 addiu a2,zero,0x14A
 
 .close
