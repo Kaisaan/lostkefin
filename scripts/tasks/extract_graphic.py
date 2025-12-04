@@ -110,6 +110,8 @@ GRAPHICS_FILES = {
     "vbg_ev40": "DATA/event/vbg_ev40_anm.bin",
     "vbg_ev45": "DATA/event/vbg_ev45_anm.bin",
     "vbg_ev49": "DATA/event/vbg_ev49_anm.bin",
+    "number00": "DATA/gameother/number00_anm.bin",
+    "number01": "DATA/gameother/number01_anm.bin",
 }
 
 
