@@ -1688,32 +1688,6 @@ Offset equ 0xFFF80
 .dw @L2648D0+Offset :: .skip 36
 .dw @L2647D0+Offset :: .skip 36
 
-// Misc. Text
-
-.orga 0x263588 :: @L263588: .str L263588
-.orga 0x263590 :: @L263590: .str L263590
-
-.orga 0x26DFB8 :: @L26DFB8: .str L26DFB8
-.orga 0x26DFC8 :: @L26DFC8: .str L26DFC8
-.orga 0x26DFD8 :: @L26DFD8: .str L26DFD8
-
-.orga 0x263610 :: @L263610: .str L263610
-
-.orga 0x26E050 :: @L26E050: .str L26E050
-
-.orga 0x2D2710 :: @L2D2710: .str L2D2710
-.orga 0x2D2730 :: @L2D2730: .str L2D2730
-
-// Shop Block 3 Text
-
-.orga 0x2637C8 :: @L2637C8: .str L2637C8
-.orga 0x263830 :: @L263830: .str L263830
-.orga 0x263850 :: @L263850: .str L263850
-.orga 0x263860 :: @L263860: .str L263860
-.orga 0x263888 :: @L263888: .str L263888
-.orga 0x2638A0 :: @L2638A0: .str L2638A0
-.orga 0x2638C0 :: @L2638C0: .str L2638C0
-
 // Alchemy Pointers
 
 .orga 0x22A408
@@ -1799,5 +1773,134 @@ Offset equ 0xFFF80
 .dw @L2645B0+Offset :: .skip 36
 .dw @L2645D0+Offset :: .skip 36
 
+// Menu Block Text
 
+.orga 0x2634B0 :: @L2634B0: .str L2634B0
+.orga 0x2634B8 :: @L2634B8: .str L2634B8
+.orga 0x2634C0 :: @L2634C0: .str L2634C0
+.orga 0x2634C8 :: @L2634C8: .str L2634C8
+.orga 0x2634D0 :: @L2634D0: .str L2634D0
+.orga 0x2634D8 :: @L2634D8: .str L2634D8
+.orga 0x2634E0 :: @L2634E0: .str L2634E0
+.orga 0x2634E8 :: @L2634E8: .str L2634E8
+.orga 0x2634F0 :: @L2634F0: .str L2634F0
+.orga 0x2634F8 :: @L2634F8: .str L2634F8
+.orga 0x263500 :: @L263500: .str L263500
+.orga 0x263508 :: @L263508: .str L263508
+.orga 0x263510 :: @L263510: .str L263510
+.orga 0x263518 :: @L263518: .str L263518
+.orga 0x263520 :: @L263520: .str L263520
+.orga 0x263528 :: @L263528: .str L263528
+.orga 0x263530 :: @L263530: .str L263530
+.orga 0x263538 :: @L263538: .str L263538
+.orga 0x263540 :: @L263540: .str L263540
+.orga 0x263548 :: @L263548: .str L263548
+.orga 0x263550 :: @L263550: .str L263550
+.orga 0x263558 :: @L263558: .str L263558
+.orga 0x263560 :: @L263560: .str L263560
+.orga 0x263568 :: @L263568: .str L263568
+.orga 0x263570 :: @L263570: .str L263570
+.orga 0x263578 :: @L263578: .str L263578
+.orga 0x263580 :: @L263580: .str L263580
+.orga 0x263588 :: @L263588: .str L263588
+.orga 0x263590 :: @L263590: .str L263590
+.orga 0x263598 :: @L263598: .str L263598
+.orga 0x2635A8 :: @L2635A8: .str L2635A8
+.orga 0x2635B8 :: @L2635B8: .str L2635B8
+.orga 0x2635F8 :: @L2635F8: .str L2635F8
+.orga 0x263608 :: @L263608: .str L263608
+.orga 0x263610 :: @L263610: .str L263610
+.orga 0x263658 :: @L263658: .str L263658
+.orga 0x263660 :: @L263660: .str L263660
+.orga 0x263668 :: @L263668: .str L263668
+.orga 0x263670 :: @L263670: .str L263670
+.orga 0x263678 :: @L263678: .str L263678
+.orga 0x263680 :: @L263680: .str L263680
+.orga 0x263688 :: @L263688: .str L263688
+.orga 0x263690 :: @L263690: .str L263690
+.orga 0x263698 :: @L263698: .str L263698
+.orga 0x2636A0 :: @L2636A0: .str L2636A0
+.orga 0x2636A8 :: @L2636A8: .str L2636A8
+.orga 0x2636B0 :: @L2636B0: .str L2636B0
+.orga 0x2636B8 :: @L2636B8: .str L2636B8
+.orga 0x2636C0 :: @L2636C0: .str L2636C0
+.orga 0x2636C8 :: @L2636C8: .str L2636C8
+.orga 0x2636D0 :: @L2636D0: .str L2636D0
+.orga 0x2636D8 :: @L2636D8: .str L2636D8
+.orga 0x2636E0 :: @L2636E0: .str L2636E0
+.orga 0x2636E8 :: @L2636E8: .str L2636E8
+.orga 0x2636F0 :: @L2636F0: .str L2636F0
+.orga 0x2636F8 :: @L2636F8: .str L2636F8
+.orga 0x263700 :: @L263700: .str L263700
+.orga 0x263708 :: @L263708: .str L263708
+.orga 0x263710 :: @L263710: .str L263710
+.orga 0x263718 :: @L263718: .str L263718
+.orga 0x263720 :: @L263720: .str L263720
+.orga 0x263728 :: @L263728: .str L263728
+.orga 0x263730 :: @L263730: .str L263730
+.orga 0x263738 :: @L263738: .str L263738
+.orga 0x263740 :: @L263740: .str L263740
+.orga 0x263748 :: @L263748: .str L263748
+.orga 0x263778 :: @L263778: .str L263778
+.orga 0x263790 :: @L263790: .str L263790
+.orga 0x2637A0 :: @L2637A0: .str L2637A0
+.orga 0x2637A8 :: @L2637A8: .str L2637A8
+.orga 0x2637B8 :: @L2637B8: .str L2637B8
+.orga 0x2637C8 :: @L2637C8: .str L2637C8
+.orga 0x2637D8 :: @L2637D8: .str L2637D8
+.orga 0x2637E8 :: @L2637E8: .str L2637E8
+.orga 0x2637F8 :: @L2637F8: .str L2637F8
+.orga 0x263808 :: @L263808: .str L263808
+.orga 0x263820 :: @L263820: .str L263820
+.orga 0x263830 :: @L263830: .str L263830
+.orga 0x263840 :: @L263840: .str L263840
+.orga 0x263850 :: @L263850: .str L263850
+.orga 0x263860 :: @L263860: .str L263860
+.orga 0x263878 :: @L263878: .str L263878
+.orga 0x263888 :: @L263888: .str L263888
+.orga 0x2638A0 :: @L2638A0: .str L2638A0
+.orga 0x2638C0 :: @L2638C0: .str L2638C0
+
+.orga 0x26DE98 :: @L26DE98: .str L26DE98
+.orga 0x26DEA0 :: @L26DEA0: .str L26DEA0
+.orga 0x26DEA8 :: @L26DEA8: .str L26DEA8
+.orga 0x26DEB0 :: @L26DEB0: .str L26DEB0
+.orga 0x26DEB8 :: @L26DEB8: .str L26DEB8
+.orga 0x26DEC0 :: @L26DEC0: .str L26DEC0
+.orga 0x26DEC8 :: @L26DEC8: .str L26DEC8
+.orga 0x26DED0 :: @L26DED0: .str L26DED0
+.orga 0x26DED8 :: @L26DED8: .str L26DED8
+.orga 0x26DEE0 :: @L26DEE0: .str L26DEE0
+.orga 0x26DEE8 :: @L26DEE8: .str L26DEE8
+.orga 0x26DEF0 :: @L26DEF0: .str L26DEF0
+.orga 0x26DEF8 :: @L26DEF8: .str L26DEF8
+.orga 0x26DF00 :: @L26DF00: .str L26DF00
+.orga 0x26DF08 :: @L26DF08: .str L26DF08
+.orga 0x26DF10 :: @L26DF10: .str L26DF10
+.orga 0x26DF18 :: @L26DF18: .str L26DF18
+.orga 0x26DF20 :: @L26DF20: .str L26DF20
+.orga 0x26DF28 :: @L26DF28: .str L26DF28
+.orga 0x26DF30 :: @L26DF30: .str L26DF30
+.orga 0x26DF38 :: @L26DF38: .str L26DF38
+.orga 0x26DF40 :: @L26DF40: .str L26DF40
+.orga 0x26DF48 :: @L26DF48: .str L26DF48
+.orga 0x26DF50 :: @L26DF50: .str L26DF50
+.orga 0x26DF58 :: @L26DF58: .str L26DF58
+.orga 0x26DF60 :: @L26DF60: .str L26DF60
+.orga 0x26DF68 :: @L26DF68: .str L26DF68
+.orga 0x26DF70 :: @L26DF70: .str L26DF70
+.orga 0x26DF80 :: @L26DF80: .str L26DF80
+.orga 0x26DF88 :: @L26DF88: .str L26DF88
+.orga 0x26DF90 :: @L26DF90: .str L26DF90
+.orga 0x26DF98 :: @L26DF98: .str L26DF98
+.orga 0x26DFB8 :: @L26DFB8: .str L26DFB8
+.orga 0x26DFC8 :: @L26DFC8: .str L26DFC8
+.orga 0x26DFD8 :: @L26DFD8: .str L26DFD8
+.orga 0x26DFE8 :: @L26DFE8: .str L26DFE8
+.orga 0x26E040 :: @L26E040: .str L26E040
+.orga 0x26E048 :: @L26E048: .str L26E048
+.orga 0x26E050 :: @L26E050: .str L26E050
+
+.orga 0x2D2710 :: @L2D2710: .str L2D2710
+.orga 0x2D2730 :: @L2D2730: .str L2D2730
 
