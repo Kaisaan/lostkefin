@@ -7,7 +7,6 @@ def fix_ascii(text):
         text.replace("\n", "\\n")
         .replace(", ", "，")
         .replace(",", "，")
-        .replace("! ", "！")
         .replace("!", "！")
         .replace("~", "〜")
     )

@@ -18,6 +18,7 @@ def fix_ascii(text):
         .replace(",", "，")
         .replace("!", "！")
         .replace("~", "〜")
+        .replace("...", "…")
     )
 
 
