@@ -1904,3 +1904,38 @@ Offset equ 0xFFF80
 .orga 0x2D2710 :: @L2D2710: .str L2D2710
 .orga 0x2D2730 :: @L2D2730: .str L2D2730
 
+// File Select Text Block
+
+.orga 0x25F9C0 :: @L25F9C0: .str L25F9C0
+.orga 0x25F9C8 :: @L25F9C8: .str L25F9C8
+.orga 0x25F9D0 :: @L25F9D0: .str L25F9D0
+.orga 0x25F9D8 :: @L25F9D8: .str L25F9D8
+.orga 0x25F9E0 :: @L25F9E0: .str L25F9E0
+.orga 0x25F9E8 :: @L25F9E8: .str L25F9E8
+.orga 0x25F9F0 :: @L25F9F0: .str L25F9F0
+.orga 0x25F9F8 :: @L25F9F8: .str L25F9F8
+.orga 0x25FA00 :: @L25FA00: .str L25FA00
+.orga 0x25FA08 :: @L25FA08: .str L25FA08
+.orga 0x25FA10 :: @L25FA10: .str L25FA10
+.orga 0x25FA18 :: @L25FA18: .str L25FA18
+.orga 0x25FA20 :: @L25FA20: .str L25FA20
+.orga 0x25FA28 :: @L25FA28: .str L25FA28
+.orga 0x25FA30 :: @L25FA30: .str L25FA30
+.orga 0x25FA38 :: @L25FA38: .str L25FA38
+.orga 0x25FA40 :: @L25FA40: .str L25FA40
+.orga 0x25FA48 :: @L25FA48: .str L25FA48
+.orga 0x25FA50 :: @L25FA50: .str L25FA50
+.orga 0x25FA58 :: @L25FA58: .str L25FA58
+.orga 0x25FA60 :: @L25FA60: .str L25FA60
+.orga 0x25FA68 :: @L25FA68: .str L25FA68
+.orga 0x25FA70 :: @L25FA70: .str L25FA70
+.orga 0x25FA78 :: @L25FA78: .str L25FA78
+.orga 0x25FA80 :: @L25FA80: .str L25FA80
+.orga 0x25FA88 :: @L25FA88: .str L25FA88
+.orga 0x25FA90 :: @L25FA90: .str L25FA90
+.orga 0x25FB40 :: @L25FB40: .str L25FB40
+.orga 0x25FB48 :: @L25FB48: .str L25FB48
+.orga 0x25FB50 :: @L25FB50: .str L25FB50
+.orga 0x25FB60 :: @L25FB60: .str L25FB60
+.orga 0x25FBA0 :: @L25FBA0: .str L25FBA0
+.orga 0x25FBC0 :: @L25FBC0: .str L25FBC0
