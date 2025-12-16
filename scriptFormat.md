@@ -207,6 +207,10 @@ White is the default colour for text.
 |`$67 $6C`|`gl`|Gray|   |
 |`$63 $79`|`cy`|Cyan|   | 
 
+#### Formatted Strings
+The game accepts C-styled formatted strings like `%-20sX%2d` for things such as item names and prices.  
+The `<F>` control code is used to display a number as fullwidth character.  
+The `<S>` control code is used to display a number shifted to the left? 
 
 #### Characters
 The value of the `$3B` Character control code comes from the index value from a list of pointers.  
