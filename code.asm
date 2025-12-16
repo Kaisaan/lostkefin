@@ -1719,29 +1719,6 @@ Offset equ 0xFFF80
 
 // Magic Stones Pointers 2
 
-.orga 0x22B038
-
-.dw @L264190+Offset :: .skip 36
-.dw @L2641C0+Offset :: .skip 36
-.dw @L2641E0+Offset :: .skip 36
-.dw @L264200+Offset :: .skip 36
-.dw @L264240+Offset :: .skip 36
-.dw @L264260+Offset :: .skip 36
-.dw @L264200+Offset :: .skip 36
-.dw @L264280+Offset :: .skip 36
-.dw @L2642A0+Offset :: .skip 36
-.dw @L2642D0+Offset :: .skip 36
-.dw @L264300+Offset :: .skip 36
-.dw @L264330+Offset :: .skip 36
-.dw @L264360+Offset :: .skip 36
-.dw @L264380+Offset :: .skip 36
-.dw @L2643B0+Offset :: .skip 36
-.dw @L2643E0+Offset :: .skip 36
-.dw @L264410+Offset :: .skip 36
-.dw @L264430+Offset :: .skip 36
-.dw @L264460+Offset :: .skip 36
-.dw @L264490+Offset :: .skip 36
-
 .orga 0x22AE08
 
 .dw @L264190+Offset :: .skip 36
@@ -1764,14 +1741,6 @@ Offset equ 0xFFF80
 .dw @L264430+Offset :: .skip 36
 .dw @L264460+Offset :: .skip 36
 .dw @L264490+Offset :: .skip 36
-.dw @L2644C0+Offset :: .skip 36
-.dw @L2644F0+Offset :: .skip 36
-.dw @L264510+Offset :: .skip 36
-.dw @L264530+Offset :: .skip 36
-.dw @L264550+Offset :: .skip 36
-.dw @L264580+Offset :: .skip 36
-.dw @L2645B0+Offset :: .skip 36
-.dw @L2645D0+Offset :: .skip 36
 
 // Menu Block Text
 
