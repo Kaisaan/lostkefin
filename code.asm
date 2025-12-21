@@ -1925,3 +1925,13 @@ Offset equ 0xFFF80
 .orga 0x22BD08
 
 .dw @L2646F0+Offset
+
+// Stones Menu Pointers
+
+.orga 0x22A908
+
+.dw @L2640C0+Offset :: .skip 36
+.dw @L264100+Offset :: .skip 36
+.dw @L264130+Offset :: .skip 36
+.dw @L264150+Offset :: .skip 36
+.dw @L264170+Offset :: .skip 36
