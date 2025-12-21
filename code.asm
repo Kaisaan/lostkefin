@@ -1919,3 +1919,9 @@ Offset equ 0xFFF80
 .dw @L264770+Offset :: .skip 36
 .dw @L2647A0+Offset :: .skip 36
 .dw @L2647D0+Offset :: .skip 36
+
+// Item Get Pointers
+
+.orga 0x22BD08
+
+.dw @L2646F0+Offset
