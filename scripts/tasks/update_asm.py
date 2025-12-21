@@ -1,18 +1,11 @@
+# Handle imports for both module and script execution
 
-def fix_ascii(text):
-    """
-    Replace some ascii characters with their fullwidth equivalents
-    """
-    return (
-        text.replace("\n", "\\n")
-        .replace(", ", "，")
-        .replace(",", "，")
-        .replace("!", "！")
-        .replace("~", "〜")
-        .replace("...", "…")
-        .replace("&", "＆")
-    )
-
+try:
+    # When imported as a module
+    from .update_kscript import fix_ascii
+except ImportError:
+    # When run as a script
+    from update_kscript import fix_ascii
 
 def generate_asm(strings_filename, rows):
     """
