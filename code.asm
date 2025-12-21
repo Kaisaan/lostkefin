@@ -1908,3 +1908,14 @@ Offset equ 0xFFF80
 .orga 0x25FB60 :: @L25FB60: .str L25FB60
 .orga 0x25FBA0 :: @L25FBA0: .str L25FBA0
 .orga 0x25FBC0 :: @L25FBC0: .str L25FBC0
+
+// Game Over Block Pointers
+
+.orga 0x22C208
+
+.dw @L264700+Offset :: .skip 36
+.dw @L264730+Offset :: .skip 36
+.dw @L264750+Offset :: .skip 36
+.dw @L264770+Offset :: .skip 36
+.dw @L2647A0+Offset :: .skip 36
+.dw @L2647D0+Offset :: .skip 36
