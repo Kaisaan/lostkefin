@@ -13,6 +13,24 @@ class Glyph:
         self.palette = palette
         self.pixels = pixels
 
+    def rotate_column(self, amount: int):
+        """
+        Shift right by amount pixels. The rightmost column "rotates" to the leftmost column.
+        """
+        amount = amount % WIDTH  # Handle amounts >= WIDTH
+        if amount == 0:
+            return
+        
+        new_pixels = []
+        for row in range(HEIGHT):
+            row_start = row * WIDTH
+            row_pixels = self.pixels[row_start:row_start + WIDTH]
+            # Take the last `amount` pixels and move them to the front
+            rotated_row = row_pixels[-amount:] + row_pixels[:-amount]
+            new_pixels.extend(rotated_row)
+        
+        self.pixels = new_pixels
+
     @classmethod
     def from_bytes(cls, some_bytes: bytes, palette: list[int]):
         if len(some_bytes) != (WIDTH * HEIGHT) // 2:
@@ -85,6 +103,7 @@ class Glyph:
         image.save(path)
 
 
+
 def dump_font():
     with open("extracted/SLPM_663.60", "rb") as f:
         f.seek(CLUT_OFFSET)
@@ -93,15 +112,16 @@ def dump_font():
         f.seek(PIXEL_OFFSET)
         for i in range(GLYPH_COUNT):
             glyph = Glyph.from_bytes(f.read(WIDTH * HEIGHT // 2), palette)
+            glyph.rotate_column(1)
             glyph.to_png(f"font/{i}.png")
 
-def patch_font():
+def patch_font_from_atlas():
     with open("extracted/SLPM_663.60", "r+b") as f:
 
         prev_palette = []
-        for i in range(GLYPH_COUNT):
-            atlas = Image.open("font_atlas.png")
-
+        atlas = Image.open("font_atlas.png")
+        for i in range(79):
+            
             slice = atlas.crop((0, i * HEIGHT, WIDTH, (i + 1) * HEIGHT))
             glyph = Glyph.from_png(slice)
             if prev_palette and prev_palette != glyph.palette:
@@ -115,6 +135,16 @@ def patch_font():
                 f.write(bytes([component for color in glyph.palette for component in color]))
                 f.seek(PIXEL_OFFSET)
                 
+            f.write(glyph.to_bytes())
+
+def patch_font_from_directory():
+    # Inverse of dump_font()
+    for i in range(GLYPH_COUNT):
+        with open(f"font/{i}.png", "rb") as f:
+            glyph = Glyph.from_png(f)
+            f.seek(CLUT_OFFSET)
+            f.write(bytes([component for color in glyph.palette for component in color]))
+            f.seek(PIXEL_OFFSET)
             f.write(glyph.to_bytes())
 
 def test_roundtrip():
@@ -143,7 +173,7 @@ def test_roundtrip():
 
 
 if __name__ == "__main__":
-    #dump_font()
-    patch_font()
+    dump_font()
+    #patch_font_from_atlas()
 
     #test_roundtrip()
