@@ -71,6 +71,13 @@ addiu a2, zero, 0x3
 .orga 0x7D18C // "No"
 addiu a2,zero,0x63
 
+// Shift inventory item desc left and down
+.orga 0xA1208
+addiu v1,v0,0x55
+
+.orga 0xA122C
+addiu v0,v0,0xb
+
 // Shift shop screen item desc left and down
 .orga 0xA8F08
 addiu a1,zero,0x66
