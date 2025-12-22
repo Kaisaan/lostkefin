@@ -17,6 +17,7 @@ from tasks.from_csv import from_csv
 from tasks.from_sheets import from_sheets
 from tasks.pack import pack
 from tasks.update_graphic import insert_all_graphics
+from tasks.patch_font import patch_font
 
 STAGES = ["00", "10", "20", "30", "40", "50", "60", "70", "80", "90", "a0", "b0"]
 
@@ -56,6 +57,10 @@ def main(sheets: bool = False):
 
     print("Inserting graphics...")
     insert_all_graphics()
+    print("Done!")
+
+    print("Patching font...")
+    patch_font()
     print("Done!")
 
     print("Repacking DATA.BIN")

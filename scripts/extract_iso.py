@@ -12,6 +12,7 @@ from tasks.to_csv import to_csv
 from tasks.decompile import bin_to_kscript
 from tasks.unpack import unpack
 from tasks.extract_graphic import extract_all_graphics
+from tasks.dump_font import dump_font
 
 STAGES = ["00", "10", "20", "30", "40", "50", "60", "70", "80", "90", "a0", "b0"]
 
@@ -56,6 +57,10 @@ def main():
 
     print("Extracting graphics...")
     extract_all_graphics()
+    print("Done!")
+
+    print("Dumping font...")
+    dump_font()
     print("Done!")
 
 
