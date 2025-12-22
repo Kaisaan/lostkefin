@@ -10,6 +10,12 @@ PIXEL_OFFSET = 0x1A3EA0
 CLUT_OFFSET = 0x25E4C0
 GLYPH_COUNT = 1620
 
+# Glyphs that need column rotation by 1 pixel
+ROTATE_GLYPHS = (
+    2, 4, 5, 6, 7, 8, 9, 10, 13, 14, 16, 17, 18, 19, 22, 24, 25, 26, 27, 30,
+    34, 36, 37, 38, 39, 40, 41, 42, 43, 45, 46, 47, 48, 49, 51, 52, 65, 75, 80,
+)
+
 
 class Glyph:
     def __init__(self, palette: list[int], pixels: list[int]):
@@ -27,7 +33,7 @@ class Glyph:
         new_pixels = []
         for row in range(HEIGHT):
             row_start = row * WIDTH
-            row_pixels = self.pixels[row_start:row_start + WIDTH]
+            row_pixels = self.pixels[row_start : row_start + WIDTH]
             rotated_row = row_pixels[-amount:] + row_pixels[:-amount]
             new_pixels.extend(rotated_row)
 
@@ -36,7 +42,9 @@ class Glyph:
     @classmethod
     def from_bytes(cls, some_bytes: bytes, palette: list[int]):
         if len(some_bytes) != (WIDTH * HEIGHT) // 2:
-            raise ValueError(f"Bytes length must be {(WIDTH * HEIGHT) // 2}. Got {len(some_bytes)}.")
+            raise ValueError(
+                f"Bytes length must be {(WIDTH * HEIGHT) // 2}. Got {len(some_bytes)}."
+            )
 
         pixels = []
         for byte in some_bytes:
@@ -71,14 +79,12 @@ def dump_font(slpm_path: str = "extracted/SLPM_663.60", output_dir: str = "font"
     with open(slpm_path, "rb") as f:
         f.seek(CLUT_OFFSET)
         clut = list(f.read(16 * 4))
-        palette = [clut[i:i+4] for i in range(0, len(clut), 4)]
+        palette = [clut[i : i + 4] for i in range(0, len(clut), 4)]
 
         f.seek(PIXEL_OFFSET)
         for i in range(GLYPH_COUNT):
             glyph = Glyph.from_bytes(f.read(WIDTH * HEIGHT // 2), palette)
-            if i in (46, 52, -1):
-                glyph.rotate_column(2)
-            elif i < 87:
+            if i in ROTATE_GLYPHS:
                 glyph.rotate_column(1)
             glyph.to_png(str(output_dir / f"{i}.png"))
 
@@ -95,4 +101,3 @@ if __name__ == "__main__":
     else:
         print("Usage: python dump_font.py [slpm_path] [output_dir]")
         sys.exit(1)
-

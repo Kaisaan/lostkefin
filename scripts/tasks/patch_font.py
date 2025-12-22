@@ -113,7 +113,6 @@ def patch_font(font_dir: str = "font", slpm_path: str = "translated/SLPM_663.60"
 
             image = Image.open(png_path)
             glyph = Glyph.from_png(image)
-            print(f"Glyph {i} palette: {glyph.palette}")
 
             if prev_palette is not None and prev_palette != glyph.palette:
                 print(f"Previous palette: {prev_palette}")
@@ -124,7 +123,6 @@ def patch_font(font_dir: str = "font", slpm_path: str = "translated/SLPM_663.60"
             if i == 0:
                 # Write the palette once at the start
                 slpm.seek(CLUT_OFFSET)
-                print(f"Palette: {glyph.palette}")
                 palette_bytes = bytes([component for color in glyph.palette for component in color])
                 slpm.write(palette_bytes)
 
