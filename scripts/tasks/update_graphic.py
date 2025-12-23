@@ -28,7 +28,7 @@ def insert_graphics(filepath: str | Path, insert_frames: bool = False):
 
     origFile = open(filepath, "rb")
 
-    filename = filename.rstrip("_anm.bin")
+    filename = filename[:filename.rfind("_anm.bin")]
 
     input_dir = filedir / filename
 

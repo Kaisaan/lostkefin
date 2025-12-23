@@ -134,7 +134,7 @@ def extract_graphics(filepath: str | Path, extract_frames: bool = False):
 
     graphic = open(filepath, "rb")
 
-    filename = filename.rstrip("_anm.bin")
+    filename = filename[:filename.rfind("_anm.bin")]
 
     output_dir = filedir / filename
     output_dir.mkdir(exist_ok=True)
