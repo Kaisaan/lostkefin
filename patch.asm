@@ -88,4 +88,8 @@ addiu a2,zero,0x14A
 addiu a1,zero,0x66
 addiu a2,zero,0x14A
 
+// Shift the VNText quad select left as far as it will go
+.orga 0x9C4B4
+addiu a2,zero,0x0
+
 .close
