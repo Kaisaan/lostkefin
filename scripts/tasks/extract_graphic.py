@@ -7,6 +7,7 @@ from PIL import Image
 
 # Map of graphics files to extract (name without _anm.bin suffix -> source path in DATA)
 GRAPHICS_FILES = {
+    "acc_name": "DATA/gameother/acc_name_anm.bin",
     "adol_d": "DATA/anm/adol_d_anm.bin",
     "adol_t": "DATA/anm/adol_t_anm.bin",
     "aname_are": "DATA/event/aname_arena_anm.bin",
