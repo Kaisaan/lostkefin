@@ -85,6 +85,13 @@ addiu a2,zero,0x14A
 addiu a1,zero,0x66
 addiu a2,zero,0x14A
 
+// Extend the two triangles that make up the grey rectangle background for Gallery names
+.orga 0x130618
+addiu a3,zero,0x24B
+
+.orga 0x130630
+addiu a3,zero,0x24B
+
 // Shift the VNText quad select left as far as it will go
 .orga 0x9C4B4
 addiu a2,zero,0x0
