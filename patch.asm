@@ -96,4 +96,31 @@ addiu a3,zero,0x24B
 .orga 0x9C4B4
 addiu a2,zero,0x0
 
+//
+// Normal textbox quad select tweaks
+//
+
+// Decrease textbox size
+.orga 0x9df18
+addiu a0,zero,0x164
+addiu a0,zero,0x64
+
+// Decrease space between each column
+.orga 0x9d27c
+sll v0,v0,0x01
+
+
+// Decrease text indent
+.orga 0x9d270
+addiu v1,v0,0x2
+
+// Decrease pointer indent
+.orga 0x9d394
+addiu a2,s6,0x4
+
+// Fix pointer column alignment
+
+.orga 0x9d5e0
+sll a2,a0,0x03
+
 .close
