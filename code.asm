@@ -5,6 +5,7 @@ Offset equ 0xFFF80
 // Ys 3 Music Pointers
 
 .orga 0x23B100
+
 .dw @L2C1C70+Offset :: .skip 8
 .dw @L2C1C80+Offset :: .skip 8
 .dw @L2C1C98+Offset :: .skip 8
@@ -30,6 +31,7 @@ Offset equ 0xFFF80
 .dw @L2C1EB8+Offset :: .skip 8
 .dw @L2C1ED0+Offset :: .skip 8
 .dw @L2C1EF0+Offset :: .skip 8
+.dw @L2C1F08+Offset :: .skip 8
 
 // Ys 3 Gallery Pointers
 
@@ -54,11 +56,13 @@ Offset equ 0xFFF80
 .dw @L2C2100+Offset :: .skip 8
 .dw @L2C2120+Offset :: .skip 8
 .dw @L2C2148+Offset :: .skip 8
+.dw @L2C1F08+Offset :: .skip 8
 
 // Ys 4 Music Pointers
 
-.orga 0x23B58C
+.orga 0x23B580
 
+.dw @L2C1C70+Offset :: .skip 8
 .dw @L2C2158+Offset :: .skip 8
 .dw @L2C2170+Offset :: .skip 8
 .dw @L2C2190+Offset :: .skip 8
@@ -89,11 +93,13 @@ Offset equ 0xFFF80
 .dw @L2C2430+Offset :: .skip 8
 .dw @L2C2450+Offset :: .skip 8
 .dw @L2C2470+Offset :: .skip 8
+.dw @L2C1F08+Offset :: .skip 8
 
 // Ys 4 Gallery Pointers
 
-.orga 0x23B7CC
+.orga 0x23B7C0
 
+.dw @L2C1F10+Offset :: .skip 8
 .dw @L2C2488+Offset :: .skip 8
 .dw @L2C24A0+Offset :: .skip 8
 .dw @L2C24C0+Offset :: .skip 8
@@ -113,11 +119,13 @@ Offset equ 0xFFF80
 .dw @L2C26A0+Offset :: .skip 8
 .dw @L2C26D0+Offset :: .skip 8
 .dw @L2C26F8+Offset :: .skip 8
+.dw @L2C1F08+Offset :: .skip 8
 
 // Ys 5 Music Pointers
 
-.orga 0x23BA0C
+.orga 0x23BA00
 
+.dw @L2C1C70+Offset :: .skip 8
 .dw @L2C2708+Offset :: .skip 8
 .dw @L2C2718+Offset :: .skip 8
 .dw @L2C2728+Offset :: .skip 8
@@ -159,11 +167,13 @@ Offset equ 0xFFF80
 .dw @L2C2B30+Offset :: .skip 8
 .dw @L2C2B50+Offset :: .skip 8
 .dw @L2C2B70+Offset :: .skip 8
+.dw @L2C1F08+Offset :: .skip 8
 
 // Ys 5 Gallery Pointers
 
-.orga 0x23BC4C
+.orga 0x23BC40
 
+.dw @L2C1F10+Offset :: .skip 8
 .dw @L2C2B88+Offset :: .skip 8
 .dw @L2C2BA0+Offset :: .skip 8
 .dw @L2C2BC0+Offset :: .skip 8
@@ -197,10 +207,13 @@ Offset equ 0xFFF80
 .dw @L2C2F00+Offset :: .skip 8
 .dw @L2C2F20+Offset :: .skip 8
 .dw @L2C2F40+Offset :: .skip 8
+.dw @L2C1F08+Offset :: .skip 8
 
 // Ys 3 Music Text
 
 .orga 0x2C1C70
+
+@L2C1F08: .str L2C1F08
 @L2C1C70: .str L2C1C70
 @L2C1C80: .str L2C1C80
 @L2C1C98: .str L2C1C98
