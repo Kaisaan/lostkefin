@@ -103,20 +103,23 @@ def insert_graphics(filepath: str | Path, insert_frames: bool = False):
     dataOffset = spriteCount * 0x10
     sprOffset = dataOffset
 
+    padding = 0
+
     for x in range(spriteCount):
         graphic = Image.open(input_dir / f"{filename}_{x}.png", "r")
         size = graphic.width * graphic.height
         if bpp == 4:
             size = size // 2
+            if (size % 16 != 0):
+                padding = size % 16
         
-        newFile.write(writeint(graphic.height, 2))
-        newFile.write(writeint(graphic.width, 2))
+        newFile.read(4)
         newFile.write(writeint(graphic.height, 2))
         newFile.write(writeint(graphic.width, 2))
 
         newFile.write(writeint(sprOffset, 4))
         newFile.write(writeint(x, 4))
-        sprOffset = sprOffset + size
+        sprOffset = sprOffset + size + padding
 
     for x in range(spriteCount):
         graphic = Image.open(input_dir / f"{filename}_{x}.png", "r")
@@ -140,6 +143,10 @@ def insert_graphics(filepath: str | Path, insert_frames: bool = False):
                 byte = byte2 + byte1
                 byte = byte.to_bytes(1)
                 binData = binData + byte
+
+        if x != (spriteCount - 1):          # No need to add padding to the last sprite
+            for i in range(padding):
+                binData = binData + b"\xFF"
         
         newFile.write(binData)
 
