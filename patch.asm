@@ -75,6 +75,11 @@ addiu a2,zero,0x63
 .orga 0xA1208
 addiu v1,v0,0x55
 
+// Same as above
+
+.orga 0xA11D0
+addiu v1,v0,0x55
+
 // Shift shop screen item desc left and down
 .orga 0xA8F08
 addiu a1,zero,0x66
