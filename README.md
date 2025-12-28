@@ -17,8 +17,9 @@ Translation is currently being done on [Google Sheets](https://docs.google.com/s
 - To build from Google sheets, run `2b Patch ISO from sheets.bat` (Windows) or `2b Patch ISO from sheets.sh` (Linux/Mac OS) 
 
 # Hacking Notes
-- See [scriptFormat.md](https://github.com/Kaisaan/lostkefin/blob/main/scriptFormat.md) for all information about the game's script system
-- See [graphicsFormat.md](https://github.com/Kaisaan/lostkefin/blob/main/graphicsFormat.md) for all information about the game's graphics formats
+- See [scriptFormat.md](https://github.com/Kaisaan/lostkefin/blob/main/scriptFormat.md) for all documented information about the game's script system
+- See [kscript.md](https://github.com/Kaisaan/lostkefin/blob/main/kscript.md) for information about the kscript file format
+- See [graphicsFormat.md](https://github.com/Kaisaan/lostkefin/blob/main/graphicsFormat.md) for all documented information about the game's graphics formats
 - The game's base pointer is $FFF80 meaning all pointers in `SLPM_663.60` are calculated as `(True offset) + $FFF80`
 - Music files are in PSF2 format in the form of `.hd` (header), `.bd` (header), and `.sq` (sequence) files
 - See my [notes file](https://github.com/Kaisaan/lostkefin/blob/main/notes.txt) for more terribly organized notes
@@ -27,7 +28,7 @@ Translation is currently being done on [Google Sheets](https://docs.google.com/s
 In the `manual` folder are scans for the game's manual. They were originally from [landofys.narod.ru](https://landofys.narod.ru/) which is now [landofys.com.ru](http://landofys.com.ru/) was scanned by Dragon.
 
 # Contributors
-A big thanks to these wonderful people for helping with this project! This project would not be where it is without any of them.
+A big thanks to these wonderful people for helping with this project! This project would not be possible without any of them.
 - [Sam Farron](https://www.youtube.com/@samfarron) - Allowing me to use his translation as the basis of this project
 - [Etokapa](https://github.com/Etokapa/) - Text transcribing, making better batch files, making useful scripts, testing, graphics editing
 - [Seiichiro Mine](https://github.com/SeiichiroMine) - Translation, providing save files, making useful scripts
@@ -36,6 +37,7 @@ A big thanks to these wonderful people for helping with this project! This proje
 - Sabera - Translation
 - [Everdred](https://github.com/cschmidt0121) - Programming, Hacking, Script development, helping with many technical issues
 - Josep - Translation
+- Fishbone - Translation
 - Sugunii - Testing
 
 # Related Materials
@@ -67,7 +69,7 @@ A list of all webpages I could find that include information about this game. Pl
 - [Life Bottle Productions](https://www.lifebottle.org/#/) - Creating their tutorial for [finding the base pointer](https://youtu.be/q5aEj-aSw50) and for having many supportive folks in their [Discord Server](https://discord.gg/rhQBXHKF3J)
 - Ethanol - Creating the [isotool.py script](https://github.com/lifebottle/PythonLib/blob/main/isotool.py)
 - [The Geofront](https://geofront.esterior.net/) - Specifically folks on their [Discord Server](https://discord.gg/sXx2Ck6Cxn) for their continual support
-- [Evie](https://github.com/Epicpkmn11) - Helping with getting `graphics.py` working properly
+- [Evie](https://github.com/Epicpkmn11) - Helping with getting graphics extraction working properly
 - [PCSX2 Team](https://discord.com/invite/TCz3t9k) - Making the wonderful [PCSX2](https://pcsx2.net/) emulator and also providing the [texture alpha scaler](https://github.com/PCSX2/pcsx2/blob/master/tools/texture_dump_alpha_scaler.py)
 - [SnowyAria](https://bsky.app/profile/snowyaria.bsky.social) - Helping with patch creation
 - [Eight Mansions Translations](https://github.com/Eight-Mansions) - Specifically folks in their [Discord Server](https://discord.gg/bewGNtm) for offering hacking assistance, advice, and support
