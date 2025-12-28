@@ -113,7 +113,12 @@ def insert_graphics(filepath: str | Path, insert_frames: bool = False):
             if (size % 16 != 0):
                 padding = size % 16
         
-        newFile.read(4)
+        if insert_frames:
+            newFile.write(writeint(graphic.height, 2))
+            newFile.write(writeint(graphic.width, 2))
+        
+        else:
+            newFile.read(4)
         newFile.write(writeint(graphic.height, 2))
         newFile.write(writeint(graphic.width, 2))
 
