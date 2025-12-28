@@ -130,6 +130,10 @@ def insert_graphics(filepath: str | Path, insert_frames: bool = False):
             for i in range(0, len(data), 2):
                 byte1 = data[i]
                 byte2 = data[i+1]
+                if byte1 == 16:
+                    byte1 = 0
+                if byte2 == 16:
+                    byte2 = 0
                 byte2 = byte2 << 4
                 byte = byte2 + byte1
                 byte = byte.to_bytes(1)
