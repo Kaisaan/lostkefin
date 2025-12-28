@@ -73,9 +73,10 @@ Frames are also used for static images.
 |$4|Frame length (in frames)|
 |$2|Usually set to `$01`, image will appear|
 |$2|Image Index number|
-|$2|Horizontal offset|
-|$2|Vertical offset|
-|$4|Unknown value again|
+|$2|Horizontal offset, shift to the right|
+|$2|Vertical offset, shift down|
+|$2|If not zero, do X-axis flip|
+|$2|If not zero, do Y-axis flip|
 
 Frame data is not fully figured out and can be any size.
 
