@@ -3,7 +3,7 @@ import shutil
 import sys
 from pathlib import Path
 from PIL import Image
-from .extract_graphic import GRAPHICS_FILES
+from .extract_graphic import GRAPHICS_FILES, FRAMES
 
 
 def intlit(bytes):
@@ -204,7 +204,7 @@ def insert_all_graphics():
         if anm_file.exists():
             print(f"\nInserting {name}...")
             # Special case for menu00: insert frame data
-            insert_frames = (name == "menu00")
+            insert_frames = (name in FRAMES)
             insert_graphics(anm_file, insert_frames)
         else:
             print(f"Warning: {anm_file} not found, skipping")

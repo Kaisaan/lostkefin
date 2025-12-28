@@ -117,14 +117,17 @@ GRAPHICS_FILES = {
     "opt_bg01": "DATA/option/opt_bg01_anm.bin",
     "opt_menu00": "DATA/option/opt_menu00_anm.bin",
     "opt_menu02": "DATA/option/opt_menu02_anm.bin",
+    "page_cursor00": "DATA/gameother/page_cursor00_anm.bin",
     "save_bg00": "DATA/saveload/save_bg00_anm.bin",
     "vbg_ev40": "DATA/event/vbg_ev40_anm.bin",
     "vbg_ev45": "DATA/event/vbg_ev45_anm.bin",
     "vbg_ev49": "DATA/event/vbg_ev49_anm.bin",
-    #"number00": "DATA/gameother/number00_anm.bin",
-    #"number01": "DATA/gameother/number01_anm.bin",
+    "number00": "DATA/gameother/number00_anm.bin",
+    "number01": "DATA/gameother/number01_anm.bin",
     "title": "DATA/title/title_anm.bin"
 }
+
+FRAMES = ["menu00", "page_cursor00"]
 
 
 def intlit(bytes):
@@ -336,7 +339,7 @@ def extract_all_graphics():
         if anm_file.exists():
             print(f"\nExtracting {name}...")
             # Special case for menu00: extract frame data
-            extract_frames = (name == "menu00")
+            extract_frames = (name in FRAMES)
             extract_graphics(anm_file, extract_frames)
     
     print("\nGraphics extraction complete!")
