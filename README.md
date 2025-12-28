@@ -2,7 +2,7 @@
 All the files and documentation for the translation of *Ys V: Lost Kefin, Kingdom of Sand* for the Playstation 2
 
 # About The Translation Project 
-I am currently looking for translation editors and testers.  
+I am currently preparing for a public beta test.  
 If you want to help with the translation please join the project's [Discord Server](https://discord.gg/TNWGBGpZGN).  
 Translation is currently being done on [Google Sheets](https://docs.google.com/spreadsheets/d/1kcEely3uIDJAifqj9kn16Bky8mBBoed03CgAwd4B0W8/edit?usp=sharing) and is automatically pulled from during building.  
 
