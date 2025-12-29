@@ -946,10 +946,12 @@ Offset equ 0xFFF80
 .dw @L265340+Offset :: .skip 4
 .dw @L265360+Offset :: .skip 4
 .dw @L265380+Offset :: .skip 4
-.dw @L2653A0+Offset :: .skip 4
+.dw @L2653A0+Offset
+.dw @Lcredits1+Offset :: .skip 4
 .dw @L2653D0+Offset
 .dw @L265400+Offset
-.dw @L265420+Offset :: .skip 4
+.dw @L265420+Offset
+.dw 0x00
 .dw @L265450+Offset :: .skip 12
 .dw @L265470+Offset :: .skip 56
 .dw @L265288+Offset
@@ -1471,6 +1473,7 @@ Offset equ 0xFFF80
 @L265360: .str L265360
 @L265380: .str L265380
 @L2653A0: .str L2653A0
+@Lcredits1: .str Lcredits1
 @L2653D0: .str L2653D0
 @L265400: .str L265400
 @L265420: .str L265420
