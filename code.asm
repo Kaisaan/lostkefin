@@ -56,7 +56,11 @@ Offset equ 0xFFF80
 .dw @L2C2100+Offset :: .skip 8
 .dw @L2C2120+Offset :: .skip 8
 .dw @L2C2148+Offset :: .skip 8
-.dw @L2C1F08+Offset :: .skip 8
+
+.dw @LGallery1+offset
+.dw 0x00
+.dw 0x00
+.dw @L2C1F08+Offset
 
 // Ys 4 Music Pointers
 
@@ -119,7 +123,11 @@ Offset equ 0xFFF80
 .dw @L2C26A0+Offset :: .skip 8
 .dw @L2C26D0+Offset :: .skip 8
 .dw @L2C26F8+Offset :: .skip 8
-.dw @L2C1F08+Offset :: .skip 8
+
+.dw @LGallery2+offset
+.dw 0x01
+.dw 0x00
+.dw @L2C1F08+Offset
 
 // Ys 5 Music Pointers
 
@@ -207,11 +215,20 @@ Offset equ 0xFFF80
 .dw @L2C2F00+Offset :: .skip 8
 .dw @L2C2F20+Offset :: .skip 8
 .dw @L2C2F40+Offset :: .skip 8
-.dw @L2C1F08+Offset :: .skip 8
+
+.dw @LGallery1+offset
+.dw 0x02
+.dw 0x00
+.dw @L2C1F08+Offset
+
 
 // Ys 3 Music Text
 
 .orga 0x2C1C70
+
+@LGallery1: .str LGallery1
+@LGallery2: .str LGallery2
+@LGallery3: .str LGallery3
 
 @L2C1F08: .str L2C1F08
 @L2C1C70: .str L2C1C70
@@ -947,11 +964,11 @@ Offset equ 0xFFF80
 .dw @L265360+Offset :: .skip 4
 .dw @L265380+Offset :: .skip 4
 .dw @L2653A0+Offset
-.dw @Lcredits1+Offset :: .skip 4
+.dw @Lcredits1+Offset
+.dw 0x00
 .dw @L2653D0+Offset
 .dw @L265400+Offset
 .dw @L265420+Offset
-.dw 0x00
 .dw @L265450+Offset :: .skip 12
 .dw @L265470+Offset :: .skip 56
 .dw @L265288+Offset
