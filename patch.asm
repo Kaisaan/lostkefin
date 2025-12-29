@@ -97,10 +97,6 @@ addiu a3,zero,0x24B
 .orga 0x130630
 addiu a3,zero,0x24B
 
-// Shift the VNText quad select left as far as it will go
-.orga 0x9C4B4
-addiu a2,zero,0x0
-
 //
 // Normal textbox quad select tweaks
 //
