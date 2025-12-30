@@ -35,7 +35,7 @@ A big thanks to these wonderful people for helping with this project! This proje
 - [Etokapa](https://github.com/Etokapa/) - Text transcribing, making better batch files, making useful scripts, early testing, Graphics Editor
 - [Seiichiro Mine](https://github.com/SeiichiroMine) - Translation Assistance, providing save files, making useful scripts
 - [Sorcerian](https://bsky.app/profile/sorcerian.bsky.social) - Graphics Editing Assistance
-- [Livi](https://bsky.app/profile/anonymusaxolotl.bsky.social) - Translation Editing Asstances
+- [Livi](https://bsky.app/profile/anonymusaxolotl.bsky.social) - Translation Editing Assistance
 - Sabera - Translation Assistance
 - Fishbone - Translation Assistance
 - Sugunii - Early Testing
