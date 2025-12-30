@@ -36,7 +36,7 @@ A big thanks to these wonderful people for helping with this project! This proje
 - [Livi](https://bsky.app/profile/anonymusaxolotl.bsky.social) - Translation Editing
 - Sabera - Translation
 - [Everdred](https://github.com/cschmidt0121) - Programming, Hacking, Script development, helping with many technical issues
-- Josep - Translation
+- [Josep](https://twitter.com/jdkluv?mx=1) ([Bluesky](https://bsky.app/profile/did:plc:6kukfqg2ly52abdqkouwbusp)) - Translation
 - Fishbone - Translation
 - Sugunii - Testing
 
