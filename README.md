@@ -2,12 +2,12 @@
 All the files and documentation for the translation of *Ys V: Lost Kefin, Kingdom of Sand* for the Playstation 2
 
 # About The Translation Project 
-I am currently preparing for a public beta test.  
-If you want to help with the translation please join the project's [Discord Server](https://discord.gg/TNWGBGpZGN).  
-Translation is currently being done on [Google Sheets](https://docs.google.com/spreadsheets/d/1kcEely3uIDJAifqj9kn16Bky8mBBoed03CgAwd4B0W8/edit?usp=sharing) and is automatically pulled from during building.  
+**The patch is now available for public Beta Testing [Check it out!](https://github.com/Kaisaan/lostkefin/releases/latest) Be sure to report any issues!**
+If you want to help please join the project's [Discord Server](https://discord.gg/TNWGBGpZGN).  
+The translation is done with [Google Sheets](https://docs.google.com/spreadsheets/d/1kcEely3uIDJAifqj9kn16Bky8mBBoed03CgAwd4B0W8/edit?usp=sharing) and is automatically pulled from during building.  
 
 # Building
-**These instructions are only while the translation is not finished and is meant for developers. If you have any issues building the patched ISO yourself please wait for the full release instead.**  
+**Please use the [latest patch file](https://github.com/Kaisaan/lostkefin/releases/latest) to play the game as these instructions are only meant for project developers.**  
 (requires a Google client secret file `lostkefin_secret.json`)
 - [Python](https://www.python.org/) and [uv](https://docs.astral.sh/uv/) must be installed
 - Copy the original game's .iso to the root and rename it as `lostkefin.iso`
@@ -74,6 +74,7 @@ A list of all webpages I could find that include information about this game. Pl
 - [SnowyAria](https://bsky.app/profile/snowyaria.bsky.social) - Helping with patch creation
 - [Eight Mansions Translations](https://github.com/Eight-Mansions) - Specifically folks in their [Discord Server](https://discord.gg/bewGNtm) for offering hacking assistance, advice, and support
 - [Haroohie Translation Club](https://haroohie.club/) - Specifically folks in their [Discord Server](https://discord.gg/nesRSbpeFM) for offering hacking assistance, advice, and support
+- Dragon for scanning the game's manual
 - My friend Armaan for introducing me to the world of *Ys*, also the biggest Lost Kefin fan so I'm doing this for him
 - Sugunii for giving me motivation to play more *Ys*
 - Nihon Falcom for making the wonderful *Ys* series
