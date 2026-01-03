@@ -90,9 +90,10 @@ addiu a2,zero,0x14A
 addiu a1,zero,0x66
 addiu a2,zero,0x14A
 
-// Shift "acquired" text slightly left
+// Shift "acquired" text slightly left and up
 .orga 0xA0A44
 addiu a1,zero,0xD5
+addiu a2,zero,0x46
 
 // Extend the two triangles that make up the grey rectangle background for Gallery names
 .orga 0x130618
