@@ -216,7 +216,7 @@ Offset equ 0xFFF80
 .dw @L2C2F20+Offset :: .skip 8
 .dw @L2C2F40+Offset :: .skip 8
 
-.dw @LGallery1+offset
+.dw @LGallery3+offset
 .dw 0x02
 .dw 0x00
 .dw @L2C1F08+Offset
@@ -225,10 +225,6 @@ Offset equ 0xFFF80
 // Ys 3 Music Text
 
 .orga 0x2C1C70
-
-@LGallery1: .str LGallery1
-@LGallery2: .str LGallery2
-@LGallery3: .str LGallery3
 
 @L2C1F08: .str L2C1F08
 @L2C1C70: .str L2C1C70
