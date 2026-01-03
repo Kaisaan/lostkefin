@@ -804,7 +804,7 @@ class VNText(Operation):
         character_id = get_character_index(self.character_name.replace("*", ""))
         # See comment in from_io
         if "*" in self.character_name:
-            character_id += 0x40 + 10000
+            character_id += (10000 - 0x40)
 
         return (
             self.opcode.to_bytes(1, "little")
