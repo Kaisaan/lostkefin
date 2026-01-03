@@ -21,11 +21,15 @@ addiu t7, t7, 0x0A
 addiu a0, a0, 0x01
 
 // Patch treasure chest to be interactable
-.org 0x000140384
+.org 0x140384
 li v1, 0x5
 
-.org 0x000140354
+.org 0x140354
 li v1, 0x5
+
+.org 0x6A810
+addiu v1,zero,0x7
+
 
 // Fix ASCII characters not printing in some cases
 .orga 0x0009B468
