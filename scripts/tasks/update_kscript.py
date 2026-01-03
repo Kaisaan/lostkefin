@@ -90,7 +90,7 @@ def update_kscript(kscript_file, rows, version=2):
             # sort responses by key
             if responses:
                 responses = sorted(responses.items(), key=lambda x: x[0])
-                responses = [x[1][1] for x in responses]
+                responses = [fix_ascii(x[1][1]) for x in responses]
 
             if op_type in [
                 "Choice",
