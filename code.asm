@@ -226,6 +226,10 @@ Offset equ 0xFFF80
 
 .orga 0x2C1C70
 
+@LGallery1: .str LGallery1
+@LGallery2: .str LGallery2
+@LGallery3: .str LGallery3
+
 @L2C1F08: .str L2C1F08
 @L2C1C70: .str L2C1C70
 @L2C1C80: .str L2C1C80
