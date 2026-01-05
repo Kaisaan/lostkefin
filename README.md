@@ -56,25 +56,26 @@ A big thanks to these wonderful people for helping with this project! This proje
 - Sugunii - Early Testing
 
 # Related Materials
-A list of all webpages I could find that include information about this game. Please update me about anything that is not listed here
+A list of all webpages I could find that include information about this game. Please update me about anything that is not listed here.
 - Article of the game on [Falcom Wiki](https://falcom.wiki/wiki/Ys_V:_Lost_Kefin,_Kingdom_of_Sand_(PS2))
 - Article of the game on [Ys Wiki](https://isu.fandom.com/wiki/Ys_V:_Lost_Kefin,_Kingdom_of_Sand_(PS2))
 - Article of the game on [Wikipedia](https://en.wikipedia.org/wiki/Ys_V:_Lost_Kefin,_Kingdom_of_Sand)
-- Article of the game on [Wikipedia](https://ja.wikipedia.org/wiki/%E3%82%A4%E3%83%BC%E3%82%B9V) (Japanese)
+- Article of the game on [Wikipedia](https://ja.wikipedia.org/wiki/%E3%82%A4%E3%83%BC%E3%82%B9V)<sup>JP</sup>
 - Translation of opening cutscene by [mziab](https://www.romhacking.net/forum/index.php?topic=28379.0) (I did not use this translation)
 - Hacking attempt by [Hectavus](https://zenhax.com/viewtopic.php@t=15249.html) with only `SLPM_663.60` being translated
 - Cheatcodes by [luc-ita](https://gamehacking.org/game/100384)
-- Cheatcodes by GodShin: [Action Replay MAX](https://www.european-codebase.de/daten.php?system=ps2&act=detail1&id=8253), [Action Replay V2](https://www.european-codebase.de/daten.php?system=ps2&act=detail1&id=8252), [Xterminator/Xploder](https://www.european-codebase.de/daten.php?system=ps2&act=detail1&id=8251)
-- Cheatcodes by [TOMBOY](https://blog.goo.ne.jp/touffu/e/c484169262662f0dd6632c97c6c695c7)
-- Cheatcodes by [warezhunter_](https://psx-core.ru/forum/2-51-45)
+- Cheatcodes by GodShin: [Action Replay MAX](https://www.european-codebase.de/daten.php?system=ps2&act=detail1&id=8253), [Action Replay V2](https://www.european-codebase.de/daten.php?system=ps2&act=detail1&id=8252), [Xterminator/Xploder](https://www.european-codebase.de/daten.php?system=ps2&act=detail1&id=8251)<sup>DE</sup>
+- Cheatcodes by [TOMBOY](https://blog.goo.ne.jp/touffu/e/c484169262662f0dd6632c97c6c695c7)<sup>JP</sup>
+- Cheatcodes by [warezhunter_](https://psx-core.ru/forum/2-51-45)<sup>RU</sup>
 - Cheatcodes by レインたんラブ [Part 1](https://jp.wazap.com/cheat/%E3%82%B3%E3%83%BC%E3%83%89/521993/) [Part 2](https://jp.wazap.com/cheat/%E3%82%B3%E3%83%BC%E3%83%89%EF%BC%92/522889/)
 - Cheatcodes by 世界のマリオ [Original post](https://jp.wazap.com/cheat/%E5%85%A8%E3%82%A8%E3%83%AC%E3%83%A1%E3%83%B3%E3%83%88%EF%BC%99%EF%BC%99%EF%BC%99%EF%BC%99/434220/) [Archived page](https://web.archive.org/web/20150104205942/http://www17.ocn.ne.jp:80/~altcodex/ys5.htm)
-- Guide by [VoidZankantou](https://gamefaqs.gamespot.com/ps2/921272-ys-v-lost-kefin-kingdom-of-sand/faqs/44007) (incomplete)
+- Guide by [Markia](http://maturikasann.web.fc2.com/ys/5_ps2.html)<sup>JP</sup>
+  - English translation by [Josep](https://docs.google.com/document/d/1iiSjDg2WAXUBartzzL0PwSB3m9_QVdWjSBQ9JWr3b7A/)
+- Guide by [VoidZankantou](https://gamefaqs.gamespot.com/ps2/921272-ys-v-lost-kefin-kingdom-of-sand/faqs/44007) (Incomplete)
 - Guide addendum by [uncle5555](https://gamefaqs.gamespot.com/ps2/921272-ys-v-lost-kefin-kingdom-of-sand/answers/71872-help-with-getting-into-the-south-tower) (South Tower entrance requirements)
-- Guide by [Markia](http://maturikasann.web.fc2.com/ys/5_ps2.html) (in Japanese)
-- Guide by [Sugimo.](https://web.archive.org/web/20090922030050/http://homepage1.nifty.com:80/sugimo/falcom/ys/ys5guide2.htm) (archived, in Japanese)
+- Guide by [Sugimo](https://web.archive.org/web/20090922030050/http://homepage1.nifty.com:80/sugimo/falcom/ys/ys5guide2.htm)<sup>JP</sup> (Archived)
 - Review the game by [Kurt Kalata](http://www.hardcoregaming101.net/ys-v-ushinawareta-suna-no-miyako-kefin/) (includes review for original SFC game)
-- Original game website from [Taito](https://web.archive.org/web/20070804063125/http://www.taito.co.jp/d3/cp/ys/ys5/) (archived)
+- Original game website from [Taito](https://web.archive.org/web/20070804063125/http://www.taito.co.jp/d3/cp/ys/ys5/)<sup>JP</sup> (Archived)
 
 # Special Thanks
 - Everyone that supports me in my [Discord Server](https://discord.gg/TNWGBGpZGN)
