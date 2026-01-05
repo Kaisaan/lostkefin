@@ -4,10 +4,25 @@ All the files and documentation for the translation of *Ys V: Lost Kefin, Kingdo
 # About The Translation Project 
 **The patch is now available for public Beta Testing [Check it out!](https://github.com/Kaisaan/lostkefin/releases/latest) Be sure to report any issues!**
 If you want to help please join the project's [Discord Server](https://discord.gg/TNWGBGpZGN).  
-The translation is done with [Google Sheets](https://docs.google.com/spreadsheets/d/1kcEely3uIDJAifqj9kn16Bky8mBBoed03CgAwd4B0W8/edit?usp=sharing) and is automatically pulled from during building.  
+The translation is done with [Google Sheets](https://docs.google.com/spreadsheets/d/1kcEely3uIDJAifqj9kn16Bky8mBBoed03CgAwd4B0W8/edit?usp=sharing) and is automatically pulled from during building.
+
+# Patching the Game
+Extract the `Lost.Kefin.English.Beta.v01.zip` file from the [release page](https://github.com/Kaisaan/lostkefin/releases/latest).  
+Read through the included text file for important information and apply the `.xdelta` to the game's ISO file.  
+Use a tool like [DeltaPatcher](https://github.com/marco-calautti/DeltaPatcher) to ensure it is properly patched.
+
+## ISO Info
+I suggest following the [Disc Dumping guide by PCSX2's Team](https://pcsx2.net/docs/setup/discs) to get your ISO file.  
+Your ISO file should match these sizes and hashes:  
+Size: 2534080512 bytes : 2416 MiB  
+CRC32: F290D71F  
+CRC64: 754F35DCAD2D8F0E  
+SHA256: de811d9a51d6422938ac5fc9994358e394e2c878b444a157ec9be962dc32f666  
+SHA1: 8f8076ca2817e0260c9780e036ee8d91229b4057  
+MD5: e8b38abbf526f12243636d6109d3cb05
 
 # Building
-**Please use the [latest patch file](https://github.com/Kaisaan/lostkefin/releases/latest) to play the game as these instructions are only meant for project developers.**  
+**Please use the above patching instructions to play the game! These instructions are only meant for project developers.**  
 (requires a Google client secret file `lostkefin_secret.json`)
 - [Python](https://www.python.org/) and [uv](https://docs.astral.sh/uv/) must be installed
 - Copy the original game's .iso to the root and rename it as `lostkefin.iso`
@@ -65,6 +80,7 @@ A list of all webpages I could find that include information about this game. Pl
 - Everyone that supports me in my [Discord Server](https://discord.gg/TNWGBGpZGN)
 - Everyone that supports me through my [Ko-fi](https://ko-fi.com/kaisaan)
 - Everyone that supports me on [Bluesky](https://bsky.app/profile/kaisaan.bsky.social) and [Twitter](https://twitter.com/KaisaanSiddiqui)
+- Everyone that has starred the [Github repo](https://github.com/Kaisaan/lostkefin)
 - [Hilltop](https://x.com/HilltopWorks) - Providing valuable and informative videos such as [hacking with Ghidra](https://youtu.be/qCEZC3cPc1s) and [info on PS1 & PS2 graphics](https://youtu.be/lePKUCYakqM)
 - [Life Bottle Productions](https://www.lifebottle.org/#/) - Creating their tutorial for [finding the base pointer](https://youtu.be/q5aEj-aSw50) and for having many supportive folks in their [Discord Server](https://discord.gg/rhQBXHKF3J)
 - Ethanol - Creating the [isotool.py script](https://github.com/lifebottle/PythonLib/blob/main/isotool.py)
