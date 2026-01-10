@@ -21,10 +21,33 @@ SHA256: de811d9a51d6422938ac5fc9994358e394e2c878b444a157ec9be962dc32f666
 SHA1: 8f8076ca2817e0260c9780e036ee8d91229b4057  
 MD5: e8b38abbf526f12243636d6109d3cb05
 
+# Roadmap
+
+- Wait for more issues to be reported to be fixed
+- Possibly change the font and add support for a Variable Width Font (VWF)
+  - Most hacking has already been done
+- Create maps and a guide for the game
+  - Guide has already been translated and maps have been made
+- Translate the games manual
+  - Ideally get a better scan of the manual
+- Add Empty Chest Messages
+
+## Fixed Issues
+These issues have been reported for [verison 0.1](https://github.com/Kaisaan/lostkefin/releases/tag/v0.1) of the beta release
+- Fixed spacing for textboxes with 4 or 2 options
+- Fixed certain highlights overlapping incorrectly
+- Fixed boss name graphics not inserting
+- Fixed response text ASCII not being updated
+- Fixed chests staying closed after loading a quicksave
+- Fixed certain character names not showing up in cutscenes (e.g "Young Girl A/B")
+- Fixed names of bonus entries in the Galleries
+- Various improvements to the translation
+
+
 # Building
 **Please use the above patching instructions to play the game! These instructions are only meant for project developers.**  
 (requires a Google client secret file `lostkefin_secret.json`)
-- [Python](https://www.python.org/) and [uv](https://docs.astral.sh/uv/) must be installed
+- [Python](https://www.python.org/) and [uv](https://docs.astral.sh/uv/) and [Pillow](https://python-pillow.github.io/) must be installed
 - Copy the original game's .iso to the root and rename it as `lostkefin.iso`
 - Run `1 Extract ISO.bat` (Windows) or `1 Extract ISO.sh` (Linux/Mac OS)
 - Make changes to the .csv files in the `csv` folder or edit the project's Google Sheets
