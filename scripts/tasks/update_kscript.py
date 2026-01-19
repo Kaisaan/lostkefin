@@ -14,12 +14,11 @@ def fix_ascii(text):
     """
     return (
         text.replace("\n", "\\n")
-        .replace(", ", "，")
-        .replace(",", "，")
-        .replace("!", "！")
-        .replace("~", "〜")
+        .replace("，", ",")
+        .replace("！", "!")
+        .replace("〜", "~")
         .replace("...", "…")
-        .replace("&", "＆")
+        .replace("＆", "&")
     )
 
 

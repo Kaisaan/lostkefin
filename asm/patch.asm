@@ -5,20 +5,7 @@
 
 .open "extracted/SLPM_663.60", "translated/SLPM_663.60", 0x0
 
-.include "code.asm"
-
-// Fix string-centering code incorrectly handling ASCII
-.orga 0x4d34c
-addiu a0,a0,0x1
-addiu a0,a0,0x1
-
-
-// Fix halfwidth characters not updating textbox size correctly
-.orga 0x0004CF38
-addiu t7, t7, 0x0A
-
-.orga 0x0004CF44
-addiu a0, a0, 0x01
+.include "asm/code.asm"
 
 // Patch treasure chest to be interactable
 .org 0x140384

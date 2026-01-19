@@ -11,6 +11,7 @@ Pull latest translations from Google Sheets and updates kscript files.
 """
 
 import os
+from pathlib import Path
 import sys
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
@@ -72,7 +73,7 @@ def from_sheets(dir: str = "decompiled"):
 
     # Generate strings.asm from the SLPM NEW column
     asm_rows = get_rows(service, "SLPM NEW")
-    generate_asm("strings.asm", asm_rows)
+    generate_asm(Path("asm/strings.asm"), asm_rows)
 
 
     rows = get_rows(service, "TL")

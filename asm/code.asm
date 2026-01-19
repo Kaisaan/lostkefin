@@ -1,4 +1,4 @@
-.include "strings.asm", "UTF8"
+.include "asm/strings.asm", "UTF8"
 
 Offset equ 0xFFF80
 
