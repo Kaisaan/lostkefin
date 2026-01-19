@@ -1968,3 +1968,10 @@ Offset equ 0xFFF80
 .dw @L264130+Offset :: .skip 36
 .dw @L264150+Offset :: .skip 36
 .dw @L264170+Offset :: .skip 36
+
+// Page Number Text
+
+.orga 0x260CE8 :: @L260CE8: .str L260CE8
+.orga 0x260CF8 :: @L260CF8: .str L260CF8
+.orga 0x260D00 :: @L260D00: .str L260D00
+.orga 0x260D08 :: @L260D08: .str L260D08
