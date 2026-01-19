@@ -1,3 +1,4 @@
+from io import BufferedReader
 import sys
 from pathlib import Path
 from PIL import Image
@@ -8,7 +9,21 @@ HEIGHT = 24
 PIXEL_OFFSET = 0x1A3EA0
 CLUT_OFFSET = 0x25E4C0
 GLYPH_COUNT = 1620
+TABLE_OFFSET = 0x1A31F0
 
+
+def patch_table(file: BufferedReader):
+    file.seek(TABLE_OFFSET)
+    table_f = open("scripts/misc/font_table.txt", "r", encoding="cp932")
+    for i, line in enumerate(table_f.readlines()):
+        if i >= GLYPH_COUNT:
+            sys.exit("Too many lines in font_table.txt")
+        
+        b = line.rstrip('\n\r').encode("cp932")
+        if len(b) == 1:
+            b = b"\x20" + b
+
+        file.write(b)
 
 class Glyph:
     def __init__(self, palette: list[list[int]], pixels: list[int]):
@@ -131,6 +146,68 @@ def patch_font(font_dir: str = "font", slpm_path: str = "translated/SLPM_663.60"
             slpm.write(glyph.to_bytes())
 
     print(f"Patched {GLYPH_COUNT} glyphs from {font_dir} into {slpm_path}")
+
+
+def patch_font_from_atlas(atlas_path: str, slpm_path: str = "translated/SLPM_663.60"):
+    """
+    Patch the game font from a single atlas PNG file into the SLPM file.
+
+    The atlas is a single column of WIDTHxHEIGHT glyphs stacked vertically.
+
+    Args:
+        atlas_path: Path to the atlas PNG file
+        slpm_path: Path to the SLPM_663.60 file to patch
+    """
+    atlas_path = Path(atlas_path)
+    slpm_path = Path(slpm_path)
+
+    if not slpm_path.exists():
+        sys.exit(f"Error: {slpm_path} not found")
+
+    if not atlas_path.exists():
+        sys.exit(f"Error: {atlas_path} not found")
+
+    atlas = Image.open(atlas_path)
+
+    # Validate atlas dimensions
+    if atlas.width != WIDTH:
+        sys.exit(f"Error: Atlas width must be {WIDTH}, got {atlas.width}")
+
+    glyph_count = atlas.height // HEIGHT
+    if atlas.height % HEIGHT != 0:
+        sys.exit(f"Error: Atlas height must be a multiple of {HEIGHT}, got {atlas.height}")
+
+    print(f"Atlas contains {glyph_count} glyphs")
+
+    prev_palette = None
+
+    with open(slpm_path, "r+b") as slpm:
+        patch_table(slpm)
+        for i in range(glyph_count):
+            # Crop the glyph from the atlas
+            top = i * HEIGHT
+            bottom = top + HEIGHT
+            glyph_image = atlas.crop((0, top, WIDTH, bottom))
+
+            glyph = Glyph.from_png(glyph_image)
+
+            if prev_palette is not None and prev_palette != glyph.palette:
+                print(f"Previous palette: {prev_palette}")
+                print(f"Current palette: {glyph.palette}")
+                sys.exit("Error: Glyphs in atlas have >1 palette")
+            prev_palette = glyph.palette
+
+            if i == 0:
+                # Write the palette once at the start
+                slpm.seek(CLUT_OFFSET)
+                palette_bytes = bytes([component for color in glyph.palette for component in color])
+                slpm.write(palette_bytes)
+
+            # Write the glyph pixels
+            slpm.seek(PIXEL_OFFSET + i * (WIDTH * HEIGHT // 2))
+            slpm.write(glyph.to_bytes())
+
+    print(f"Patched {glyph_count} glyphs from {atlas_path} into {slpm_path}")
 
 
 if __name__ == "__main__":

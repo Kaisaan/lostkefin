@@ -13,24 +13,25 @@ import tempfile
 WIDTH = 24
 HEIGHT = 24
 
-
-def load_mapping(mapping_path: str) -> list[str]:
-    """Load character to index mapping from JSON file."""
-    with open(mapping_path, "r", encoding="utf-8") as f:
-        return json.load(f)
+def load_mapping(mapping_path: str)  -> list[str]:
+    with open(mapping_path, "r", encoding="cp932") as f:
+        lines =  [line.rstrip('\n\r') for line in f.readlines()]
+        return lines
 
 
 def generate_font_atlas(
     ttf_path: str,
     mapping: list[str],
     output_path: str,
-    font_size: int = 20,
+    font_size: int = 24,
+    y_shift: int = 0,
 ):
     """Generate a single vertical font atlas with all characters."""
     total_height = HEIGHT * len(mapping)
     
     print(f"Generating font atlas with {len(mapping)} characters...")
     print(f"  Atlas size: {WIDTH}x{total_height}px")
+    print(os.path.isdir(output_path))
 
     
     with tempfile.NamedTemporaryFile(suffix=".png", delete=False) as tmp:
@@ -45,26 +46,32 @@ def generate_font_atlas(
             "xc:transparent",
             "-font", ttf_path,
             "-pointsize", str(font_size),
-            "-fill", "white",
-            #"-stroke", "black",
-            #"-strokewidth", "1",
         ]
-        
-        # Add each character annotation at its vertical position
+
+        # First pass: draw black outline (black fill + black stroke)
+        cmd.extend(["-fill", "black", "-stroke", "black", "-strokewidth", "2"])
         for index, char in enumerate(mapping):
             if not char or char == " ":
                 continue  # Skip empty/space - leave transparent
 
-            y_offset = (index * HEIGHT) - 5
-            #cmd.extend([
-            #    "-gravity", "NorthWest",
-            #    "-annotate", f"+0+{y_offset+HEIGHT}", char,
-            #])
-            if index != 1:
+            y_offset = (index * HEIGHT) - 5 + y_shift
+            if char != '"':
                 cmd.extend(["-draw", f'text 0,{y_offset+HEIGHT} "{char}"'])
             else:
                 cmd.extend(["-draw", f"text 0,{y_offset+HEIGHT} '{char}'"])
-            
+
+        # Second pass: draw white text on top (white fill, no stroke)
+        cmd.extend(["-fill", "white", "-stroke", "none"])
+        for index, char in enumerate(mapping):
+            if not char or char == " ":
+                continue  # Skip empty/space - leave transparent
+
+            y_offset = (index * HEIGHT) - 5 + y_shift
+            if char != '"':
+                cmd.extend(["-draw", f'text 0,{y_offset+HEIGHT} "{char}"'])
+            else:
+                cmd.extend(["-draw", f"text 0,{y_offset+HEIGHT} '{char}'"])
+
             if index % 500 == 0 and index > 0:
                 print(f"  Added {index}/{len(mapping)} characters...")
             if index == 1:
@@ -77,7 +84,7 @@ def generate_font_atlas(
         
         print("  Rendering atlas...")
         subprocess.run(cmd, check=True, capture_output=True)
-        
+
         # Quantize to 16 colors with pngquant for consistent palette
         print("  Quantizing to 16 colors...")
         quant_cmd = [
@@ -85,7 +92,7 @@ def generate_font_atlas(
             "--quality", "1-99",
             "--output", output_path,
             "--force",  # Overwrite if exists
-            temp_path
+            temp_path 
         ]
         subprocess.run(quant_cmd, check=True)
         
@@ -128,20 +135,14 @@ def generate_font_images(
     mapping_path: str,
     output_dir: str,
     font_size: int = 20,
+    y_shift: int = 0,
 ):
     """Generate font images for all characters in the mapping."""
     os.makedirs(output_dir, exist_ok=True)
-    
-    mapping = load_mapping(mapping_path)
-    
 
-    
+    mapping = load_mapping("/Users/cschmidt/git/lostkefin/font_table.txt")
 
-    generate_font_atlas(ttf_path, mapping, "font_atlas.png", font_size)
-        
-        # Step 2: Split atlas into individual files
-        #split_atlas(atlas_path, output_dir, len(mapping))
-        
+    generate_font_atlas(ttf_path, mapping, "font_atlas.png", font_size, y_shift)
 
     
     print(f"Done! Generated {len(mapping)} images to {output_dir}")
@@ -171,7 +172,13 @@ def main():
         default=24,
         help="Font size in points (default: 24)"
     )
-    
+    parser.add_argument(
+        "-y", "--y-shift",
+        type=int,
+        default=0,
+        help="Shift entire atlas up (-) or down (+) by N pixels (default: 0)"
+    )
+
     args = parser.parse_args()
     
     generate_font_images(
@@ -179,6 +186,7 @@ def main():
         mapping_path=args.mapping,
         output_dir=args.output,
         font_size=args.size,
+        y_shift=args.y_shift,
     )
 
 

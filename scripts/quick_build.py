@@ -17,61 +17,20 @@ from tasks.from_csv import from_csv
 from tasks.from_sheets import from_sheets
 from tasks.pack import pack
 from tasks.update_graphic import insert_all_graphics
-from tasks.patch_font import patch_font_from_atlas
 
 STAGES = ["00", "10", "20", "30", "40", "50", "60", "70", "80", "90", "a0", "b0"]
 
 
 def run(cmd, **kwargs):
-    print(f"Running: {' '.join(str(arg) for arg in cmd)}")
+    print(f"Running: {' '.join(cmd)}")
     try:
         subprocess.run(cmd, check=True, **kwargs)
     except subprocess.CalledProcessError as e:
-        print(f"Command failed: {' '.join(str(arg) for arg in cmd)}")
+        print(f"Command failed: {' '.join(cmd)}")
         sys.exit(e.returncode)
 
 
 def main(sheets: bool = False):
-    print("Patching scripts and generating strings.asm...")
-    if sheets:
-        print("Pulling latest translations from Google Sheets...")
-        from_sheets("decompiled")
-    else:
-        print("Updating using CSV files")
-        from_csv(
-            csv_dir="csv",
-            kscript_dir="decompiled",
-        )
-    print("Done!")
-
-    print("Compiling scripts...")
-    for stage in STAGES:
-        src = f"decompiled/stage{stage}.kscript"
-        dst = f"DATA/script/stage{stage}.bin"
-        kscript_to_bin(src, dst)
-    print("Done!")
-
-    print("Inserting graphics...")
-    insert_all_graphics()
-    print("Done!")
-
-    print("Applying first round of SLPM patches")
-    run(["armips", Path("asm/patch.asm")])
-    print("Done!")
-
-    print("Patching font...")
-    patch_font_from_atlas("font_atlas.png")
-    print("Done!")
-
-    # This needs to be done after patched font because I
-    # reclaim some of the unused font space :)
-    print("Applying second round of SLPM patches")
-    run(["armips", Path("asm/kerning.asm")])
-    print("Done!")
-
-    print("Repacking DATA.BIN")
-    pack("DATA.BIN")
-
     print("Patching ISO. Please wait.")
     rebuild_iso(
         Path("lostkefin.iso"),

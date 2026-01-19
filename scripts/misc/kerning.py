@@ -1,6 +1,8 @@
 import csv
 # 10px spacing by default
 table = [b"\x0a"] * 0x80
+ascii_table = [b"\x0a"] * 0x80
+
 
 
 with open("kerning.csv", "r") as f:
@@ -13,13 +15,20 @@ with open("kerning.csv", "r") as f:
             continue
         width = int(row[2])
 
-        # Account of the "squish"
-        width = int(round(0.833 * width))
+        # Account for the "squish"
+        #width = int(round(0.833 * width))
+        # Space on each side
         width+=2
 
         print(repr(c))
         print(repr(c_i))
         table[c_i] = bytes([width])
+        ascii_table[c_i] = bytes([width])
+
+
 
 with open("kerning.bin", "wb") as f:
     f.write(b"".join(table))
+
+with open("ascii_kerning.bin", "wb") as f:
+    f.write(b"".join(ascii_table))
