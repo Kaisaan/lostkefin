@@ -15,10 +15,12 @@ with open("kerning.csv", "r") as f:
             continue
         width = int(row[2])
 
-        # Account for the "squish"
-        #width = int(round(0.833 * width))
         # Space on each side
-        width+=2
+        # Except for brackets which are utilized as microspacing chars
+        if c not in "[]":
+            width+=2
+
+
 
         print(repr(c))
         print(repr(c_i))

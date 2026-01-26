@@ -88,6 +88,9 @@ addiu a1,zero,WORD_SPACING
 .org 0x14c894
 addiu v0,zero,WORD_SPACING
 
+.org 0x14c6a8
+addiu v0,zero,WORD_SPACING
+
 .org 0x19dcf4
 addiu a3,zero,WORD_SPACING
 
@@ -98,5 +101,23 @@ addiu a2,zero,LINE_SPACING
 .org 0x3636f0
 .byte 0x20
 .byte 0x2b
+
+// Swap SJIS '+' to ASCII
+.org 0x363570
+.byte 0x20
+.byte 0x2b
+
+
+// Swap SJIS '+' to ASCII
+.org 0x36dfb8
+.byte 0x20
+.byte 0x2b
+
+// Item screen layering bugfix
+.org 0x1cb0b4
+addiu t0,zero,0x2E7
+
+.org 0x1c9db8
+addiu t0,zero,0x2E7
 
 .close

@@ -53,31 +53,55 @@ def generate_font_atlas(
         for index, char in enumerate(mapping):
             if not char or char == " ":
                 continue  # Skip empty/space - leave transparent
+            if char in "[]":
+                continue  # Brackets are invisible microspacing
+
+            x_offset = 0
+            if index >= 139 and index <= 148:
+                char = chr(index - 91)
+                if char in ["1", "2", "3", "5", "7"]:
+                    x_offset = 8
+                elif char in ["0", "4", "6", "8", "9"]:
+                    x_offset = 7
+                elif index >= 149 and index <= 174:
+                    char = chr(index - 84)
+                elif index >= 175 and index <= 200:
+                    char = chr(index - 78)
 
             y_offset = (index * HEIGHT) - 5 + y_shift
             if char != '"':
-                cmd.extend(["-draw", f'text 0,{y_offset+HEIGHT} "{char}"'])
+                cmd.extend(["-draw", f'text {x_offset},{y_offset+HEIGHT} "{char}"'])
             else:
-                cmd.extend(["-draw", f"text 0,{y_offset+HEIGHT} '{char}'"])
+                cmd.extend(["-draw", f"text {x_offset},{y_offset+HEIGHT} '{char}'"])
 
         # Second pass: draw white text on top (white fill, no stroke)
         cmd.extend(["-fill", "white", "-stroke", "none"])
         for index, char in enumerate(mapping):
             if not char or char == " ":
                 continue  # Skip empty/space - leave transparent
+            if char in "[]":
+                continue  # Brackets are invisible microspacing
+
+            x_offset = 0
+            if index >= 139 and index <= 148:
+                char = chr(index - 91)
+                if char in ["1", "2", "3", "5", "7"]:
+                    x_offset = 8
+                elif char in ["0", "4", "6", "8", "9"]:
+                    x_offset = 7
+            elif index >= 149 and index <= 174:
+                char = chr(index - 84)
+            elif index >= 175 and index <= 200:
+                char = chr(index - 78)
 
             y_offset = (index * HEIGHT) - 5 + y_shift
             if char != '"':
-                cmd.extend(["-draw", f'text 0,{y_offset+HEIGHT} "{char}"'])
+                cmd.extend(["-draw", f'text {x_offset},{y_offset+HEIGHT} "{char}"'])
             else:
-                cmd.extend(["-draw", f"text 0,{y_offset+HEIGHT} '{char}'"])
+                cmd.extend(["-draw", f"text {x_offset},{y_offset+HEIGHT} '{char}'"])
 
             if index % 500 == 0 and index > 0:
                 print(f"  Added {index}/{len(mapping)} characters...")
-            if index == 1:
-                print(cmd)
-            if char == "…":
-                print(index)
         
         # Output to temp file
         cmd.append(temp_path)
@@ -140,7 +164,7 @@ def generate_font_images(
     """Generate font images for all characters in the mapping."""
     os.makedirs(output_dir, exist_ok=True)
 
-    mapping = load_mapping("/Users/cschmidt/git/lostkefin/font_table.txt")
+    mapping = load_mapping("/Users/cschmidt/git/lostkefin/scripts/misc/font_table.txt")
 
     generate_font_atlas(ttf_path, mapping, "font_atlas.png", font_size, y_shift)
 
