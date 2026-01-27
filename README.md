@@ -92,9 +92,8 @@ A list of all webpages I could find that include information about this game. Pl
 - Cheatcodes by [warezhunter_](https://psx-core.ru/forum/2-51-45)<sup>RU</sup>
 - Cheatcodes by レインたんラブ [Part 1](https://jp.wazap.com/cheat/%E3%82%B3%E3%83%BC%E3%83%89/521993/) [Part 2](https://jp.wazap.com/cheat/%E3%82%B3%E3%83%BC%E3%83%89%EF%BC%92/522889/)<sup>JP</sup>
 - Cheatcodes by 世界のマリオ [Original post](https://jp.wazap.com/cheat/%E5%85%A8%E3%82%A8%E3%83%AC%E3%83%A1%E3%83%B3%E3%83%88%EF%BC%99%EF%BC%99%EF%BC%99%EF%BC%99/434220/) [Archived page](https://web.archive.org/web/20150104205942/http://www17.ocn.ne.jp:80/~altcodex/ys5.htm)<sup>JP</sup>
-- Guide by [Maturikasann](http://maturikasann.web.fc2.com/ys/5_ps2.html)<sup>JP</sup>
-  - English translation by [Josep](https://docs.google.com/document/d/1iiSjDg2WAXUBartzzL0PwSB3m9_QVdWjSBQ9JWr3b7A/)
-  - Updated maps by [wagamamalullaby](https://gamefaqs.gamespot.com/ps2/921272-ys-v-lost-kefin-kingdom-of-sand/faqs#ys-v-lost-kefin-kingdom-of-sand)
+- Complete Guide and Maps by [wagamamalullaby](https://gamefaqs.gamespot.com/ps2/921272-ys-v-lost-kefin-kingdom-of-sand/faqs#ys-v-lost-kefin-kingdom-of-sand)
+  - Adapted from [Josep](https://docs.google.com/document/d/1iiSjDg2WAXUBartzzL0PwSB3m9_QVdWjSBQ9JWr3b7A/)'s English translation of [Maturikasann's](http://maturikasann.web.fc2.com/ys/5_ps2.html)<sup>JP</sup> Guide
 - Guide by [VoidZankantou](https://gamefaqs.gamespot.com/ps2/921272-ys-v-lost-kefin-kingdom-of-sand/faqs/44007) (Incomplete)
 - Guide addendum by [uncle5555](https://gamefaqs.gamespot.com/ps2/921272-ys-v-lost-kefin-kingdom-of-sand/answers/71872-help-with-getting-into-the-south-tower) (South Tower entrance requirements)
 - Guide by [Sugimo](https://web.archive.org/web/20090922030050/http://homepage1.nifty.com:80/sugimo/falcom/ys/ys5guide2.htm)<sup>JP</sup> (Archived)
