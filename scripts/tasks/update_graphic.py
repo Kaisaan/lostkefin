@@ -65,6 +65,10 @@ def insert_graphics(filepath: str | Path, insert_frames: bool = False):
     with open(input_dir / f"{filename}_orig.pal", "rb") as palFile:
         clut = palFile.read(clutSize * palSize)
 
+    if filename == "number01":
+        # Yeah yeah I know but the project is almost done so who cares
+        clut = b'GpL\x00\x00\x00\x00\x95\x00\x00\x00\xff\xf9j0\xff\x99\x99\x99\xff\x00\xba\xff\xff2\xfdf\xff\xff\xff\xff\xffyyy\xff\xfe\xfe\xfe\xff{5\x19\xff\x01[}\xff\x19|2\xff\x00\x96\xcd\xff#\xd1O\xff\xd2\xd2\xd2\xff'
+
     newFile.seek(clutOffset)
     newFile.write(clut)
 
