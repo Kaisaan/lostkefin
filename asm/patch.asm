@@ -105,4 +105,19 @@ addiu v1,v0,0x2
 .orga 0x9d394
 addiu a2,s6,0x16
 
+// Fix buffer size calculator to round up when calculating
+// quadwords
+.orga 0x3EDF8
+mult v0,a3,a1
+addiu v0,v0,0x1f 
+jr ra
+sra v0,v0,0x05
+default_case:
+jr ra
+daddu v0,zero,zero
+
+.orga 0x3ED9C
+beq v0,zero,default_case
+
+
 .close
