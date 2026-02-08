@@ -105,7 +105,7 @@ calculate_str_width:
 	addiu v0, v0, 0x14 // full-width space
 
 @space_half_width:
-	addiu v0, v0, 0xA
+	addiu v0, v0, 0x6
 	nop
 
 @space_done:

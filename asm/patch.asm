@@ -81,6 +81,11 @@ addiu a2,zero,0x14A
 addiu a1,zero,0x66
 addiu a2,zero,0x14A
 
+// Same as above, for sell screen
+.orga 0xA7950
+addiu a1,zero,0x66
+addiu a2,zero,0x14A
+
 // Shift "acquired" text slightly left and up
 .orga 0xA0A44
 addiu a1,zero,0xD5

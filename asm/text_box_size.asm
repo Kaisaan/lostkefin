@@ -23,7 +23,7 @@ text_box_size:
 	daddu t5, zero, zero // fullwidth_mode = false
 
 	// Load character constants into registers for fast comparison
-	sra t2, a3, 1 // half_width = char_width / 2
+	addiu t2, zero, 0x8
 	addiu t8, zero, 0x3E // '>' tag close
 	addiu s4, zero, 0x1 // true constant
 	addiu s3, zero, 0x46 // 'F'

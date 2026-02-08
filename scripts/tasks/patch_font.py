@@ -8,16 +8,18 @@ WIDTH = 24
 HEIGHT = 24
 PIXEL_OFFSET = 0x1A3EA0
 CLUT_OFFSET = 0x25E4C0
-GLYPH_COUNT = 1620
+# originally 1620 glyphs
+# Because we don't need 1000 kanji anymore I reclaim the space for code
+
 TABLE_OFFSET = 0x1A31F0
 
 
-def patch_table(file: BufferedReader):
+def patch_table(file: BufferedReader, glyph_count: int):
     file.seek(TABLE_OFFSET)
     table_f = open("scripts/misc/font_table.txt", "r", encoding="cp932")
     for i, line in enumerate(table_f.readlines()):
-        if i >= GLYPH_COUNT:
-            sys.exit("Too many lines in font_table.txt")
+        if i >= glyph_count:
+            break
         
         b = line.rstrip('\n\r').encode("cp932")
         if len(b) == 1:
@@ -182,7 +184,7 @@ def patch_font_from_atlas(atlas_path: str, slpm_path: str = "translated/SLPM_663
     prev_palette = None
 
     with open(slpm_path, "r+b") as slpm:
-        patch_table(slpm)
+        patch_table(slpm, glyph_count=glyph_count)
         for i in range(glyph_count):
             # Crop the glyph from the atlas
             top = i * HEIGHT

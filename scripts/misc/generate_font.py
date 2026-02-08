@@ -16,7 +16,9 @@ HEIGHT = 24
 def load_mapping(mapping_path: str)  -> list[str]:
     with open(mapping_path, "r", encoding="cp932") as f:
         lines =  [line.rstrip('\n\r') for line in f.readlines()]
-        return lines
+        # originally 1620 glyphs
+        # Because we don't need 1000 kanji anymore I reclaim the space for code
+        return lines[:100]
 
 
 def generate_font_atlas(

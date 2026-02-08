@@ -85,6 +85,9 @@ and t1,t1,a2
 .org 0x19c3fc
 addiu a1,zero,WORD_SPACING
 
+.org 0x14c44c
+addiu v1,zero,WORD_SPACING
+
 .org 0x14c894
 addiu v0,zero,WORD_SPACING
 
