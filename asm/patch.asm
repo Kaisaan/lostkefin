@@ -46,6 +46,10 @@ addiu s4,s4,0x1
 beq zero,zero,0x0009B430
 addiu s3,s3,0x1
 
+// Fix pointer alignment on gallery
+.orga 0x130794
+addiu a2,zero,0x2f
+
 // Change offset of highlights
 
 // "Perform a Quick Save?" and "Return to the title screen?"
