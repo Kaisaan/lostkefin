@@ -78,7 +78,8 @@ text_box_size:
 	nop
 
 	// Digits are full-width
-	addu t7, t7, a3 // current_line_width += char_width
+	//addu t7, t7, a3 // current_line_width += char_width
+	addiu t7, zero, 0xa
 	b @continue_parse
 	addiu a0, a0, 0x1 // str++
 
