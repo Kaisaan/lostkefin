@@ -1,11 +1,15 @@
 .ps2
 
+.loadtable "kefin.tbl", "UTF8"
 .open "translated/SLPM_663.60", 0xfff80
 
 WORD_SPACING equ 0xd
 LINE_SPACING equ 0x18
 
-.org 0x314000
+.org 0x24f480
+credits:
+
+.org 0x312000
 kerning_table:
   .incbin "scripts/misc/kerning.bin"
 ascii_kerning_table:
@@ -34,6 +38,23 @@ addiu   sp, sp, 0x20
 .include "asm/text_box_size.asm"
 
 .include "asm/calculate_str_width.asm"
+
+.include "asm/credits.asm"
+
+//credits_jump:
+//addiu   sp, sp, -0x4
+//sw      ra, 0x00(sp)
+//li a0, credits_bin
+//jal credits
+//nop
+//lw      ra, 0x00(sp)
+//jr      ra
+//addiu   sp, sp, 0x4
+
+
+
+
+
 
 
 // start kerning
@@ -77,6 +98,19 @@ jal calculate_str_width
 
 .org 0x19bd54
 jal calculate_str_width
+
+// This used to call strlen to calculate centering logic
+// Doesn't work with a VWF so we now use calculate_str_width
+.org 0x24f270
+jal calculate_str_width
+addiu s2,v0,0x110
+li v1, 0x280
+subu a0, v1, v0
+srl v0, a0, 1
+nop
+nop
+nop
+
 
 .org 0x14e1d0
 jal increment_z
@@ -122,5 +156,13 @@ addiu t0,zero,0x2E7
 
 .org 0x1c9db8
 addiu t0,zero,0x2E7
+
+// Post-credits layering bugfix
+.org 0x24ef24
+addiu a2,zero,0x362
+
+//.org 0x24ff60
+//jal credits_jump
+//nop
 
 .close
