@@ -75,14 +75,6 @@ addu a0, a0, v0
 lb v0, 0x0(a0)
 addu s2, s2, v0
 
-.org 0x14e784
-addiu s2, s2, 0xc
-nop
-nop
-beq zero,zero,0x0014E7B0
-nop
-// end kerning
-
 // If glyph is ASCII, render at 0x18 width
 .org 0x14e664
 addiu fp,zero,0x18
