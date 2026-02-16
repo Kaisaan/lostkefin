@@ -151,21 +151,27 @@ center_ids = {
 }
 
 
-def fix_ascii(text):
+def fix_ascii(text, fullwidth_ellipsis=False):
     """
     Replace some ascii characters with their fullwidth equivalents
     """
-    return (
+    fixed = (
         text.replace("\n", "\\n")
         .replace("，", ",")
         .replace("！", "!")
         .replace("〜", "~")
-        .replace("...", "…")
         .replace("＆", "&")
         .replace("炎", "；")
         .replace("★", "？")
         .replace("☆", "！")
     )
+
+    if fullwidth_ellipsis:
+        fixed = fixed.replace("...", "…")
+    else:
+        fixed = fixed.replace("…", "...")
+
+    return fixed
 
 
 def update_kscript(kscript_file, rows, version=2):

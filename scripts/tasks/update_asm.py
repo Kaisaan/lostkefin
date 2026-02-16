@@ -14,7 +14,7 @@ def generate_asm(strings_filename, rows):
     with open(strings_filename, "w", encoding="utf-8") as asm_fp:
         for row in rows:
             en = row[2]
-            en = fix_ascii(en)
+            en = fix_ascii(en, fullwidth_ellipsis=True)
             if en.startswith("b\"\\x"):       # Add support to just put singular byte (python byte-string styled)
                 en = "0x" + en.lstrip("b\"\\x").rstrip("\"")
             else: 
