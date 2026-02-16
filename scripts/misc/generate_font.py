@@ -13,12 +13,16 @@ import tempfile
 WIDTH = 24
 HEIGHT = 24
 
+# Indices where we use a custom PNG glyph instead of the TTF font
+CUSTOM_GLYPH_INDICES = {89, 90, 91}
+CUSTOM_GLYPH_DIR = os.path.join(os.path.dirname(__file__), "glyphs")
+
 def load_mapping(mapping_path: str)  -> list[str]:
     with open(mapping_path, "r", encoding="cp932") as f:
         lines =  [line.rstrip('\n\r') for line in f.readlines()]
         # originally 1620 glyphs
         # Because we don't need 1000 kanji anymore I reclaim the space for code
-        return lines[:100]
+        return lines[:200]
 
 
 def generate_font_atlas(
@@ -53,22 +57,27 @@ def generate_font_atlas(
         # First pass: draw black outline (black fill + black stroke)
         cmd.extend(["-fill", "black", "-stroke", "black", "-strokewidth", "2"])
         for index, char in enumerate(mapping):
+            if index in CUSTOM_GLYPH_INDICES:
+                continue  # Will be composited from PNG later
             if not char or char == " ":
                 continue  # Skip empty/space - leave transparent
             if char in "[]":
                 continue  # Brackets are invisible microspacing
 
             x_offset = 0
-            if index >= 139 and index <= 148:
-                char = chr(index - 91)
+            # Fullwidth numbers
+            if index >= 137 and index <= 146:
+                char = chr(index - 89)
                 if char in ["1", "2", "3", "5", "7"]:
                     x_offset = 8
                 elif char in ["0", "4", "6", "8", "9"]:
                     x_offset = 7
-                elif index >= 149 and index <= 174:
-                    char = chr(index - 84)
-                elif index >= 175 and index <= 200:
-                    char = chr(index - 78)
+            # Fullwidth uppercase
+            elif index >= 146 and index <= 172:
+                char = chr(index - 81)
+            # Fullwidth lowercase
+            elif index >= 173 and index <= 198:
+                char = chr(index - 76)
 
             y_offset = (index * HEIGHT) - 5 + y_shift
             if char != '"':
@@ -79,22 +88,27 @@ def generate_font_atlas(
         # Second pass: draw white text on top (white fill, no stroke)
         cmd.extend(["-fill", "white", "-stroke", "none"])
         for index, char in enumerate(mapping):
+            if index in CUSTOM_GLYPH_INDICES:
+                continue  # Will be composited from PNG later
             if not char or char == " ":
                 continue  # Skip empty/space - leave transparent
             if char in "[]":
                 continue  # Brackets are invisible microspacing
 
             x_offset = 0
-            if index >= 139 and index <= 148:
-                char = chr(index - 91)
+            # Fullwidth numbers
+            if index >= 137 and index <= 146:
+                char = chr(index - 89)
                 if char in ["1", "2", "3", "5", "7"]:
                     x_offset = 8
                 elif char in ["0", "4", "6", "8", "9"]:
                     x_offset = 7
-            elif index >= 149 and index <= 174:
-                char = chr(index - 84)
-            elif index >= 175 and index <= 200:
-                char = chr(index - 78)
+            # Fullwidth uppercase
+            elif index >= 146 and index <= 172:
+                char = chr(index - 81)
+            # Fullwidth lowercase
+            elif index >= 173 and index <= 198:
+                char = chr(index - 76)
 
             y_offset = (index * HEIGHT) - 5 + y_shift
             if char != '"':
@@ -110,6 +124,22 @@ def generate_font_atlas(
         
         print("  Rendering atlas...")
         subprocess.run(cmd, check=True, capture_output=True)
+
+        # Composite custom glyph PNGs onto the atlas
+        for glyph_index in sorted(CUSTOM_GLYPH_INDICES):
+            glyph_path = os.path.join(CUSTOM_GLYPH_DIR, f"{glyph_index}.png")
+            if not os.path.exists(glyph_path):
+                print(f"  WARNING: Custom glyph not found: {glyph_path}")
+                continue
+            y_offset = glyph_index * HEIGHT
+            composite_cmd = [
+                "magick", temp_path,
+                glyph_path, "-geometry", f"+0+{y_offset}",
+                "-geometry", f"+0+{y_offset}",
+                "-composite", temp_path,
+            ]
+            print(f"  Compositing custom glyph {glyph_index} from {glyph_path}")
+            subprocess.run(composite_cmd, check=True, capture_output=True)
 
         # Quantize to 16 colors with pngquant for consistent palette
         print("  Quantizing to 16 colors...")
