@@ -3,9 +3,152 @@
 try:
     # When imported as a module
     from .parser import line_to_op
+    from .text_layout import load_widths, center_lines, break_lines, SCREEN_WIDTH
 except ImportError:
     # When run as a script
     from parser import line_to_op
+    from text_layout import load_widths, center_lines, break_lines, SCREEN_WIDTH
+
+from os.path import basename
+
+center_ids = {
+    "stage00.kscript": [
+        24,
+        27,
+        29,
+        31,
+        33,
+        35,
+        37,
+        39,
+        42,
+        44,
+        1441,
+        1445,
+        1449,
+        1450,
+        1454,
+        1455,
+        1459,
+        1460,
+        1464,
+        1468,
+        1469,
+        1473,
+        1477,
+        1478,
+        1482,
+        1483,
+        1484,
+        1485,
+        1489,
+        1550,
+        1554,
+        1558,
+        1559,
+        1563,
+        1564,
+        1568,
+        1569,
+        1573,
+        1577,
+        1578,
+        1582,
+        1586,
+        1587,
+        1591,
+        1592,
+        1593,
+        1594,
+        1598,
+        2357,
+        4149,
+    ],
+    "stage10.kscript": [1501],
+    "stage20.kscript": [869, 1574],
+    "stage30.kscript": [279, 619],
+    "stage40.kscript": [41, 1854],
+    "stage50.kscript": [1316, 1902],
+    "stage60.kscript": [
+        275,
+        285,
+        298,
+        305,
+        307,
+        343,
+        345,
+        468,
+        1194,
+        1330,
+        1332,
+        1334,
+        1367,
+        1369,
+        1371,
+        1373,
+        1956,
+        2203,
+    ],
+    "stage70.kscript": [1404],
+    "stage80.kscript": [
+        314,
+        414,
+        416,
+        418,
+        969,
+        972,
+        1166,
+        1168,
+        1195,
+        1197,
+        1199,
+        1201,
+        1214,
+        1240,
+        1242,
+        1252,
+        1254,
+        1260,
+        1275,
+        1277,
+        1287,
+        1799,
+        1801,
+        1803,
+        1805,
+        1807,
+        1809,
+        3169,
+    ],
+    "stage90.kscript": [
+        8,
+        16,
+        18,
+        20,
+        82,
+        361,
+        362,
+        363,
+        364,
+        365,
+        366,
+        995,
+        996,
+        997,
+        998,
+        999,
+        1000,
+        1411,
+        1412,
+        1413,
+        1414,
+        1415,
+        1416,
+        1417,
+        1418,
+        1419,
+    ],
+}
 
 
 def fix_ascii(text):
@@ -26,6 +169,8 @@ def update_kscript(kscript_file, rows, version=2):
     """
     Modify a kscript file in-place by replacing text from the EN colum
     """
+    filename = basename(kscript_file)
+    widths = load_widths()
 
     # Changes are indexed by line number in the original kscript file
     changes = {}
@@ -107,9 +252,19 @@ def update_kscript(kscript_file, rows, version=2):
                 "TextBubble",
                 "TextBubbleNoTail",
                 "VNText",
-                "CutsceneText",
             ]:
                 op.text = fix_ascii(en)
+
+            elif op_type == "CutsceneText":
+                padding = int.from_bytes(op.arg[0:2], "little")
+                text = fix_ascii(en)
+                if i in center_ids.get(filename, []):
+                    text = center_lines(text, widths, padding)
+                else:
+                    max_width = SCREEN_WIDTH - 2 * padding
+                    text = break_lines(text, widths, max_width)
+
+                op.text = text
 
             i += 1
             out_fp.write(f"  {str(op)}\n")
