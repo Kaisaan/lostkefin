@@ -96,60 +96,6 @@ class Glyph:
         return result
 
 
-def patch_font(font_dir: str = "font", slpm_path: str = "translated/SLPM_663.60"):
-    """
-    Patch the game font from individual PNG files back into the SLPM file.
-
-    Args:
-        font_dir: Directory containing the font PNGs (0.png, 1.png, etc.)
-        slpm_path: Path to the SLPM_663.60 file to patch
-    """
-    font_dir = Path(font_dir)
-    slpm_path = Path(slpm_path)
-
-    if not slpm_path.exists():
-        sys.exit(f"Error: {slpm_path} not found")
-
-    if not font_dir.exists():
-        sys.exit(f"Error: {font_dir} not found")
-
-    # Copy all PNG files from font_modifications/ into font_dir
-    modifications_dir = Path("font_modifications")
-    prev_palette = None
-
-    with open(slpm_path, "r+b") as slpm:
-        for i in range(GLYPH_COUNT):
-            # Check if a modified glyph exists, otherwise use the base font
-            mod_path = modifications_dir / f"{i}.png"
-            if mod_path.exists():
-                png_path = mod_path
-            else:
-                png_path = font_dir / f"{i}.png"
-                if not png_path.exists():
-                    sys.exit(f"Error: {png_path} not found")
-
-            image = Image.open(png_path)
-            glyph = Glyph.from_png(image)
-
-            if prev_palette is not None and prev_palette != glyph.palette:
-                print(f"Previous palette: {prev_palette}")
-                print(f"Current palette: {glyph.palette}")
-                sys.exit("Error: Replacement glyphs have >1 palette")
-            prev_palette = glyph.palette
-
-            if i == 0:
-                # Write the palette once at the start
-                slpm.seek(CLUT_OFFSET)
-                palette_bytes = bytes([component for color in glyph.palette for component in color])
-                slpm.write(palette_bytes)
-
-            # Write the glyph pixels
-            slpm.seek(PIXEL_OFFSET + i * (WIDTH * HEIGHT // 2))
-            slpm.write(glyph.to_bytes())
-
-    print(f"Patched {GLYPH_COUNT} glyphs from {font_dir} into {slpm_path}")
-
-
 def patch_font_from_atlas(atlas_path: str, slpm_path: str = "translated/SLPM_663.60"):
     """
     Patch the game font from a single atlas PNG file into the SLPM file.
