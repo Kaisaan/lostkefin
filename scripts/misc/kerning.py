@@ -9,11 +9,11 @@ with open("kerning.csv", "r") as f:
     reader = csv.reader(f)
     next(reader)
     for row in reader:
-        c = row[1]
+        c = row[0]
         c_i = ord(c)
         if c_i > 0x80:
             continue
-        width = int(row[2])
+        width = int(row[1])
 
         # Space on each side
         # Except for brackets which are utilized as microspacing chars
