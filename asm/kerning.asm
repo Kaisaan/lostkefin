@@ -151,4 +151,7 @@ addiu a2,zero,0x362
 .org 0x1a49f0
 jal strcat_wrapper
 
+.org 0x1a0df0
+jal strcat_wrapper
+
 .close
