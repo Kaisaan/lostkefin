@@ -6,6 +6,9 @@
 WORD_SPACING equ 0xd
 LINE_SPACING equ 0x18
 
+.org 0x12e9a0
+strcat:
+
 .org 0x24f480
 credits:
 
@@ -41,6 +44,8 @@ addiu   sp, sp, 0x20
 
 .include "asm/credits.asm"
 
+.include "asm/strcat_wrapper.asm"
+
 //credits_jump:
 //addiu   sp, sp, -0x4
 //sw      ra, 0x00(sp)
@@ -50,13 +55,6 @@ addiu   sp, sp, 0x20
 //lw      ra, 0x00(sp)
 //jr      ra
 //addiu   sp, sp, 0x4
-
-
-
-
-
-
-
 
 // start kerning
 .org 0x14e8f8
@@ -148,5 +146,9 @@ addiu a2,zero,0x362
 //.org 0x24ff60
 //jal credits_jump
 //nop
+
+// Use strcat_wrapper to add a space after "+1", "+2", etc
+.org 0x1a49f0
+jal strcat_wrapper
 
 .close

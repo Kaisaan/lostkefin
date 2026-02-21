@@ -14,7 +14,7 @@ WIDTH = 24
 HEIGHT = 24
 
 # Indices where we use a custom PNG glyph instead of the TTF font
-CUSTOM_GLYPH_INDICES = {89, 90, 91}
+CUSTOM_GLYPH_INDICES = {89, 90, 91, 92}
 CUSTOM_GLYPH_DIR = os.path.join(os.path.dirname(__file__), "glyphs")
 
 def load_mapping(mapping_path: str)  -> list[str]:
@@ -225,13 +225,13 @@ def main():
     parser.add_argument(
         "-s", "--size",
         type=int,
-        default=24,
+        default=21,
         help="Font size in points (default: 24)"
     )
     parser.add_argument(
         "-y", "--y-shift",
         type=int,
-        default=0,
+        default=-1,
         help="Shift entire atlas up (-) or down (+) by N pixels (default: 0)"
     )
 
