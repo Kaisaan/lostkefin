@@ -1975,3 +1975,24 @@ Offset equ 0xFFF80
 .orga 0x260CF8 :: @L260CF8: .str L260CF8
 .orga 0x260D00 :: @L260D00: .str L260D00
 .orga 0x260D08 :: @L260D08: .str L260D08
+
+// A bunch of "+" symbols
+
+.orga 0x2635F0 :: @L2635F0: .str L2635F0
+.orga 0x263770 :: @L263770: .str L263770
+.orga 0x26E038 :: @L26E038: .str L26E038
+
+.orga 0x2D2930 :: @L2D2930: .str L2D2930
+
+// Another list of numbers
+
+.orga 0x260C60 :: @L260C60: .str L260C60
+.orga 0x260C68 :: @L260C68: .str L260C68
+.orga 0x260C70 :: @L260C70: .str L260C70
+.orga 0x260C78 :: @L260C78: .str L260C78
+.orga 0x260C80 :: @L260C80: .str L260C80
+.orga 0x260C88 :: @L260C88: .str L260C88
+.orga 0x260C90 :: @L260C90: .str L260C90
+.orga 0x260C98 :: @L260C98: .str L260C98
+.orga 0x260CA0 :: @L260CA0: .str L260CA0
+.orga 0x260CA8 :: @L260CA8: .str L260CA8

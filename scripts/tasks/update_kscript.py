@@ -164,6 +164,7 @@ def fix_ascii(text, fullwidth_ellipsis=False):
         .replace("炎", "；")
         .replace("★", "？")
         .replace("☆", "！")
+        .replace("＋", "+")
     )
 
     if fullwidth_ellipsis:
