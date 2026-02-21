@@ -13,9 +13,23 @@ import tempfile
 WIDTH = 24
 HEIGHT = 24
 
+FULLWIDTH_DIGITS = ["０", "１", "２", "３", "４", "５", "６", "７", "８", "９"]
+FULLWIDTH_UPPERCASE = ["Ａ", "Ｂ", "Ｃ", "Ｄ", "Ｅ", "Ｆ", "Ｇ", "Ｈ", "Ｉ", "Ｊ", "Ｋ", "Ｌ", "Ｍ", "Ｎ", "Ｏ", "Ｐ", "Ｑ", "Ｒ", "Ｓ", "Ｔ", "Ｕ", "Ｖ", "Ｗ", "Ｘ", "Ｙ", "Ｚ"]
+FULLWIDTH_LOWERCASE = ["ａ", "ｂ", "ｃ", "ｄ", "ｅ", "ｆ", "ｇ", "ｈ", "ｉ", "ｊ", "ｋ", "ｌ", "ｍ", "ｎ", "ｏ", "ｐ", "ｑ", "ｒ", "ｓ", "ｔ", "ｕ", "ｖ", "ｗ", "ｘ", "ｙ", "ｚ"]
+
+# Fullwidth Unicode characters share a fixed offset from their ASCII equivalents (U+FF01 block)
+FULLWIDTH_OFFSET = 0xFEE0
+
+def fullwidth_to_ascii(char: str) -> str:
+    return chr(ord(char) - FULLWIDTH_OFFSET)
+
 # Indices where we use a custom PNG glyph instead of the TTF font
-CUSTOM_GLYPH_INDICES = {89, 90, 91, 92}
 CUSTOM_GLYPH_DIR = os.path.join(os.path.dirname(__file__), "glyphs")
+CUSTOM_GLYPH_INDICES = {
+    int(os.path.splitext(f)[0])
+    for f in os.listdir(CUSTOM_GLYPH_DIR)
+    if f.endswith(".png") and os.path.splitext(f)[0].isdigit()
+}
 
 def load_mapping(mapping_path: str)  -> list[str]:
     with open(mapping_path, "r", encoding="cp932") as f:
@@ -57,6 +71,7 @@ def generate_font_atlas(
         # First pass: draw black outline (black fill + black stroke)
         cmd.extend(["-fill", "black", "-stroke", "black", "-strokewidth", "2"])
         for index, char in enumerate(mapping):
+            print(index, char)
             if index in CUSTOM_GLYPH_INDICES:
                 continue  # Will be composited from PNG later
             if not char or char == " ":
@@ -66,18 +81,18 @@ def generate_font_atlas(
 
             x_offset = 0
             # Fullwidth numbers
-            if index >= 137 and index <= 146:
-                char = chr(index - 89)
+            if char in FULLWIDTH_DIGITS:
+                char = fullwidth_to_ascii(char)
                 if char in ["1", "2", "3", "5", "7"]:
                     x_offset = 8
                 elif char in ["0", "4", "6", "8", "9"]:
                     x_offset = 7
             # Fullwidth uppercase
-            elif index >= 146 and index <= 172:
-                char = chr(index - 81)
+            elif char in FULLWIDTH_UPPERCASE:
+                char = fullwidth_to_ascii(char)
             # Fullwidth lowercase
-            elif index >= 173 and index <= 198:
-                char = chr(index - 76)
+            elif char in FULLWIDTH_LOWERCASE:
+                char = fullwidth_to_ascii(char)
 
             y_offset = (index * HEIGHT) - 5 + y_shift
             if char != '"':
@@ -97,18 +112,18 @@ def generate_font_atlas(
 
             x_offset = 0
             # Fullwidth numbers
-            if index >= 137 and index <= 146:
-                char = chr(index - 89)
+            if char in FULLWIDTH_DIGITS:
+                char = fullwidth_to_ascii(char)
                 if char in ["1", "2", "3", "5", "7"]:
                     x_offset = 8
                 elif char in ["0", "4", "6", "8", "9"]:
                     x_offset = 7
             # Fullwidth uppercase
-            elif index >= 146 and index <= 172:
-                char = chr(index - 81)
+            elif char in FULLWIDTH_UPPERCASE:
+                char = fullwidth_to_ascii(char)
             # Fullwidth lowercase
-            elif index >= 173 and index <= 198:
-                char = chr(index - 76)
+            elif char in FULLWIDTH_LOWERCASE:
+                char = fullwidth_to_ascii(char)
 
             y_offset = (index * HEIGHT) - 5 + y_shift
             if char != '"':

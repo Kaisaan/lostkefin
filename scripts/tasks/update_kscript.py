@@ -162,9 +162,6 @@ def fix_ascii(text, fullwidth_ellipsis=False):
         .replace("〜", "~")
         .replace("＆", "&")
         .replace("炎", "：")
-        .replace("☆", "；")
-        .replace("★", "？")
-        .replace("→", "！")
         .replace("＋", "+")
     )
 
