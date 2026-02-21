@@ -127,7 +127,7 @@ GRAPHICS_FILES = {
     "title": "DATA/title/title_anm.bin"
 }
 
-FRAMES = ["menu00", "page_cursor00"]
+FRAMES = ["acc_name", "menu00", "page_cursor00"]
 
 
 def intlit(bytes):
