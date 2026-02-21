@@ -63,7 +63,7 @@ credits_bin:
 .dw 0
 .dw 0
 .dw 1
-.dw 0
+.dw 0xc
 .dw 0
 .dw null
 
@@ -363,3 +363,64 @@ credits_bin:
 .dw 0
 .dw 0
 .dw null
+
+.dw null
+
+ed0_pss:
+.string "cdrom0:\\MOVIE\\YS5ED00.PSS;1"
+ed1_pss:
+.string "cdrom0:\\MOVIE\\YS5ED01.PSS;1"
+ed2_pss:
+.string "cdrom0:\\MOVIE\\YS5ED02.PSS;1"
+ed3_pss:
+.string "cdrom0:\\MOVIE\\YS5ED03.PSS;1"
+ed4_pss:
+.string "cdrom0:\\MOVIE\\YS5ED04.PSS;1"
+ed5_pss:
+.string "cdrom0:\\MOVIE\\YS5ED05.PSS;1"
+ed6_pss:
+.string "cdrom0:\\MOVIE\\YS5ED06.PSS;1"
+ed7_pss:
+.string "cdrom0:\\MOVIE\\YS5ED07.PSS;1"
+ed8_pss:
+.string "cdrom0:\\MOVIE\\YS5ED08.PSS;1"
+ed9_pss:
+.string "cdrom0:\\MOVIE\\YS5ED09.PSS;1"
+ed10_pss:
+.string "cdrom0:\\MOVIE\\YS5ED10.PSS;1"
+ed11_pss:
+.string "cdrom0:\\MOVIE\\YS5ED11.PSS;1"
+ed12_pss:
+.string "cdrom0:\\MOVIE\\YS5ED12.PSS;1"
+
+movie_table:
+.dw ed0_pss
+.dw ed1_pss
+.dw ed2_pss
+.dw ed3_pss
+.dw ed4_pss
+.dw ed5_pss
+.dw ed6_pss
+.dw ed7_pss
+.dw ed8_pss
+.dw ed9_pss
+.dw ed10_pss
+.dw ed11_pss
+.dw ed12_pss
+
+graphic_table:
+.d16 0x6
+.d16 0x7
+.d16 0x8
+.d16 0x9
+.d16 0xa
+.d16 0xb
+.d16 0xc
+.d16 0xd
+.d16 0xe
+.d16 0xf
+.d16 0x10
+.d16 0x11
+.d16 0x12
+.d16 0x13
+.d16 0x14

@@ -143,6 +143,10 @@ addiu t0,zero,0x2E7
 .org 0x24ef24
 addiu a2,zero,0x362
 
+// Textbox layering bugfix
+.org 0x19dbe0
+addiu v1,zero,0x450
+
 //.org 0x24ff60
 //jal credits_jump
 //nop
