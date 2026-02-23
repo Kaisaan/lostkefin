@@ -64,7 +64,7 @@ addiu a2,v0, -0x1e
 addiu a2, zero, 0x3
 
 .orga 0x7D18C // "No"
-addiu a2,zero,0x63
+addiu a2,zero,0x5A
 
 // Shift inventory item desc left
 .orga 0xA1208
