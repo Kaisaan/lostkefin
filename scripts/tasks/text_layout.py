@@ -88,7 +88,10 @@ def center_lines(text, widths, left_offset):
     lines = text.split("\\n")
     centered = []
     for line in lines:
-        pad = center_pad(line, widths, left_offset)
+        if line.strip() == "":
+            pad = ""
+        else:
+            pad = center_pad(line, widths, left_offset)
         centered.append(pad + line)
     return "\\n".join(centered)
 
