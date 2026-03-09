@@ -163,6 +163,7 @@ def fix_ascii(text, fullwidth_ellipsis=False):
         .replace("＆", "&")
         .replace("炎", "：")
         .replace("＋", "+")
+        .replace("’", "'")
     )
 
     if fullwidth_ellipsis:
