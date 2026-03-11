@@ -36,7 +36,7 @@ def load_mapping(mapping_path: str)  -> list[str]:
         lines =  [line.rstrip('\n\r') for line in f.readlines()]
         # originally 1620 glyphs
         # Because we don't need 1000 kanji anymore I reclaim the space for code
-        return lines[:200]
+        return lines[:201]
 
 
 def generate_font_atlas(
