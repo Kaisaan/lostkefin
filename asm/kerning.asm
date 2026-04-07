@@ -139,6 +139,10 @@ addiu t0,zero,0x2E7
 .org 0x1c9db8
 addiu t0,zero,0x2E7
 
+// Move "dim screen" effect Z axis up slightly to make room for text
+.org 0x0018ceb0
+addiu a2,zero,0x468
+
 // Post-credits layering bugfix
 .org 0x24ef24
 addiu a2,zero,0x362
