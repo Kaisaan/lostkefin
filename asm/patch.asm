@@ -128,44 +128,4 @@ daddu v0,zero,zero
 .orga 0x3ED9C
 beq v0,zero,default_case
 
-// The game does a wacky thing where it loads in "%03d" but then tweaks
-// the second byte as needed to make it %05d, %03d, etc. 
-// I switched the format string to %d so I need to patch to stop that 
-// tweak from happening
-
-.orga 0xA41F8
-addiu v0,zero,0x64
-
-.orga 0xA4B68
-addiu v1,zero,0x64
-
-.orga 0xA4D88
-addiu v1,zero,0x64
-
-.orga 0xA56F8
-addiu v0,zero,0x64
-
-.orga 0xA5700
-addiu v0,zero,0x64
-
-.orga 0xA57C8
-addiu v0,zero,0x64
-
-.orga 0xA58B0
-addiu v0,zero,0x64
-
-.orga 0xA5980
-addiu v0,zero,0x64
-
-.orga 0xA5A8C
-addiu v0,zero,0x64
-
-.orga 0xA5B1C
-addiu v0,zero,0x64
-
-.orga 0xA5B20
-addiu v0,zero,0x64
-
-
-
 .close
