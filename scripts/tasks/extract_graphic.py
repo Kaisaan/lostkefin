@@ -103,6 +103,9 @@ GRAPHICS_FILES = {
     "bsymbol_kefin": "DATA/event/bsymbol_kefin_anm.bin",
     "bsymbol_valte": "DATA/event/bsymbol_valte_anm.bin",
     "category": "DATA/shop/category_anm.bin",
+    "easy_status": "DATA/gameother/easy_status_anm.bin",
+    "ep018": "DATA/gameother/ep018_anm.bin",
+    "fullcharge": "DATA/gameother/fullcharge_anm.bin",
     "g_guide": "DATA/gallery/g_guide_anm.bin",
     "help01": "DATA/help/help01_anm.bin",
     "help02": "DATA/help/help02_anm.bin",
@@ -127,7 +130,7 @@ GRAPHICS_FILES = {
     "title": "DATA/title/title_anm.bin"
 }
 
-FRAMES = ["acc_name", "menu00", "page_cursor00"]
+FRAMES = ["acc_name", "menu00", "page_cursor00", "ep018"]
 
 
 def intlit(bytes):
