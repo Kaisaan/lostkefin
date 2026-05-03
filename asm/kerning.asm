@@ -14,9 +14,9 @@ credits:
 
 .org 0x312000
 kerning_table:
-  .incbin "scripts/misc/kerning.bin"
+  .incbin "scripts/data/kerning.bin"
 ascii_kerning_table:
-  .incbin "scripts/misc/ascii_kerning.bin"
+  .incbin "scripts/data/ascii_kerning.bin"
 
 // Increments Z for each glyph so they properly
 // layer on top of one another
@@ -45,16 +45,6 @@ addiu   sp, sp, 0x20
 .include "asm/credits.asm"
 
 .include "asm/strcat_wrapper.asm"
-
-//credits_jump:
-//addiu   sp, sp, -0x4
-//sw      ra, 0x00(sp)
-//li a0, credits_bin
-//jal credits
-//nop
-//lw      ra, 0x00(sp)
-//jr      ra
-//addiu   sp, sp, 0x4
 
 // start kerning
 .org 0x14e8f8
@@ -151,9 +141,21 @@ addiu a2,zero,0x362
 .org 0x19dbe8
 addiu v1,zero,0x450
 
-//.org 0x24ff60
-//jal credits_jump
-//nop
+.org 0x24ff5c
+lui a0, hi(start_credits)
+jal credits
+addiu a0, a0, lo(start_credits)
+
+.org 0x24f7c0
+li v0, graphic_table
+sll v1,s1,0x1
+addu v0,v0,v1
+
+.org 0x24f8a0
+li v0, movie_table
+sll v1,s1,0x2
+addu v0,v0,v1
+
 
 // Use strcat_wrapper to add a space after "+1", "+2", etc
 .org 0x1a49f0

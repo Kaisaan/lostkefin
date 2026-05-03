@@ -1,11 +1,13 @@
 import csv
+from pathlib import Path
+
+DATA_DIR = Path(__file__).parent.parent / "data"
+
 # 10px spacing by default
 table = [b"\x0a"] * 0x80
 ascii_table = [b"\x0a"] * 0x80
 
-
-
-with open("kerning.csv", "r") as f:
+with open(DATA_DIR / "kerning.csv", "r") as f:
     reader = csv.reader(f)
     next(reader)
     for row in reader:
@@ -18,19 +20,15 @@ with open("kerning.csv", "r") as f:
         # Space on each side
         # Except for brackets which are utilized as microspacing chars
         if c not in "[]":
-            width+=2
-
-
+            width += 2
 
         print(repr(c))
         print(repr(c_i))
         table[c_i] = bytes([width])
         ascii_table[c_i] = bytes([width])
 
-
-
-with open("kerning.bin", "wb") as f:
+with open(DATA_DIR / "kerning.bin", "wb") as f:
     f.write(b"".join(table))
 
-with open("ascii_kerning.bin", "wb") as f:
+with open(DATA_DIR / "ascii_kerning.bin", "wb") as f:
     f.write(b"".join(ascii_table))

@@ -420,25 +420,44 @@ Offset equ 0xFFF80
 
 .dw @L2638D8+Offset
 .dw @L2638E0+Offset
+.notice "L2638E0" + "=" + tohex(@L2638E0+Offset)
 .dw @L2638E8+Offset
+.notice "L2638E8" + "=" + tohex(@L2638E8+Offset)
 .dw @L2638F0+Offset
+.notice "L2638F0" + "=" + tohex(@L2638F0+Offset)
 .dw @L2638F8+Offset
+.notice "L2638F8" + "=" + tohex(@L2638F8+Offset)
 .dw @L263908+Offset
+.notice "L263908" + "=" + tohex(@L263908+Offset)
 .dw @L263910+Offset
+.notice "L263910" + "=" + tohex(@L263910+Offset)
 .dw @L263920+Offset
+.notice "L263920" + "=" + tohex(@L263920+Offset)
 .dw @L263928+Offset
+.notice "L263928" + "=" + tohex(@L263928+Offset)
 .dw @L263938+Offset
+.notice "L263938" + "=" + tohex(@L263938+Offset)
 .dw @L263940+Offset
+.notice "L263940" + "=" + tohex(@L263940+Offset)
 .dw @L263950+Offset
+.notice "L263950" + "=" + tohex(@L263950+Offset)
 .dw @L263958+Offset
+.notice "L263958" + "=" + tohex(@L263958+Offset)
 .dw @L263968+Offset
+.notice "L263968" + "=" + tohex(@L263968+Offset)
 .dw @L263978+Offset
+.notice "L263978" + "=" + tohex(@L263978+Offset)
 .dw @L263988+Offset
+.notice "L263988" + "=" + tohex(@L263988+Offset)
 .dw @L263998+Offset
+.notice "L263998" + "=" + tohex(@L263998+Offset)
 .dw @L2639A8+Offset
 .dw @L2639B8+Offset
+.notice "L2639B8" + "=" + tohex(@L2639B8+Offset)
 .dw @L2639C0+Offset
+.notice "L2639C0" + "=" + tohex(@L2639C0+Offset)
 .dw @L2639C8+Offset
+.notice "L2639C8" + "=" + tohex(@L2639C8+Offset)
 .dw @L2639D8+Offset
 .dw @L2639E0+Offset
 .dw @L2639E8+Offset
@@ -614,216 +633,334 @@ Offset equ 0xFFF80
 
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B70+Offset :: .skip 20
+.notice "L264B70" + "=" + tohex(@L264B70+Offset)
 .dw @L2638E0+Offset :: .skip 20
+.notice "L2638E0" + "=" + tohex(@L2638E0+Offset)
 .dw @L264B90+Offset :: .skip 20
+.notice "L264B90" + "=" + tohex(@L264B90+Offset)
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L2638E8+Offset :: .skip 20
+.notice "L2638E8" + "=" + tohex(@L2638E8+Offset)
 .dw @L264BA0+Offset :: .skip 20
+.notice "L264BA0" + "=" + tohex(@L264BA0+Offset)
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L2638F0+Offset :: .skip 20
+.notice "L2638F0" + "=" + tohex(@L2638F0+Offset)
 .dw @L264BB0+Offset :: .skip 20
+.notice "L264BB0" + "=" + tohex(@L264BB0+Offset)
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L2638F8+Offset :: .skip 20
+.notice "L2638F8" + "=" + tohex(@L2638F8+Offset)
 .dw @L264BC0+Offset :: .skip 20
+.notice "L264BC0" + "=" + tohex(@L264BC0+Offset)
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L263908+Offset :: .skip 20
+.notice "L263908" + "=" + tohex(@L263908+Offset)
 .dw @L264BD0+Offset :: .skip 20
+.notice "L264BD0" + "=" + tohex(@L264BD0+Offset)
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L263920+Offset :: .skip 20
+.notice "L263920" + "=" + tohex(@L263920+Offset)
 .dw @L264BE0+Offset :: .skip 20
+.notice "L264BE0" + "=" + tohex(@L264BE0+Offset)
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L263950+Offset :: .skip 20
+.notice "L263950" + "=" + tohex(@L263950+Offset)
 .dw @L264BF0+Offset :: .skip 20
+.notice "L264BF0" + "=" + tohex(@L264BF0+Offset)
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L263958+Offset :: .skip 20
+.notice "L263958" + "=" + tohex(@L263958+Offset)
 .dw @L264C00+Offset :: .skip 20
+.notice "L264C00" + "=" + tohex(@L264C00+Offset)
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L263968+Offset :: .skip 20
+.notice "L263968" + "=" + tohex(@L263968+Offset)
 .dw @L264C10+Offset :: .skip 20
+.notice "L264C10" + "=" + tohex(@L264C10+Offset)
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L263910+Offset :: .skip 20
+.notice "L263910" + "=" + tohex(@L263910+Offset)
 .dw @L264C20+Offset :: .skip 20
+.notice "L264C20" + "=" + tohex(@L264C20+Offset)
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L263938+Offset :: .skip 20
+.notice "L263938" + "=" + tohex(@L263938+Offset)
 .dw @L264C30+Offset :: .skip 20
+.notice "L264C30" + "=" + tohex(@L264C30+Offset)
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L263998+Offset :: .skip 20
+.notice "L263998" + "=" + tohex(@L263998+Offset)
 .dw @L264C40+Offset :: .skip 20
+.notice "L264C40" + "=" + tohex(@L264C40+Offset)
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L264C50+Offset :: .skip 20
+.notice "L264C50" + "=" + tohex(@L264C50+Offset)
 .dw @L264C60+Offset :: .skip 20
+.notice "L264C60" + "=" + tohex(@L264C60+Offset)
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L263978+Offset :: .skip 20
+.notice "L263978" + "=" + tohex(@L263978+Offset)
 .dw @L264C70+Offset :: .skip 20
+.notice "L264C70" + "=" + tohex(@L264C70+Offset)
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L264C80+Offset :: .skip 20
+.notice "L264C80" + "=" + tohex(@L264C80+Offset)
 .dw @L264C90+Offset :: .skip 20
+.notice "L264C90" + "=" + tohex(@L264C90+Offset)
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L263940+Offset :: .skip 20
+.notice "L263940" + "=" + tohex(@L263940+Offset)
 .dw @L264CA0+Offset :: .skip 20
+.notice "L264CA0" + "=" + tohex(@L264CA0+Offset)
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L263928+Offset :: .skip 20
+.notice "L263928" + "=" + tohex(@L263928+Offset)
 .dw @L264C70+Offset :: .skip 20
+.notice "L264C70" + "=" + tohex(@L264C70+Offset)
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L2639B8+Offset :: .skip 20
+.notice "L2639B8" + "=" + tohex(@L2639B8+Offset)
 .dw @L264BC0+Offset :: .skip 20
+.notice "L264BC0" + "=" + tohex(@L264BC0+Offset)
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L2639C8+Offset :: .skip 20
+.notice "L2639C8" + "=" + tohex(@L2639C8+Offset)
 .dw @L264CB0+Offset :: .skip 20
+.notice "L264CB0" + "=" + tohex(@L264CB0+Offset)
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L2639C0+Offset :: .skip 20
+.notice "L2639C0" + "=" + tohex(@L2639C0+Offset)
 .dw @L264CC0+Offset :: .skip 20
+.notice "L264CC0" + "=" + tohex(@L264CC0+Offset)
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L263988+Offset :: .skip 20
+.notice "L263988" + "=" + tohex(@L263988+Offset)
 .dw @L264CD0+Offset :: .skip 20
+.notice "L264CD0" + "=" + tohex(@L264CD0+Offset)
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L264CE0+Offset :: .skip 20
+.notice "L264CE0" + "=" + tohex(@L264CE0+Offset)
 .dw @L264D00+Offset :: .skip 20
+.notice "L264D00" + "=" + tohex(@L264D00+Offset)
 .dw @L264D20+Offset :: .skip 20
+.notice "L264D20" + "=" + tohex(@L264D20+Offset)
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L264D30+Offset :: .skip 20
+.notice "L264D30" + "=" + tohex(@L264D30+Offset)
 .dw @L264D40+Offset :: .skip 20
+.notice "L264D40" + "=" + tohex(@L264D40+Offset)
 .dw @L264D50+Offset :: .skip 20
+.notice "L264D50" + "=" + tohex(@L264D50+Offset)
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L264D60+Offset :: .skip 20
+.notice "L264D60" + "=" + tohex(@L264D60+Offset)
 .dw @L264D70+Offset :: .skip 20
+.notice "L264D70" + "=" + tohex(@L264D70+Offset)
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L264D80+Offset :: .skip 20
+.notice "L264D80" + "=" + tohex(@L264D80+Offset)
 .dw @L264D90+Offset :: .skip 20
+.notice "L264D90" + "=" + tohex(@L264D90+Offset)
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L264DA0+Offset :: .skip 20
+.notice "L264DA0" + "=" + tohex(@L264DA0+Offset)
 .dw @L264DA8+Offset :: .skip 20
+.notice "L264DA8" + "=" + tohex(@L264DA8+Offset)
 .dw @L264DB8+Offset :: .skip 20
+.notice "L264DB8" + "=" + tohex(@L264DB8+Offset)
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L264DC8+Offset :: .skip 20
+.notice "L264DC8" + "=" + tohex(@L264DC8+Offset)
 .dw @L264DD0+Offset :: .skip 20
+.notice "L264DD0" + "=" + tohex(@L264DD0+Offset)
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L264DE0+Offset :: .skip 20
+.notice "L264DE0" + "=" + tohex(@L264DE0+Offset)
 .dw @L264DF0+Offset :: .skip 20
+.notice "L264DF0" + "=" + tohex(@L264DF0+Offset)
 .dw @L264E00+Offset :: .skip 20
+.notice "L264E00" + "=" + tohex(@L264E00+Offset)
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L264E10+Offset :: .skip 20
+.notice "L264E10" + "=" + tohex(@L264E10+Offset)
 .dw @L264E20+Offset :: .skip 20
+.notice "L264E20" + "=" + tohex(@L264E20+Offset)
 .dw @L264E30+Offset :: .skip 20
+.notice "L264E30" + "=" + tohex(@L264E30+Offset)
 .dw @L264E40+Offset :: .skip 20
+.notice "L264E40" + "=" + tohex(@L264E40+Offset)
 .dw @L264E48+Offset :: .skip 20
+.notice "L264E48" + "=" + tohex(@L264E48+Offset)
 .dw @L264E58+Offset :: .skip 20
+.notice "L264E58" + "=" + tohex(@L264E58+Offset)
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L264E70+Offset :: .skip 20
+.notice "L264E70" + "=" + tohex(@L264E70+Offset)
 .dw @L264E90+Offset :: .skip 20
+.notice "L264E90" + "=" + tohex(@L264E90+Offset)
 .dw @L264EA8+Offset :: .skip 20
+.notice "L264EA8" + "=" + tohex(@L264EA8+Offset)
 .dw @L264EB8+Offset :: .skip 20
+.notice "L264EB8" + "=" + tohex(@L264EB8+Offset)
 .dw @L264EC8+Offset :: .skip 20
+.notice "L264EC8" + "=" + tohex(@L264EC8+Offset)
 .dw @L264ED8+Offset :: .skip 20
+.notice "L264ED8" + "=" + tohex(@L264ED8+Offset)
 .dw @L264EE8+Offset :: .skip 20
+.notice "L264EE8" + "=" + tohex(@L264EE8+Offset)
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L264EF8+Offset :: .skip 20
+.notice "L264EF8" + "=" + tohex(@L264EF8+Offset)
 .dw @L264F08+Offset :: .skip 20
+.notice "L264F08" + "=" + tohex(@L264F08+Offset)
 .dw @L264F10+Offset :: .skip 20
+.notice "L264F10" + "=" + tohex(@L264F10+Offset)
 .dw @L264F20+Offset :: .skip 20
+.notice "L264F20" + "=" + tohex(@L264F20+Offset)
 .dw @L264F30+Offset :: .skip 20
+.notice "L264F30" + "=" + tohex(@L264F30+Offset)
 .dw @L264F40+Offset :: .skip 20
+.notice "L264F40" + "=" + tohex(@L264F40+Offset)
 .dw @L264F50+Offset :: .skip 20
+.notice "L264F50" + "=" + tohex(@L264F50+Offset)
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L264F68+Offset :: .skip 20
+.notice "L264F68" + "=" + tohex(@L264F68+Offset)
 .dw @L264F78+Offset :: .skip 20
+.notice "L264F78" + "=" + tohex(@L264F78+Offset)
 .dw @L264F88+Offset :: .skip 20
+.notice "L264F88" + "=" + tohex(@L264F88+Offset)
 .dw @L264F98+Offset :: .skip 20
+.notice "L264F98" + "=" + tohex(@L264F98+Offset)
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L264FB0+Offset :: .skip 20
+.notice "L264FB0" + "=" + tohex(@L264FB0+Offset)
 .dw @L264FC8+Offset :: .skip 20
+.notice "L264FC8" + "=" + tohex(@L264FC8+Offset)
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L264FE0+Offset :: .skip 20
+.notice "L264FE0" + "=" + tohex(@L264FE0+Offset)
 .dw @L265000+Offset :: .skip 20
+.notice "L265000" + "=" + tohex(@L265000+Offset)
 .dw @L265020+Offset :: .skip 20
+.notice "L265020" + "=" + tohex(@L265020+Offset)
 .dw @L265040+Offset :: .skip 20
+.notice "L265040" + "=" + tohex(@L265040+Offset)
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L265070+Offset :: .skip 20
+.notice "L265070" + "=" + tohex(@L265070+Offset)
 .dw @L265080+Offset :: .skip 20
+.notice "L265080" + "=" + tohex(@L265080+Offset)
 .dw @L2650A0+Offset :: .skip 20
+.notice "L2650A0" + "=" + tohex(@L2650A0+Offset)
 .dw @L2650B8+Offset :: .skip 20
+.notice "L2650B8" + "=" + tohex(@L2650B8+Offset)
 .dw @L2650C8+Offset :: .skip 20
+.notice "L2650C8" + "=" + tohex(@L2650C8+Offset)
 .dw @L2650D8+Offset :: .skip 20
+.notice "L2650D8" + "=" + tohex(@L2650D8+Offset)
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L2650E8+Offset :: .skip 20
+.notice "L2650E8" + "=" + tohex(@L2650E8+Offset)
 .dw @L2650F8+Offset :: .skip 20
+.notice "L2650F8" + "=" + tohex(@L2650F8+Offset)
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L265108+Offset :: .skip 20
+.notice "L265108" + "=" + tohex(@L265108+Offset)
 .dw @L265118+Offset :: .skip 20
+.notice "L265118" + "=" + tohex(@L265118+Offset)
 .dw @L265128+Offset :: .skip 20
+.notice "L265128" + "=" + tohex(@L265128+Offset)
 .dw @L265138+Offset :: .skip 20
+.notice "L265138" + "=" + tohex(@L265138+Offset)
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L265150+Offset :: .skip 20
+.notice "L265150" + "=" + tohex(@L265150+Offset)
 .dw @L265168+Offset :: .skip 20
+.notice "L265168" + "=" + tohex(@L265168+Offset)
 .dw @L265180+Offset :: .skip 20
+.notice "L265180" + "=" + tohex(@L265180+Offset)
 .dw @L265198+Offset :: .skip 20
+.notice "L265198" + "=" + tohex(@L265198+Offset)
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L2651A8+Offset :: .skip 20
+.notice "L2651A8" + "=" + tohex(@L2651A8+Offset)
 .dw @L2651B8+Offset :: .skip 20
+.notice "L2651B8" + "=" + tohex(@L2651B8+Offset)
 .dw @L2651C8+Offset :: .skip 20
+.notice "L2651C8" + "=" + tohex(@L2651C8+Offset)
 .dw @L2651D8+Offset :: .skip 20
+.notice "L2651D8" + "=" + tohex(@L2651D8+Offset)
 .dw @L2651E8+Offset :: .skip 20
+.notice "L2651E8" + "=" + tohex(@L2651E8+Offset)
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L2651F8+Offset :: .skip 20
+.notice "L2651F8" + "=" + tohex(@L2651F8+Offset)
 .dw @L265210+Offset :: .skip 20
+.notice "L265210" + "=" + tohex(@L265210+Offset)
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L265228+Offset :: .skip 20
+.notice "L265228" + "=" + tohex(@L265228+Offset)
 .dw @L265230+Offset :: .skip 20
+.notice "L265230" + "=" + tohex(@L265230+Offset)
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L265248+Offset :: .skip 20
+.notice "L265248" + "=" + tohex(@L265248+Offset)
 .dw @L265250+Offset :: .skip 20
+.notice "L265250" + "=" + tohex(@L265250+Offset)
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 20
 .dw @L264B68+Offset :: .skip 8
@@ -834,47 +971,89 @@ Offset equ 0xFFF80
 // Credits Block 2 Pointers
 
 .dw @L2638E0+Offset
+.notice "L2638E0" + "=" + tohex(@L2638E0+Offset)
 .dw @L264B90+Offset :: .skip 8
+.notice "L264B90" + "=" + tohex(@L264B90+Offset)
 .dw @L2638E8+Offset
+.notice "L2638E8" + "=" + tohex(@L2638E8+Offset)
 .dw @L264BA0+Offset :: .skip 8
+.notice "L264BA0" + "=" + tohex(@L264BA0+Offset)
 .dw @L2638F0+Offset
+.notice "L2638F0" + "=" + tohex(@L2638F0+Offset)
 .dw @L264BB0+Offset :: .skip 8
+.notice "L264BB0" + "=" + tohex(@L264BB0+Offset)
 .dw @L2638F8+Offset
+.notice "L2638F8" + "=" + tohex(@L2638F8+Offset)
 .dw @L264BC0+Offset :: .skip 8
+.notice "L264BC0" + "=" + tohex(@L264BC0+Offset)
 .dw @L263908+Offset
+.notice "L263908" + "=" + tohex(@L263908+Offset)
 .dw @L264BD0+Offset :: .skip 8
+.notice "L264BD0" + "=" + tohex(@L264BD0+Offset)
 .dw @L263920+Offset
+.notice "L263920" + "=" + tohex(@L263920+Offset)
 .dw @L264BE0+Offset :: .skip 8
+.notice "L264BE0" + "=" + tohex(@L264BE0+Offset)
 .dw @L263950+Offset
+.notice "L263950" + "=" + tohex(@L263950+Offset)
 .dw @L264BF0+Offset :: .skip 8
+.notice "L264BF0" + "=" + tohex(@L264BF0+Offset)
 .dw @L263958+Offset
+.notice "L263958" + "=" + tohex(@L263958+Offset)
 .dw @L264C00+Offset :: .skip 8
+.notice "L264C00" + "=" + tohex(@L264C00+Offset)
 .dw @L263968+Offset
+.notice "L263968" + "=" + tohex(@L263968+Offset)
 .dw @L264C10+Offset :: .skip 8
+.notice "L264C10" + "=" + tohex(@L264C10+Offset)
 .dw @L263910+Offset
+.notice "L263910" + "=" + tohex(@L263910+Offset)
 .dw @L264C20+Offset :: .skip 8
+.notice "L264C20" + "=" + tohex(@L264C20+Offset)
 .dw @L263938+Offset
+.notice "L263938" + "=" + tohex(@L263938+Offset)
 .dw @L264C30+Offset :: .skip 8
+.notice "L264C30" + "=" + tohex(@L264C30+Offset)
 .dw @L263998+Offset
+.notice "L263998" + "=" + tohex(@L263998+Offset)
 .dw @L264C40+Offset :: .skip 8
+.notice "L264C40" + "=" + tohex(@L264C40+Offset)
 .dw @L264C50+Offset
+.notice "L264C50" + "=" + tohex(@L264C50+Offset)
 .dw @L264C60+Offset :: .skip 8
+.notice "L264C60" + "=" + tohex(@L264C60+Offset)
 .dw @L263978+Offset
+.notice "L263978" + "=" + tohex(@L263978+Offset)
 .dw @L264C70+Offset :: .skip 8
+.notice "L264C70" + "=" + tohex(@L264C70+Offset)
 .dw @L264C80+Offset
+.notice "L264C80" + "=" + tohex(@L264C80+Offset)
 .dw @L264C90+Offset :: .skip 8
+.notice "L264C90" + "=" + tohex(@L264C90+Offset)
 .dw @L263940+Offset
+.notice "L263940" + "=" + tohex(@L263940+Offset)
 .dw @L264CA0+Offset :: .skip 8
+.notice "L264CA0" + "=" + tohex(@L264CA0+Offset)
 .dw @L263928+Offset
+.notice "L263928" + "=" + tohex(@L263928+Offset)
 .dw @L264C70+Offset :: .skip 8
+.notice "L264C70" + "=" + tohex(@L264C70+Offset)
 .dw @L2639B8+Offset
+.notice "L2639B8" + "=" + tohex(@L2639B8+Offset)
 .dw @L264BC0+Offset :: .skip 8
+.notice "L264BC0" + "=" + tohex(@L264BC0+Offset)
 .dw @L2639C8+Offset
+.notice "L2639C8" + "=" + tohex(@L2639C8+Offset)
 .dw @L264CB0+Offset :: .skip 8
+.notice "L264CB0" + "=" + tohex(@L264CB0+Offset)
 .dw @L2639C0+Offset
+.notice "L2639C0" + "=" + tohex(@L2639C0+Offset)
 .dw @L264CC0+Offset :: .skip 8
+.notice "L264CC0" + "=" + tohex(@L264CC0+Offset)
 .dw @L263988+Offset
+.notice "L263988" + "=" + tohex(@L263988+Offset)
 .dw @L264CD0+Offset :: .skip 8
+.notice "L264CD0" + "=" + tohex(@L264CD0+Offset)
 
 .skip 4
 
@@ -882,79 +1061,153 @@ Offset equ 0xFFF80
 
 .dw @L265278+Offset :: .skip 4
 .dw @L264D00+Offset
+.notice "L264D00" + "=" + tohex(@L264D00+Offset)
 .dw @L264D20+Offset :: .skip 8
+.notice "L264D20" + "=" + tohex(@L264D20+Offset)
 .dw @L264D30+Offset
+.notice "L264D30" + "=" + tohex(@L264D30+Offset)
 .dw @L264D40+Offset
+.notice "L264D40" + "=" + tohex(@L264D40+Offset)
 .dw @L264D50+Offset :: .skip 8
+.notice "L264D50" + "=" + tohex(@L264D50+Offset)
 .dw @L264D60+Offset
+.notice "L264D60" + "=" + tohex(@L264D60+Offset)
 .dw @L264D70+Offset :: .skip 8
+.notice "L264D70" + "=" + tohex(@L264D70+Offset)
 .dw @L264D80+Offset
+.notice "L264D80" + "=" + tohex(@L264D80+Offset)
 .dw @L264D90+Offset :: .skip 8
+.notice "L264D90" + "=" + tohex(@L264D90+Offset)
 .dw @L264DA0+Offset
+.notice "L264DA0" + "=" + tohex(@L264DA0+Offset)
 .dw @L264DA8+Offset
+.notice "L264DA8" + "=" + tohex(@L264DA8+Offset)
 .dw @L264DB8+Offset :: .skip 8
+.notice "L264DB8" + "=" + tohex(@L264DB8+Offset)
 .dw @L264DC8+Offset
+.notice "L264DC8" + "=" + tohex(@L264DC8+Offset)
 .dw @L264DD0+Offset :: .skip 8
+.notice "L264DD0" + "=" + tohex(@L264DD0+Offset)
 .dw @L264DE0+Offset
+.notice "L264DE0" + "=" + tohex(@L264DE0+Offset)
 .dw @L264DF0+Offset
+.notice "L264DF0" + "=" + tohex(@L264DF0+Offset)
 .dw @L264E00+Offset :: .skip 8
+.notice "L264E00" + "=" + tohex(@L264E00+Offset)
 .dw @L264E10+Offset
+.notice "L264E10" + "=" + tohex(@L264E10+Offset)
 .dw @L264E20+Offset
+.notice "L264E20" + "=" + tohex(@L264E20+Offset)
 .dw @L264E30+Offset
+.notice "L264E30" + "=" + tohex(@L264E30+Offset)
 .dw @L264E40+Offset
+.notice "L264E40" + "=" + tohex(@L264E40+Offset)
 .dw @L264E48+Offset
+.notice "L264E48" + "=" + tohex(@L264E48+Offset)
 .dw @L264E58+Offset :: .skip 8
+.notice "L264E58" + "=" + tohex(@L264E58+Offset)
 .dw @L264E70+Offset
+.notice "L264E70" + "=" + tohex(@L264E70+Offset)
 .dw @L264E90+Offset
+.notice "L264E90" + "=" + tohex(@L264E90+Offset)
 .dw @L264EA8+Offset
+.notice "L264EA8" + "=" + tohex(@L264EA8+Offset)
 .dw @L264EB8+Offset
+.notice "L264EB8" + "=" + tohex(@L264EB8+Offset)
 .dw @L264EC8+Offset
+.notice "L264EC8" + "=" + tohex(@L264EC8+Offset)
 .dw @L264ED8+Offset
+.notice "L264ED8" + "=" + tohex(@L264ED8+Offset)
 .dw @L264EE8+Offset :: .skip 8
+.notice "L264EE8" + "=" + tohex(@L264EE8+Offset)
 .dw @L264EF8+Offset
+.notice "L264EF8" + "=" + tohex(@L264EF8+Offset)
 .dw @L264F08+Offset
+.notice "L264F08" + "=" + tohex(@L264F08+Offset)
 .dw @L264F10+Offset
+.notice "L264F10" + "=" + tohex(@L264F10+Offset)
 .dw @L264F20+Offset
+.notice "L264F20" + "=" + tohex(@L264F20+Offset)
 .dw @L264F30+Offset
+.notice "L264F30" + "=" + tohex(@L264F30+Offset)
 .dw @L264F40+Offset
+.notice "L264F40" + "=" + tohex(@L264F40+Offset)
 .dw @L264F50+Offset :: .skip 8
+.notice "L264F50" + "=" + tohex(@L264F50+Offset)
 .dw @L264F68+Offset
+.notice "L264F68" + "=" + tohex(@L264F68+Offset)
 .dw @L264F78+Offset
+.notice "L264F78" + "=" + tohex(@L264F78+Offset)
 .dw @L264F88+Offset
+.notice "L264F88" + "=" + tohex(@L264F88+Offset)
 .dw @L264F98+Offset :: .skip 8
+.notice "L264F98" + "=" + tohex(@L264F98+Offset)
 .dw @L264FB0+Offset
+.notice "L264FB0" + "=" + tohex(@L264FB0+Offset)
 .dw @L264FC8+Offset :: .skip 8
+.notice "L264FC8" + "=" + tohex(@L264FC8+Offset)
 .dw @L264FE0+Offset
+.notice "L264FE0" + "=" + tohex(@L264FE0+Offset)
 .dw @L265000+Offset
+.notice "L265000" + "=" + tohex(@L265000+Offset)
 .dw @L265020+Offset
+.notice "L265020" + "=" + tohex(@L265020+Offset)
 .dw @L265040+Offset :: .skip 8
+.notice "L265040" + "=" + tohex(@L265040+Offset)
 .dw @L265070+Offset
+.notice "L265070" + "=" + tohex(@L265070+Offset)
 .dw @L265080+Offset
+.notice "L265080" + "=" + tohex(@L265080+Offset)
 .dw @L2650A0+Offset
+.notice "L2650A0" + "=" + tohex(@L2650A0+Offset)
 .dw @L2650B8+Offset
+.notice "L2650B8" + "=" + tohex(@L2650B8+Offset)
 .dw @L2650C8+Offset
+.notice "L2650C8" + "=" + tohex(@L2650C8+Offset)
 .dw @L2650D8+Offset :: .skip 8
+.notice "L2650D8" + "=" + tohex(@L2650D8+Offset)
 .dw @L2650E8+Offset
+.notice "L2650E8" + "=" + tohex(@L2650E8+Offset)
 .dw @L2650F8+Offset :: .skip 8
+.notice "L2650F8" + "=" + tohex(@L2650F8+Offset)
 .dw @L265108+Offset
+.notice "L265108" + "=" + tohex(@L265108+Offset)
 .dw @L265118+Offset
+.notice "L265118" + "=" + tohex(@L265118+Offset)
 .dw @L265128+Offset
+.notice "L265128" + "=" + tohex(@L265128+Offset)
 .dw @L265138+Offset :: .skip 8
+.notice "L265138" + "=" + tohex(@L265138+Offset)
 .dw @L265150+Offset
+.notice "L265150" + "=" + tohex(@L265150+Offset)
 .dw @L265168+Offset
+.notice "L265168" + "=" + tohex(@L265168+Offset)
 .dw @L265180+Offset
+.notice "L265180" + "=" + tohex(@L265180+Offset)
 .dw @L265198+Offset :: .skip 8
+.notice "L265198" + "=" + tohex(@L265198+Offset)
 .dw @L2651A8+Offset
+.notice "L2651A8" + "=" + tohex(@L2651A8+Offset)
 .dw @L2651B8+Offset
+.notice "L2651B8" + "=" + tohex(@L2651B8+Offset)
 .dw @L2651C8+Offset
+.notice "L2651C8" + "=" + tohex(@L2651C8+Offset)
 .dw @L2651D8+Offset
+.notice "L2651D8" + "=" + tohex(@L2651D8+Offset)
 .dw @L2651E8+Offset :: .skip 8
+.notice "L2651E8" + "=" + tohex(@L2651E8+Offset)
 .dw @L2651F8+Offset
+.notice "L2651F8" + "=" + tohex(@L2651F8+Offset)
 .dw @L265210+Offset :: .skip 8
+.notice "L265210" + "=" + tohex(@L265210+Offset)
 .dw @L265228+Offset
+.notice "L265228" + "=" + tohex(@L265228+Offset)
 .dw @L265230+Offset :: .skip 8
+.notice "L265230" + "=" + tohex(@L265230+Offset)
 .dw @L265248+Offset
+.notice "L265248" + "=" + tohex(@L265248+Offset)
 .dw @L265250+Offset :: .skip 56
+.notice "L265250" + "=" + tohex(@L265250+Offset)
 .dw @L265288+Offset :: .skip 12
 .dw @L265290+Offset
 .dw @L2652C0+Offset :: .skip 4

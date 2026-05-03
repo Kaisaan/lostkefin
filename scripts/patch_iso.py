@@ -7,8 +7,10 @@
 # ]
 # ///
 import argparse
+import re
 import subprocess
 import sys
+import shutil
 from pathlib import Path
 
 from isotool import PAD_NONE, rebuild_iso
@@ -45,6 +47,16 @@ def main(sheets: bool = False):
     print("Done!")
 
     print("Compiling scripts...")
+
+    """
+    # Insert OpenShop command at line 1708 in stage40.kscript
+    with open("decompiled/stage40.kscript", "r") as f:
+        lines = f.readlines()
+    lines.insert(1707, "  OpenShop\targ:0401\n")
+    with open("decompiled/stage40.kscript", "w") as f:
+        f.writelines(lines)
+    """
+
     for stage in STAGES:
         src = f"decompiled/stage{stage}.kscript"
         dst = f"DATA/script/stage{stage}.bin"
@@ -56,7 +68,34 @@ def main(sheets: bool = False):
     print("Done!")
 
     print("Applying first round of SLPM patches")
-    run(["armips", Path("asm/patch.asm")])
+
+    # Total hack: we use notice: directives in patch.asm in order to keep track of pointers
+    # as we are writing them.
+    out = open("asm/credits_ptrs.asm", "w")
+    pattern = re.compile(r"notice:\s*(L[0-9A-Fa-f]+)=([0-9A-Fa-f]+)")
+    proc = subprocess.Popen(
+        ["/usr/local/bin/armips", Path("asm/patch.asm")],
+        stdout=subprocess.PIPE,
+        text=True,
+        shell=False,
+    )
+
+    seen = set()
+    for line in proc.stdout:
+        match = pattern.search(line)
+        if match:
+            label, addr = match.groups()
+
+            if label in seen:
+                continue
+
+            out.write(f"{label} equ 0x{addr}\n")
+            seen.add(label)
+        else:
+            print(line)
+
+    proc.wait()
+    out.close()
     print("Done!")
 
     print("Patching font...")
@@ -71,6 +110,11 @@ def main(sheets: bool = False):
 
     print("Repacking DATA.BIN")
     pack("DATA.BIN")
+
+    shutil.copyfile(
+        Path("scripts/data/stein.pss"),
+        Path("translated/DUMMY.BIN"),
+    )
 
     print("Patching ISO. Please wait.")
     rebuild_iso(

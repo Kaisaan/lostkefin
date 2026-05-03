@@ -16,16 +16,17 @@ TABLE_OFFSET = 0x1A31F0
 
 def patch_table(file: BufferedReader, glyph_count: int):
     file.seek(TABLE_OFFSET)
-    table_f = open("scripts/misc/font_table.txt", "r", encoding="cp932")
+    table_f = open("scripts/data/font_table.txt", "r", encoding="cp932")
     for i, line in enumerate(table_f.readlines()):
         if i >= glyph_count:
             break
-        
-        b = line.rstrip('\n\r').encode("cp932")
+
+        b = line.rstrip("\n\r").encode("cp932")
         if len(b) == 1:
             b = b"\x20" + b
 
         file.write(b)
+
 
 class Glyph:
     def __init__(self, palette: list[list[int]], pixels: list[int]):
@@ -43,7 +44,7 @@ class Glyph:
         new_pixels = []
         for row in range(HEIGHT):
             row_start = row * WIDTH
-            row_pixels = self.pixels[row_start:row_start + WIDTH]
+            row_pixels = self.pixels[row_start : row_start + WIDTH]
             rotated_row = row_pixels[-amount:] + row_pixels[:-amount]
             new_pixels.extend(rotated_row)
 
@@ -55,7 +56,7 @@ class Glyph:
             raise ValueError(f"Image size must be {WIDTH}x{HEIGHT}")
 
         rgb_palette = image.getpalette()
-        transparency = image.info.get('transparency', b'')
+        transparency = image.info.get("transparency", b"")
 
         palette = []
         num_colors = 16
@@ -123,7 +124,9 @@ def patch_font_from_atlas(atlas_path: str, slpm_path: str = "translated/SLPM_663
 
     glyph_count = atlas.height // HEIGHT
     if atlas.height % HEIGHT != 0:
-        sys.exit(f"Error: Atlas height must be a multiple of {HEIGHT}, got {atlas.height}")
+        sys.exit(
+            f"Error: Atlas height must be a multiple of {HEIGHT}, got {atlas.height}"
+        )
 
     print(f"Atlas contains {glyph_count} glyphs")
 
@@ -148,7 +151,9 @@ def patch_font_from_atlas(atlas_path: str, slpm_path: str = "translated/SLPM_663
             if i == 0:
                 # Write the palette once at the start
                 slpm.seek(CLUT_OFFSET)
-                palette_bytes = bytes([component for color in glyph.palette for component in color])
+                palette_bytes = bytes(
+                    [component for color in glyph.palette for component in color]
+                )
                 slpm.write(palette_bytes)
 
             # Write the glyph pixels
@@ -168,4 +173,3 @@ if __name__ == "__main__":
     else:
         print("Usage: python patch_font.py [font_dir] [slpm_path]")
         sys.exit(1)
-

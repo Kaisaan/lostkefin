@@ -10,13 +10,13 @@ SCREEN_WIDTH = 640
 def load_widths(csv_path=None):
     """Load character widths from kerning CSV."""
     if csv_path is None:
-        csv_path = Path(__file__).parent.parent / "misc" / "kerning.csv"
+        csv_path = Path(__file__).parent.parent / "data" / "kerning.csv"
     widths = {}
-    with open(csv_path, newline='') as f:
+    with open(csv_path, newline="") as f:
         reader = csv.DictReader(f)
         for row in reader:
-            widths[row['char']] = int(row['width'])
-    widths[' '] = 4
+            widths[row["char"]] = int(row["width"])
+    widths[" "] = 4
     return widths
 
 
@@ -44,8 +44,8 @@ def strip_formatting(text):
     and font tags. Used for width calculation only — the original text
     with tags intact is preserved in output.
     """
-    text = re.sub(r'#(wh|gr|bl|pi|yl|re|bk|gl|cy)', '', text)
-    text = re.sub(r'<sleep \d+>', '', text)
+    text = re.sub(r"#(wh|gr|bl|pi|yl|re|bk|gl|cy)", "", text)
+    text = re.sub(r"<sleep \d+>", "", text)
     text = text.replace("\u25bc", "")
     text = text.replace("<F>", "")
     text = text.replace("</F>", "")
@@ -64,17 +64,17 @@ def center_pad(text, widths, left_offset):
     if target_padding <= 0:
         return ""
 
-    padding = ''
+    padding = ""
     remaining = target_padding
 
     while remaining >= 6:
-        padding += ' '
+        padding += " "
         remaining -= 6
     while remaining >= 2:
-        padding += ']'
+        padding += "]"
         remaining -= 2
     while remaining >= 1:
-        padding += '['
+        padding += "["
         remaining -= 1
 
     return padding
@@ -103,10 +103,10 @@ def _get_words_with_widths(text, widths):
     that won't be broken across lines. Color tags within words are
     stripped for width calculation but preserved in output.
     """
-    words = re.findall(r'<[^>]+>|[^<\s]+', text)
+    words = re.findall(r"<[^>]+>|[^<\s]+", text)
     result = []
     for word in words:
-        if word.startswith('<') and word.endswith('>'):
+        if word.startswith("<") and word.endswith(">"):
             result.append((word, 0))
         else:
             stripped = strip_formatting(word)
@@ -155,11 +155,11 @@ def break_lines(text, widths, max_width, max_lines=10):
     Returns text with \\n as line separator.
     """
     text = text.replace("\\n", " ")
-    text = ' '.join(text.split())
+    text = " ".join(text.split())
     if not text:
         return text
 
     words = _get_words_with_widths(text, widths)
     lines = _greedy_break(words, max_width, max_lines)
 
-    return "\\n".join(' '.join(line) for line in lines)
+    return "\\n".join(" ".join(line) for line in lines)

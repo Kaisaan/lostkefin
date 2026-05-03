@@ -4,11 +4,8 @@ from struct import pack
 slpm = open("extracted/SLPM_663.60", "rb")
 
 
-
-
-
 """
-table = open("font.tbl", "w", encoding="shift-jis")
+table = open("scripts/data/font.tbl", "w", encoding="shift-jis")
 
 fileptr = start
 while fileptr < end:
@@ -26,32 +23,36 @@ while fileptr < end:
     print(charval)
     fileptr += 2
 """
-#1A3E98
-#215D20
+# 1A3E98
+# 215D20
 
-#71E88
+# 71E88
 
 fontTable = []
 
-def getFontTable():
 
+def getFontTable():
     fontTableStart = 0x1A31F0
     fontTableEnd = 0x1A3E98
 
     slpm.seek(fontTableStart)
 
-    while (slpm.tell() < fontTableEnd):
-
-        char = slpm.read(2).decode(encoding="shift-jis", errors="backslashreplace").lstrip(" ")
+    while slpm.tell() < fontTableEnd:
+        char = (
+            slpm.read(2)
+            .decode(encoding="shift-jis", errors="backslashreplace")
+            .lstrip(" ")
+        )
 
         fontTable.append(char)
 
-#clut = b""
+
+# clut = b""
 
 clutSize = 16 * 4
 
-def getClut():
 
+def getClut():
     clutStart = 0x25E4C0
 
     slpm.seek(clutStart)
@@ -61,7 +62,6 @@ def getClut():
     clut = slpm.read(clutSize)
 
 
-
 charW = 12
 charH = 24
 
@@ -69,22 +69,20 @@ charDataSize = charW * charH
 
 charSize = (charH, charW * 2)
 
-def extractFontGraphics():
 
+def extractFontGraphics():
     fontGraphicsStart = 0x1A3EA0
 
     slpm.seek(fontGraphicsStart)
 
     for x in range(len(fontTable)):
-        
         charData = slpm.read(charDataSize)
 
         imgData = b""
 
         for byte in charData:
-            
             imgData += pack("bb", byte & 0xF, byte >> 4)
-        
+
         image = Image.frombytes("P", charSize, imgData)
         image.putpalette(clut, rawmode="RGBA")
         image.save(f"font/{x}.png")
@@ -93,12 +91,11 @@ def extractFontGraphics():
 def main():
     getFontTable()
     getClut()
-    #print(clut)
+    # print(clut)
     extractFontGraphics()
-    #print(fontTable)
-    #print(len(fontTable))
+    # print(fontTable)
+    # print(len(fontTable))
 
-if __name__=="__main__":
+
+if __name__ == "__main__":
     main()
-
-
