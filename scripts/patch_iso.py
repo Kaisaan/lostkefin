@@ -109,6 +109,10 @@ def main(sheets: bool = False):
     print("Done!")
 
     print("Repacking DATA.BIN")
+    shutil.copyfile(
+        Path("scripts/data/ys5ed12_anm.bin"),
+        Path("DATA/ending/ys5ed12_anm.bin"),
+    )
     pack("DATA.BIN")
 
     shutil.copyfile(
