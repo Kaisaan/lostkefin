@@ -33,6 +33,37 @@ def run(cmd, **kwargs):
         sys.exit(e.returncode)
 
 
+def replace_jump_block(path: str, label: str, new: str):
+    lines = Path(path).read_text(encoding="utf-8").splitlines(keepends=True)
+    start = next(
+        (
+            index
+            for index, line in enumerate(lines)
+            if line.strip().rstrip(":") == label
+        ),
+        None,
+    )
+    if start is None:
+        raise ValueError(f"Could not find {label} in {path}")
+
+    end = next(
+        (
+            index
+            for index in range(start + 1, len(lines))
+            if lines[index].startswith("LABEL_")
+        ),
+        None,
+    )
+    if end is None:
+        raise ValueError(f"Could not find end of {label} block in {path}")
+
+    replacement = new if new.endswith("\n") else f"{new}\n"
+    Path(path).write_text(
+        "".join(lines[:start]) + replacement + "".join(lines[end:]),
+        encoding="utf-8",
+    )
+
+
 def main(sheets: bool = False):
     print("Patching scripts and generating strings.asm...")
     if sheets:
@@ -47,15 +78,13 @@ def main(sheets: bool = False):
     print("Done!")
 
     print("Compiling scripts...")
-
-    """
-    # Insert OpenShop command at line 1708 in stage40.kscript
-    with open("decompiled/stage40.kscript", "r") as f:
-        lines = f.readlines()
-    lines.insert(1707, "  OpenShop\targ:0401\n")
-    with open("decompiled/stage40.kscript", "w") as f:
-        f.writelines(lines)
-    """
+    
+    # Replace the stage30 empty treasure chest script with custom content.
+    replace_jump_block(
+        "decompiled/stage30.kscript",
+        "JMP_000027",
+        Path("scripts", "data", "etokapa_chest.kscript").read_text(encoding="utf-8"),
+    )
 
     for stage in STAGES:
         src = f"decompiled/stage{stage}.kscript"

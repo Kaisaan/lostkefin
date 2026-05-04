@@ -1,0 +1,20 @@
+JMP_000027:
+  Unkn_31	arg:2f
+  TextBubbleNoTail	arg:40016400	text:Now loading #reS#ylE#grC#blR#piE#cyT #ylC#grH#blE#piS#cyT #reL#ylE#grV#blE#piL#gl!#re：#wh...<sleep 30>...<sleep 30>.<sleep 10>.<sleep 10>.<sleep 10>.<sleep 60>...<sleep 20>.<sleep 60>.<sleep 80>..<sleep 10><sleep 90><sleep 90>.<sleep 90>.<sleep 10>......... 
+  Unkn_4C	arg:fa
+  Unkn_55
+  Unkn_7	arg:c8
+  Unkn_4D	arg:01
+  Unkn_30	arg:60
+  Unkn_2C	arg:0a
+  ScreenEffect	effect_type:0x1
+  ScreenEffect2	effect_type:0xa
+  Unkn_31	arg:36
+  ShowCharacters	arg:030003c50100
+  Unkn_2F	arg:7e06
+  VNText	character_name:Terra	text:There is #re<H>NO</H>#wh Secret Chest Level (behind the waterfall)!▼
+  MoveCharacter	arg:c70104013200
+  EndVNSection
+  Unkn_55
+  Unkn_12
+  EndScript
