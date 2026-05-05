@@ -103,7 +103,7 @@ def main(sheets: bool = False):
     out = open("asm/credits_ptrs.asm", "w")
     pattern = re.compile(r"notice:\s*(L[0-9A-Fa-f]+)=([0-9A-Fa-f]+)")
     proc = subprocess.Popen(
-        [Path("armips.exe"), Path("asm/patch.asm")],
+        ["armips", Path("asm/patch.asm")],
         stdout=subprocess.PIPE,
         text=True,
         shell=False,
