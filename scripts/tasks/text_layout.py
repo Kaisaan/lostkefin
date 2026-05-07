@@ -35,9 +35,9 @@ def calculate_width(text, widths):
             else:
                 total += widths[char] + 2
         elif char == "☆":
-            total += 18
-        elif char == "▼":
             total += 24
+        elif char == "▼":
+            total += 32
     return total
 
 
