@@ -46,6 +46,9 @@ addiu   sp, sp, 0x20
 
 .include "asm/strcat_wrapper.asm"
 
+.notice "finished writing to reclaimed font area at offset: 0x" + tohex(orga())
+.notice "If this is more than 0x215d00, THATS NOT GOOD"
+
 // start kerning
 .org 0x14e8f8
 beq zero,zero,0x14E908
@@ -137,9 +140,12 @@ addiu a2,zero,0x468
 .org 0x24ef24
 addiu a2,zero,0x362
 
-// Textbox layering bugfix
+// Textbox layering bugfix (move the book up)
 .org 0x19dbe8
 addiu v1,zero,0x450
+
+.org 0x19cbb8
+addiu t8,zero,0x450
 
 .org 0x24ff5c
 lui a0, hi(start_credits)
