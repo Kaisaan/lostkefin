@@ -140,12 +140,15 @@ addiu a2,zero,0x468
 .org 0x24ef24
 addiu a2,zero,0x362
 
-// Textbox layering bugfix (move the book up)
+// Textbox layering bugfixes (move the book up)
 .org 0x19dbe8
 addiu v1,zero,0x450
 
 .org 0x19cbb8
 addiu t8,zero,0x450
+
+.org 0x19c810
+addiu a0,zero,0x42C
 
 .org 0x24ff5c
 lui a0, hi(start_credits)
