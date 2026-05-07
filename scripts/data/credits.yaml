@@ -1,0 +1,45 @@
+header: "<SM0><SW25><SH30>English Fan Translation"
+video: 0xc
+
+pages:
+  - title: Lead
+    names:
+      - Kaisaan
+
+  - title: Translation
+    names:
+      - Josep
+      - Seiichiro Mine
+      - Sabera
+      - Fishbone
+
+  - title: Graphics
+    names:
+      - Etokapa
+      - Sorcerian
+
+  - title: Programming
+    names:
+      - Kaisaan
+      - Everdred
+
+  - title: Editing
+    names:
+      - Etokapa
+      - Josep
+      - Livi
+
+  - title: Testing
+    names:
+      - Etokapa
+      - Sugunii
+
+  - title: Special Thanks
+    names:
+      - Sam Farron
+      - DRAGONBLEAPIECE
+      - flooproots
+      - Jazzysan
+      - wagamamalullaby
+      - All beta testers and supporters
+      - You!

@@ -4,6 +4,7 @@
 #     "google-api-python-client",
 #     "google-auth",
 #     "pillow",
+#     "pyyaml",
 # ]
 # ///
 import argparse
@@ -17,6 +18,7 @@ from isotool import PAD_NONE, rebuild_iso
 from tasks.compile import kscript_to_bin
 from tasks.from_csv import from_csv
 from tasks.from_sheets import from_sheets
+from tasks.generate_credits import generate_credits
 from tasks.pack import pack
 from tasks.update_graphic import insert_all_graphics
 from tasks.patch_font import patch_font_from_atlas
@@ -131,10 +133,35 @@ def main(sheets: bool = False):
     patch_font_from_atlas("font_atlas.png")
     print("Done!")
 
+    print("Generating credits...")
+    generate_credits()
+    print("Done!")
+
     # This needs to be done after patched font because I
     # reclaim some of the unused font space :)
     print("Applying second round of SLPM patches")
-    run(["armips", Path("asm/kerning.asm")])
+    print("Running: armips asm/kerning.asm")
+    proc = subprocess.run(
+        ["armips", Path("asm/kerning.asm")],
+        capture_output=True,
+        text=True,
+    )
+    print(proc.stdout, end="")
+    print(proc.stderr, end="", file=sys.stderr)
+    if proc.returncode != 0:
+        print("Command failed: armips asm/kerning.asm")
+        sys.exit(proc.returncode)
+
+    match = re.search(
+        r"finished writing to reclaimed font area at offset:\s*0x([0-9A-Fa-f]+)",
+        proc.stdout,
+    )
+    if not match:
+        print("ERROR: could not find reclaimed font area offset in armips output")
+        sys.exit(1)
+    if int(match.group(1), 16) > 0x215D00:
+        print(f"ERROR: kerning.asm wrote past 0x215d00: 0x{match.group(1)}")
+        sys.exit(1)
     print("Done!")
 
     print("Repacking DATA.BIN")
