@@ -142,10 +142,10 @@ addiu a2,zero,0x362
 
 // Textbox layering bugfixes (move the book up)
 .org 0x19dbe8
-addiu v1,zero,0x450
+addiu v1,zero,0x430
 
 .org 0x19cbb8
-addiu t8,zero,0x450
+addiu t8,zero,0x430
 
 .org 0x19c810
 addiu a0,zero,0x42C
