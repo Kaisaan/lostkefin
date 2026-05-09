@@ -270,7 +270,7 @@ def update_kscript(kscript_file, rows, version=2):
                 if i in center_ids.get(filename, []):
                     text = center_lines(text, widths, padding)
                 else:
-                    max_width = SCREEN_WIDTH - 2 * padding
+                    max_width = SCREEN_WIDTH - (2 * padding) - 32
                     text = break_lines(text, widths, max_width)
 
                 op.text = text
