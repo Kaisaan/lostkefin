@@ -1,8 +1,8 @@
 JMP_000025
-  TextBubbleNoTail	arg:40016400	text:Never gonna give you up▼
-  TextBubbleNoTail	arg:40016400	text:Never gonna let you down▼
-  TextBubbleNoTail	arg:40016400	text:Never gonna run around and desert you▼
-  TextBubbleNoTail	arg:40016400	text:Never gonna make you cry▼
-  TextBubbleNoTail	arg:40016400	text:Never gonna say goodbye▼
-  TextBubbleNoTail	arg:40016400	text:Never gonna tell a lie and hurt you▼
+  TextBubbleNoTail	arg:40016400	text:Never gonna give you up!▼
+  TextBubbleNoTail	arg:40016400	text:Never gonna let you down!▼
+  TextBubbleNoTail	arg:40016400	text:Never gonna run around and desert you!▼
+  TextBubbleNoTail	arg:40016400	text:Never gonna make you cry!▼
+  TextBubbleNoTail	arg:40016400	text:Never gonna say goodbye!▼
+  TextBubbleNoTail	arg:40016400	text:Never gonna tell a lie and hurt you!▼
   EndScript
