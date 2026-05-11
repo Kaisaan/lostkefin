@@ -46,7 +46,7 @@ These issues have been reported for [verison 0.1](https://github.com/Kaisaan/los
 - See [scriptFormat.md](https://github.com/Kaisaan/lostkefin/blob/main/scriptFormat.md) for all documented information about the game's script system
 - See [kscript.md](https://github.com/Kaisaan/lostkefin/blob/main/kscript.md) for information about the kscript file format
 - See [graphicsFormat.md](https://github.com/Kaisaan/lostkefin/blob/main/graphicsFormat.md) for all documented information about the game's graphics formats
-- The game's base pointer is $FFF80 meaning all pointers in `SLPM_663.60` are calculated as `(True offset) + $FFF80`
+- The game's base pointer is $FFF80 meaning all pointers in `SLPM_663.60` are calculated as `(File offset) + $FFF80`
 - Music files are in PSF2 format in the form of `.hd` (header), `.bd` (header), and `.sq` (sequence) files
 - See my [notes file](https://github.com/Kaisaan/lostkefin/blob/main/notes.txt) for more terribly organized notes
 
@@ -93,7 +93,10 @@ A list of all webpages I could find that include information about this game. Pl
 - [SnowyAria](https://bsky.app/profile/snowyaria.bsky.social) - Helping with patch creation
 - [Eight Mansions Translations](https://github.com/Eight-Mansions) - Specifically folks in their [Discord Server](https://discord.gg/bewGNtm) for offering hacking assistance, advice, and support
 - [Haroohie Translation Club](https://haroohie.club/) - Specifically folks in their [Discord Server](https://discord.gg/nesRSbpeFM) for offering hacking assistance, advice, and support
+- [refint/games](https://refint.games/) - Letting me try out the Network Test version for the remaster of *Ys vs. Trails in the Sky: Alternative Saga*
+- [Guild Loot Shop](https://bracerguild.com/) - Hosting a giveaway for some free prints of *Ys vs. Trails* in which I won (and also giving me a free mug after shipping issues)
 - Dragon for scanning the game's manual
-- My friend Armaan for introducing me to the world of *Ys*, also the biggest Lost Kefin fan so I'm doing this for him
-- Sugunii for giving me motivation to play more *Ys*
+- My friend Armaan for introducing me to the world of *Ys*, also the (now second) biggest Lost Kefin fan so I'm doing this for him
+- Sugunii for giving me motivation to play more *Ys* (leading me to playing Ys 5 and wanting to translate *Lost Kefin*)
+- Taito for making this game (with other companies)
 - Nihon Falcom for making the wonderful *Ys* series
