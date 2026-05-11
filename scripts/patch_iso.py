@@ -35,7 +35,7 @@ def run(cmd, **kwargs):
         sys.exit(e.returncode)
 
 
-def replace_jump_block(path: str, label: str, new: str):
+def replace_kscript_block(path: str, label: str, new: str):
     lines = Path(path).read_text(encoding="utf-8").splitlines(keepends=True)
     start = next(
         (
@@ -80,12 +80,17 @@ def main(sheets: bool = False):
     print("Done!")
 
     print("Compiling scripts...")
-    
-    # Replace the stage30 empty treasure chest script with custom content.
-    replace_jump_block(
+    # Replace some chest messages with custom content.
+    replace_kscript_block(
         "decompiled/stage30.kscript",
         "JMP_000027",
         Path("scripts", "data", "etokapa_chest.kscript").read_text(encoding="utf-8"),
+    )
+
+    replace_kscript_block(
+        "decompiled/stage30.kscript",
+        "JMP_000025",
+        Path("scripts", "data", "rickroll.kscript").read_text(encoding="utf-8"),
     )
 
     for stage in STAGES:
