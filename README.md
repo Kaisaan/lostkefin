@@ -21,17 +21,6 @@ SHA256: de811d9a51d6422938ac5fc9994358e394e2c878b444a157ec9be962dc32f666
 SHA1: 8f8076ca2817e0260c9780e036ee8d91229b4057  
 MD5: e8b38abbf526f12243636d6109d3cb05
 
-# Roadmap
-
-- Wait for more issues to be reported to be fixed
-- Possibly change the font and add support for a Variable Width Font (VWF)
-  - Most hacking has already been done
-- Create maps and a guide for the game
-  - Guide has already been translated and maps have been made
-- Translate the games manual
-  - Ideally get a better scan of the manual
-- Add [Empty Chest Messages](https://forms.gle/hy35bsjytR6Xnjk4A)
-
 ## Fixed Issues
 These issues have been reported for [verison 0.1](https://github.com/Kaisaan/lostkefin/releases/tag/v0.1) of the beta release
 - Fixed spacing for textboxes with 4 or 2 options
@@ -42,7 +31,6 @@ These issues have been reported for [verison 0.1](https://github.com/Kaisaan/los
 - Fixed certain character names not showing up in cutscenes (e.g "Young Girl A/B")
 - Fixed names of bonus entries in the Galleries
 - Various improvements to the translation
-
 
 # Building
 **Please use the above patching instructions to play the game! These instructions are only meant for project developers.**  
@@ -62,8 +50,8 @@ These issues have been reported for [verison 0.1](https://github.com/Kaisaan/los
 - Music files are in PSF2 format in the form of `.hd` (header), `.bd` (header), and `.sq` (sequence) files
 - See my [notes file](https://github.com/Kaisaan/lostkefin/blob/main/notes.txt) for more terribly organized notes
 
-# Game Manual Translation
-In the `manual` folder are scans for the game's manual. They were originally from [landofys.narod.ru](https://landofys.narod.ru/) which is now [landofys.com.ru](http://landofys.com.ru/) was scanned by Dragon.
+# Game Manual
+In the `manual` folder are scans for the game's manual and materials that came with the game.
 
 # Contributors
 A big thanks to these wonderful people for helping with this project! This project would not be possible without any of them.
@@ -80,31 +68,22 @@ A big thanks to these wonderful people for helping with this project! This proje
 
 # Related Materials
 A list of all webpages I could find that include information about this game. Please update me about anything that is not listed here.
-- Article of the game on [Falcom Wiki](https://falcom.wiki/wiki/Ys_V:_Lost_Kefin,_Kingdom_of_Sand_(PS2))
-- Article of the game on [Ys Wiki](https://isu.fandom.com/wiki/Ys_V:_Lost_Kefin,_Kingdom_of_Sand_(PS2))
-- Article of the game on [Wikipedia](https://en.wikipedia.org/wiki/Ys_V:_Lost_Kefin,_Kingdom_of_Sand)
-- Article of the game on [Wikipedia](https://ja.wikipedia.org/wiki/%E3%82%A4%E3%83%BC%E3%82%B9V)<sup>JP</sup>
-- Translation of opening cutscene by [mziab](https://www.romhacking.net/forum/index.php?topic=28379.0) (I did not use this translation)
-- Hacking attempt by [Hectavus](https://zenhax.com/viewtopic.php@t=15249.html) with only `SLPM_663.60` being translated
-- Cheatcodes by [luc-ita](https://gamehacking.org/game/100384)
-- Cheatcodes by GodShin: [Action Replay MAX](https://www.european-codebase.de/daten.php?system=ps2&act=detail1&id=8253), [Action Replay V2](https://www.european-codebase.de/daten.php?system=ps2&act=detail1&id=8252), [Xterminator/Xploder](https://www.european-codebase.de/daten.php?system=ps2&act=detail1&id=8251)<sup>DE</sup>
-- Cheatcodes by [TOMBOY](https://blog.goo.ne.jp/touffu/e/c484169262662f0dd6632c97c6c695c7)<sup>JP</sup>
-- Cheatcodes by [warezhunter_](https://psx-core.ru/forum/2-51-45)<sup>RU</sup>
-- Cheatcodes by レインたんラブ [Part 1](https://jp.wazap.com/cheat/%E3%82%B3%E3%83%BC%E3%83%89/521993/) [Part 2](https://jp.wazap.com/cheat/%E3%82%B3%E3%83%BC%E3%83%89%EF%BC%92/522889/)<sup>JP</sup>
-- Cheatcodes by 世界のマリオ [Original post](https://jp.wazap.com/cheat/%E5%85%A8%E3%82%A8%E3%83%AC%E3%83%A1%E3%83%B3%E3%83%88%EF%BC%99%EF%BC%99%EF%BC%99%EF%BC%99/434220/) [Archived page](https://web.archive.org/web/20150104205942/http://www17.ocn.ne.jp:80/~altcodex/ys5.htm)<sup>JP</sup>
+- Article about the game on [Falcom Wiki](https://falcom.wiki/wiki/Ys_V:_Lost_Kefin,_Kingdom_of_Sand_(PS2)), [Ys Wiki](https://isu.fandom.com/wiki/Ys_V:_Lost_Kefin,_Kingdom_of_Sand_(PS2)), [Wikipedia](https://en.wikipedia.org/wiki/Ys_V:_Lost_Kefin,_Kingdom_of_Sand), [Wikipedia](https://ja.wikipedia.org/wiki/%E3%82%A4%E3%83%BC%E3%82%B9V)<sup>JP</sup>
 - Complete Guide and Maps by [wagamamalullaby](https://gamefaqs.gamespot.com/ps2/921272-ys-v-lost-kefin-kingdom-of-sand/faqs#ys-v-lost-kefin-kingdom-of-sand)
   - Adapted from [Josep](https://docs.google.com/document/d/1iiSjDg2WAXUBartzzL0PwSB3m9_QVdWjSBQ9JWr3b7A/)'s English translation of [Maturikasann's](http://maturikasann.web.fc2.com/ys/5_ps2.html)<sup>JP</sup> Guide
-- Guide by [VoidZankantou](https://gamefaqs.gamespot.com/ps2/921272-ys-v-lost-kefin-kingdom-of-sand/faqs/44007) (Incomplete)
-- Guide addendum by [uncle5555](https://gamefaqs.gamespot.com/ps2/921272-ys-v-lost-kefin-kingdom-of-sand/answers/71872-help-with-getting-into-the-south-tower) (South Tower entrance requirements)
-- Guide by [Sugimo](https://web.archive.org/web/20090922030050/http://homepage1.nifty.com:80/sugimo/falcom/ys/ys5guide2.htm)<sup>JP</sup> (Archived)
+- Additional guides by [VoidZankantou](https://gamefaqs.gamespot.com/ps2/921272-ys-v-lost-kefin-kingdom-of-sand/faqs/44007) (Incomplete), [Sugimo](https://web.archive.org/web/20090922030050/http://homepage1.nifty.com:80/sugimo/falcom/ys/ys5guide2.htm)<sup>JP</sup> (Archived), and addendum by [uncle5555](https://gamefaqs.gamespot.com/ps2/921272-ys-v-lost-kefin-kingdom-of-sand/answers/71872-help-with-getting-into-the-south-tower)
+- Cheatcodes by [luc-ita](https://gamehacking.org/game/100384), GodShin: [Action Replay MAX](https://www.european-codebase.de/daten.php?system=ps2&act=detail1&id=8253), [Action Replay V2](https://www.european-codebase.de/daten.php?system=ps2&act=detail1&id=8252), [Xterminator/Xploder](https://www.european-codebase.de/daten.php?system=ps2&act=detail1&id=8251)<sup>DE</sup>, [TOMBOY](https://blog.goo.ne.jp/touffu/e/c484169262662f0dd6632c97c6c695c7)<sup>JP</sup>, [warezhunter_](https://psx-core.ru/forum/2-51-45)<sup>RU</sup>, レインたんラブ [Part 1](https://jp.wazap.com/cheat/%E3%82%B3%E3%83%BC%E3%83%89/521993/) [Part 2](https://jp.wazap.com/cheat/%E3%82%B3%E3%83%BC%E3%83%89%EF%BC%92/522889/)<sup>JP</sup>, and 世界のマリオ [Original post](https://jp.wazap.com/cheat/%E5%85%A8%E3%82%A8%E3%83%AC%E3%83%A1%E3%83%B3%E3%83%88%EF%BC%99%EF%BC%99%EF%BC%99%EF%BC%99/434220/) [Archived page](https://web.archive.org/web/20150104205942/http://www17.ocn.ne.jp:80/~altcodex/ys5.htm)<sup>JP</sup>
+- Translation of opening cutscene by [mziab](https://www.romhacking.net/forum/index.php?topic=28379.0) (I did not use this translation)
+- Hacking attempt by [Hectavus](https://zenhax.com/viewtopic.php@t=15249.html) with only `SLPM_663.60` being translated
 - Review the game by [Kurt Kalata](http://www.hardcoregaming101.net/ys-v-ushinawareta-suna-no-miyako-kefin/) (includes review for original SFC game)
+- Additional scans of the manual by [Dragon](http://landofys.com.ru/gallery/ys_manuals_scans.htm).
 - Original game website from [Taito](https://web.archive.org/web/20070804063125/http://www.taito.co.jp/d3/cp/ys/ys5/)<sup>JP</sup> (Archived)
 
 # Special Thanks
-- Everyone that supports me in my [Discord Server](https://discord.gg/TNWGBGpZGN)
-- Everyone that supports me through my [Ko-fi](https://ko-fi.com/kaisaan)
-- Everyone that supports me on [Bluesky](https://bsky.app/profile/kaisaan.bsky.social) and [Twitter](https://twitter.com/KaisaanSiddiqui)
-- Everyone that has starred the [Github repo](https://github.com/Kaisaan/lostkefin)
+- Everyone who supports me in my [Discord Server](https://discord.gg/TNWGBGpZGN)
+- Everyone who supports me through my [Ko-fi](https://ko-fi.com/kaisaan)
+- Everyone who supports me on [Bluesky](https://bsky.app/profile/kaisaan.bsky.social) and [Twitter](https://twitter.com/KaisaanSiddiqui)
+- Everyone who has starred the [Github repo](https://github.com/Kaisaan/lostkefin)
 - [Hilltop](https://x.com/HilltopWorks) - Providing valuable and informative videos such as [hacking with Ghidra](https://youtu.be/qCEZC3cPc1s) and [info on PS1 & PS2 graphics](https://youtu.be/lePKUCYakqM)
 - [Life Bottle Productions](https://www.lifebottle.org/#/) - Creating their tutorial for [finding the base pointer](https://youtu.be/q5aEj-aSw50) and for having many supportive folks in their [Discord Server](https://discord.gg/rhQBXHKF3J)
 - Ethanol - Creating the [isotool.py script](https://github.com/lifebottle/PythonLib/blob/main/isotool.py)
