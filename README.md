@@ -59,12 +59,17 @@ A big thanks to these wonderful people for helping with this project! This proje
 - [Everdred](https://github.com/cschmidt0121) - Programming, Hacking, Script development, helping with many technical issues
 - [Josep](https://twitter.com/jdkluv?mx=1) ([Bluesky](https://bsky.app/profile/did:plc:6kukfqg2ly52abdqkouwbusp)) - Lead Translator
 - [Etokapa](https://github.com/Etokapa/) - Text transcribing, making better batch files, making useful scripts, early testing, Graphics Editor
+- wagamamalullaby - Testing, testing on real hardware, making a proper guide and maps for the game
+- Jazzysan - Testing, speedrunning this game
 - [Seiichiro Mine](https://github.com/SeiichiroMine) - Translation Assistance, providing save files, making useful scripts
 - [Sorcerian](https://bsky.app/profile/sorcerian.bsky.social) - Graphics Editing Assistance
 - [Livi](https://bsky.app/profile/anonymusaxolotl.bsky.social) - Translation Editing Assistance
 - Sabera - Translation Assistance
 - Fishbone - Translation Assistance
 - Sugunii - Early Testing
+- DRAGONBLEAPIECE - Testing
+- Everyone that tested the beta patch and reported bugs
+- Everyone that submitted chest messages
 
 # Related Materials
 A list of all webpages I could find that include information about this game. Please update me about anything that is not listed here.
