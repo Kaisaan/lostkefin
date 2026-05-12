@@ -58,7 +58,7 @@ A big thanks to these wonderful people for helping with this project! This proje
 - [Sam Farron](https://www.youtube.com/@samfarron) - Allowing me to use his translation as the basis of this project (even if I didn't end up using much in the end)
 - [Everdred](https://github.com/cschmidt0121) - Programming, Hacking, Script development, helping with many technical issues
 - [Josep](https://twitter.com/jdkluv?mx=1) ([Bluesky](https://bsky.app/profile/did:plc:6kukfqg2ly52abdqkouwbusp)) - Lead Translator
-- [Etokapa](https://github.com/Etokapa/) - Text transcribing, making better batch files, making useful scripts, early testing, Graphics Editor
+- [Etokapa](https://github.com/Etokapa/) - Text transcribing, making better batch files, making useful scripts, early testing, Graphics Editor, Scanning the Manual and other Materials
 - wagamamalullaby - Testing, testing on real hardware, making a proper guide and maps for the game
 - Jazzysan - Testing, speedrunning this game
 - [Seiichiro Mine](https://github.com/SeiichiroMine) - Translation Assistance, providing save files, making useful scripts
