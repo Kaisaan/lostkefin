@@ -102,6 +102,7 @@ A list of all webpages I could find that include information about this game. Pl
 - [refint/games](https://refint.games/) - Letting me try out the Network Test version for the remaster of *Ys vs. Trails in the Sky: Alternative Saga*
 - [Guild Loot Shop](https://bracerguild.com/) - Hosting a giveaway for some free prints of *Ys vs. Trails* in which I won (and also giving me a free mug after shipping issues)
 - Dragon for scanning the game's manual
+- [Aeon Genesis](https://aeongenesis.net/) - Translating [the original SNES version](https://aeongenesis.net/projects/ys5)
 - My friend Armaan for introducing me to the world of *Ys*, also the (now second) biggest Lost Kefin fan so I'm doing this for him
 - Sugunii for giving me motivation to play more *Ys* (leading me to playing Ys 5 and wanting to translate *Lost Kefin*)
 - Taito for making this game (with other companies)
