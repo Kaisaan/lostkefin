@@ -55,7 +55,6 @@ In the `manual` folder are scans for the game's manual and materials that came w
 
 # Contributors
 A big thanks to these wonderful people for helping with this project! This project would not be possible without any of them.
-- [Sam Farron](https://www.youtube.com/@samfarron) - Allowing me to use his translation as the basis of this project (even if I didn't end up using much in the end)
 - [Everdred](https://github.com/cschmidt0121) - Programming, Hacking, Script development, helping with many technical issues
 - [Josep](https://twitter.com/jdkluv?mx=1) ([Bluesky](https://bsky.app/profile/did:plc:6kukfqg2ly52abdqkouwbusp)) - Lead Translator
 - [Etokapa](https://github.com/Etokapa/) - Text transcribing, making better batch files, making useful scripts, early testing, Graphics Editor, Scanning the Manual and other Materials
@@ -87,6 +86,7 @@ A list of all webpages I could find that include information about this game. Pl
 - Original game website from [Taito](https://web.archive.org/web/20070804063125/http://www.taito.co.jp/d3/cp/ys/ys5/)<sup>JP</sup> (Archived)
 
 # Special Thanks
+- [Sam Farron](https://www.youtube.com/@samfarron) - Allowing me to use his translation as the original basis of this project (even if I didn't end up using it in the end)
 - Everyone who supports me in my [Discord Server](https://discord.gg/TNWGBGpZGN)
 - Everyone who supports me through my [Ko-fi](https://ko-fi.com/kaisaan)
 - Everyone who supports me on [Bluesky](https://bsky.app/profile/kaisaan.bsky.social) and [Twitter](https://twitter.com/KaisaanSiddiqui)
