@@ -79,6 +79,7 @@ A list of all webpages I could find that include information about this game. Pl
 - Additional guides by [VoidZankantou](https://gamefaqs.gamespot.com/ps2/921272-ys-v-lost-kefin-kingdom-of-sand/faqs/44007) (Incomplete), [Sugimo](https://web.archive.org/web/20090922030050/http://homepage1.nifty.com:80/sugimo/falcom/ys/ys5guide2.htm)<sup>JP</sup> (Archived), and addendum by [uncle5555](https://gamefaqs.gamespot.com/ps2/921272-ys-v-lost-kefin-kingdom-of-sand/answers/71872-help-with-getting-into-the-south-tower)
 - Speedrunning notes by [Jazzysan](https://www.speedrun.com/ysv/guides/35vef)
 - Cheatcodes by [luc-ita](https://gamehacking.org/game/100384), GodShin: [Action Replay MAX](https://www.european-codebase.de/daten.php?system=ps2&act=detail1&id=8253), [Action Replay V2](https://www.european-codebase.de/daten.php?system=ps2&act=detail1&id=8252), [Xterminator/Xploder](https://www.european-codebase.de/daten.php?system=ps2&act=detail1&id=8251)<sup>DE</sup>, [TOMBOY](https://blog.goo.ne.jp/touffu/e/c484169262662f0dd6632c97c6c695c7)<sup>JP</sup>, [warezhunter_](https://psx-core.ru/forum/2-51-45)<sup>RU</sup>, レインたんラブ [Part 1](https://jp.wazap.com/cheat/%E3%82%B3%E3%83%BC%E3%83%89/521993/) [Part 2](https://jp.wazap.com/cheat/%E3%82%B3%E3%83%BC%E3%83%89%EF%BC%92/522889/)<sup>JP</sup>, and 世界のマリオ [Original post](https://jp.wazap.com/cheat/%E5%85%A8%E3%82%A8%E3%83%AC%E3%83%A1%E3%83%B3%E3%83%88%EF%BC%99%EF%BC%99%EF%BC%99%EF%BC%99/434220/) [Archived page](https://web.archive.org/web/20150104205942/http://www17.ocn.ne.jp:80/~altcodex/ys5.htm)<sup>JP</sup>
+- Ys V Original Story Draft translated by [Josep](https://falcom.wiki/wiki/Ys_V_original_story_draft)
 - Translation of opening cutscene by [mziab](https://www.romhacking.net/forum/index.php?topic=28379.0) (I did not use this translation)
 - Hacking attempt by [Hectavus](https://zenhax.com/viewtopic.php@t=15249.html) with only `SLPM_663.60` being translated
 - Review the game by [Kurt Kalata](http://www.hardcoregaming101.net/ys-v-ushinawareta-suna-no-miyako-kefin/) (includes review for original SFC game)
@@ -101,7 +102,6 @@ A list of all webpages I could find that include information about this game. Pl
 - [Haroohie Translation Club](https://haroohie.club/) - Specifically folks in their [Discord Server](https://discord.gg/nesRSbpeFM) for offering hacking assistance, advice, and support
 - [refint/games](https://refint.games/) - Letting me try out the Network Test version for the remaster of *Ys vs. Trails in the Sky: Alternative Saga*
 - [Guild Loot Shop](https://bracerguild.com/) - Hosting a giveaway for some free prints of *Ys vs. Trails* in which I won (and also giving me a free mug after shipping issues)
-- Dragon for scanning the game's manual
 - [Aeon Genesis](https://aeongenesis.net/) - Translating [the original SNES version](https://aeongenesis.net/projects/ys5)
 - My friend Armaan for introducing me to the world of *Ys*, also the (now second) biggest Lost Kefin fan so I'm doing this for him
 - Sugunii for giving me motivation to play more *Ys* (leading me to playing Ys 5 and wanting to translate *Lost Kefin*)
