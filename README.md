@@ -68,7 +68,7 @@ A big thanks to these wonderful people for helping with this project! This proje
 - Fishbone - Translation Assistance
 - Sugunii - Early Testing
 - DRAGONBLEAPIECE - Testing
-- Everyone that tested the beta patch and reported bugs
+- Everyone that played the beta patch and reported bugs
 - Everyone that submitted chest messages
 
 # Related Materials
