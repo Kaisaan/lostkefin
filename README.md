@@ -54,7 +54,7 @@ These issues have been reported for [verison 0.1](https://github.com/Kaisaan/los
 In the `manual` folder are scans for the game's manual and materials that came with the game.
 
 # Contributors
-A big thanks to these wonderful people for helping with this project! This project would not be possible without any of them.
+- Kaisaan - Project Lead, Hacker (Figured out the early script format, extracting the files, figuring out the graphics formats), Programmer (worked on some of the ASM patches and python scripts), Team Recruitment, Posting Updates on Social Media, Managing the Chest Messages, Testing
 - [Everdred](https://github.com/cschmidt0121) - Programming, Hacking, Script development, helping with many technical issues
 - [Josep](https://twitter.com/jdkluv?mx=1) ([Bluesky](https://bsky.app/profile/did:plc:6kukfqg2ly52abdqkouwbusp)) - Lead Translator
 - [Etokapa](https://github.com/Etokapa/) - Text transcribing, making better batch files, making useful scripts, early testing, Graphics Editor, Scanning the Manual and other Materials
@@ -69,6 +69,8 @@ A big thanks to these wonderful people for helping with this project! This proje
 - DRAGONBLEAPIECE - Testing
 - Everyone that played the beta patch and reported bugs
 - Everyone that submitted chest messages
+
+A big thanks to these wonderful people for helping with this project! This project would not be possible without any of them.
 
 # Related Materials
 A list of all webpages I could find that include information about this game. Please update me about anything that is not listed here.
