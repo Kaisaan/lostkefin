@@ -1,0 +1,26 @@
+[Superstein]
+author=Everdred
+description=Makes Stein tankier and faster
+patch=1,EE,0029D0AC,word,7fff7fff
+patch=1,EE,00337118,word,41200000
+
+[512x XP]
+author=Everdred
+patch=1,EE,0016B744,word,3C034400
+patch=1,EE,0016B75C,word,00000000
+patch=1,EE,0016B760,word,46021882
+
+[Infinite parace]
+author=Everdred
+description=
+patch=1,EE,F54988,bytes,FFFF
+
+[Guaranteed refinement]
+author=Everdred
+description=
+patch=1,EE,1a4bec,byte,01
+
+[Force Unlock Gallery]
+author=Everdred
+description=Menu item will look grey but will be selectable
+patch=1,EE,3D2E28,word,000000ff
