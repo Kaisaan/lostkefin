@@ -2,35 +2,24 @@
 All the files and documentation for the translation of *Ys V: Lost Kefin, Kingdom of Sand* for the Playstation 2
 
 # About The Translation Project 
-**The patch is now available for public Beta Testing [Check it out!](https://github.com/Kaisaan/lostkefin/releases/latest) Be sure to report any issues!**
-If you want to help please join the project's [Discord Server](https://discord.gg/TNWGBGpZGN).  
+**The patch is now complete! [Check it out!](https://github.com/Kaisaan/lostkefin/releases/latest) Be sure to report any issues!**
+If you want to support the project and future projects please join the [Discord Server](https://discord.gg/TNWGBGpZGN).  
 The translation is done with [Google Sheets](https://docs.google.com/spreadsheets/d/1kcEely3uIDJAifqj9kn16Bky8mBBoed03CgAwd4B0W8/edit?usp=sharing) and is automatically pulled from during building.
 
 # Patching the Game
-Extract the `Lost.Kefin.English.Beta.v01.zip` file from the [release page](https://github.com/Kaisaan/lostkefin/releases/latest).  
+Extract the `Lost.Kefin.English.v1.0.zip` file from the [release page](https://github.com/Kaisaan/lostkefin/releases/latest).  
 Read through the included text file for important information and apply the `.xdelta` to the game's ISO file.  
 Use a tool like [DeltaPatcher](https://github.com/marco-calautti/DeltaPatcher) to ensure it is properly patched.
 
 ## ISO Info
 I suggest following the [Disc Dumping guide by PCSX2's Team](https://pcsx2.net/docs/setup/discs) to get your ISO file.  
-Your ISO file should match these sizes and hashes:  
+Your ISO file should match these sizes and hashes ([redump.org page](http://redump.org/disc/25147/)):  
 Size: 2534080512 bytes : 2416 MiB  
 CRC32: F290D71F  
 CRC64: 754F35DCAD2D8F0E  
 SHA256: de811d9a51d6422938ac5fc9994358e394e2c878b444a157ec9be962dc32f666  
 SHA1: 8f8076ca2817e0260c9780e036ee8d91229b4057  
 MD5: e8b38abbf526f12243636d6109d3cb05
-
-## Fixed Issues
-These issues have been reported for [verison 0.1](https://github.com/Kaisaan/lostkefin/releases/tag/v0.1) of the beta release
-- Fixed spacing for textboxes with 4 or 2 options
-- Fixed certain highlights overlapping incorrectly
-- Fixed boss name graphics not inserting
-- Fixed response text ASCII not being updated
-- Fixed chests staying closed after loading a quicksave
-- Fixed certain character names not showing up in cutscenes (e.g "Young Girl A/B")
-- Fixed names of bonus entries in the Galleries
-- Various improvements to the translation
 
 # Building
 **Please use the above patching instructions to play the game! These instructions are only meant for project developers.**  
