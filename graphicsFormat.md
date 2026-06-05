@@ -82,7 +82,7 @@ Frame data is not fully figured out and can be any size.
 
 ## Image Data
 
-The image data is $10 bytes long per image. It is located based on the offset in the file header. They are formatted as follows
+The image data is $10 bytes long per image. It is located based on the offset in the file header. They are formatted as follows.
 |Size|Description|
 |---|---|
 |$2|Image Height in-game?|
@@ -90,9 +90,10 @@ The image data is $10 bytes long per image. It is located based on the offset in
 |$2|Image Data Height|
 |$2|Image Data Width|
 |$4|Image Offset, calculated as (Image Data Offset + Image Offset)|
-|$4|Image Index|
+|$4|Usually Image Index|
 
 ## Images
 
 Images are indexed on the palette info.  
-The size (in bytes) of each image's data is Image Data Width * Image Data Height
+The size (in bytes) of each image's data is Image Data Width * Image Data Height.  
+If an image is 4BPP encoded its dimensions cannot be odd-numbered.
