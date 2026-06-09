@@ -173,6 +173,9 @@ jal strcat_wrapper
 .org 0x1a0df0
 jal strcat_wrapper
 
+.org 0x1a3fd0
+jal strcat_wrapper
+
 .org 0x24f22c
 beq zero,zero,0x0024F268
 
