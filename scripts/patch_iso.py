@@ -66,7 +66,7 @@ def replace_kscript_block(path: str, label: str, new: str):
     )
 
 
-def main(sheets: bool = False):
+def main(sheets: bool = False, chest_messages: bool = True):
     print("Patching scripts and generating strings.asm...")
     if sheets:
         print("Pulling latest translations from Google Sheets...")
@@ -80,7 +80,17 @@ def main(sheets: bool = False):
     print("Done!")
 
     print("Compiling scripts...")
+    
     # Replace some chest messages with custom content.
+    # Insert OpenShop command at line 1708 in stage40.kscript
+    """
+    replace_kscript_block(
+        "decompiled/stage40.kscript",
+        "LABEL_00c348",
+        Path("scripts", "data", "debug_dog.kscript").read_text(encoding="utf-8"),
+    )
+    """
+
     replace_kscript_block(
         "decompiled/stage30.kscript",
         "JMP_000027",
@@ -133,6 +143,11 @@ def main(sheets: bool = False):
     proc.wait()
     out.close()
     print("Done!")
+
+    if chest_messages:
+        print("Enabling chest messages...")
+        run(["armips", Path("asm/chest.asm")])
+        print("Done!")
 
     print("Patching font...")
     patch_font_from_atlas("font_atlas.png")
@@ -201,5 +216,11 @@ if __name__ == "__main__":
         action="store_true",
         help="Pull latest translations from Google Sheets. If unset, uses local CSV files",
     )
+    parser.add_argument(
+        "--chest-messages",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help="Enable custom chest messages (default: enabled)",
+    )
     args = parser.parse_args()
-    main(args.sheets)
+    main(sheets=args.sheets, chest_messages=args.chest_messages)

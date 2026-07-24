@@ -7,17 +7,6 @@
 
 .include "asm/code.asm"
 
-// Patch treasure chest to be interactable
-.org 0x140384
-li v1, 0x5
-
-.org 0x140354
-li v1, 0x5
-
-.org 0x6A810
-addiu v1,zero,0x7
-
-
 // Fix ASCII characters not printing in some cases
 .orga 0x0009B468
 addiu v0,zero,0x40
@@ -127,5 +116,12 @@ daddu v0,zero,zero
 
 .orga 0x3ED9C
 beq v0,zero,default_case
+
+// Shift buy-quantity blinking arrow widgets right
+.orga 0x22904A // up arrow X
+.dh 0x225
+
+.orga 0x229062 // down arrow X
+.dh 0x225
 
 .close
