@@ -2,12 +2,12 @@
 All the files and documentation for the translation of *Ys V: Lost Kefin, Kingdom of Sand* for the Playstation 2
 
 # About The Translation Project 
-**The patch is now complete! [Check it out!](https://github.com/Kaisaan/lostkefin/releases/latest) Be sure to report any issues!**
+**[Version V1.1 is out now! Check it out!](https://github.com/Kaisaan/lostkefin/releases/latest) Be sure to report any issues!**  
 If you want to support the project and future projects please join the [Discord Server](https://discord.gg/TNWGBGpZGN).  
 The translation is done with [Google Sheets](https://docs.google.com/spreadsheets/d/1kcEely3uIDJAifqj9kn16Bky8mBBoed03CgAwd4B0W8/edit?usp=sharing) and is automatically pulled from during building.
 
 # Patching the Game
-Extract the `Lost.Kefin.English.v1.0.zip` file from the [release page](https://github.com/Kaisaan/lostkefin/releases/latest).  
+Extract the `Lost.Kefin.English.v1.1.zip` file from the [release page](https://github.com/Kaisaan/lostkefin/releases/latest).  
 Read through the included text file for important information and apply the `.xdelta` to the game's ISO file.  
 Use a tool like [DeltaPatcher](https://github.com/marco-calautti/DeltaPatcher) to ensure it is properly patched.
 
